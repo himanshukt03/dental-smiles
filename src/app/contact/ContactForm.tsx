@@ -72,12 +72,12 @@ const ContactForm = () => {
   };
 
   return (
-    <BentoCard className="p-8">
-      <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
+    <BentoCard className="p-6 sm:p-8">
+      <h2 className="text-2xl font-heading font-semibold text-foreground mb-6">
         Send Us a Message
       </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="name">Full Name *</Label>
             <Input
@@ -103,7 +103,7 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="phone">Phone Number</Label>
             <Input
@@ -150,7 +150,7 @@ const ContactForm = () => {
 
         <div className="space-y-2">
           <Label>Preferred Contact Method</Label>
-          <div className="flex space-x-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
             <label className="flex items-center space-x-2">
               <input
                 type="radio"

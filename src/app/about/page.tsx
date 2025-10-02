@@ -95,18 +95,18 @@ const AboutPage = () => {
         <div className="container-clinical">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
+              <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground">
                 About Dental Smiles
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 For over 15 years, Dental Smiles has been dedicated to providing exceptional dental care that combines advanced technology with a personal touch. Our mission is to help every patient achieve optimal oral health and the confidence that comes with a beautiful smile.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-primary">
+                <Button className="btn-primary w-full sm:w-auto">
                   <Users className="w-4 h-4 mr-2" />
                   Meet Our Team
                 </Button>
-                <Button variant="ghost" className="btn-secondary">
+                <Button variant="ghost" className="btn-secondary w-full sm:w-auto">
                   <Clock className="w-4 h-4 mr-2" />
                   Schedule Visit
                 </Button>
@@ -131,16 +131,16 @@ const AboutPage = () => {
       <section className="section-padding bg-background">
         <div className="container-clinical">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-6">
                 We Help Smiles Thrive
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 Dr. Divya Shetty and our friendly team offer caring and gentle dentistry while using the latest dental materials, technology, and techniques. But we care about more than just your teeth! At Dental Smiles, we take the time to get to know all of our patients. Dr. Shetty's role as your dentist is to provide a deeper understanding of your oral health and an environment where you feel comfortable. Whether you're a returning patient or a new patient, we look forward to seeing you and providing you with the compassionate dental care you deserve.
               </p>
             </div>
-            <BentoCard className="p-8 element-outline-hover">
-              <h3 className="text-2xl font-heading font-bold text-foreground mb-4">
+            <BentoCard className="p-6 sm:p-8 element-outline-hover">
+              <h3 className="text-2xl font-heading font-semibold text-foreground mb-4">
                 A Personal Touch to Dental Care: Local & Female Owned
               </h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -154,7 +154,7 @@ const AboutPage = () => {
       <section className="section-padding bg-background">
         <div className="container-clinical">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
               Our Mission & Values
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -164,7 +164,7 @@ const AboutPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {values.map((value) => (
-              <BentoCard key={value.title} className="p-8 element-outline-hover">
+              <BentoCard key={value.title} className="p-6 sm:p-8 element-outline-hover">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-bento flex items-center justify-center flex-shrink-0">
                     <value.icon className="w-6 h-6 text-primary" />
@@ -182,8 +182,8 @@ const AboutPage = () => {
             ))}
           </div>
 
-          <BentoCard className="p-12 text-center bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-            <h3 className="text-2xl font-heading font-bold text-foreground mb-4">
+          <BentoCard className="p-8 sm:p-12 text-center bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+            <h3 className="text-2xl font-heading font-semibold text-foreground mb-4">
               Our Mission
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
@@ -196,7 +196,7 @@ const AboutPage = () => {
       <section className="section-padding bg-clinical-creme">
         <div className="container-clinical">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
               Our Journey
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -207,15 +207,15 @@ const AboutPage = () => {
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-border hidden lg:block" />
 
-            <div className="space-y-12">
+            <div className="space-y-10">
               {milestones.map((milestone, index) => (
                 <div
                   key={milestone.year}
-                  className={`flex items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+                  className={`flex flex-col gap-6 lg:flex-row ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
                 >
-                  <div className="flex-1 lg:px-8">
+                  <div className="flex-1 w-full lg:px-8">
                     <BentoCard
-                      className={`p-6 ${
+                      className={`p-6 sm:p-8 ${
                         index % 2 === 0 ? "lg:ml-auto" : "lg:mr-auto"
                       } max-w-md`}
                     >
@@ -231,7 +231,7 @@ const AboutPage = () => {
 
                   <div className="hidden lg:block w-4 h-4 bg-primary rounded-full border-4 border-background z-10" />
 
-                  <div className="flex-1" />
+                  <div className="flex-1 hidden lg:block" />
                 </div>
               ))}
             </div>
@@ -242,7 +242,7 @@ const AboutPage = () => {
       <section className="section-padding bg-background">
         <div className="container-clinical">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
               Meet Our Expert Team
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -250,12 +250,12 @@ const AboutPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {teamMembers.map((member) => {
               const memberImage = teamImages[member.image] ?? drDivyaShetty;
 
               return (
-                <BentoCard key={member.id} className="p-8 element-outline-hover">
+                <BentoCard key={member.id} className="p-6 sm:p-8 element-outline-hover">
                   <div className="flex flex-col lg:flex-row gap-6">
                     <div className="lg:w-32 lg:h-32 w-24 h-24 mx-auto lg:mx-0 flex-shrink-0">
                       <div className="relative w-full h-full rounded-bento overflow-hidden shadow-clinical element-outline">
@@ -303,7 +303,7 @@ const AboutPage = () => {
 
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-clinical text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
             Ready to Experience the Dental Smiles Difference?
           </h2>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">

@@ -14,7 +14,7 @@ const BookAppointmentPage = () => {
     <div className="min-h-screen pt-8">
       <section className="bg-gradient-to-br from-clinical-creme to-clinical-grey py-12">
         <div className="container-clinical text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+          <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
             Book Your Appointment
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -25,11 +25,11 @@ const BookAppointmentPage = () => {
 
       <section className="py-12 bg-background">
         <div className="container-clinical">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12">
             <BookAppointmentForm />
 
             <div className="space-y-6">
-              <BentoCard className="p-8 border-l-4 border-maroon-400 bg-white shadow-lg">
+              <BentoCard className="p-6 sm:p-8 bg-white shadow-lg border-t-4 border-maroon-400 sm:border-t-0 sm:border-l-4">
                 <h3 className="text-xl font-heading font-semibold text-foreground mb-4">
                   What to Expect
                 </h3>
@@ -51,19 +51,19 @@ const BookAppointmentPage = () => {
                 </div>
               </BentoCard>
 
-              <BentoCard className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 shadow-md">
+              <BentoCard className="p-6 sm:p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 shadow-md">
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   New Patient?
                 </h3>
                 <p className="text-muted-foreground mb-4">
                   First-time visitors should arrive 15 minutes early to complete paperwork.
                 </p>
-                <Button variant="outline" className="w-full border-maroon-400 text-maroon-700 hover:bg-maroon-50">
+                <Button variant="outline" className="w-full sm:w-auto border-maroon-400 text-maroon-700 hover:bg-maroon-50">
                   Learn More About Your First Visit
                 </Button>
               </BentoCard>
 
-              <BentoCard className="p-8 border-t-4 border-maroon-400 bg-white shadow-lg">
+              <BentoCard className="p-6 sm:p-8 border-t-4 border-maroon-400 bg-white shadow-lg">
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   Office Hours
                 </h3>

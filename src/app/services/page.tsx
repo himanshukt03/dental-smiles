@@ -46,7 +46,7 @@ const ServicesPage = () => {
     <div className="min-h-screen">
       <section className="section-padding bg-gradient-to-br from-clinical-creme to-clinical-grey">
         <div className="container-clinical text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+          <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
             Comprehensive Dental Services
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -60,7 +60,7 @@ const ServicesPage = () => {
       </section>
 
       <div className="container-clinical">
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
           <aside className="hidden lg:block w-64 flex-shrink-0">
             <div className="sticky top-24">
               <BentoCard className="p-6">
@@ -90,14 +90,14 @@ const ServicesPage = () => {
             </div>
           </aside>
 
-          <main className="flex-1 py-16 space-y-16">
+          <main className="flex-1 py-12 md:py-16 space-y-14 md:space-y-16">
             {serviceContent.map((service) => (
               <section key={service.id} id={service.id} className="scroll-mt-24">
-                <BentoCard className="p-8 lg:p-12">
+                <BentoCard className="p-6 md:p-8 lg:p-12">
                   <div className="grid lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-1">
                       <div className="text-4xl mb-4">{service.icon}</div>
-                      <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
+                      <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-3">
                         {service.title}
                       </h2>
                       <p className="text-muted-foreground mb-6">
@@ -128,7 +128,7 @@ const ServicesPage = () => {
                   </div>
 
                   <div className="mt-8 pt-8 border-t border-border">
-                    <div className="grid sm:grid-cols-3 gap-6">
+                    <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-primary/10 rounded-bento flex items-center justify-center">
                           <Clock className="w-5 h-5 text-primary" />
@@ -167,7 +167,7 @@ const ServicesPage = () => {
 
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-clinical text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
             Not Sure Which Service You Need?
           </h2>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">

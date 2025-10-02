@@ -57,7 +57,7 @@ const BlogListing = ({ posts }: BlogListingProps) => {
     <div className="min-h-screen">
       <section className="section-padding bg-gradient-to-br from-clinical-creme to-clinical-grey">
         <div className="container-clinical text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+          <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
             Dental Health Blog
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -103,7 +103,7 @@ const BlogListing = ({ posts }: BlogListingProps) => {
       {featuredPost && (
         <section className="section-padding bg-background">
           <div className="container-clinical">
-            <h2 className="text-2xl font-heading font-bold text-foreground mb-8">
+            <h2 className="text-2xl font-heading font-semibold text-foreground mb-8">
               Featured Article
             </h2>
             <BentoCard className="p-8 lg:p-12 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
@@ -115,7 +115,7 @@ const BlogListing = ({ posts }: BlogListingProps) => {
                     </span>
                     <span className="text-sm text-muted-foreground">{featuredPost.readTime}</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">
+                  <h3 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-4">
                     {featuredPost.title}
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -155,7 +155,7 @@ const BlogListing = ({ posts }: BlogListingProps) => {
       <section className="section-padding bg-clinical-creme">
         <div className="container-clinical">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-heading font-bold text-foreground">Recent Articles</h2>
+            <h2 className="text-2xl font-heading font-semibold text-foreground">Recent Articles</h2>
             <span className="text-muted-foreground">
               {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} found
             </span>
@@ -218,7 +218,7 @@ const BlogListing = ({ posts }: BlogListingProps) => {
 
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-clinical text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
             Stay Updated on Oral Health
           </h2>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">

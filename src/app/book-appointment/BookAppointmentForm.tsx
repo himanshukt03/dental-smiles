@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, Send } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -81,12 +81,12 @@ const BookAppointmentForm = () => {
   };
 
   return (
-        <BentoCard className="p-8 border-r-4 border-maroon-400 bg-white shadow-lg">
-      <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
+    <BentoCard className="p-6 sm:p-8 bg-white shadow-lg border-t-4 border-maroon-400 md:border-t-0 md:border-r-4">
+      <h2 className="text-2xl font-heading font-semibold text-foreground mb-6">
         Schedule Your Visit
       </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="name">Full Name *</Label>
             <Input
@@ -112,7 +112,7 @@ const BookAppointmentForm = () => {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="phone">Phone Number *</Label>
             <Input
@@ -145,7 +145,7 @@ const BookAppointmentForm = () => {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="date">Select Date *</Label>
             <Input

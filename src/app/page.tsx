@@ -112,12 +112,92 @@ const services = [
 export default function LandingPage() {
   return (
     <div className="min-h-screen">
-      <section className="relative py-12 md:py-20 bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
+      <section className="md:hidden bg-gradient-to-b from-clinical-bg via-white to-clinical-grey/40 pt-8 pb-12">
+        <div className="container-clinical space-y-8">
+          <div className="rounded-bento overflow-hidden shadow-clinical">
+            <img
+              src={heroImage.src ?? heroImage}
+              alt="Modern dental office with comfortable patient chair and advanced equipment"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="space-y-5 text-center">
+            <div className="space-y-3">
+              <h1 className="text-3xl font-heading font-semibold text-foreground leading-tight">
+                Where Families Can
+                <br />
+                <span className="text-primary"> Smile Confidently</span>
+              </h1>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Providing quality dental care for patients of all ages
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <Link href="/book-appointment">
+                <Button size="lg" className="btn-primary w-full">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book Appointment
+                </Button>
+              </Link>
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full border border-primary/20 bg-white/70 hover:bg-primary/5 transition-colors shadow-none"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                512-467-9955
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
+            <div className="text-center">
+              <div className="text-xl font-semibold text-primary">20+</div>
+              <div className="text-xs text-muted-foreground">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-xl font-semibold text-primary">5000+</div>
+              <div className="text-xs text-muted-foreground">Happy Patients</div>
+            </div>
+            <div className="text-center">
+              <div className="flex justify-center mb-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                ))}
+              </div>
+              <div className="text-xs text-muted-foreground">4.9-Star Reviews</div>
+            </div>
+          </div>
+
+          <Card className="border-clinical bg-card/95 backdrop-blur-sm">
+            <CardContent className="p-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full overflow-hidden">
+                  <img
+                    src={drDivyaImage.src ?? drDivyaImage}
+                    alt="Dr. Divya Shetty"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="font-semibold text-sm">Dr. Divya Shetty</div>
+                  <div className="text-xs text-muted-foreground">Lead Dentist</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="relative hidden md:block md:py-20 bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
         <div className="container-clinical">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-foreground leading-tight">
                   Where Families Can
                   <br />
                   <span className="text-primary"> Smile Confidently</span>
@@ -131,7 +211,7 @@ export default function LandingPage() {
                 <Link href="/book-appointment">
                   <Button
                     size="lg"
-                    className="btn-primary flex-1 sm:flex-none"
+                    className="btn-primary w-full sm:w-auto"
                   >
                     <Calendar className="w-5 h-5 mr-2" />
                     Book Appointment
@@ -140,7 +220,7 @@ export default function LandingPage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="flex-1 sm:flex-none border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none"
+                  className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto"
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   <Phone className="w-5 h-5 mr-2" />
@@ -148,17 +228,17 @@ export default function LandingPage() {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border">
-                <div className="text-center">
+              <div className="grid gap-6 pt-6 border-t border-border sm:grid-cols-3 sm:gap-4">
+                <div className="text-center sm:text-left">
                   <div className="text-2xl font-bold text-primary">20+</div>
                   <div className="text-sm text-muted-foreground">Years Experience</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center sm:text-left">
                   <div className="text-2xl font-bold text-primary">5000+</div>
                   <div className="text-sm text-muted-foreground">Happy Patients</div>
                 </div>
-                <div className="text-center">
-                  <div className="flex justify-center mb-1">
+                <div className="text-center sm:text-left">
+                  <div className="flex justify-center sm:justify-start mb-1">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                     ))}
@@ -168,7 +248,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="relative">
+            <div className="relative mt-10 md:mt-0">
               <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical">
                 <img
                   src={heroImage.src ?? heroImage}
@@ -176,7 +256,7 @@ export default function LandingPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <Card className="absolute -bottom-6 -left-4 md:-left-8 bg-card/95 backdrop-blur-sm border-clinical">
+              <Card className="max-w-xs mx-auto mt-4 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-6 md:-left-8 bg-card/95 backdrop-blur-sm border-clinical">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 rounded-full overflow-hidden">
@@ -201,7 +281,7 @@ export default function LandingPage() {
       <section className="py-12 md:py-16">
         <div className="container-clinical">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-4">
               Why Choose Dental Smiles?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -212,7 +292,7 @@ export default function LandingPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map(({ icon, title, description }, index) => (
               <Card key={index} className="text-center border-clinical">
-                <CardContent className="p-6">
+                <CardContent className="p-5 sm:p-6">
                   <div className="w-12 h-12 bg-primary/10 rounded-bento flex items-center justify-center text-primary mx-auto mb-4">
                     {icon}
                   </div>
@@ -230,7 +310,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">
+                <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-4">
                   Comprehensive Dental Services
                 </h2>
                 <p className="text-muted-foreground mb-6">
@@ -298,7 +378,7 @@ export default function LandingPage() {
       <section className="py-12 md:py-16">
         <div className="container-clinical">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-4">
               What Our Patients Say
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -366,7 +446,7 @@ export default function LandingPage() {
       <section className="py-12 md:py-16 bg-gradient-to-br from-primary to-primary-hover">
         <div className="container-clinical text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold text-primary-foreground mb-4">
               Ready for Your Best Smile?
             </h2>
             <p className="text-primary-foreground/90 mb-8 text-lg">
@@ -375,14 +455,14 @@ export default function LandingPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/book-appointment">
-                <Button size="lg" variant="secondary" className="min-w-[200px]">
+                <Button size="lg" variant="secondary" className="w-full sm:min-w-[200px]">
                   <Calendar className="w-5 h-5 mr-2" />
                   Book Appointment
                 </Button>
               </Link>
-              <div className="flex items-center text-primary-foreground/90">
-                <MapPin className="w-4 h-4 mr-2" />
-                <span className="text-sm">123 Dental Ave, Smile City, SC 12345</span>
+              <div className="flex flex-col sm:flex-row items-center text-primary-foreground/90 gap-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm text-center sm:text-left">123 Dental Ave, Smile City, SC 12345</span>
               </div>
             </div>
           </div>
