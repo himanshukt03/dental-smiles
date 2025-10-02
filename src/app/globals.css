@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 20%;
+
+    --clinical-creme: 40 50% 97%;
+    --clinical-grey: 240 9% 96%;
+
+    --primary: 339 73% 30%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 339 73% 25%;
+
+    --secondary: 240 9% 96%;
+    --secondary-foreground: 240 10% 30%;
+
+    --muted: 240 9% 96%;
+    --muted-foreground: 240 5% 50%;
+
+    --accent: 40 50% 97%;
+    --accent-foreground: 240 10% 20%;
+
+    --border: 240 9% 92%;
+    --input: 0 0% 100%;
+    --ring: 339 73% 30%;
+
+    --radius-bento: 12px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 40px;
+    --spacing-2xl: 48px;
+
+    --gradient-clinical: linear-gradient(135deg, hsl(var(--clinical-creme)), hsl(var(--background)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--primary)), hsl(339 73% 35%));
+
+    --shadow-clinical: 0 4px 16px hsl(240 9% 88% / 0.3);
+    --shadow-hover: 0 8px 24px hsl(240 9% 85% / 0.4);
+    --shadow-accent: 0 8px 32px hsl(var(--primary) / 0.2);
+
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-medium;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-clinical {
+    @apply px-6 py-3 rounded-[var(--radius-bento)] font-medium transition-all duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn-clinical bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply shadow-[var(--shadow-clinical)] hover:shadow-[var(--shadow-accent)];
+    @apply transform hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn-clinical bg-clinical-creme text-foreground border border-border;
+    @apply hover:bg-clinical-grey hover:shadow-[var(--shadow-hover)];
+  }
+
+  .btn-ghost {
+    @apply btn-clinical bg-transparent text-primary hover:bg-primary/5;
+  }
+
+  .card-clinical {
+    @apply bg-card rounded-[var(--radius-bento)] border border-border;
+    @apply shadow-[var(--shadow-clinical)] hover:shadow-[var(--shadow-hover)];
+    @apply transition-[transform,box-shadow] duration-300 hover:scale-[1.01];
+  }
+
+  .card-bento {
+    @apply card-clinical p-6;
+  }
+
+  .spacing-xs {
+    @apply gap-[var(--spacing-xs)];
+  }
+
+  .spacing-sm {
+    @apply gap-[var(--spacing-sm)];
+  }
+
+  .spacing-md {
+    @apply gap-[var(--spacing-md)];
+  }
+
+  .spacing-lg {
+    @apply gap-[var(--spacing-lg)];
+  }
+
+  .spacing-xl {
+    @apply gap-[var(--spacing-xl)];
+  }
+
+  .spacing-2xl {
+    @apply gap-[var(--spacing-2xl)];
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-clinical {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .element-outline {
+    @apply border border-border/30;
+  }
+
+  .element-outline-hover {
+    @apply border border-border/30 hover:border-border/60 transition-colors duration-200;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
