@@ -39,10 +39,30 @@ const items: TechItem[] = [
 ];
 
 export default function TechnologyCarousel() {
-  const visible = 3;
-  const maxIndex = Math.max(0, items.length - visible);
+  const [visible, setVisible] = useState(1);
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const updateVisible = () => {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const width = window.innerWidth;
+      const nextVisible = width >= 1024 ? 3 : width >= 768 ? 2 : 1;
+      setVisible(nextVisible);
+    };
+
+    updateVisible();
+    window.addEventListener("resize", updateVisible);
+    return () => window.removeEventListener("resize", updateVisible);
+  }, []);
+
+  const maxIndex = Math.max(0, items.length - visible);
+
+  useEffect(() => {
+    setIndex((current) => Math.min(current, maxIndex));
+  }, [maxIndex]);
 
   function prev() {
     setIndex((i) => (i - 1 + (maxIndex + 1)) % (maxIndex + 1));
@@ -61,7 +81,8 @@ export default function TechnologyCarousel() {
     return () => clearInterval(t);
   }, [isPaused, maxIndex]);
 
-  const translatePercent = -(index * (100 / visible));
+  const itemWidth = 100 / visible;
+  const translatePercent = -(index * itemWidth);
 
   return (
     <div
@@ -92,8 +113,12 @@ export default function TechnologyCarousel() {
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(${translatePercent}%)` }}
         >
-          {items.map((it, i) => (
-            <div key={it.title} className="flex-shrink-0 w-[33.3333%] px-3">
+          {items.map((it) => (
+            <div
+              key={it.title}
+              className="flex-shrink-0 px-2 sm:px-3"
+              style={{ flex: `0 0 ${itemWidth}%` }}
+            >
               <BentoCard className="p-8 h-full">
                 <div className="h-56 rounded-bento overflow-hidden mb-4">
                   <img src={it.img} alt={it.title} className="w-full h-full object-cover" />
