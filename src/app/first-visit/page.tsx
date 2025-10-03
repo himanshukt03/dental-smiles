@@ -1,33 +1,17 @@
-import { CheckCircle, Clock, FileText, CreditCard, Users, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+	ArrowRight,
+	CalendarCheck,
+	CheckCircle,
+	CreditCard,
+	Phone,
+	PiggyBank,
+	ShieldCheck,
+	Sparkles,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BentoCard from "@/components/UI/BentoCard";
-
-const preparationSteps = [
-	{
-		icon: FileText,
-		title: "Complete New Patient Forms",
-		description: "Fill out our online forms in advance to save time during your visit.",
-		action: "Download Forms",
-	},
-	{
-		icon: CreditCard,
-		title: "Bring Insurance Information",
-		description: "Bring your insurance card and a valid ID for verification.",
-		action: "Verify Coverage",
-	},
-	{
-		icon: Clock,
-		title: "Arrive 15 Minutes Early",
-		description: "Please arrive early to complete any remaining paperwork.",
-		action: "Plan Your Trip",
-	},
-	{
-		icon: Users,
-		title: "List Current Medications",
-		description: "Prepare a list of all medications, vitamins, and supplements you take.",
-		action: "Medication List",
-	},
-];
 
 const whatToExpect = [
 	{
@@ -57,96 +41,203 @@ const whatToExpect = [
 	},
 ];
 
-const documents = [
-	"Valid photo identification (driver's license, passport, etc.)",
-	"Dental insurance card and information",
-	"List of current medications and dosages",
-	"Previous dental records or X-rays (if available)",
-	"Emergency contact information",
-	"Preferred pharmacy information",
+const insuranceHighlights = [
+	"In-network with most major PPO plans",
+	"Transparent cost estimates before treatment begins",
+	"Guidance from our financial coordinators on every claim",
+];
+
+const financingHighlights = [
+	"CareCredit® and Sunbit® financing partners",
+	"Flexible terms with same-day approvals",
+	"Budget-friendly monthly payments for advanced care",
+];
+
+const cardOptions = [
+	{ name: "Visa", accent: "bg-primary/10" },
+	{ name: "Mastercard", accent: "bg-primary/10" },
+	{ name: "Discover", accent: "bg-primary/10" },
+	{ name: "American Express", accent: "bg-primary/10" },
 ];
 
 export const metadata = {
 	title: "Your First Visit | Dental Smiles",
-	description: "Learn how to prepare for your first visit to Dental Smiles and what to expect during your appointment.",
+	description:
+		"Learn how to prepare for your first visit to Dental Smiles and what to expect during your appointment.",
 };
 
 const FirstVisitPage = () => {
 	return (
-		<div className="min-h-screen">
-			<section className="section-padding bg-gradient-to-br from-clinical-creme to-clinical-grey">
-				<div className="container-clinical text-center">
-					<h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
-						Your First Visit
-					</h1>
-					<p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-						We're excited to welcome you to Dental Smiles! Here's everything you need to know to make your
-						first visit smooth and comfortable.
-					</p>
-					<Button className="btn-primary text-lg px-8 py-4 h-auto w-full sm:w-auto">
-						<Clock className="w-5 h-5 mr-2" />
-						Schedule Your First Visit
-					</Button>
+		<div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20">
+			<section className="section-padding pb-0">
+				<div className="container-clinical">
+					<div className="relative overflow-hidden rounded-[2.75rem] border border-primary/10 bg-gradient-to-br from-primary/5 via-white to-white shadow-xl">
+						<div className="grid gap-10 p-8 md:grid-cols-[1.05fr_minmax(0,0.95fr)] md:p-12 lg:p-16">
+							<div className="space-y-6">
+								<span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary">
+									<Sparkles className="h-4 w-4" /> Establish quality dental care in Austin, TX
+								</span>
+								<h1 className="text-4xl md:text-5xl font-heading text-foreground">
+									Quality dental care without compromise
+								</h1>
+								<div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+									<p>
+										We understand that quality dental care is important for you and your family. At Dental Smiles, we never
+										want you to stress about how you&apos;re going to pay for it, so we make it easy to receive the care you need
+										when you need it.
+									</p>
+									<p>
+										We&apos;re proud to offer convenient financing and payment options so even the most advanced treatments are
+										within reach. If you&apos;re curious about what to expect during your visit or our accepted financial
+										arrangements, you&apos;re on the right page—or you can always call our office.
+									</p>
+								</div>
+								<div className="flex flex-col gap-3 sm:flex-row">
+									<Link href="/book-appointment" className="w-full sm:w-auto">
+										<Button className="btn-primary w-full sm:w-auto px-6 py-6 text-base">
+											<CalendarCheck className="mr-2 h-5 w-5" /> Schedule your visit
+										</Button>
+									</Link>
+									<Link href="/contact" className="w-full sm:w-auto">
+										<Button
+											variant="outline"
+											className="w-full sm:w-auto border-primary/20 bg-white/80 text-primary hover:bg-primary hover:text-primary-foreground"
+										>
+											<Phone className="mr-2 h-5 w-5" /> Contact us
+										</Button>
+									</Link>
+								</div>
+								<div className="grid gap-4 text-sm text-muted-foreground sm:grid-cols-3">
+									<BentoCard className="border border-primary/10 bg-white/80 p-4">
+										<div className="flex items-center gap-3">
+											<ShieldCheck className="h-5 w-5 text-primary" />
+											<div>
+												<p className="font-semibold text-foreground">Family-first care</p>
+												<p>Personalized plans for every age and stage.</p>
+											</div>
+										</div>
+									</BentoCard>
+									<BentoCard className="border border-primary/10 bg-white/80 p-4">
+										<div className="flex items-center gap-3">
+											<PiggyBank className="h-5 w-5 text-primary" />
+											<div>
+												<p className="font-semibold text-foreground">Budget-friendly options</p>
+												<p>Transparent pricing, flexible financing.</p>
+											</div>
+										</div>
+									</BentoCard>
+									<BentoCard className="border border-primary/10 bg-white/80 p-4">
+										<div className="flex items-center gap-3">
+											<CalendarCheck className="h-5 w-5 text-primary" />
+											<div>
+												<p className="font-semibold text-foreground">Convenient scheduling</p>
+												<p>Same-week appointments often available.</p>
+											</div>
+										</div>
+									</BentoCard>
+								</div>
+							</div>
+
+							<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white/60 shadow-lg sm:max-w-sm md:mx-0 md:max-w-[320px] lg:max-w-[360px]">
+								<div className="relative aspect-[3/4]">
+									<Image
+										src="/assets/dental-office-hero.webp"
+										alt="Smiling patient receiving care at Dental Smiles."
+										fill
+										sizes="(min-width: 1024px) 360px, (min-width: 768px) 320px, 75vw"
+										className="object-cover"
+										priority
+									/>
+								</div>
+								<div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-medium text-primary shadow">
+									<Image
+										src="/assets/DentalSmilesLogo.webp"
+										alt="Dental Smiles logo"
+										width={32}
+										height={32}
+										className="h-8 w-8 object-contain"
+									/>
+									Trusted Austin dentistry
+								</div>
+								<div className="absolute bottom-4 right-4 rounded-2xl bg-primary px-4 py-2 text-xs font-medium text-primary-foreground shadow-lg">
+									Compassionate care for every smile
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
-			<section className="section-padding bg-background">
+			<section className="section-padding pt-16">
 				<div className="container-clinical">
-					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
-							How to Prepare
-						</h2>
-						<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-							Follow these simple steps to ensure your first visit goes smoothly and efficiently.
-						</p>
-					</div>
-
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-						{preparationSteps.map((step) => (
-							<BentoCard key={step.title} className="p-5 sm:p-6 h-full">
-								<div className="flex flex-col sm:flex-row sm:items-start gap-4">
-									<div className="w-12 h-12 bg-primary/10 rounded-bento flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-										<step.icon className="w-6 h-6 text-primary" />
-									</div>
-									<div className="flex-1">
-										<h3 className="text-xl font-heading font-semibold text-foreground mb-2">
-											{step.title}
-										</h3>
-										<p className="text-muted-foreground mb-4">{step.description}</p>
-										<Button variant="ghost" className="btn-ghost p-0 h-auto text-primary">
-											{step.action}
-											<CheckCircle className="w-4 h-4 ml-2" />
+					<div className="grid gap-10 lg:grid-cols-[1.1fr_minmax(0,0.9fr)] lg:gap-16">
+						<BentoCard className="relative overflow-hidden border border-primary/10 bg-white/90 p-8 md:p-10">
+							<div className="space-y-5">
+								<h2 className="text-3xl md:text-4xl font-heading text-foreground">
+									Your first visit at Dental Smiles
+								</h2>
+								<p className="text-lg text-muted-foreground leading-relaxed">
+									We know new patients are curious about what happens during a first dental visit. At Dental Smiles,
+									your first visit is the start of a long-lasting relationship. Digital X-rays will be taken and you’ll
+									meet Dr. Shetty for a comprehensive exam and gentle cleaning.
+								</p>
+								<p className="text-lg text-muted-foreground leading-relaxed">
+									After reviewing X-rays and completing your thorough exam, Dr. Shetty will explain any findings,
+									answer your questions, and outline the next steps. Before you leave, we’ll schedule your next visit so
+									your smile stays on a healthy path.
+								</p>
+								<div className="flex flex-col gap-3 sm:flex-row">
+									<Link href="tel:5124679955" className="w-full sm:w-auto">
+										<Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
+											<Phone className="mr-2 h-5 w-5" /> Call 512-467-9955
 										</Button>
-									</div>
+									</Link>
+									<Link href="/book-appointment" className="w-full sm:w-auto">
+										<Button variant="ghost" className="w-full sm:w-auto text-primary hover:text-primary-foreground hover:bg-primary">
+											Learn more
+											<ArrowRight className="ml-2 h-4 w-4" />
+										</Button>
+									</Link>
 								</div>
-							</BentoCard>
-						))}
+							</div>
+						</BentoCard>
+
+						<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white/60 shadow-lg sm:max-w-sm lg:max-w-md">
+							<div className="relative aspect-[3/4]">
+								<Image
+									src="/assets/team/dr-divya-shetty.jpg"
+									alt="Dr. Shetty welcoming a new patient."
+									fill
+									sizes="(min-width: 1024px) 400px, (min-width: 768px) 45vw, 80vw"
+									className="object-cover"
+								/>
+							</div>
+							<div className="absolute bottom-4 left-4 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
+								Meet Dr. Shetty on day one
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
 
 			<section className="section-padding bg-clinical-creme">
 				<div className="container-clinical">
-					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
-							What to Expect
-						</h2>
-						<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-							Your first visit typically takes 60-90 minutes. Here's a step-by-step overview of what you can
-							expect during your appointment.
+					<div className="max-w-3xl space-y-4 text-center md:text-left">
+						<h2 className="text-3xl md:text-4xl font-heading text-foreground">What to expect</h2>
+						<p className="text-lg text-muted-foreground">
+							Your first visit typically takes 60–90 minutes. Here&apos;s a step-by-step overview of what you can expect
+							while you&apos;re with us.
 						</p>
 					</div>
 
-					<div className="space-y-6 sm:space-y-8">
+					<div className="mt-12 space-y-6 sm:space-y-8">
 						{whatToExpect.map((item) => (
 							<div key={item.step} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
-								<div className="w-12 h-12 bg-primary rounded-bento flex items-center justify-center text-primary-foreground font-bold text-lg flex-shrink-0">
+								<div className="flex h-12 w-12 items-center justify-center rounded-bento bg-primary text-lg font-semibold text-primary-foreground">
 									{item.step}
 								</div>
-								<BentoCard className="flex-1 p-5 sm:p-6">
-									<h3 className="text-xl font-heading font-semibold text-foreground mb-2">
-										{item.title}
-									</h3>
+								<BentoCard className="flex-1 border border-primary/10 bg-white p-5 sm:p-6">
+									<h3 className="text-xl font-heading text-foreground mb-2">{item.title}</h3>
 									<p className="text-muted-foreground">{item.description}</p>
 								</BentoCard>
 							</div>
@@ -155,123 +246,229 @@ const FirstVisitPage = () => {
 				</div>
 			</section>
 
-			<section className="section-padding bg-background">
+			<section className="section-padding">
 				<div className="container-clinical">
-					<div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
-						<div>
-							<h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-6">
-								Documents to Bring
-							</h2>
-							<p className="text-lg text-muted-foreground mb-8">
-								Please bring the following items to ensure we can provide you with the best possible care
-								and verify your insurance benefits.
+					<div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-16">
+						<div className="space-y-6">
+							<h2 className="text-3xl md:text-4xl font-heading text-foreground">Paying with dental insurance</h2>
+							<p className="text-lg text-muted-foreground leading-relaxed">
+								Our dental office is in-network with most major PPO dental insurance plans. Because every treatment
+								plan is unique, your final cost and coverage may differ—but our financial coordinators are here to help.
+								We&apos;ll review costs before we begin and help you maximize your benefits and file claims with ease.
 							</p>
-							<Button className="btn-primary w-full sm:w-auto">
-								<FileText className="w-4 h-4 mr-2" />
-								Download Patient Forms
-							</Button>
-						</div>
-
-						<BentoCard className="p-5 sm:p-6">
-							<h3 className="text-xl font-heading font-semibold text-foreground mb-6">
-								Required Documents
-							</h3>
-							<ul className="space-y-4">
-								{documents.map((document) => (
-									<li key={document} className="flex items-start space-x-3">
-										<CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-										<span className="text-muted-foreground">{document}</span>
+							<ul className="space-y-3">
+								{insuranceHighlights.map((highlight) => (
+									<li key={highlight} className="flex items-start gap-3 rounded-bento bg-clinical-creme px-4 py-3">
+										<CheckCircle className="mt-0.5 h-4 w-4 text-primary" />
+										<span className="text-sm text-foreground/90">{highlight}</span>
 									</li>
 								))}
 							</ul>
-						</BentoCard>
+							<div className="flex flex-col gap-3 sm:flex-row">
+								<Link href="tel:5124679955" className="w-full sm:w-auto">
+									<Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
+										Verify my coverage
+									</Button>
+								</Link>
+								<Link href="/contact" className="w-full sm:w-auto">
+									<Button variant="ghost" className="w-full sm:w-auto text-primary hover:bg-primary hover:text-primary-foreground">
+										Ask a question
+										<ArrowRight className="ml-2 h-4 w-4" />
+									</Button>
+								</Link>
+							</div>
+						</div>
+
+						<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white/60 shadow-lg sm:max-w-sm lg:max-w-md">
+							<div className="relative aspect-[3/4]">
+								<Image
+									src="/assets/team/jessica-martinez.jpg"
+									alt="Team member helping a patient over the phone about insurance."
+									fill
+									sizes="(min-width: 1024px) 400px, (min-width: 768px) 45vw, 80vw"
+									className="object-cover"
+								/>
+							</div>
+							<div className="absolute bottom-4 left-4 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
+								Insurance experts on your side
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
 
 			<section className="section-padding bg-clinical-creme">
 				<div className="container-clinical">
-					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
-							Frequently Asked Questions
-						</h2>
-						<p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-							Common questions about your first visit to Dental Smiles.
-						</p>
+					<div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:gap-16">
+						<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white/60 shadow-lg sm:max-w-sm lg:max-w-md">
+							<div className="relative aspect-[3/4]">
+								<Image
+									src="/assets/dental-team.jpg"
+									alt="Couple reviewing dental financing options."
+									fill
+									sizes="(min-width: 1024px) 400px, (min-width: 768px) 45vw, 80vw"
+									className="object-cover"
+								/>
+							</div>
+							<div className="absolute bottom-4 right-4 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
+								Flexible financing made simple
+							</div>
+						</div>
+
+						<BentoCard className="border border-primary/10 bg-white/90 p-8 md:p-10">
+							<div className="space-y-5">
+								<h2 className="text-3xl md:text-4xl font-heading text-foreground">Flexible financing</h2>
+								<p className="text-lg text-muted-foreground leading-relaxed">
+									At Dental Smiles, our goal is to remove any barriers that keep you from receiving the treatment
+									you need. That&apos;s why we partner with CareCredit and Sunbit to divide the cost of care into manageable
+									monthly payments. Apply today or call us for personal guidance.
+								</p>
+								<ul className="space-y-3">
+									{financingHighlights.map((highlight) => (
+										<li key={highlight} className="flex items-start gap-3 rounded-bento bg-clinical-grey/20 px-4 py-3">
+											<PiggyBank className="mt-0.5 h-4 w-4 text-primary" />
+											<span className="text-sm text-foreground/90">{highlight}</span>
+										</li>
+									))}
+								</ul>
+								<div className="flex flex-col gap-3 sm:flex-row">
+									<Link href="/contact" className="w-full sm:w-auto">
+										<Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
+											Discuss financing
+										</Button>
+									</Link>
+									<Link href="https://apply.sunbit.com" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+										<Button
+											variant="outline"
+											className="w-full sm:w-auto border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground"
+										>
+											Apply online
+											<ArrowRight className="ml-2 h-4 w-4" />
+										</Button>
+									</Link>
+								</div>
+							</div>
+						</BentoCard>
 					</div>
+				</div>
+			</section>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-						<BentoCard className="p-5 sm:p-6">
-							<h3 className="text-lg font-semibold text-foreground mb-3">
-								How long will my first visit take?
-							</h3>
-							<p className="text-muted-foreground">
-								Your initial appointment typically takes 60-90 minutes to allow time for a comprehensive
-								examination, X-rays, and consultation about your treatment options.
-							</p>
-						</BentoCard>
-
-						<BentoCard className="p-5 sm:p-6">
-							<h3 className="text-lg font-semibold text-foreground mb-3">
-								Will I receive treatment on my first visit?
-							</h3>
-							<p className="text-muted-foreground">
-								In most cases, your first visit focuses on examination and consultation. However, if you're
-								experiencing pain or have an urgent need, we may provide treatment on the same day.
-							</p>
-						</BentoCard>
-
-						<BentoCard className="p-5 sm:p-6">
-							<h3 className="text-lg font-semibold text-foreground mb-3">
-								What if I'm nervous about my visit?
-							</h3>
-							<p className="text-muted-foreground">
-								It's completely normal to feel anxious. Our team specializes in helping nervous patients feel
-								comfortable. We offer sedation options and will explain everything before we begin.
-							</p>
-						</BentoCard>
-
-						<BentoCard className="p-5 sm:p-6">
-							<h3 className="text-lg font-semibold text-foreground mb-3">
-								Do you accept my insurance?
-							</h3>
-							<p className="text-muted-foreground">
-								We accept most major dental insurance plans. Our team will verify your benefits before your
-								visit and help you understand your coverage and any out-of-pocket costs.
-							</p>
-						</BentoCard>
+			<section className="section-padding">
+				<div className="container-clinical">
+					<h2 className="text-3xl md:text-4xl font-heading text-foreground mb-8 text-center">
+						Other payment options
+					</h2>
+					<p className="mx-auto max-w-3xl text-center text-lg text-muted-foreground">
+						We also accept most major debit and credit cards for simple, secure payments at the time of service.
+						Let us know how you&apos;d like to take care of your balance—we&apos;re here to help.
+					</p>
+					<div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+						{cardOptions.map((card) => (
+							<div
+								key={card.name}
+								className={`flex items-center justify-between rounded-2xl border border-primary/10 bg-white/80 px-5 py-4 text-base font-semibold text-foreground shadow-sm ${card.accent}`}
+							>
+								<span>{card.name}</span>
+								<CreditCard className="h-5 w-5 text-primary" />
+							</div>
+						))}
 					</div>
 				</div>
 			</section>
 
 			<section className="section-padding bg-primary text-primary-foreground">
 				<div className="container-clinical">
-					<div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-						<div>
-							<h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
-								Ready for Your First Visit?
-							</h2>
-							<p className="text-lg mb-6 opacity-90">
-								We're here to make your experience comfortable and stress-free. Contact us if you have any
-								questions or special needs.
+					<div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
+						<div className="space-y-5">
+							<h2 className="text-3xl md:text-4xl font-heading">In-house dental membership plan</h2>
+							<p className="text-lg opacity-90">
+								No dental insurance? No problem. Our in-house membership plan keeps preventive care affordable for
+								you and your family with exclusive savings on treatments all year long.
 							</p>
-							<div className="space-y-4">
-								<div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-									<Clock className="w-5 h-5" />
-									<span>Monday - Friday: 8:00 AM - 6:00 PM</span>
-								</div>
-								<div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-									<MapPin className="w-5 h-5" />
-									<span>123 Main Street, Downtown, ST 12345</span>
-								</div>
+							<ul className="space-y-3 text-sm">
+								<li className="flex items-start gap-3">
+									<CheckCircle className="mt-0.5 h-4 w-4" />
+									<span>Comprehensive exams, cleanings, and X-rays included</span>
+								</li>
+								<li className="flex items-start gap-3">
+									<CheckCircle className="mt-0.5 h-4 w-4" />
+									<span>Members-only savings on restorative and cosmetic care</span>
+								</li>
+								<li className="flex items-start gap-3">
+									<CheckCircle className="mt-0.5 h-4 w-4" />
+									<span>No deductibles, waiting periods, or surprise fees</span>
+								</li>
+							</ul>
+							<div className="flex flex-col gap-3 sm:flex-row">
+								<Link href="/contact" className="w-full sm:w-auto">
+									<Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+										Join now
+									</Button>
+								</Link>
+								<Link href="tel:5124679955" className="w-full sm:w-auto">
+									<Button
+										variant="ghost"
+										className="w-full sm:w-auto border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/20"
+									>
+										Call for details
+									</Button>
+								</Link>
 							</div>
 						</div>
-						<div className="text-center">
-							<Button className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-lg px-8 py-4 h-auto mb-4 w-full sm:w-auto">
-								<Clock className="w-5 h-5 mr-2" />
-								Schedule Now
-							</Button>
-							<p className="text-sm opacity-75">Or call us at 512-467-9955</p>
+
+						<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.75rem] border border-primary/20 bg-primary/20 shadow-2xl sm:max-w-sm lg:max-w-md">
+							<div className="relative aspect-[3/4]">
+								<Image
+									src="/assets/dental.jpg"
+									alt="Smiling patient holding a membership card."
+									fill
+									sizes="(min-width: 1024px) 400px, (min-width: 768px) 45vw, 80vw"
+									className="object-cover"
+								/>
+							</div>
+							<div className="absolute bottom-4 left-4 rounded-2xl bg-white/90 px-4 py-2 text-xs font-semibold text-primary shadow-lg">
+								Exclusive member perks
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section className="section-padding">
+				<div className="container-clinical">
+					<div className="grid gap-10 rounded-[2.75rem] border border-primary/10 bg-white/90 p-10 shadow-xl lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+						<div className="space-y-5">
+							<h2 className="text-3xl md:text-4xl font-heading text-foreground">
+								Have a question about our services?
+							</h2>
+							<p className="text-lg text-muted-foreground">
+								Interested in learning more about financing, membership, or what to expect during your first visit?
+								Our care team is here to help every step of the way.
+							</p>
+							<div className="flex flex-col gap-3 sm:flex-row">
+								<Link href="/contact" className="w-full sm:w-auto">
+									<Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
+										Contact us
+									</Button>
+								</Link>
+								<Link href="tel:5124679955" className="w-full sm:w-auto">
+									<Button variant="outline" className="w-full sm:w-auto border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground">
+										Call 512-467-9955
+									</Button>
+								</Link>
+							</div>
+						</div>
+
+						<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.75rem] border border-primary/10 bg-primary/5 sm:max-w-sm lg:max-w-md">
+							<div className="relative aspect-[3/4]">
+								<Image
+									src="/assets/window.svg"
+									alt="Dental Smiles office door."
+									fill
+									sizes="(min-width: 1024px) 400px, (min-width: 768px) 45vw, 80vw"
+									className="object-contain p-8"
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
