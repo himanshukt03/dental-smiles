@@ -301,7 +301,7 @@ const ServicesPage = () => {
                 <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
                   <Sparkles className="h-3.5 w-3.5" /> General dentistry in Austin, TX
                 </span>
-                <h1 className="text-[1.05rem] font-heading text-foreground sm:text-3xl lg:text-4xl leading-tight sm:text-left text-center sm:text-left">
+                <h1 className="text-[1.05rem] font-heading text-foreground sm:text-3xl lg:text-4xl leading-tight sm:text-left text-center">
                   Comprehensive care for all your needs.
                 </h1>
               </div>
@@ -335,7 +335,7 @@ const ServicesPage = () => {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 sm:flex-row">
-                  <Link href="/book-appointment" className="w-full sm:w-auto">
+                  <Link href="/contact#request-appointment" className="w-full sm:w-auto">
                     <Button className="w-full sm:w-auto px-4 py-3 text-xs font-semibold sm:text-sm">
                       <CalendarCheck className="mr-2 h-4 w-4" /> Book a consultation
                     </Button>

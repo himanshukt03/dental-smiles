@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import BentoCard from '@/components/UI/BentoCard';
@@ -20,14 +21,14 @@ const contactInfo = [
 	{
 		icon: MapPin,
 		title: 'Address',
-		details: '123 Main Street, Downtown, ST 12345',
-		description: 'Visit us in the heart of downtown',
+		details: '1201 Barbara Jordan Blvd, Suite #1435, Austin, TX 78723',
+		description: 'Located in the Mueller Medical District with easy parking',
 	},
 	{
 		icon: Clock,
 		title: 'Hours',
-		details: 'Mon-Fri: 8AM-6PM, Sat: 9AM-3PM',
-		description: 'Extended hours for your convenience',
+		details: 'Mon: 8 AM – 5 PM, Tue & Thu: 7 AM – 3 PM, Wed: 8 AM – 5 PM, Fri: 7 AM – 1 PM',
+		description: 'Saturdays & Sundays: Closed',
 	},
 ];
 
@@ -40,15 +41,66 @@ export const metadata = {
 const ContactPage = () => {
 	return (
 		<div className="min-h-screen">
-			<section className="section-padding bg-gradient-to-br from-clinical-creme to-clinical-grey">
-				<div className="container-clinical text-center">
-					<h1 className="text-4xl md:text-5xl font-heading text-foreground mb-6">
-						Contact Dental Smiles
-					</h1>
-					<p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-						We're here to answer your questions and help you schedule your next
-						visit. Reach out to us using any of the methods below.
-					</p>
+			<section className="relative isolate overflow-hidden bg-background">
+				<div className="absolute inset-0">
+					<Image
+						src="/assets/Contact_Hero.jpg"
+						alt="Smiling patient talking with dental team at the front desk"
+						fill
+						priority
+						sizes="100vw"
+						className="object-cover"
+					/>
+					<div className="absolute inset-0 bg-background/80 sm:bg-background/70" />
+					<div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/20 to-transparent" />
+				</div>
+				<div className="relative">
+					<div className="container-clinical py-16 sm:py-20">
+						<div className="max-w-xl space-y-6 text-foreground">
+							<span className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary-foreground/90 shadow-sm">
+								<Phone className="h-3.5 w-3.5" />
+								We're here for you
+							</span>
+							<h1 className="text-4xl md:text-5xl font-heading leading-tight">
+								Let's plan your next visit to Dental Smiles
+							</h1>
+							<p className="text-base sm:text-lg text-foreground/90">
+								Our friendly coordinators respond within one business day to help you
+								schedule, answer questions, and make sure every detail feels easy.
+							</p>
+							<div className="grid gap-4 sm:grid-cols-3">
+								<div className="rounded-bento border border-border/60 bg-background/60 p-4 backdrop-blur">
+									<p className="text-sm font-semibold text-primary">Convenient hours</p>
+									<p className="text-xs text-foreground/80">
+										Early mornings and lunchtime appointments available.
+									</p>
+								</div>
+								<div className="rounded-bento border border-border/60 bg-background/60 p-4 backdrop-blur">
+									<p className="text-sm font-semibold text-primary">Easy parking</p>
+									<p className="text-xs text-foreground/80">
+										Free garage parking right next to our lobby entrance.
+									</p>
+								</div>
+								<div className="rounded-bento border border-border/60 bg-background/60 p-4 backdrop-blur">
+									<p className="text-sm font-semibold text-primary">Flexible scheduling</p>
+									<p className="text-xs text-foreground/80">
+										Share a few dates and we'll match the perfect time.
+									</p>
+								</div>
+							</div>
+							<div className="flex flex-wrap items-center gap-4 pt-2">
+								<Link href="#request-appointment">
+									<Button className="btn-primary h-auto px-6 py-3 text-base shadow-lg">
+										<Calendar className="mr-2 h-4 w-4" />
+										Request an appointment
+									</Button>
+								</Link>
+								<p className="text-sm text-foreground/80">
+									Prefer to chat? Call us at <span className="font-semibold">512-467-9955</span>
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
@@ -76,64 +128,67 @@ const ContactPage = () => {
 						))}
 					</div>
 
-					<div className="grid lg:grid-cols-2 gap-10 lg:gap-12">
-						<ContactForm />
+					<div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 lg:gap-12 items-start">
+						<div id="request-appointment" className="scroll-mt-28">
+							<ContactForm />
+						</div>
 
 						<div className="space-y-6">
 							<BentoCard className="p-6 sm:p-8">
 								<h3 className="text-xl font-heading text-foreground mb-4">
 									Visit Our Office
 								</h3>
-								<div className="space-y-4 mb-6">
-									<div className="flex items-start space-x-3">
+								<div className="space-y-4">
+									<div className="flex items-start gap-3">
 										<MapPin className="w-5 h-5 text-primary mt-1" />
-										<div>
-											<p className="font-medium text-foreground">
-												123 Main Street
-												<br />
-												Downtown, ST 12345
-											</p>
+										<div className="text-sm text-muted-foreground">
+											<p className="font-medium text-foreground">1201 Barbara Jordan Blvd</p>
+											<p>Suite #1435, Austin, TX 78723</p>
 										</div>
 									</div>
-									<div className="flex items-center space-x-3">
-										<Clock className="w-5 h-5 text-primary" />
-										<div className="text-muted-foreground">
-											<p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-											<p>Saturday: 9:00 AM - 3:00 PM</p>
-											<p>Sunday: Closed</p>
+									<div className="flex items-start gap-3">
+										<Clock className="w-5 h-5 text-primary mt-1" />
+										<div className="text-sm text-muted-foreground space-y-1">
+											<p className="font-medium text-foreground">Monday – Thursday: 7:00 AM – 5:00 PM</p>
+											<p>Friday: 7:00 AM – 1:00 PM</p>
+											<p>Saturday & Sunday: Closed</p>
 										</div>
 									</div>
 								</div>
-								<Button variant="ghost" className="btn-secondary w-full">
-									<MapPin className="w-4 h-4 mr-2" />
-									Get Directions
-								</Button>
-							</BentoCard>
-
-							<BentoCard className="p-0 overflow-hidden">
-								<div className="w-full h-48 sm:h-64 bg-clinical-grey flex items-center justify-center">
-									<div className="text-center text-muted-foreground">
-										<MapPin className="w-12 h-12 mx-auto mb-2" />
-										<p>Interactive Map</p>
-										<p className="text-sm">
-											123 Main Street, Downtown
-										</p>
-									</div>
+								<div className="mt-6 flex flex-wrap items-center gap-3">
+									<Link
+										href="https://maps.app.goo.gl/J79e6udCYyZJAPLy5"
+										target="_blank"
+										rel="noreferrer"
+									>
+										<Button variant="ghost" className="btn-secondary">
+											<MapPin className="w-4 h-4 mr-2" />
+											Open in Google Maps
+										</Button>
+									</Link>
+									<p className="text-xs text-muted-foreground">
+										Complimentary parking available in the attached garage.
+									</p>
 								</div>
 							</BentoCard>
 
-							<BentoCard className="p-5 sm:p-6 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-								<h3 className="text-lg font-heading text-foreground mb-2">
-									Dental Emergency?
-								</h3>
-								<p className="text-muted-foreground mb-4">
-									For urgent dental issues outside of office hours, please call
-									our emergency line.
-								</p>
-								<Button className="btn-primary w-full">
-									<Phone className="w-4 h-4 mr-2" />
-									Emergency: (555) 123-HELP
-								</Button>
+							<BentoCard className="overflow-hidden">
+								<div className="relative aspect-[4/3] w-full overflow-hidden rounded-bento">
+									<iframe
+										title="Dental Smiles Austin map"
+										src="https://maps.google.com/maps?q=1201%20Barbara%20Jordan%20Blvd%20Suite%20%231435%20Austin%20TX%2078723&t=&z=15&ie=UTF8&iwloc=&output=embed"
+										className="h-full w-full"
+										loading="lazy"
+										allowFullScreen
+										referrerPolicy="no-referrer-when-downgrade"
+									/>
+								</div>
+								<div className="p-5 sm:p-6">
+									<h4 className="text-lg font-heading text-foreground mb-1">Find us easily</h4>
+									<p className="text-sm text-muted-foreground">
+										Our suite sits inside the Mueller Medical District with convenient parking garages and elevator access steps from the lobby.
+									</p>
+								</div>
 							</BentoCard>
 						</div>
 					</div>
@@ -149,10 +204,10 @@ const ContactPage = () => {
 						Don't wait to start your journey to better oral health. Book your
 						appointment today and experience the Dental Smiles difference.
 					</p>
-					<Link href="/book-appointment">
+					<Link href="#request-appointment">
 						<Button className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-lg px-8 py-4 h-auto">
 							<Calendar className="w-5 h-5 mr-2" />
-							Book Online Now
+							Request an appointment
 						</Button>
 					</Link>
 				</div>
