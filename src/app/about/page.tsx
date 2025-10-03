@@ -37,7 +37,7 @@ const AboutPage = () => {
                 <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
                   <Users className="h-3.5 w-3.5" /> Community-focused care in Austin
                 </span>
-                <h1 className="text-[1.5rem] sm:text-3xl md:text-5xl font-heading text-foreground leading-tight">
+                <h1 className="text-[1.5rem] sm:text-3xl md:text-5xl font-heading text-foreground leading-tight text-center">
                   Locally Owned and Operated.
                 </h1>
               </div>

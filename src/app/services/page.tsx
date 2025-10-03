@@ -46,7 +46,7 @@ const services: ServiceShowcaseItem[] = [
       'Impact diffusion to protect teeth and jaw',
       'Breathable design that stays put during play',
     ],
-  image: '/assets/services/mouth-guards.jpg',
+    image: '/assets/services/mouth-guards.jpg',
     imageAlt: 'Woman at the dentist being fitted for an athletic mouthguard.',
     icon: ShieldCheck,
     palette: {
@@ -65,7 +65,7 @@ const services: ServiceShowcaseItem[] = [
       'Relieves tension in jaw joints and muscles',
       'Protects against enamel wear and fractures',
     ],
-  image: '/assets/services/night-guards.jpg',
+    image: '/assets/services/night-guards.jpg',
     imageAlt: 'Patient receiving a custom nightguard fitting at the dental office.',
     icon: Moon,
     palette: {
@@ -84,7 +84,7 @@ const services: ServiceShowcaseItem[] = [
       'Quick, comfortable chairside application',
       'Ideal preventive boost for all ages',
     ],
-  image: '/assets/services/fluoride.webp',
+    image: '/assets/services/fluoride.webp',
     imageAlt: 'Dental hygienist applying fluoride varnish during a preventive visit.',
     icon: Droplet,
     palette: {
@@ -103,7 +103,7 @@ const services: ServiceShowcaseItem[] = [
       'Seamless application with zero drilling',
       'Perfect for growing smiles and adult molars alike',
     ],
-  image: '/assets/services/dental-sealants.jpeg',
+    image: '/assets/services/dental-sealants.jpeg',
     imageAlt: 'Close-up of dental sealant application on molars.',
     icon: Shield,
     palette: {
@@ -160,7 +160,7 @@ const services: ServiceShowcaseItem[] = [
       'Guided exercises to restore comfortable movement',
       'Multidisciplinary support for long-term relief',
     ],
-  image: '/assets/services/TMJ-TMDwebp.webp',
+    image: '/assets/services/TMJ-TMDwebp.webp',
     imageAlt: 'Dentist reviewing TMJ therapy options with a patient.',
     icon: RefreshCw,
     palette: {
@@ -179,7 +179,7 @@ const services: ServiceShowcaseItem[] = [
       'Personalized hygiene and nutrition coaching',
       'Professional therapies for lasting freshness',
     ],
-  image: '/assets/services/Halitosis-Treatment.jpg',
+    image: '/assets/services/Halitosis-Treatment.jpg',
     imageAlt: 'Dental hygienist guiding a patient through halitosis treatment steps.',
     icon: Wind,
     palette: {
@@ -227,9 +227,9 @@ const ServicesSpotlight = () => (
                 Preventive spotlight
               </div>
               <div className="space-y-4">
-                <h3 className="text-3xl md:text-4xl font-heading text-foreground">
+                <h2 className="text-[2rem] md:text-4xl font-heading text-foreground leading-snug">
                   {service.title}
-                </h3>
+                </h2>
                 <div className="relative aspect-[5/4] overflow-hidden rounded-[1.5rem] border border-white/60 bg-white/70 shadow-inner md:hidden">
                   <Image
                     src={service.image}
@@ -296,18 +296,18 @@ const ServicesPage = () => {
         <div className="container-clinical">
           <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-gradient-to-br from-primary/5 via-white to-white shadow-xl">
             <div className="absolute -top-16 right-4 h-44 w-44 rounded-full bg-primary/10 blur-3xl" />
-            <div className="relative grid grid-rows-[auto_auto_auto] gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.7fr)] md:grid-rows-[auto_auto] md:gap-10 lg:p-10">
+            <div className="relative grid grid-rows-[auto_auto_auto] gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:grid-rows-[auto_auto] md:gap-10 lg:p-10">
               <div className="space-y-3 md:col-start-1 md:row-start-1">
                 <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
                   <Sparkles className="h-3.5 w-3.5" /> General dentistry in Austin, TX
                 </span>
-                <h1 className="text-[1.45rem] font-heading text-foreground sm:text-3xl lg:text-4xl">
-                  Comprehensive care.
+                <h1 className="text-[1.05rem] font-heading text-foreground sm:text-3xl lg:text-4xl leading-tight sm:text-left text-center sm:text-left">
+                  Comprehensive care for all your needs.
                 </h1>
               </div>
 
-              <div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/70 shadow-lg sm:max-w-sm md:mx-0 md:col-start-2 md:row-start-1 md:row-end-3 md:max-w-md">
-                <div className="relative aspect-[3/4] md:aspect-[4/3]">
+              <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/70 shadow-lg sm:max-w-md md:mx-0 md:col-start-2 md:row-start-1 md:row-end-3 md:max-w-lg">
+                <div className="relative aspect-[16/9] sm:aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/11]">
                   <Image
                     src="/assets/general-dentistry.webp"
                     alt="Team providing general dentistry care at Dental Smiles."

@@ -69,98 +69,55 @@ export const metadata = {
 const FirstVisitPage = () => {
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20">
-			<section className="section-padding pb-0">
+			<section className="section-padding pt-12 pb-14">
 				<div className="container-clinical">
 					<div className="relative overflow-hidden rounded-[2.75rem] border border-primary/10 bg-gradient-to-br from-primary/5 via-white to-white shadow-xl">
-						<div className="grid gap-10 p-8 md:grid-cols-[1.05fr_minmax(0,0.95fr)] md:p-12 lg:p-16">
-							<div className="space-y-6">
-								<span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary">
-									<Sparkles className="h-4 w-4" /> Establish quality dental care in Austin, TX
-								</span>
-								<h1 className="text-4xl md:text-5xl font-heading text-foreground">
-									Quality dental care without compromise
+						<div className="flex flex-col gap-6 p-8 sm:p-10 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:p-16">
+							<div className="order-2 block lg:hidden">
+								<h1 className="text-3xl md:text-4xl font-heading text-foreground text-center sm:text-left">
+									Your first step to <span className="text-[#741234]">comfortable care</span>
 								</h1>
-								<div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+							</div>
+
+							<div className="order-3 relative mx-auto w-full max-w-md overflow-hidden rounded-[2rem] border border-primary/10 bg-white/70 shadow-lg sm:max-w-lg lg:order-1 lg:mx-0 lg:col-start-1 lg:row-span-2 lg:max-w-[460px]">
+								<div className="relative aspect-[16/10] sm:aspect-[3/2] lg:aspect-[4/3]">
+									<Image
+										src="/assets/dental-office.jpg"
+										alt="Smiling patient receiving care at Dental Smiles."
+										fill
+										sizes="(min-width: 1280px) 460px, (min-width: 1024px) 420px, (min-width: 768px) 46vw, 90vw"
+										className="object-cover"
+										priority
+									/>
+								</div>
+								<div className="absolute bottom-4 right-4 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
+									Compassionate care for every smile
+								</div>
+							</div>
+
+							<div className="order-4 space-y-6 lg:order-2 lg:col-start-2 lg:row-start-2">
+								<div className="space-y-4 text-base leading-relaxed text-muted-foreground">
 									<p>
-										We understand that quality dental care is important for you and your family. At Dental Smiles, we never
-										want you to stress about how you&apos;re going to pay for it, so we make it easy to receive the care you need
-										when you need it.
+										At Dental Smiles, we keep visits <span className="text-[#741234] font-semibold">stress-free</span> with transparent options and a welcoming team.
 									</p>
 									<p>
-										We&apos;re proud to offer convenient financing and payment options so even the most advanced treatments are
-										within reach. If you&apos;re curious about what to expect during your visit or our accepted financial
-										arrangements, you&apos;re on the right page—or you can always call our office.
+										From your first hello to checkout, we guide you through what matters most—<span className="text-[#741234] font-semibold">clear answers</span>, same-day guidance, and care that fits your plans.
 									</p>
 								</div>
 								<div className="flex flex-col gap-3 sm:flex-row">
 									<Link href="/book-appointment" className="w-full sm:w-auto">
-										<Button className="btn-primary w-full sm:w-auto px-6 py-6 text-base">
-											<CalendarCheck className="mr-2 h-5 w-5" /> Schedule your visit
+										<Button className="btn-primary w-full sm:w-auto px-4 py-3 text-sm font-semibold">
+											<CalendarCheck className="mr-2 h-4 w-4" /> Schedule your visit
 										</Button>
 									</Link>
 									<Link href="/contact" className="w-full sm:w-auto">
 										<Button
 											variant="outline"
-											className="w-full sm:w-auto border-primary/20 bg-white/80 text-primary hover:bg-primary hover:text-primary-foreground"
+											className="w-full sm:w-auto border-primary/20 bg-white/80 px-4 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
 										>
-											<Phone className="mr-2 h-5 w-5" /> Contact us
+											<Phone className="mr-2 h-4 w-4" /> Contact us
 										</Button>
 									</Link>
-								</div>
-								<div className="grid gap-4 text-sm text-muted-foreground sm:grid-cols-3">
-									<BentoCard className="border border-primary/10 bg-white/80 p-4">
-										<div className="flex items-center gap-3">
-											<ShieldCheck className="h-5 w-5 text-primary" />
-											<div>
-												<p className="font-semibold text-foreground">Family-first care</p>
-												<p>Personalized plans for every age and stage.</p>
-											</div>
-										</div>
-									</BentoCard>
-									<BentoCard className="border border-primary/10 bg-white/80 p-4">
-										<div className="flex items-center gap-3">
-											<PiggyBank className="h-5 w-5 text-primary" />
-											<div>
-												<p className="font-semibold text-foreground">Budget-friendly options</p>
-												<p>Transparent pricing, flexible financing.</p>
-											</div>
-										</div>
-									</BentoCard>
-									<BentoCard className="border border-primary/10 bg-white/80 p-4">
-										<div className="flex items-center gap-3">
-											<CalendarCheck className="h-5 w-5 text-primary" />
-											<div>
-												<p className="font-semibold text-foreground">Convenient scheduling</p>
-												<p>Same-week appointments often available.</p>
-											</div>
-										</div>
-									</BentoCard>
-								</div>
-							</div>
-
-							<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white/60 shadow-lg sm:max-w-sm md:mx-0 md:max-w-[320px] lg:max-w-[360px]">
-								<div className="relative aspect-[3/4]">
-									<Image
-										src="/assets/dental-office-hero.webp"
-										alt="Smiling patient receiving care at Dental Smiles."
-										fill
-										sizes="(min-width: 1024px) 360px, (min-width: 768px) 320px, 75vw"
-										className="object-cover"
-										priority
-									/>
-								</div>
-								<div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-medium text-primary shadow">
-									<Image
-										src="/assets/DentalSmilesLogo.webp"
-										alt="Dental Smiles logo"
-										width={32}
-										height={32}
-										className="h-8 w-8 object-contain"
-									/>
-									Trusted Austin dentistry
-								</div>
-								<div className="absolute bottom-4 right-4 rounded-2xl bg-primary px-4 py-2 text-xs font-medium text-primary-foreground shadow-lg">
-									Compassionate care for every smile
 								</div>
 							</div>
 						</div>
