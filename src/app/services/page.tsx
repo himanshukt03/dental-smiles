@@ -296,19 +296,41 @@ const ServicesPage = () => {
         <div className="container-clinical">
           <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-gradient-to-br from-primary/5 via-white to-white shadow-xl">
             <div className="absolute -top-16 right-4 h-44 w-44 rounded-full bg-primary/10 blur-3xl" />
-            <div className="relative grid items-center gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.7fr)] lg:p-10">
-              <div className="space-y-4">
+            <div className="relative grid grid-rows-[auto_auto_auto] gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.7fr)] md:grid-rows-[auto_auto] md:gap-10 lg:p-10">
+              <div className="space-y-3 md:col-start-1 md:row-start-1">
                 <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
                   <Sparkles className="h-3.5 w-3.5" /> General dentistry in Austin, TX
                 </span>
-                <div className="space-y-3">
-                  <h1 className="text-[1.9rem] font-heading text-foreground sm:text-4xl">
-                    Comprehensive care for confident smiles
-                  </h1>
-                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                <h1 className="text-[1.45rem] font-heading text-foreground sm:text-3xl lg:text-4xl">
+                  Comprehensive care.
+                </h1>
+              </div>
+
+              <div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/70 shadow-lg sm:max-w-sm md:mx-0 md:col-start-2 md:row-start-1 md:row-end-3 md:max-w-md">
+                <div className="relative aspect-[3/4] md:aspect-[4/3]">
+                  <Image
+                    src="/assets/general-dentistry.webp"
+                    alt="Team providing general dentistry care at Dental Smiles."
+                    fill
+                    sizes="(min-width: 1024px) 420px, (min-width: 768px) 45vw, 75vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1.5 text-[11px] font-semibold text-primary shadow">
+                  Trusted Austin dentistry
+                </div>
+                <div className="absolute bottom-4 right-4 rounded-2xl bg-primary px-3.5 py-2 text-[11px] font-semibold text-primary-foreground shadow-lg">
+                  From cleanings to complete smile plans
+                </div>
+              </div>
+
+              <div className="space-y-5 md:col-start-1 md:row-start-2">
+                <div className="space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <p>
                     Dental Smiles is proud to offer a variety of both general and specialty dental services. From routine cleanings to laser gum therapy, we’ve got your family covered.
                   </p>
-                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <p>
                     Want to explore a specific treatment or schedule a consultation? Connect with our team and we’ll guide you every step of the way.
                   </p>
                 </div>
@@ -328,25 +350,6 @@ const ServicesPage = () => {
                   </Link>
                 </div>
               </div>
-
-              <div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/70 shadow-lg sm:max-w-sm md:mx-0">
-                <div className="relative aspect-[3/4]">
-                  <Image
-                    src="/assets/dental-team.jpg"
-                    alt="Team providing general dentistry care at Dental Smiles."
-                    fill
-                    sizes="(min-width: 1024px) 360px, (min-width: 768px) 45vw, 75vw"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-                <div className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1.5 text-[11px] font-semibold text-primary shadow">
-                  Trusted Austin dentistry
-                </div>
-                <div className="absolute bottom-4 right-4 rounded-2xl bg-primary px-3.5 py-2 text-[11px] font-semibold text-primary-foreground shadow-lg">
-                  From cleanings to complete smile plans
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -355,14 +358,11 @@ const ServicesPage = () => {
       <section className="section-padding pt-16">
         <div className="container-clinical space-y-12">
           <div className="max-w-3xl space-y-4 text-center md:text-left">
-            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary">
-              Advanced services
-            </span>
             <h2 className="text-3xl md:text-4xl font-heading text-foreground">
               Advanced services we offer
             </h2>
             <p className="text-lg text-muted-foreground">
-              Explore the specialized treatments that keep your smile resilient—from custom mouthguards and laser therapies to comprehensive TMJ solutions. Each spotlight below highlights how we elevate preventive and wellness dentistry in Austin.
+              Explore the specialized treatments that keep your smile resilient. 
             </p>
           </div>
 
