@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import {
   Calendar,
@@ -99,6 +100,15 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+const testimonialLoops = ['first', 'second'] as const;
+
+const TESTIMONIAL_PREVIEW_LENGTH = 170;
+
+const truncateReview = (text: string) =>
+  text.length > TESTIMONIAL_PREVIEW_LENGTH
+    ? `${text.slice(0, TESTIMONIAL_PREVIEW_LENGTH).trimEnd()}…`
+    : text;
+
 const features: Feature[] = [
   {
     icon: <Award className="w-6 h-6" />,
@@ -129,72 +139,134 @@ const services: Service[] = [
   { name: 'Emergency Care', description: 'Same-day urgent treatment' },
 ];
 
-export default function LandingPage() {
-  return (
-    <div className="min-h-screen">
-      <section className="md:hidden bg-gradient-to-b from-clinical-bg via-white to-clinical-grey/40 pt-8 pb-12">
-        <div className="container-clinical space-y-8">
-          <div className="rounded-bento overflow-hidden shadow-clinical">
+const MobileHero = () => (
+  <section className="md:hidden bg-gradient-to-b from-clinical-bg via-white to-clinical-grey/40 pt-6 pb-9">
+    <div className="container-clinical px-4 space-y-6 sm:px-6">
+      <div className="relative w-full overflow-hidden shadow-clinical rounded-bento h-[clamp(220px,62vw,340px)]">
+        <img
+          src={heroImage.src ?? heroImage}
+          alt="Modern dental office with comfortable patient chair and advanced equipment"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      <div className="space-y-5 text-center">
+        <div className="space-y-3">
+          <h1 className="font-heading text-foreground leading-tight tracking-tight text-[clamp(1.25rem,5vw,1.6rem)]">
+            <span className="block whitespace-nowrap">Where Families Can</span>
+            <span className="block text-primary whitespace-nowrap">Smile Confidently</span>
+          </h1>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Providing quality dental care for patients of all ages
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <Link href="/book-appointment">
+            <Button size="lg" className="btn-primary w-full">
+              <Calendar className="w-5 h-5 mr-2" />
+              Book Appointment
+            </Button>
+          </Link>
+          <Button
+            variant="outline"
+            size="lg"
+            className="w-full border border-primary/20 bg-white/70 hover:bg-primary/5 transition-colors shadow-none"
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            <Phone className="w-5 h-5 mr-2" />
+            512-467-9955
+          </Button>
+        </div>
+      </div>
+
+  <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
+        <div className="text-center">
+          <div className="text-lg font-semibold text-primary">20+</div>
+          <div className="text-[11px] text-muted-foreground">Years Experience</div>
+        </div>
+        <div className="text-center">
+          <div className="text-lg font-semibold text-primary">5000+</div>
+          <div className="text-[11px] text-muted-foreground">Happy Patients</div>
+        </div>
+        <div className="text-center">
+          <div className="flex justify-center mb-1">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />
+            ))}
+          </div>
+          <div className="text-[11px] text-muted-foreground">4.9-Star Reviews</div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const DesktopHero = () => (
+  <section className="relative hidden md:block md:py-20 bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
+    <div className="container-clinical">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="space-y-6">
+          <div className="space-y-4">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-heading text-foreground leading-tight">
+              Where Families Can
+              <br />
+              <span className="text-primary"> Smile Confidently</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Providing quality dental care for patients of all ages
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link href="/book-appointment">
+              <Button size="lg" className="btn-primary w-full sm:w-auto">
+                <Calendar className="w-5 h-5 mr-2" />
+                Book Appointment
+              </Button>
+            </Link>
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto"
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              512-467-9955
+            </Button>
+          </div>
+
+          <div className="grid gap-6 pt-6 border-t border-border sm:grid-cols-3 sm:gap-4">
+            <div className="text-center sm:text-left">
+              <div className="text-2xl font-bold text-primary">20+</div>
+              <div className="text-sm text-muted-foreground">Years Experience</div>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="text-2xl font-bold text-primary">5000+</div>
+              <div className="text-sm text-muted-foreground">Happy Patients</div>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="flex justify-center sm:justify-start mb-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                ))}
+              </div>
+              <div className="text-sm text-muted-foreground">4.9-Star Reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative mt-10 md:mt-0">
+          <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical">
             <img
               src={heroImage.src ?? heroImage}
               alt="Modern dental office with comfortable patient chair and advanced equipment"
               className="w-full h-full object-cover"
             />
           </div>
-
-          <div className="space-y-5 text-center">
-            <div className="space-y-3">
-              <h1 className="text-3xl font-heading text-foreground leading-tight">
-                Where Families Can
-                <br />
-                <span className="text-primary"> Smile Confidently</span>
-              </h1>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                Providing quality dental care for patients of all ages
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <Link href="/book-appointment">
-                <Button size="lg" className="btn-primary w-full">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book Appointment
-                </Button>
-              </Link>
-              <Button
-                variant="outline"
-                size="lg"
-                className="w-full border border-primary/20 bg-white/70 hover:bg-primary/5 transition-colors shadow-none"
-                onClick={() => window.scrollTo(0, 0)}
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                512-467-9955
-              </Button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
-            <div className="text-center">
-              <div className="text-xl font-semibold text-primary">20+</div>
-              <div className="text-xs text-muted-foreground">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl font-semibold text-primary">5000+</div>
-              <div className="text-xs text-muted-foreground">Happy Patients</div>
-            </div>
-            <div className="text-center">
-              <div className="flex justify-center mb-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <div className="text-xs text-muted-foreground">4.9-Star Reviews</div>
-            </div>
-          </div>
-
-          <Card className="border-clinical bg-card/95 backdrop-blur-sm">
+          <Card className="max-w-xs mx-auto mt-4 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-6 md:-left-8 bg-card/95 backdrop-blur-sm border-clinical">
             <CardContent className="p-4">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
                   <img
                     src={drDivyaImage.src ?? drDivyaImage}
@@ -210,93 +282,76 @@ export default function LandingPage() {
             </CardContent>
           </Card>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
+);
 
-      <section className="relative hidden md:block md:py-20 bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
-        <div className="container-clinical">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading text-foreground leading-tight">
-                  Where Families Can
-                  <br />
-                  <span className="text-primary"> Smile Confidently</span>
-                </h1>
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  Providing quality dental care for patients of all ages
-                </p>
-              </div>
+export default function LandingPage() {
+  const [expandedTestimonials, setExpandedTestimonials] = useState<Record<string, boolean>>({});
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/book-appointment">
-                  <Button
-                    size="lg"
-                    className="btn-primary w-full sm:w-auto"
-                  >
-                    <Calendar className="w-5 h-5 mr-2" />
-                    Book Appointment
-                  </Button>
-                </Link>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto"
-                  onClick={() => window.scrollTo(0, 0)}
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  512-467-9955
-                </Button>
-              </div>
+  const toggleTestimonial = (key: string) => {
+    setExpandedTestimonials((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
 
-              <div className="grid gap-6 pt-6 border-t border-border sm:grid-cols-3 sm:gap-4">
-                <div className="text-center sm:text-left">
-                  <div className="text-2xl font-bold text-primary">20+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
-                </div>
-                <div className="text-center sm:text-left">
-                  <div className="text-2xl font-bold text-primary">5000+</div>
-                  <div className="text-sm text-muted-foreground">Happy Patients</div>
-                </div>
-                <div className="text-center sm:text-left">
-                  <div className="flex justify-center sm:justify-start mb-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <div className="text-sm text-muted-foreground">4.9-Star Reviews</div>
-                </div>
-              </div>
+  const renderTestimonialCard = (
+    prefix: (typeof testimonialLoops)[number],
+    index: number,
+    { link, rating, review, name }: Testimonial
+  ) => {
+    const cardKey = `${prefix}-${index}`;
+    const isExpanded = expandedTestimonials[cardKey];
+    const isLongReview = review.length > TESTIMONIAL_PREVIEW_LENGTH;
+    const displayReview = isExpanded || !isLongReview ? review : truncateReview(review);
+
+    return (
+      <a
+        key={cardKey}
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-shrink-0 w-80 border-clinical hover-scale"
+        style={{ textDecoration: 'none' }}
+      >
+        <Card>
+          <CardContent className="p-6">
+            <div className="flex mb-4">
+              {Array.from({ length: rating }).map((_, starIndex) => (
+                <Star key={starIndex} className="w-4 h-4 fill-primary text-primary" />
+              ))}
             </div>
-
-            <div className="relative mt-10 md:mt-0">
-              <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical">
-                <img
-                  src={heroImage.src ?? heroImage}
-                  alt="Modern dental office with comfortable patient chair and advanced equipment"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <Card className="max-w-xs mx-auto mt-4 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-6 md:-left-8 bg-card/95 backdrop-blur-sm border-clinical">
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 rounded-full overflow-hidden">
-                      <img
-                        src={drDivyaImage.src ?? drDivyaImage}
-                        alt="Dr. Divya Shetty"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-sm">Dr. Divya Shetty</div>
-                      <div className="text-xs text-muted-foreground">Lead Dentist</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-2 min-h-[96px]">
+              “{displayReview}”
+            </p>
+            {isLongReview && (
+              <button
+                type="button"
+                className="mb-4 text-xs font-semibold text-primary hover:underline focus:outline-none"
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  toggleTestimonial(cardKey);
+                }}
+              >
+                {isExpanded ? 'Read less' : 'Read more'}
+              </button>
+            )}
+            <div className="border-t border-border pt-4">
+              <div className="font-semibold text-foreground text-sm">{name}</div>
             </div>
-          </div>
-        </div>
-      </section>
+          </CardContent>
+        </Card>
+      </a>
+    );
+  };
+
+  return (
+    <div className="min-h-screen">
+      <MobileHero />
+      <DesktopHero />
 
       {/* <section className="py-12 md:py-16">
         <div className="container-clinical">
@@ -418,54 +473,11 @@ export default function LandingPage() {
             <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-card to-transparent z-10" />
             <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-card to-transparent z-10" />
             <div className="flex animate-scroll-reviews space-x-6">
-              {testimonials.map(({ link, rating, review, name }, index) => (
-                <a
-                  key={`first-${index}`}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-shrink-0 w-80 border-clinical hover-scale"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="flex mb-4">
-                        {Array.from({ length: rating }).map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <p className="text-muted-foreground mb-4 text-sm leading-relaxed">“{review}”</p>
-                      <div className="border-t border-border pt-4">
-                        <div className="font-semibold text-foreground text-sm">{name}</div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </a>
-              ))}
-              {testimonials.map(({ link, rating, review, name }, index) => (
-                <a
-                  key={`second-${index}`}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-shrink-0 w-80 border-clinical hover-scale"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="flex mb-4">
-                        {Array.from({ length: rating }).map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <p className="text-muted-foreground mb-4 text-sm leading-relaxed">“{review}”</p>
-                      <div className="border-t border-border pt-4">
-                        <div className="font-semibold text-foreground text-sm">{name}</div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </a>
-              ))}
+              {testimonialLoops.map((loopKey) =>
+                testimonials.map((testimonial, index) =>
+                  renderTestimonialCard(loopKey, index, testimonial)
+                )
+              )}
             </div>
           </div>
         </div>

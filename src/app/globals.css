@@ -238,6 +238,16 @@
   .animate-scroll-reviews:hover {
     animation-play-state: paused;
   }
+
+  @media (max-width: 640px) {
+    .animate-scroll {
+      animation-duration: 3s;
+    }
+
+    .animate-scroll-reviews {
+      animation-duration: 4s;
+    }
+  }
 }
 
 @layer base {
