@@ -14,7 +14,7 @@ const BookAppointmentPage = () => {
     <div className="min-h-screen pt-8">
       <section className="bg-gradient-to-br from-clinical-creme to-clinical-grey py-12">
         <div className="container-clinical text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
+          <h1 className="text-4xl md:text-5xl font-heading text-foreground mb-6">
             Book Your Appointment
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -30,7 +30,7 @@ const BookAppointmentPage = () => {
 
             <div className="space-y-6">
               <BentoCard className="p-6 sm:p-8 bg-white shadow-lg border-t-4 border-maroon-400 sm:border-t-0 sm:border-l-4">
-                <h3 className="text-xl font-heading font-semibold text-foreground mb-4">
+                <h3 className="text-xl font-heading text-foreground mb-4">
                   What to Expect
                 </h3>
                 <div className="space-y-4">
@@ -52,7 +52,7 @@ const BookAppointmentPage = () => {
               </BentoCard>
 
               <BentoCard className="p-6 sm:p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 shadow-md">
-                <h3 className="text-lg font-semibold text-foreground mb-2">
+                <h3 className="text-lg font-heading text-foreground mb-2">
                   New Patient?
                 </h3>
                 <p className="text-muted-foreground mb-4">
@@ -64,7 +64,7 @@ const BookAppointmentPage = () => {
               </BentoCard>
 
               <BentoCard className="p-6 sm:p-8 border-t-4 border-maroon-400 bg-white shadow-lg">
-                <h3 className="text-lg font-semibold text-foreground mb-2">
+                <h3 className="text-lg font-heading text-foreground mb-2">
                   Office Hours
                 </h3>
                 <div className="text-muted-foreground space-y-1">

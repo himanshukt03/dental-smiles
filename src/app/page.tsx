@@ -14,27 +14,47 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import heroImage from '@/assets/dental-office-hero.webp';
-import teamImage from '@/assets/dental-team.jpg';
 import drDivyaImage from '@/assets/team/dr-divya-shetty.webp';
 
-const insuranceCompanies = [
-  'Aetna',
-  'Blue Cross Blue Shield',
-  'Cigna',
-  'Delta Dental',
-  'Humana',
-  'MetLife',
-  'Guardian',
-  'United Healthcare',
-  'Anthem',
-  'Assurant',
-  'Principal',
-  'Aflac',
-  'Mutual of Omaha',
-  'Lincoln Financial',
+type InsuranceCompany = {
+  name: string;
+  logo?: string;
+};
+
+type Testimonial = {
+  name: string;
+  review: string;
+  rating: number;
+  link: string;
+};
+
+import type { ReactElement } from 'react';
+
+type Feature = {
+  icon: ReactElement;
+  title: string;
+  description: string;
+};
+
+type Service = {
+  name: string;
+  description: string;
+};
+
+const insuranceCompanies: InsuranceCompany[] = [
+  { name: 'Aetna', logo: '/assets/logos/aetna.svg' },
+  { name: 'Delta Dental', logo: '/assets/logos/delta-dental.svg' },
+  { name: 'MetLife', logo: '/assets/logos/metlife.svg' },
+  { name: 'Principal', logo: '/assets/logos/principal.svg' },
+  { name: 'Sun Life', logo: '/assets/logos/sunlife.png' },
+  { name: 'Blue Cross Blue Shield', logo: '/assets/logos/blue-cross.svg' },
+  { name: 'Cigna', logo: '/assets/logos/cigna.svg' },
+  // { name: 'Connection Dental', logo: '/assets/logos/Connection-Dental.jpg' },
+  // { name: 'Guardian' },
+  // { name: 'United Healthcare' },
 ];
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     name: 'Bob Rubel',
     review:
@@ -79,7 +99,7 @@ const testimonials = [
   },
 ];
 
-const features = [
+const features: Feature[] = [
   {
     icon: <Award className="w-6 h-6" />,
     title: 'Expert Care',
@@ -102,7 +122,7 @@ const features = [
   },
 ];
 
-const services = [
+const services: Service[] = [
   { name: 'General Dentistry', description: 'Routine cleanings & checkups' },
   { name: 'Cosmetic Dentistry', description: 'Whitening & veneers' },
   { name: 'Restorative Care', description: 'Crowns, fillings & implants' },
@@ -124,7 +144,7 @@ export default function LandingPage() {
 
           <div className="space-y-5 text-center">
             <div className="space-y-3">
-              <h1 className="text-3xl font-heading font-semibold text-foreground leading-tight">
+              <h1 className="text-3xl font-heading text-foreground leading-tight">
                 Where Families Can
                 <br />
                 <span className="text-primary"> Smile Confidently</span>
@@ -197,7 +217,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-foreground leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading text-foreground leading-tight">
                   Where Families Can
                   <br />
                   <span className="text-primary"> Smile Confidently</span>
@@ -278,10 +298,10 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      {/* <section className="py-12 md:py-16">
         <div className="container-clinical">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-heading text-foreground mb-4">
               Why Choose Dental Smiles?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -296,32 +316,32 @@ export default function LandingPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-bento flex items-center justify-center text-primary mx-auto mb-4">
                     {icon}
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{title}</h3>
+                  <h3 className="text-foreground mb-2">{title}</h3>
                   <p className="text-sm text-muted-foreground">{description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-12 md:py-16 bg-clinical-grey">
         <div className="container-clinical">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-4">
-                  Comprehensive Dental Services
+                <h2 className="text-2xl md:text-3xl font-heading text-bold mb-4">
+                  Why Choose Dental Smiles?
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  From routine cleanings to advanced restorative treatments, we provide complete dental care for your entire family.
+                  We're proud to be a local, female-owned dental practice providing personalized, patient-centered care.
                 </p>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 {services.map(({ name, description }, index) => (
                   <div key={index} className="p-4 bg-card rounded-bento border-clinical">
-                    <h3 className="font-semibold text-foreground mb-1">{name}</h3>
+                    <h3 className="text-foreground ">{name}</h3>
                     <p className="text-sm text-muted-foreground">{description}</p>
                   </div>
                 ))}
@@ -334,7 +354,7 @@ export default function LandingPage() {
 
             <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical">
               <img
-                src={teamImage.src ?? teamImage}
+                src="/assets/dental-team.jpg"
                 alt="Dental Smiles team providing gentle, professional care"
                 className="w-full h-full object-cover"
               />
@@ -343,31 +363,39 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-8 bg-card border-y border-border">
+      <section className="py-8 border-y border-border" style={{ backgroundColor: '#741234' }}>
         <div className="container-clinical">
           <div className="text-center mb-8">
-            <h2 className="text-xl font-heading font-semibold text-foreground mb-2">
+            <h2 className="text-xl font-heading text-white mb-2">
               Insurance Plans We Accept
             </h2>
-            <p className="text-sm text-muted-foreground">We work with most major insurance providers</p>
+            <p className="text-sm text-white/80">We work with most major insurance providers</p>
           </div>
 
           <div className="relative overflow-hidden">
-            <div className="flex animate-[scroll_30s_linear_infinite] space-x-8">
+            <div className="flex animate-scroll space-x-8">
               {insuranceCompanies.map((company, index) => (
                 <div
                   key={`first-${index}`}
-                  className="flex-shrink-0 bg-clinical-grey rounded-bento px-6 py-3 border-clinical min-w-[140px] text-center"
+                  className="flex-shrink-0 bg-clinical-grey rounded-bento px-6 py-3 border-clinical min-w-[140px] h-12 text-center flex items-center justify-center"
                 >
-                  <span className="text-sm font-medium text-muted-foreground">{company}</span>
+                  {company.logo ? (
+                    <img src={company.logo} alt={company.name} className="w-full h-full object-contain" />
+                  ) : (
+                    <span className="text-sm font-medium text-muted-foreground">{company.name}</span>
+                  )}
                 </div>
               ))}
               {insuranceCompanies.map((company, index) => (
                 <div
                   key={`second-${index}`}
-                  className="flex-shrink-0 bg-clinical-grey rounded-bento px-6 py-3 border-clinical min-w-[140px] text-center"
+                  className="flex-shrink-0 bg-clinical-grey rounded-bento px-6 py-3 border-clinical min-w-[140px] h-12 text-center flex items-center justify-center"
                 >
-                  <span className="text-sm font-medium text-muted-foreground">{company}</span>
+                  {company.logo ? (
+                    <img src={company.logo} alt={company.name} className="w-full h-full object-contain" />
+                  ) : (
+                    <span className="text-sm font-medium text-muted-foreground">{company.name}</span>
+                  )}
                 </div>
               ))}
             </div>
@@ -378,7 +406,7 @@ export default function LandingPage() {
       <section className="py-12 md:py-16">
         <div className="container-clinical">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-heading text-foreground mb-4">
               What Our Patients Say
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -389,7 +417,7 @@ export default function LandingPage() {
           <div className="relative overflow-hidden">
             <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-card to-transparent z-10" />
             <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-card to-transparent z-10" />
-            <div className="flex animate-[scroll-reviews_40s_linear_infinite] space-x-6">
+            <div className="flex animate-scroll-reviews space-x-6">
               {testimonials.map(({ link, rating, review, name }, index) => (
                 <a
                   key={`first-${index}`}
@@ -446,7 +474,7 @@ export default function LandingPage() {
       <section className="py-12 md:py-16 bg-gradient-to-br from-primary to-primary-hover">
         <div className="container-clinical text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-heading font-semibold text-primary-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-heading text-primary-foreground mb-4">
               Ready for Your Best Smile?
             </h2>
             <p className="text-primary-foreground/90 mb-8 text-lg">

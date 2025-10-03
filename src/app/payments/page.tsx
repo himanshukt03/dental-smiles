@@ -54,7 +54,7 @@ const PaymentsPage = () => {
     <div className="min-h-screen">
       <section className="section-padding bg-gradient-to-br from-clinical-creme to-clinical-grey">
         <div className="container-clinical text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
+          <h1 className="text-4xl md:text-5xl font-heading text-foreground mb-6">
             Payment Options & Insurance
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -66,7 +66,7 @@ const PaymentsPage = () => {
       <section className="section-padding bg-background">
         <div className="container-clinical">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Convenient Payment Methods
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -82,7 +82,7 @@ const PaymentsPage = () => {
                     <option.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-heading font-semibold text-foreground mb-2">
+                    <h3 className="text-xl font-heading text-foreground mb-2">
                       {option.title}
                     </h3>
                     <p className="text-muted-foreground">{option.description}</p>
@@ -106,7 +106,7 @@ const PaymentsPage = () => {
       <section className="section-padding bg-clinical-creme">
         <div className="container-clinical">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Insurance & Benefits
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -116,7 +116,7 @@ const PaymentsPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
             <div>
-              <h3 className="text-2xl font-heading font-semibold text-foreground mb-6">
+              <h3 className="text-2xl font-heading text-foreground mb-6">
                 We Accept Most Insurance Plans
               </h3>
               <p className="text-muted-foreground mb-6">
@@ -138,7 +138,7 @@ const PaymentsPage = () => {
             </div>
 
             <BentoCard className="p-8">
-              <h4 className="text-lg font-semibold text-foreground mb-4">
+              <h4 className="text-lg font-heading text-foreground mb-4">
                 Insurance Providers We Accept
               </h4>
               <div className="grid grid-cols-2 gap-3">
@@ -163,7 +163,7 @@ const PaymentsPage = () => {
         <div className="container-clinical">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-6">
+              <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-6">
                 Flexible Financing Options
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
@@ -196,7 +196,7 @@ const PaymentsPage = () => {
                 <div className="w-16 h-16 bg-primary/20 rounded-bento flex items-center justify-center mx-auto mb-6">
                   <CreditCard className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-heading font-semibold text-foreground mb-4">
+                <h3 className="text-xl font-heading text-foreground mb-4">
                   CareCredit Healthcare Financing
                 </h3>
                 <p className="text-muted-foreground mb-6">
@@ -219,7 +219,7 @@ const PaymentsPage = () => {
             <div className="w-16 h-16 bg-primary/20 rounded-bento flex items-center justify-center mx-auto mb-6">
               <Shield className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-2xl font-heading font-semibold text-foreground mb-4">
+            <h2 className="text-2xl font-heading text-foreground mb-4">
               Secure Online Payment Portal
             </h2>
             <p className="text-muted-foreground mb-8">
@@ -239,7 +239,7 @@ const PaymentsPage = () => {
       <section className="section-padding bg-background">
         <div className="container-clinical">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Payment FAQs
             </h2>
           </div>
@@ -268,7 +268,7 @@ const PaymentsPage = () => {
               },
             ].map((faq) => (
               <BentoCard key={faq.title} className="p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-3">{faq.title}</h3>
+                <h3 className="text-lg font-heading text-foreground mb-3">{faq.title}</h3>
                 <p className="text-muted-foreground">{faq.description}</p>
               </BentoCard>
             ))}

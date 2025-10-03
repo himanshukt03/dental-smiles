@@ -42,7 +42,7 @@ const ContactPage = () => {
 		<div className="min-h-screen">
 			<section className="section-padding bg-gradient-to-br from-clinical-creme to-clinical-grey">
 				<div className="container-clinical text-center">
-					<h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
+					<h1 className="text-4xl md:text-5xl font-heading text-foreground mb-6">
 						Contact Dental Smiles
 					</h1>
 					<p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -63,7 +63,7 @@ const ContactPage = () => {
 								<div className="w-12 h-12 bg-primary/10 rounded-bento flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
 									<info.icon className="w-6 h-6 text-primary" />
 								</div>
-								<h3 className="text-lg font-semibold text-foreground mb-2">
+								<h3 className="text-lg font-heading text-foreground mb-2">
 									{info.title}
 								</h3>
 								<p className="font-medium text-foreground mb-2">
@@ -81,7 +81,7 @@ const ContactPage = () => {
 
 						<div className="space-y-6">
 							<BentoCard className="p-6 sm:p-8">
-								<h3 className="text-xl font-heading font-semibold text-foreground mb-4">
+								<h3 className="text-xl font-heading text-foreground mb-4">
 									Visit Our Office
 								</h3>
 								<div className="space-y-4 mb-6">
@@ -123,7 +123,7 @@ const ContactPage = () => {
 							</BentoCard>
 
 							<BentoCard className="p-5 sm:p-6 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-								<h3 className="text-lg font-semibold text-foreground mb-2">
+								<h3 className="text-lg font-heading text-foreground mb-2">
 									Dental Emergency?
 								</h3>
 								<p className="text-muted-foreground mb-4">
@@ -142,7 +142,7 @@ const ContactPage = () => {
 
 			<section className="section-padding bg-primary text-primary-foreground">
 				<div className="container-clinical text-center">
-					<h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
+					<h2 className="text-3xl md:text-4xl font-heading text-primary-foreground mb-4">
 						Ready to Schedule Your Appointment?
 					</h2>
 					<p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">

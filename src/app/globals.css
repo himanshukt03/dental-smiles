@@ -65,7 +65,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
@@ -75,8 +79,17 @@
   h4,
   h5,
   h6 {
-    @apply font-heading font-semibold tracking-[0.005em];
+    font-family: var(--font-heading);
+    font-weight: 900;
+    letter-spacing: 0.005em;
   }
+
+  h1 { font-size: 3rem !important; font-weight: bold; }
+  h2 { font-size: 2.25rem !important; }
+  h3 { font-size: 1.5rem !important; }
+  h4 { font-size: 1.75rem !important; }
+  h5 { font-size: 1.5rem !important; }
+  h6 { font-size: 1.25rem !important; }
 
   :focus-visible {
     @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
@@ -190,6 +203,40 @@
 
   .element-outline-hover {
     @apply border border-border/30 hover:border-border/60 transition-colors duration-200;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scroll-reviews {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 5s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-scroll-reviews {
+    animation: scroll-reviews 5s linear infinite;
+  }
+
+  .animate-scroll-reviews:hover {
+    animation-play-state: paused;
   }
 }
 

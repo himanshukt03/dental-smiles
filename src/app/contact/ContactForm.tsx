@@ -73,7 +73,7 @@ const ContactForm = () => {
 
   return (
     <BentoCard className="p-6 sm:p-8">
-      <h2 className="text-2xl font-heading font-semibold text-foreground mb-6">
+  <h2 className="text-2xl font-heading text-foreground mb-6">
         Send Us a Message
       </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
