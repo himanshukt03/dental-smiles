@@ -1,14 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-	ArrowRight,
 	CalendarCheck,
 	CheckCircle,
-	CreditCard,
+	ExternalLink,
+	FileText,
 	Phone,
 	PiggyBank,
 	ShieldCheck,
-	Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BentoCard from "@/components/UI/BentoCard";
@@ -76,9 +75,21 @@ const cardOptions = [
 ];
 
 export const metadata = {
-	title: "Your First Visit | Dental Smiles",
+	title: "Your First Visit",
 	description:
-		"Learn how to prepare for your first visit to Dental Smiles and what to expect during your appointment.",
+		"Learn how to prepare for your first visit to Dental Smiles and what to expect during your appointment. Insurance, financing, and membership options available.",
+	keywords: [
+		"new patient dentist Austin",
+		"dental insurance Austin",
+		"dental financing",
+		"first dental visit",
+		"dental membership plan",
+	],
+	openGraph: {
+		title: "Your First Visit | What to Expect at Dental Smiles",
+		description:
+			"Learn how to prepare for your first visit to Dental Smiles and what to expect during your appointment.",
+	},
 };
 
 const FirstVisitPage = () => {
@@ -142,35 +153,68 @@ const FirstVisitPage = () => {
 
 			<section className="section-padding bg-clinical-creme">
 				<div className="container-clinical">
-					<div className="mx-auto mb-10 max-w-3xl space-y-4 text-center">
+					<div className="mx-auto mb-8 max-w-3xl space-y-3 text-center">
 						<h2 className="text-3xl md:text-4xl font-heading text-foreground">Your first visit at Dental Smiles</h2>
-						<p className="text-lg text-muted-foreground">
-							Your first visit typically takes 60–90 minutes. Here&apos;s a step-by-step overview of what you can expect while you&apos;re with us.
+						<p className="text-base text-muted-foreground">
+							Your first visit typically takes 60–90 minutes. Here&apos;s what you can expect.
 						</p>
 					</div>
-					<div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-stretch lg:gap-16">
-						<div className="space-y-4 sm:space-y-5">
+					<div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-stretch lg:gap-12">
+						<div className="space-y-3">
 							{whatToExpect.map((item) => (
 								<div
 									key={item.step}
-									className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white/90 p-5 shadow-sm backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-6"
+									className="relative overflow-hidden rounded-2xl border border-primary/10 bg-white/90 p-4 shadow-sm backdrop-blur-sm transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-md"
 								>
-									<div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
-									<div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent" />
-									<Sparkles className="absolute -right-2 -top-2 h-10 w-10 text-primary/15" aria-hidden="true" />
-									<div className="relative flex items-start gap-4 sm:gap-5">
-										<div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-[#9d2354] text-base font-semibold text-primary-foreground shadow-lg ring-4 ring-primary/15 sm:h-12 sm:w-12 sm:text-lg">
+									<div className="relative flex items-center gap-4">
+										<div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-[#9d2354] text-sm font-semibold text-primary-foreground shadow-md">
 											{item.step}
 										</div>
-										<div className="flex-1 space-y-2 sm:space-y-2.5">
-											<h3 className="text-base font-heading text-foreground sm:text-lg">{item.title}</h3>
-											<p className="text-sm leading-relaxed text-muted-foreground/90 sm:text-[15px]">
+										<div className="flex-1">
+											<h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+											<p className="text-sm text-muted-foreground/90">
 												{item.description}
 											</p>
 										</div>
 									</div>
 								</div>
 							))}
+
+							{/* New Patient Forms Buttons */}
+							<div className="pt-4 space-y-3">
+								<p className="text-sm text-muted-foreground font-medium">
+									New patient? Save time by completing your forms online before your visit:
+								</p>
+								<div className="flex flex-col sm:flex-row gap-3">
+									<Link
+										href="https://rwl.io/4iLR7XB"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="w-full sm:w-auto"
+									>
+										<Button className="btn-primary w-full px-5 py-3 text-sm">
+											<FileText className="mr-2 h-4 w-4" />
+											Forms in English
+											<ExternalLink className="ml-2 h-3.5 w-3.5" />
+										</Button>
+									</Link>
+									<Link
+										href="https://rwl.io/429XDBg"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="w-full sm:w-auto"
+									>
+										<Button
+											variant="outline"
+											className="w-full px-5 py-3 text-sm border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"
+										>
+											<FileText className="mr-2 h-4 w-4" />
+											Formularios en Español
+											<ExternalLink className="ml-2 h-3.5 w-3.5" />
+										</Button>
+									</Link>
+								</div>
+							</div>
 						</div>
 						<div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/60 shadow-lg sm:max-w-md lg:max-w-lg lg:self-stretch lg:h-full">
 							<div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[4/3] lg:h-full lg:aspect-auto">
@@ -230,13 +274,13 @@ const FirstVisitPage = () => {
 			<section className="section-padding bg-clinical-creme">
 				<div className="container-clinical">
 					<div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:gap-16">
-						<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/60 shadow-lg sm:max-w-sm lg:max-w-md">
-							<div className="relative aspect-[4/3]">
+						<div className="relative mx-auto w-full max-w-md overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/60 shadow-lg sm:max-w-lg lg:max-w-xl lg:h-full">
+							<div className="relative w-full h-full min-h-[300px] lg:min-h-full">
 								<Image
-									src="/assets/dental-team.jpg"
+									src="/assets/payment-options/financing-img.jpg"
 									alt="Couple reviewing dental financing options."
 									fill
-									sizes="(min-width: 1024px) 360px, (min-width: 768px) 40vw, 75vw"
+									sizes="(min-width: 1024px) 460px, (min-width: 768px) 50vw, 85vw"
 									className="object-cover"
 								/>
 							</div>
@@ -262,18 +306,29 @@ const FirstVisitPage = () => {
 									))}
 								</ul>
 								<div className="flex flex-col gap-3 sm:flex-row">
-									<Link href="/contact" className="w-full sm:w-auto">
+									<Link
+										href="https://www.carecredit.com/go/747CRM/?dtc=DS7X&sitecode=CCCAPDS7X"
+										target="_blank"
+										rel="noreferrer"
+										className="w-full sm:w-auto"
+									>
 										<Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
-											Discuss financing
+											Apply for CareCredit
+											<ExternalLink className="ml-2 h-4 w-4" />
 										</Button>
 									</Link>
-									<Link href="https://apply.sunbit.com" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+									<Link
+										href="https://apply.sunbit.com/DentalSmiles-Austin"
+										target="_blank"
+										rel="noreferrer"
+										className="w-full sm:w-auto"
+									>
 										<Button
 											variant="outline"
 											className="w-full sm:w-auto border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground"
 										>
-											Apply online
-											<ArrowRight className="ml-2 h-4 w-4" />
+											Apply for Sunbit
+											<ExternalLink className="ml-2 h-4 w-4" />
 										</Button>
 									</Link>
 								</div>
@@ -349,56 +404,56 @@ const FirstVisitPage = () => {
 									</Button>
 								</Link>
 							</div>
-					</div>
+						</div>
 
-					<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.5rem] border border-primary/20 bg-primary/20 shadow-2xl sm:max-w-sm lg:max-w-md">
-						<div className="relative aspect-[4/3]">
-							<Image
-								src="/assets/dental.jpg"
-								alt="Smiling patient holding a membership card."
-								fill
-								sizes="(min-width: 1024px) 360px, (min-width: 768px) 40vw, 75vw"
-								className="object-cover"
-							/>
-						</div>
-						<div className="absolute bottom-4 left-4 rounded-2xl bg-white/90 px-4 py-2 text-xs font-semibold text-primary shadow-lg">
-							Exclusive member perks
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>			
-		
-		<section className="section-padding">
-			<div className="container-clinical">
-				<div className="w-full rounded-3xl border border-primary/10 bg-gradient-to-br from-white to-clinical-creme/80 p-8 sm:p-12 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5">
-					<div className="space-y-4">
-						<h2 className="text-3xl md:text-4xl font-heading text-foreground leading-tight">
-							Have a question about our services?
-						</h2>
-						<p className="text-lg text-muted-foreground max-w-prose">
-							Interested in learning more about financing, membership, or what to expect during your first visit?
-							Our care team is here to help every step of the way.
-						</p>
-						<div className="flex flex-col gap-3 sm:flex-row sm:items-center mt-4">
-							<Link href="/contact" className="w-full sm:w-auto">
-								<Button className="w-full sm:w-auto bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out transform hover:-translate-y-0.5">
-									Contact us
-								</Button>
-							</Link>
-							<Link href="tel:5124679955" className="w-full sm:w-auto">
-								<Button
-									variant="outline"
-									className="w-full sm:w-auto border border-primary/20 bg-white/60 px-6 py-3 rounded-lg text-primary hover:bg-primary/5 hover:border-primary transition duration-200 ease-in-out"
-								>
-									Call 512-467-9955
-								</Button>
-							</Link>
+						<div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-[1.5rem] border border-primary/20 bg-primary/20 shadow-2xl sm:max-w-sm lg:max-w-md">
+							<div className="relative aspect-[4/3]">
+								<Image
+									src="/assets/In_House_Membership_Plan.jpg"
+									alt="Smiling patient holding a membership card."
+									fill
+									sizes="(min-width: 1024px) 360px, (min-width: 768px) 40vw, 75vw"
+									className="object-cover"
+								/>
+							</div>
+							<div className="absolute bottom-4 left-4 rounded-2xl bg-white/90 px-4 py-2 text-xs font-semibold text-primary shadow-lg">
+								Exclusive member perks
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+
+			<section className="section-padding">
+				<div className="container-clinical">
+					<div className="w-full rounded-3xl border border-primary/10 bg-gradient-to-br from-white to-clinical-creme/80 p-8 sm:p-12 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5">
+						<div className="space-y-4">
+							<h2 className="text-3xl md:text-4xl font-heading text-foreground leading-tight">
+								Have a question about our services?
+							</h2>
+							<p className="text-lg text-muted-foreground max-w-prose">
+								Interested in learning more about financing, membership, or what to expect during your first visit?
+								Our care team is here to help every step of the way.
+							</p>
+							<div className="flex flex-col gap-3 sm:flex-row sm:items-center mt-4">
+								<Link href="/contact" className="w-full sm:w-auto">
+									<Button className="w-full sm:w-auto bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out transform hover:-translate-y-0.5">
+										Contact us
+									</Button>
+								</Link>
+								<Link href="tel:5124679955" className="w-full sm:w-auto">
+									<Button
+										variant="outline"
+										className="w-full sm:w-auto border border-primary/20 bg-white/60 px-6 py-3 rounded-lg text-primary hover:bg-primary/5 hover:border-primary transition duration-200 ease-in-out"
+									>
+										Call 512-467-9955
+									</Button>
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 	);
 };

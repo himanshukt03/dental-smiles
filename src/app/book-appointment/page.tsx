@@ -45,7 +45,7 @@ const BookAppointmentPage = () => {
                     <Calendar className="w-5 h-5 text-primary mt-1" />
                     <div>
                       <p className="font-medium text-foreground">Confirmation</p>
-                      <p className="text-sm text-muted-foreground">We'll call to confirm your appointment</p>
+                      <p className="text-sm text-muted-foreground">We&apos;ll call to confirm your appointment</p>
                     </div>
                   </div>
                 </div>
