@@ -3,11 +3,66 @@ import "./globals.css";
 import Providers from "@/components/Providers";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
+import RevenueWellChatbot from "@/components/RevenueWellChatbot";
 
 export const metadata: Metadata = {
-  title: "Dental Smiles | Compassionate Austin Dentistry",
+  metadataBase: new URL("https://mydentalsmiles.com"),
+  title: {
+    default: "Dental Smiles | Compassionate Austin Dentistry",
+    template: "%s | Dental Smiles",
+  },
   description:
     "Dental Smiles provides compassionate, technology-driven dental care in Austin, Texas. Experience personalized treatments for the whole family.",
+  keywords: [
+    "Austin dentist",
+    "family dentistry Austin",
+    "dental care Austin TX",
+    "cosmetic dentistry Austin",
+    "dental implants Austin",
+    "teeth cleaning Austin",
+    "emergency dentist Austin",
+    "Dental Smiles",
+    "Dr. Divya Shetty",
+    "Mueller dental",
+  ],
+  authors: [{ name: "Dental Smiles" }],
+  creator: "Dental Smiles",
+  publisher: "Dental Smiles",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://mydentalsmiles.com",
+    siteName: "Dental Smiles",
+    title: "Dental Smiles | Compassionate Austin Dentistry",
+    description:
+      "Dental Smiles provides compassionate, technology-driven dental care in Austin, Texas. Experience personalized treatments for the whole family.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Dental Smiles - Compassionate Austin Dentistry",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dental Smiles | Compassionate Austin Dentistry",
+    description:
+      "Dental Smiles provides compassionate, technology-driven dental care in Austin, Texas. Experience personalized treatments for the whole family.",
+    images: ["/og-image.png"],
+  },
   manifest: "/manifest.json",
   icons: {
     icon: [
@@ -18,7 +73,12 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   appleWebApp: {
-    title: "MyWebSite",
+    title: "Dental Smiles",
+    capable: true,
+    statusBarStyle: "default",
+  },
+  verification: {
+    google: "google-site-verification-code",
   },
 };
 
@@ -37,7 +97,11 @@ export default function RootLayout({
             <Footer />
           </div>
         </Providers>
+
+        {/* RevenueWell Chatbot */}
+        <RevenueWellChatbot />
       </body>
     </html>
   );
 }
+

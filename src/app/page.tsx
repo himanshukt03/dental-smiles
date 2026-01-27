@@ -6,11 +6,7 @@ import {
   Calendar,
   Phone,
   Star,
-  Award,
-  Users,
-  Clock,
   MapPin,
-  Shield,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -29,13 +25,7 @@ type Testimonial = {
   link: string;
 };
 
-import type { ReactElement } from 'react';
 
-type Feature = {
-  icon: ReactElement;
-  title: string;
-  description: string;
-};
 
 type Service = {
   name: string;
@@ -109,6 +99,7 @@ const truncateReview = (text: string) =>
     ? `${text.slice(0, TESTIMONIAL_PREVIEW_LENGTH).trimEnd()}…`
     : text;
 
+/*
 const features: Feature[] = [
   {
     icon: <Award className="w-6 h-6" />,
@@ -131,6 +122,7 @@ const features: Feature[] = [
     description: 'Convenient scheduling to fit your busy lifestyle',
   },
 ];
+*/
 
 const services: Service[] = [
   { name: 'General Dentistry', description: 'Routine cleanings & checkups' },
@@ -180,7 +172,7 @@ const MobileHero = () => (
         </div>
       </div>
 
-  <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
+      <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
         <div className="text-center">
           <div className="text-lg font-semibold text-primary">20+</div>
           <div className="text-[11px] text-muted-foreground">Years Experience</div>
@@ -203,17 +195,17 @@ const MobileHero = () => (
 );
 
 const DesktopHero = () => (
-  <section className="relative hidden md:block md:py-20 bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
-    <div className="container-clinical">
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div className="space-y-6">
-          <div className="space-y-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-heading text-foreground leading-tight">
+  <section className="relative hidden md:flex md:items-center md:min-h-[calc(100vh-80px)] bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
+    <div className="container-clinical py-16 lg:py-20 xl:py-24">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
+        <div className="space-y-6 lg:space-y-8">
+          <div className="space-y-4 lg:space-y-6">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading text-foreground leading-tight">
               Where Families Can
               <br />
               <span className="text-primary"> Smile Confidently</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
               Providing quality dental care for patients of all ages
             </p>
           </div>
@@ -236,22 +228,22 @@ const DesktopHero = () => (
             </Button>
           </div>
 
-          <div className="grid gap-6 pt-6 border-t border-border sm:grid-cols-3 sm:gap-4">
+          <div className="grid gap-6 pt-6 border-t border-border sm:grid-cols-3 sm:gap-4 lg:gap-6">
             <div className="text-center sm:text-left">
-              <div className="text-2xl font-bold text-primary">20+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-2xl lg:text-3xl font-bold text-primary">20+</div>
+              <div className="text-sm lg:text-base text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center sm:text-left">
-              <div className="text-2xl font-bold text-primary">5000+</div>
-              <div className="text-sm text-muted-foreground">Happy Patients</div>
+              <div className="text-2xl lg:text-3xl font-bold text-primary">5000+</div>
+              <div className="text-sm lg:text-base text-muted-foreground">Happy Patients</div>
             </div>
             <div className="text-center sm:text-left">
               <div className="flex justify-center sm:justify-start mb-1">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  <Star key={i} className="w-4 h-4 lg:w-5 lg:h-5 fill-primary text-primary" />
                 ))}
               </div>
-              <div className="text-sm text-muted-foreground">4.9-Star Reviews</div>
+              <div className="text-sm lg:text-base text-muted-foreground">4.9-Star Reviews</div>
             </div>
           </div>
         </div>
@@ -389,7 +381,7 @@ export default function LandingPage() {
                   Why Choose Dental Smiles?
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  We're proud to be a local, female-owned dental practice providing personalized, patient-centered care.
+                  We&apos;re proud to be a local, female-owned dental practice providing personalized, patient-centered care.
                 </p>
               </div>
 
