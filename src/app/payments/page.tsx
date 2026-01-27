@@ -58,7 +58,7 @@ const PaymentsPage = () => {
             Payment Options & Insurance
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-            We believe quality dental care should be accessible to everyone. That's why we offer multiple payment options and work with most insurance plans to make your treatment affordable.
+            We believe quality dental care should be accessible to everyone. That&apos;s why we offer multiple payment options and work with most insurance plans to make your treatment affordable.
           </p>
         </div>
       </section>
@@ -110,7 +110,7 @@ const PaymentsPage = () => {
               Insurance & Benefits
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We're in-network with most major dental insurance plans and will help you maximize your benefits.
+              We&apos;re in-network with most major dental insurance plans and will help you maximize your benefits.
             </p>
           </div>
 
@@ -152,7 +152,7 @@ const PaymentsPage = () => {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground mt-4">
-                Don't see your insurance? Contact us to verify coverage.
+                Don&apos;t see your insurance? Contact us to verify coverage.
               </p>
             </BentoCard>
           </div>
@@ -167,7 +167,7 @@ const PaymentsPage = () => {
                 Flexible Financing Options
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Don't let finances stand in the way of your oral health. We offer flexible financing through CareCredit and in-house payment plans to make treatment affordable.
+                Don&apos;t let finances stand in the way of your oral health. We offer flexible financing through CareCredit and in-house payment plans to make treatment affordable.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 mb-8">

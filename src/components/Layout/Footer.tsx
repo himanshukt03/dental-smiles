@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
-import { MapPin, Phone, Clock, Facebook, Instagram, Twitter } from "lucide-react";
+import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import DentalSmilesLogo from "@/assets/DentalSmilesLogo.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -21,45 +23,26 @@ const Footer = () => {
 
   return (
     <footer className="bg-clinical-creme border-t border-border">
-      <div className="container-clinical">
+      <div className="w-full px-8 md:px-12 lg:px-24 mx-auto max-w-[1920px]">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 xl:gap-12">
           {/* Practice Info */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-hover rounded-bento flex items-center justify-center text-primary-foreground font-bold text-lg">
-                DS
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-40 h-16 rounded-bento overflow-hidden flex items-center justify-center relative">
+                <Image
+                  src={DentalSmilesLogo}
+                  alt="Dental Smiles Logo"
+                  fill
+                  className="object-contain"
+                  sizes="160px"
+                />
               </div>
-              <div className="font-heading font-semibold text-xl text-foreground">
-                Dental Smiles
-              </div>
-            </div>
+            </Link>
             <p className="text-muted-foreground leading-relaxed">
               Providing exceptional dental care with a gentle touch. Our experienced team is committed to helping you achieve optimal oral health and a beautiful smile.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-card rounded-bento flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-card rounded-bento flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-card rounded-bento flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-            </div>
+
           </div>
 
           {/* Quick Links */}
@@ -106,11 +89,20 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a 
-                  href="tel:+15124679955" 
+                <a
+                  href="tel:+15124679955"
                   className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                 >
                   512-467-9955
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                <a
+                  href="mailto:info@mydentalsmiles.com"
+                  className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                >
+                  info@mydentalsmiles.com
                 </a>
               </div>
               <div className="flex items-start space-x-3">
@@ -127,32 +119,41 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+          {/* Location Map (New Column) */}
+          <div className="space-y-6">
+            <h3 className="font-heading text-lg text-foreground">Location</h3>
+            <div className="w-full h-40 rounded-bento overflow-hidden border border-border/50 shadow-sm relative group">
+              <iframe
+                title="Dental Smiles Location"
+                src="https://maps.google.com/maps?q=1201%20Barbara%20Jordan%20Blvd%20Suite%20%231435%20Austin%20TX%2078723&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <Link
+                href="https://maps.google.com/maps?q=1201%20Barbara%20Jordan%20Blvd%20Suite%20%231435%20Austin%20TX%2078723"
+                target="_blank"
+                className="absolute inset-0 z-10"
+                aria-label="Open in Google Maps"
+              />
+            </div>
+            <a
+              href="https://maps.google.com/maps?q=1201%20Barbara%20Jordan%20Blvd%20Suite%20%231435%20Austin%20TX%2078723"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+            >
+              <MapPin className="mr-1.5 w-4 h-4" />
+              Get Directions
+            </a>
+          </div>
         </div>
 
         {/* Bottom Footer */}
         <div className="py-6 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-muted-foreground text-sm">
             © {currentYear} Dental Smiles. All rights reserved.
-          </div>
-          <div className="flex space-x-6 text-sm">
-            <Link 
-              href="/privacy-policy" 
-              className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
-            >
-              Privacy Policy
-            </Link>
-            <Link 
-              href="/terms-of-service" 
-              className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
-            >
-              Terms of Service
-            </Link>
-            <Link 
-              href="/accessibility" 
-              className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
-            >
-              Accessibility
-            </Link>
           </div>
         </div>
       </div>
