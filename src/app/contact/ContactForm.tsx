@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { format } from 'date-fns';
-import { CalendarCheck, CalendarDays, Clock, Mail, Phone } from 'lucide-react';
+import { CalendarCheck, CalendarDays, Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -243,7 +243,7 @@ const ContactForm = () => {
 			});
 
 			setFormData(initialFormState);
-		} catch (error) {
+		} catch {
 			toast({
 				title: 'Unable to send request',
 				description: 'Please try again or call our office directly.',
