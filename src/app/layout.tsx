@@ -6,7 +6,7 @@ import Footer from "@/components/Layout/Footer";
 import RevenueWellChatbot from "@/components/RevenueWellChatbot";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mydentalsmiles.com"),
+  metadataBase: new URL("https://dental-smiles.vercel.app"),
   title: {
     default: "Dental Smiles | Compassionate Austin Dentistry",
     template: "%s | Dental Smiles",
@@ -42,14 +42,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://mydentalsmiles.com",
+    url: "https://dental-smiles.vercel.app",
     siteName: "Dental Smiles",
     title: "Dental Smiles | Compassionate Austin Dentistry",
     description:
       "Dental Smiles provides compassionate, technology-driven dental care in Austin, Texas. Experience personalized treatments for the whole family.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://dental-smiles.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Dental Smiles - Compassionate Austin Dentistry",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "Dental Smiles | Compassionate Austin Dentistry",
     description:
       "Dental Smiles provides compassionate, technology-driven dental care in Austin, Texas. Experience personalized treatments for the whole family.",
-    images: ["/og-image.png"],
+    images: ["https://dental-smiles.vercel.app/og-image.png"],
   },
   manifest: "/manifest.json",
   icons: {
