@@ -84,18 +84,178 @@
     letter-spacing: 0.005em;
   }
 
-  h1 { font-size: 3rem !important; font-weight: bold; }
+  h1 {
+    font-size: 3rem !important;
+    font-weight: bold;
+  }
+
   @media (max-width: 640px) {
-    h1 { font-size: 2.125rem !important; }
+    h1 {
+      font-size: 2.125rem !important;
+    }
   }
-  h2 { font-size: 2.25rem !important; }
-    @media (max-width: 640px) {
-    h2 { font-size: 2rem !important; }
+
+  h2 {
+    font-size: 2.25rem !important;
   }
-  h3 { font-size: 1.5rem !important; }
-  h4 { font-size: 1.75rem !important; }
-  h5 { font-size: 1.5rem !important; }
-  h6 { font-size: 1.25rem !important; }
+
+  @media (max-width: 640px) {
+    h2 {
+      font-size: 2rem !important;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem !important;
+  }
+
+  h4 {
+    font-size: 1.75rem !important;
+  }
+
+  h5 {
+    font-size: 1.5rem !important;
+  }
+
+  h6 {
+    font-size: 1.25rem !important;
+  }
+
+  /* Custom Blog Typography Classes - Override global heading styles */
+  .blog-sidebar-header {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1.0625rem !important;
+    /* 17px */
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .blog-sidebar-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1rem !important;
+    /* 16px */
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .blog-card-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1.125rem !important;
+    /* 18px */
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .blog-featured-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1.25rem !important;
+    /* 20px */
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .blog-main-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1.625rem !important;
+    /* 26px */
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+  }
+
+  @media (min-width: 768px) {
+    .blog-featured-title {
+      font-size: 1.375rem !important;
+      /* 22px */
+    }
+
+    .blog-main-title {
+      font-size: 1.875rem !important;
+      /* 30px */
+    }
+  }
+
+  .blog-sidebar-date {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 0.8125rem !important;
+    /* 13px */
+    font-weight: 500 !important;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  .blog-card-meta {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 0.8125rem !important;
+    /* 13px */
+    font-weight: 500 !important;
+  }
+
+  /* Blog Prose Styles - Override all headings to use Inter */
+  .blog-prose {
+    font-family: 'Inter', system-ui, sans-serif !important;
+  }
+
+  .blog-prose h2 {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.01em !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .blog-prose h3 {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0 !important;
+    margin-top: 1.75rem !important;
+    margin-bottom: 0.75rem !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .blog-prose h4 {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .blog-prose p {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.75 !important;
+    margin-bottom: 1.25rem !important;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  .blog-prose strong {
+    font-weight: 600 !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .blog-prose li {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  .blog-prose ul,
+  .blog-prose ol {
+    margin-bottom: 1.25rem !important;
+  }
 
   :focus-visible {
     @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
@@ -134,7 +294,7 @@
   .card-clinical {
     @apply bg-card rounded-[var(--radius-bento)] border border-border;
     @apply shadow-[var(--shadow-clinical)] hover:shadow-[var(--shadow-hover)];
-    @apply transition-[transform,box-shadow] duration-300 hover:scale-[1.01];
+    @apply transition-all duration-300 hover:scale-[1.01];
   }
 
   .card-bento {
@@ -215,6 +375,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
@@ -224,6 +385,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
