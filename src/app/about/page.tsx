@@ -19,15 +19,27 @@ const teamImages: Record<string, string> = {
 const defaultTeamImage = "/assets/team/dr-divya-shetty.webp";
 
 export const metadata = {
-  title: "About Dental Smiles",
+  title: "About Us",
   description:
-    "Discover the mission, values, and experienced team that make Dental Smiles a trusted Austin dental practice.",
+    "Discover the mission, values, and experienced team that make Dental Smiles a trusted Austin dental practice. Meet Dr. Divya Shetty and our caring staff.",
+  keywords: [
+    "Austin dental team",
+    "Dr. Divya Shetty",
+    "dental technology",
+    "Mueller dentist",
+    "family dentist Austin",
+  ],
+  openGraph: {
+    title: "About Dental Smiles | Meet Our Austin Dental Team",
+    description:
+      "Discover the mission, values, and experienced team that make Dental Smiles a trusted Austin dental practice.",
+  },
 };
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen">
-  <section className="section-padding pt-12 sm:pt-14 lg:pt-20 pb-16 lg:pb-20 bg-gradient-to-br from-clinical-creme to-clinical-grey">
+      <section className="section-padding pt-12 sm:pt-14 lg:pt-20 pb-16 lg:pb-20 bg-gradient-to-br from-clinical-creme to-clinical-grey">
         <div className="container-clinical">
           <div className="relative overflow-hidden rounded-[1.9rem] border border-primary/10 bg-white/90 shadow-xl">
             <div className="absolute -left-16 top-0 h-48 w-48 rounded-full bg-primary/15 blur-3xl" aria-hidden="true" />
