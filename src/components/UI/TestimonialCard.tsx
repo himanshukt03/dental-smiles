@@ -28,7 +28,7 @@ const TestimonialCard = ({ name, text, rating, date, treatment }: TestimonialCar
 
       {/* Testimonial Text */}
       <blockquote className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-        "{text}"
+        &ldquo;{text}&rdquo;
       </blockquote>
 
       {/* Author Info */}
