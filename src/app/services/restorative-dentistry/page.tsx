@@ -267,10 +267,25 @@ export default function RestorativeDentistryPage() {
     <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20 text-foreground">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-10 pb-16 lg:pt-14 lg:pb-20 border-b border-primary/10 bg-gradient-to-br from-primary/5 via-white to-clinical-creme/30">
+        <style>{`
+          @keyframes heroFadeUp {
+            0% { opacity: 0; transform: translateY(28px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+          }
+          @keyframes heroZoomIn {
+            0% { opacity: 0; transform: scale(0.94); }
+            100% { opacity: 1; transform: scale(1); }
+          }
+          .animate-hero-up { animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+          .animate-hero-zoom { animation: heroZoomIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) both; }
+          .delay-100 { animation-delay: 0.12s; }
+          .delay-200 { animation-delay: 0.24s; }
+          .delay-300 { animation-delay: 0.36s; }
+        `}</style>
         <div className="absolute top-0 right-0 -mt-12 -mr-12 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
         <div className="container-clinical relative z-10">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-center">
-            <div className="space-y-6 text-center sm:text-left">
+            <div className="space-y-6 text-center sm:text-left animate-hero-up delay-100">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary border border-primary/15 shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" /> Restorative Dentistry in Austin, TX
               </span>
@@ -334,7 +349,7 @@ export default function RestorativeDentistryPage() {
             </div>
 
             {/* Hero Image Showcase */}
-            <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div className="relative mx-auto w-full max-w-md lg:max-w-none animate-hero-zoom delay-200">
               <div className="relative overflow-hidden rounded-[2.25rem] border border-primary/15 bg-white shadow-2xl">
                 <div className="relative aspect-[4/3] lg:aspect-[16/11]">
                   <Image

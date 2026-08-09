@@ -229,44 +229,31 @@ const ScribbleUnderline = ({ className = '' }: { className?: string }) => (
 const MobileHero = () => (
   <section className="relative overflow-hidden md:hidden bg-gradient-to-b from-clinical-bg via-white to-clinical-grey/40 pt-6 pb-9">
     <style>{`
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
+      @keyframes heroFadeUp {
+        0% { opacity: 0; transform: translateY(24px) scale(0.97); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
       }
-      @keyframes breathe {
+      @keyframes heroZoomIn {
+        0% { opacity: 0; transform: scale(0.94); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      @keyframes heroFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes heroBreathe {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.4; }
       }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeInScale {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      .animate-float { animation: float 6s ease-in-out infinite; }
-      .animate-breathe { animation: breathe 5s ease-in-out infinite; }
-      .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-      .animate-fade-in-scale { animation: fadeInScale 0.9s ease-out forwards; }
-      .delay-100 { animation-delay: 0.1s; }
-      .delay-200 { animation-delay: 0.2s; }
-      .delay-300 { animation-delay: 0.3s; }
-      .delay-400 { animation-delay: 0.4s; }
-      .delay-500 { animation-delay: 0.5s; }
-      .delay-600 { animation-delay: 0.6s; }
+      .animate-hero-up { animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both; }
+      .animate-hero-zoom { animation: heroZoomIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+      .animate-float { animation: heroFloat 6s ease-in-out infinite; }
+      .animate-breathe { animation: heroBreathe 5s ease-in-out infinite; }
+      .delay-100 { animation-delay: 0.12s; }
+      .delay-200 { animation-delay: 0.24s; }
+      .delay-300 { animation-delay: 0.36s; }
+      .delay-400 { animation-delay: 0.48s; }
+      .delay-500 { animation-delay: 0.6s; }
     `}</style>
     <svg
       viewBox="0 0 220 220"
@@ -276,7 +263,7 @@ const MobileHero = () => (
       <path d="M38 26c32-18 78-12 108 18s36 76 18 108-62 52-96 40-62-58-56-96 16-52 26-70z" fill="currentColor" />
     </svg>
     <div className="container-clinical px-4 space-y-6 sm:px-6">
-      <div className="relative w-full overflow-hidden shadow-clinical rounded-bento h-[clamp(220px,62vw,340px)] animate-fade-in-scale delay-100">
+      <div className="relative w-full overflow-hidden shadow-clinical rounded-bento h-[clamp(220px,62vw,340px)] animate-hero-zoom delay-100">
         <img
           src="/assets/dental-office-hero.webp"
           alt="Modern dental office with comfortable patient chair and advanced equipment"
@@ -285,7 +272,7 @@ const MobileHero = () => (
       </div>
 
       <div className="space-y-5 text-center">
-        <div className="space-y-3 animate-fade-in-up delay-200">
+        <div className="space-y-3 animate-hero-up delay-200">
           <h1 className="font-heading text-foreground leading-tight tracking-tight text-[clamp(1.25rem,5vw,1.6rem)]">
             <span className="block whitespace-nowrap">Where Families Can</span>
             <span className="relative inline-block text-primary whitespace-nowrap">
@@ -300,7 +287,7 @@ const MobileHero = () => (
 
         <div className="flex flex-col gap-3">
           <Link href="/contact#request-appointment">
-            <Button size="lg" className="btn-primary w-full animate-fade-in-up delay-300">
+            <Button size="lg" className="btn-primary w-full animate-hero-up delay-300">
               <Calendar className="w-5 h-5 mr-2" />
               Book Appointment
             </Button>
@@ -308,7 +295,7 @@ const MobileHero = () => (
           <Button
             variant="outline"
             size="lg"
-            className="w-full border border-primary/20 bg-white/70 hover:bg-primary/5 transition-colors shadow-none animate-fade-in-up delay-400"
+            className="w-full border border-primary/20 bg-white/70 hover:bg-primary/5 transition-colors shadow-none animate-hero-up delay-400"
             onClick={() => window.scrollTo(0, 0)}
           >
             <Phone className="w-5 h-5 mr-2" />
@@ -317,7 +304,7 @@ const MobileHero = () => (
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 border-t border-border pt-6 animate-fade-in-up delay-500">
+      <div className="grid grid-cols-3 gap-4 border-t border-border pt-6 animate-hero-up delay-500">
         <div className="text-center">
           <div className="text-lg font-semibold text-primary">20+</div>
           <div className="text-[11px] text-muted-foreground">Years Experience</div>
@@ -342,60 +329,41 @@ const MobileHero = () => (
 const DesktopHero = () => (
   <section className="relative hidden overflow-hidden md:flex md:items-center lg:min-h-[calc(100vh-80px)] bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
     <style>{`
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-16px); }
+      @keyframes heroFadeUp {
+        0% { opacity: 0; transform: translateY(28px) scale(0.97); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
       }
-      @keyframes float-delayed {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
+      @keyframes heroFadeRight {
+        0% { opacity: 0; transform: translateX(36px) scale(0.97); }
+        100% { opacity: 1; transform: translateX(0) scale(1); }
       }
-      @keyframes breathe {
+      @keyframes heroZoomIn {
+        0% { opacity: 0; transform: scale(0.93); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      @keyframes heroFloat {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-14px) rotate(1deg); }
+      }
+      @keyframes heroFloatDelayed {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-18px) rotate(-1deg); }
+      }
+      @keyframes heroBreathe {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.4; }
       }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeInRight {
-        from {
-          opacity: 0;
-          transform: translateX(40px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-      @keyframes fadeInScale {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      .animate-float { animation: float 6s ease-in-out infinite; }
-      .animate-float-delayed { animation: float-delayed 8s ease-in-out infinite 1s; }
-      .animate-breathe { animation: breathe 5s ease-in-out infinite; }
-      .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-      .animate-fade-in-right { animation: fadeInRight 0.9s ease-out forwards; }
-      .animate-fade-in-scale { animation: fadeInScale 0.9s ease-out forwards; }
-      .delay-100 { animation-delay: 0.1s; }
-      .delay-200 { animation-delay: 0.2s; }
-      .delay-300 { animation-delay: 0.3s; }
-      .delay-400 { animation-delay: 0.4s; }
-      .delay-500 { animation-delay: 0.5s; }
-      .delay-600 { animation-delay: 0.6s; }
+      .animate-hero-up { animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+      .animate-hero-right { animation: heroFadeRight 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+      .animate-hero-zoom { animation: heroZoomIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) both; }
+      .animate-float { animation: heroFloat 7s ease-in-out infinite; }
+      .animate-float-delayed { animation: heroFloatDelayed 9s ease-in-out infinite 1.5s; }
+      .animate-breathe { animation: heroBreathe 5s ease-in-out infinite; }
+      .delay-100 { animation-delay: 0.12s; }
+      .delay-200 { animation-delay: 0.24s; }
+      .delay-300 { animation-delay: 0.36s; }
+      .delay-400 { animation-delay: 0.48s; }
+      .delay-500 { animation-delay: 0.6s; }
     `}</style>
     <svg
       viewBox="0 0 260 260"
@@ -414,7 +382,7 @@ const DesktopHero = () => (
     <div className="container-clinical py-8 md:py-12 lg:py-16 xl:py-20">
       <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center">
         <div className="space-y-4 md:space-y-6 lg:space-y-8">
-          <div className="space-y-3 md:space-y-4 lg:space-y-6 animate-fade-in-up delay-100">
+          <div className="space-y-3 md:space-y-4 lg:space-y-6 animate-hero-up delay-100">
             <h1 className="text-xl md:text-2xl lg:text-3.5xl xl:text-5xl font-heading text-foreground leading-tight tracking-tight">
               Where Families Can
               <br />
@@ -428,9 +396,9 @@ const DesktopHero = () => (
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 animate-hero-up delay-200">
             <Link href="/contact#request-appointment">
-              <Button size="lg" className="btn-primary w-full sm:w-auto text-xs sm:text-sm animate-fade-in-up delay-200">
+              <Button size="lg" className="btn-primary w-full sm:w-auto text-xs sm:text-sm">
                 <Calendar className="w-4 h-4 mr-2" />
                 Book Appointment
               </Button>
@@ -438,7 +406,7 @@ const DesktopHero = () => (
             <Button
               variant="outline"
               size="lg"
-              className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto text-xs sm:text-sm animate-fade-in-up delay-300"
+              className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto text-xs sm:text-sm"
               onClick={() => window.scrollTo(0, 0)}
             >
               <Phone className="w-4 h-4 mr-2" />
@@ -446,7 +414,7 @@ const DesktopHero = () => (
             </Button>
           </div>
 
-          <div className="grid gap-4 pt-4 md:pt-6 border-t border-border sm:grid-cols-3 sm:gap-4 lg:gap-6 animate-fade-in-up delay-400">
+          <div className="grid gap-4 pt-4 md:pt-6 border-t border-border sm:grid-cols-3 sm:gap-4 lg:gap-6 animate-hero-up delay-300">
             <div className="text-center sm:text-left">
               <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-primary">20+</div>
               <div className="text-xs lg:text-sm text-muted-foreground">Years Experience</div>
@@ -466,15 +434,15 @@ const DesktopHero = () => (
           </div>
         </div>
 
-        <div className="relative mt-6 md:mt-0 animate-fade-in-right delay-200">
-          <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical animate-fade-in-scale">
+        <div className="relative mt-6 md:mt-0 animate-hero-right delay-200">
+          <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical animate-hero-zoom delay-100">
             <img
               src="/assets/dental-office-hero.webp"
               alt="Modern dental office with comfortable patient chair and advanced equipment"
               className="w-full h-full object-cover"
             />
           </div>
-          <Card className="max-w-xs mx-auto mt-3 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-5 md:-left-6 bg-card/95 backdrop-blur-sm border-clinical animate-fade-in-up delay-500">
+          <Card className="max-w-xs mx-auto mt-3 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-5 md:-left-6 bg-card/95 backdrop-blur-sm border-clinical animate-hero-up delay-400">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0">
