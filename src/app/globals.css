@@ -388,12 +388,14 @@
   }
 }
 
-/* Scaled-down Chatbot Widget with padding & corner offsets */
+/* Scaled-down Chatbot Widget with maroon branding & corner offsets */
 #rw-chat-container,
 #rw-chat-launcher,
 #rw-chat-widget,
 .rw-chat-trigger,
 .rw-launcher,
+button[id*="rw-chat"],
+button[class*="rw-chat"],
 iframe[id*="rw-chat"],
 iframe[src*="revenuewell"],
 div[id*="rw-chat"],
@@ -403,4 +405,32 @@ div[class*="rw-chat"] {
   bottom: 24px !important;
   right: 24px !important;
   margin: 8px !important;
+  --rw-primary-color: #741234 !important;
+  --rw-chat-primary-color: #741234 !important;
+  --primary-color: #741234 !important;
+}
+
+#rw-chat-launcher,
+#rw-chat-container button,
+#rw-chat-container .rw-launcher,
+.rw-chat-trigger,
+.rw-launcher,
+button[id*="rw-chat"],
+button[class*="rw-chat"],
+div[class*="rw-launcher"],
+div[class*="rw-chat-trigger"],
+div[id*="rw-chat-launcher"] {
+  background-color: #741234 !important;
+  background: #741234 !important;
+  border-color: #741234 !important;
+  color: #ffffff !important;
+}
+
+#rw-chat-launcher svg,
+#rw-chat-container svg,
+.rw-chat-trigger svg,
+.rw-launcher svg,
+button[class*="rw-chat"] svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
 }
