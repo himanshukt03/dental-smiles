@@ -129,104 +129,98 @@ export default function ServicePageTemplate({
   bottomBody,
 }: ServicePageTemplateProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20">
-      <section className="section-padding pt-10 pb-4">
+    <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/10">
+      {/* Hero Section */}
+      <section className="py-12 lg:py-16 bg-gradient-to-b from-primary/5 via-white to-transparent border-b border-primary/10">
         <div className="container-clinical">
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-gradient-to-br from-primary/5 via-white to-white shadow-xl">
-            <div className="absolute -top-16 right-4 h-44 w-44 rounded-full bg-primary/10 blur-3xl" />
-            <div className="relative grid grid-rows-[auto_auto_auto] gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:grid-rows-[auto_auto] md:gap-10 lg:p-10">
-              <div className="space-y-3 md:col-start-1 md:row-start-1">
-                <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
-                  {badge}
-                </span>
-                <h1 className="text-[1.05rem] font-heading text-foreground sm:text-3xl lg:text-4xl leading-tight sm:text-left text-center">
-                  {title}
-                </h1>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr] lg:gap-12 items-center">
+            <div className="space-y-5">
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                {badge}
+              </span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground leading-tight">
+                {title}
+              </h1>
+              <div className="space-y-3 text-base sm:text-lg leading-relaxed text-muted-foreground">
+                {intro.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
-
-              <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/70 shadow-lg sm:max-w-md md:mx-0 md:col-start-2 md:row-start-1 md:row-end-3 md:max-w-lg">
-                <div className="relative aspect-[16/9] sm:aspect-[4/3] md:aspect-[4/3] lg:aspect-[16/11]">
-                  <Image
-                    src={heroImage}
-                    alt={heroImageAlt}
-                    fill
-                    sizes="(min-width: 1024px) 420px, (min-width: 768px) 45vw, 75vw"
-                    className={cn('object-cover object-center scale-[1.02]', heroImageClassName)}
-                    priority
-                  />
-                </div>
-                <div className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1.5 text-[11px] font-semibold text-primary shadow">
-                  Trusted Austin dentistry
-                </div>
+              <div className="flex flex-col gap-3 sm:flex-row pt-2">
+                <Link href="/contact#request-appointment" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto px-6 py-3 font-semibold">
+                    <CalendarCheck className="mr-2 h-4 w-4" /> Contact Us
+                  </Button>
+                </Link>
+                <Link href="tel:5124679955" className="w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full sm:w-auto border-primary/20 bg-white/80 px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <Phone className="mr-2 h-4 w-4" /> 512.467.9955
+                  </Button>
+                </Link>
               </div>
+            </div>
 
-              <div className="space-y-5 md:col-start-1 md:row-start-2">
-                <div className="space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  {intro.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <Link href="/contact#request-appointment" className="w-full sm:w-auto">
-                    <Button className="w-full sm:w-auto px-4 py-3 text-xs font-semibold sm:text-sm">
-                      <CalendarCheck className="mr-2 h-4 w-4" /> Contact Us
-                    </Button>
-                  </Link>
-                  <Link href="tel:5124679955" className="w-full sm:w-auto">
-                    <Button
-                      variant="outline"
-                      className="w-full sm:w-auto border-primary/20 bg-white/80 px-4 py-3 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground sm:text-sm"
-                    >
-                      <Phone className="mr-2 h-4 w-4" /> 512.467.9955
-                    </Button>
-                  </Link>
-                </div>
+            <div className="relative mx-auto w-full overflow-hidden rounded-[2rem] border border-primary/10 shadow-xl bg-white">
+              <div className="relative aspect-[4/3] lg:aspect-[16/11]">
+                <Image
+                  src={heroImage}
+                  alt={heroImageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 500px, 100vw"
+                  className={cn('object-cover object-center', heroImageClassName)}
+                  priority
+                />
+              </div>
+              <div className="absolute left-4 top-4 rounded-full bg-white/90 backdrop-blur-md px-3.5 py-1.5 text-xs font-semibold text-primary shadow-sm border border-primary/10">
+                Trusted Austin dentistry
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-padding pt-16">
-        <div className="container-clinical space-y-10">
-          {sections.map((section, index) => {
-            const reverse = index % 2 === 1;
+      {/* Main Sections */}
+      <div className="space-y-16 lg:space-y-24 py-12 lg:py-16">
+        {sections.map((section, index) => {
+          const reverse = index % 2 === 1;
 
-            return (
-              <article
-                key={section.title}
-                id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
-                className={cn(
-                  'relative overflow-hidden rounded-[2.5rem] border border-primary/10 shadow-lg',
-                  'bg-gradient-to-br from-[#fff9f0] via-white to-[#fdf2f8]'
-                )}
-              >
+          return (
+            <section
+              key={section.title}
+              id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+              className="relative border-b border-primary/10 last:border-0 pb-16 lg:pb-24"
+            >
+              <div className="container-clinical">
                 <div
                   className={cn(
-                    'relative flex flex-col gap-10 p-8 md:p-12 lg:p-16',
+                    'flex flex-col gap-10 md:gap-14 lg:gap-16',
                     'md:flex-row md:items-start',
                     reverse && 'md:flex-row-reverse'
                   )}
                 >
-                  <div className="space-y-4 md:w-1/2 lg:w-[55%]">
-                    <h2 className="text-[1.8rem] md:text-4xl font-heading text-foreground leading-snug">
+                  <div className="space-y-5 md:w-1/2 lg:w-[55%]">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-foreground leading-tight">
                       {section.title}
                     </h2>
-                    <div className="space-y-3 text-base text-muted-foreground leading-relaxed">
+                    <div className="space-y-3 text-base sm:text-lg text-muted-foreground leading-relaxed">
                       {section.body.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>
                       ))}
                     </div>
 
                     {section.bullets && section.bullets.length > 0 && (
-                      <ul className="grid gap-3 sm:grid-cols-2">
+                      <ul className="grid gap-3 sm:grid-cols-2 pt-2">
                         {section.bullets.map((bullet) => (
                           <li
                             key={bullet}
-                            className="group flex items-center gap-3 rounded-bento bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm"
+                            className="group flex items-center gap-3 rounded-xl bg-white/80 p-3 shadow-sm border border-primary/10"
                           >
-                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
-                              <ArrowRight className="h-4 w-4" />
+                            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0">
+                              <ArrowRight className="h-3.5 w-3.5" />
                             </span>
                             <span className="text-sm font-medium text-foreground/90">
                               {bullet}
@@ -294,7 +288,7 @@ export default function ServicePageTemplate({
                     )}
 
                     {section.cta && (
-                      <Link href={section.cta.href} className="inline-flex">
+                      <Link href={section.cta.href} className="inline-flex pt-2">
                         <Button className="mt-2">{section.cta.label}</Button>
                       </Link>
                     )}
@@ -305,14 +299,14 @@ export default function ServicePageTemplate({
                   </div>
 
                   <div className="md:w-1/2 lg:w-[45%] md:sticky md:top-24">
-                    <div className="relative aspect-[5/4] overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/40 shadow-inner">
+                    <div className="relative aspect-[4/3] lg:aspect-[16/11] overflow-hidden rounded-[2rem] border border-primary/10 bg-white shadow-xl">
                       {section.image ? (
                         <Image
                           src={section.image}
                           alt={section.imageAlt ?? section.title}
                           fill
                           sizes="(min-width: 1024px) 540px, 100vw"
-                          className={cn('object-cover object-center scale-[1.02]', sectionImageClassName)}
+                          className={cn('object-cover object-center', sectionImageClassName)}
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/10 via-clinical-creme to-primary/5 p-8 text-center">
@@ -322,13 +316,14 @@ export default function ServicePageTemplate({
                     </div>
                   </div>
                 </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
+              </div>
+            </section>
+          );
+        })}
+      </div>
 
-      <section className="section-padding">
+      {/* Bottom CTA Banner */}
+      <section className="section-padding py-12 lg:py-16">
         <div className="container-clinical">
           <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/10 bg-primary text-primary-foreground shadow-xl">
             <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl" />
@@ -357,4 +352,5 @@ export default function ServicePageTemplate({
     </div>
   );
 }
+
 
