@@ -220,75 +220,65 @@ export default function PaymentsPage() {
       </section>
 
       {/* Flagship CareCredit Financing Showcase */}
-      <section className="py-8 sm:py-10 lg:py-12 bg-white border-t border-primary/10">
-        <div className="container-clinical max-w-6xl space-y-8">
-          <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground tracking-tight">
-              CareCredit Healthcare Financing
-            </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Pay for dental care over time with 0% promotional interest options.
-            </p>
-          </div>
+      <section className="py-10 sm:py-12 lg:py-16 bg-white border-t border-primary/10">
+        <div className="container-clinical max-w-6xl">
+          <div className="grid lg:grid-cols-[1fr_1.15fr] gap-8 lg:gap-12 items-center">
+            {/* CareCredit Card Image Showcase Frame */}
+            <div className="relative overflow-hidden rounded-2xl border border-primary/15 bg-slate-50 shadow-md group">
+              <div className="relative aspect-[16/10] w-full">
+                <Image
+                  src="/assets/care-credit-card-1.jpg"
+                  alt="CareCredit Healthcare Credit Card accepted at Dental Smiles"
+                  fill
+                  sizes="(min-width: 1024px) 520px, 100vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  priority
+                />
+              </div>
+              <div className="absolute top-3.5 left-3.5 bg-primary text-white text-[11px] font-bold px-3 py-1 rounded-full shadow">
+                ✨ 0% Promotional Interest
+              </div>
+            </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 via-white to-clinical-creme/50 p-6 sm:p-8 lg:p-10 shadow-lg">
-            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
-              {/* CareCredit Card Showcase Image */}
-              <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-                <div className="relative overflow-hidden rounded-2xl border border-primary/15 bg-white shadow-xl group">
-                  <div className="relative aspect-[16/10] w-full">
-                    <Image
-                      src="/assets/care-credit-card-1.jpg"
-                      alt="CareCredit Healthcare Credit Card accepted at Dental Smiles"
-                      fill
-                      sizes="(min-width: 1024px) 460px, 100vw"
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                      priority
-                    />
-                  </div>
-                  <div className="absolute top-3 left-3 bg-primary text-white text-[11px] font-bold px-3 py-1 rounded-full shadow border border-white/20">
-                    ✨ 0% Promotional Interest
-                  </div>
-                </div>
+            {/* CareCredit Details & Call To Action */}
+            <div className="space-y-5 text-left">
+              <div className="space-y-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-primary">
+                  <CreditCard className="h-3 w-3" /> Healthcare Financing
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground tracking-tight leading-tight">
+                  CareCredit Healthcare Financing
+                </h2>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  CareCredit functions as a dedicated healthcare credit card for dental implants, crowns, cosmetic smile makeovers, and family dentistry. Apply in just 2 minutes with instant approval.
+                </p>
               </div>
 
-              {/* CareCredit Details & Call To Action */}
-              <div className="space-y-5 text-center sm:text-left">
-                <div className="space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-heading font-bold text-foreground tracking-tight">
-                    Flexible Financing Made Easy
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    CareCredit functions as a dedicated healthcare credit card for dental implants, crowns, cosmetic smile makeovers, and family dentistry. Apply in just 2 minutes with instant approval.
-                  </p>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                {careCreditHighlights.map((highlight) => (
+                  <div key={highlight} className="flex items-center gap-2 text-xs font-medium text-foreground">
+                    <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
+                    <span>{highlight}</span>
+                  </div>
+                ))}
+              </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-left pt-1">
-                  {careCreditHighlights.map((highlight) => (
-                    <div key={highlight} className="flex items-center gap-2 text-xs font-medium text-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-                      <span>{highlight}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="pt-3 flex flex-col sm:flex-row gap-3 justify-center sm:justify-start">
-                  <Link
-                    href="https://www.carecredit.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto"
-                  >
-                    <Button className="btn-primary w-full sm:w-auto text-xs sm:text-sm font-semibold px-6 py-3 shadow-md">
-                      <ExternalLink className="mr-2 h-4 w-4" /> Apply for CareCredit Online
-                    </Button>
-                  </Link>
-                  <Link href="/contact" className="w-full sm:w-auto">
-                    <Button variant="outline" className="w-full sm:w-auto border-primary/20 text-primary hover:bg-primary hover:text-white text-xs sm:text-sm font-semibold px-6 py-3">
-                      <Phone className="mr-2 h-4 w-4" /> Ask Our Team About Plans
-                    </Button>
-                  </Link>
-                </div>
+              <div className="pt-3 flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="https://www.carecredit.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto"
+                >
+                  <Button className="btn-primary w-full sm:w-auto text-xs sm:text-sm font-semibold px-6 py-3 shadow-md">
+                    <ExternalLink className="mr-2 h-4 w-4" /> Apply for CareCredit Online
+                  </Button>
+                </Link>
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full sm:w-auto border-primary/20 text-primary hover:bg-primary hover:text-white text-xs sm:text-sm font-semibold px-6 py-3">
+                    <Phone className="mr-2 h-4 w-4" /> Ask Our Team About Plans
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
