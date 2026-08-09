@@ -20,6 +20,7 @@ import {
   HelpCircle,
   Shield,
   HeartPulse,
+  Info,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
