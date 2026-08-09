@@ -253,9 +253,9 @@ const AboutPage = () => {
 
       <section className="section-padding bg-background">
         <div className="container-clinical px-2 sm:px-4 lg:px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-heading text-foreground mb-4">Technology</h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">Our technology, services, and techniques are chosen with extra care to provide the most benefits to our patients.</p>
+          <div className="text-center mb-10">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">Technology</h2>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">Our technology, services, and techniques are chosen with extra care to provide the most benefits to our patients.</p>
           </div>
 
           <div>

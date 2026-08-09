@@ -123,8 +123,8 @@ export default function TechnologyCarousel() {
                 <div className="h-56 rounded-bento overflow-hidden mb-4">
                   <img src={it.img} alt={it.title} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-xl font-heading mb-2">{it.title}</h3>
-                <p className="text-base text-muted-foreground">{it.text}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-foreground tracking-tight mb-1.5">{it.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{it.text}</p>
               </BentoCard>
             </div>
           ))}
