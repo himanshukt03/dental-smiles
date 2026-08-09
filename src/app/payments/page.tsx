@@ -176,14 +176,6 @@ export default function PaymentsPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-4 bg-white space-y-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-primary">
-                  <ShieldCheck className="h-4 w-4" /> In-Network PPO Claims Assistance
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  Our front desk team verifies your insurance benefits before your visit so you receive full coverage with no unexpected fees.
-                </p>
-              </div>
             </div>
 
             {/* Insurance Providers Grid */}
