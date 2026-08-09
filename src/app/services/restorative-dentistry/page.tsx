@@ -450,7 +450,7 @@ export default function RestorativeDentistryPage() {
 
 
       {/* Patient Journey Timeline */}
-      <section className="py-16 lg:py-20">
+      <section className="py-8 sm:py-10 lg:py-12">
         <div className="container-clinical space-y-12">
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -496,7 +496,7 @@ export default function RestorativeDentistryPage() {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="py-16 bg-white border-t border-primary/10">
+      <section className="py-8 sm:py-10 lg:py-12 bg-white border-t border-primary/10">
         <div className="container-clinical max-w-3xl space-y-8">
           <div className="text-center space-y-3">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary">

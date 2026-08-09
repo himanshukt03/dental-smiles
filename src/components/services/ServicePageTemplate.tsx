@@ -178,7 +178,7 @@ export default function ServicePageTemplate({
       </section>
 
       {/* Main Sections */}
-      <div className="space-y-16 lg:space-y-24 py-12 lg:py-16">
+      <div className="space-y-8 sm:space-y-10 lg:space-y-12 py-6 sm:py-8 lg:py-10">
         {sections.map((section, index) => {
           const reverse = index % 2 === 1;
 
@@ -186,7 +186,7 @@ export default function ServicePageTemplate({
             <section
               key={section.title}
               id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
-              className="relative border-b border-primary/10 last:border-0 pb-16 lg:pb-24"
+              className="relative border-b border-primary/10 last:border-0 pb-8 sm:pb-10 lg:pb-12"
             >
               <div className="container-clinical">
                 <div
