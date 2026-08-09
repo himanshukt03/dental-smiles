@@ -317,23 +317,23 @@ export default function ServicePageTemplate({
       </div>
 
       {/* Bottom CTA Banner */}
-      <section className="section-padding py-12 lg:py-16">
+      <section className="py-6 sm:py-8 lg:py-10">
         <div className="container-clinical">
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/10 bg-primary text-primary-foreground shadow-xl">
-            <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl" />
-            <div className="relative grid gap-8 p-10 md:p-14">
-              <h2 className="text-3xl md:text-4xl font-heading">{bottomTitle}</h2>
-              <p className="text-lg opacity-90 max-w-3xl">{bottomBody}</p>
-              <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-primary text-primary-foreground shadow-lg">
+            <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
+            <div className="relative grid gap-4 p-6 sm:p-8 lg:p-10">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">{bottomTitle}</h2>
+              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">{bottomBody}</p>
+              <div className="flex flex-col gap-3 sm:flex-row pt-1">
                 <Link href="/contact" className="w-full sm:w-auto">
-                  <Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                  <Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">
                     Contact us
                   </Button>
                 </Link>
                 <Link href="tel:5124679955" className="w-full sm:w-auto">
                   <Button
                     variant="ghost"
-                    className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20"
+                    className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
                   >
                     Call 512.467.9955
                   </Button>

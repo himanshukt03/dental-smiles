@@ -481,31 +481,31 @@ export default function RestorativeDentistryPage() {
       </section>
 
       {/* Bottom CTA Banner */}
-      <section className="py-16 lg:py-20">
+      <section className="py-6 sm:py-8 lg:py-10">
         <div className="container-clinical">
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/15 bg-primary text-primary-foreground shadow-2xl p-10 lg:p-14">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/15 bg-primary text-primary-foreground shadow-lg p-6 sm:p-8 lg:p-10">
             <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
-            <div className="relative z-10 space-y-6 max-w-3xl">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-md">
-                <CalendarCheck className="h-3.5 w-3.5" /> Book Your Visit
+            <div className="relative z-10 space-y-4 max-w-3xl">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-white backdrop-blur-md">
+                <CalendarCheck className="h-3 w-3" /> Book Your Visit
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold leading-tight">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight leading-tight">
                 Ready to Restore Your Smile in Austin, TX?
               </h2>
-              <p className="text-base sm:text-lg opacity-90 leading-relaxed">
+              <p className="text-xs sm:text-sm opacity-90 leading-relaxed max-w-2xl">
                 Contact Dental Smiles today to schedule your consultation with Dr. Divya Shetty. Conveniently serving Mueller, Hyde Park, North Loop, and Central Austin.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row pt-2">
+              <div className="flex flex-col gap-3 sm:flex-row pt-1">
                 <Link href="/contact#request-appointment" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto bg-white text-primary hover:bg-white/90 font-bold px-6 py-3 shadow-md text-sm">
+                  <Button size="sm" className="w-full sm:w-auto bg-white text-primary hover:bg-white/90 font-bold px-5 py-2.5 shadow-md text-xs sm:text-sm">
                     Request Appointment
                   </Button>
                 </Link>
                 <Link href="tel:5124679955" className="w-full sm:w-auto">
                   <Button
                     variant="ghost"
-                    size="lg"
-                    className="w-full sm:w-auto border border-white/30 bg-white/10 text-white hover:bg-white/20 font-bold px-6 py-3 text-sm"
+                    size="sm"
+                    className="w-full sm:w-auto border border-white/30 bg-white/10 text-white hover:bg-white/20 font-bold px-5 py-2.5 text-xs sm:text-sm"
                   >
                     Call 512.467.9955
                   </Button>
