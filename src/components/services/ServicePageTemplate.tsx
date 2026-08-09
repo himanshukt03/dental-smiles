@@ -134,14 +134,11 @@ export default function ServicePageTemplate({
       <section className="py-12 lg:py-16 bg-gradient-to-b from-primary/5 via-white to-transparent border-b border-primary/10">
         <div className="container-clinical">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr] lg:gap-12 items-center">
-            <div className="space-y-5">
-              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                {badge}
-              </span>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-foreground leading-tight tracking-tight">
+            <div className="space-y-4">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-foreground leading-tight tracking-tight">
                 {title}
               </h1>
-              <div className="space-y-3 text-sm sm:text-base lg:text-lg leading-relaxed text-muted-foreground">
+              <div className="space-y-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {intro.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -175,9 +172,6 @@ export default function ServicePageTemplate({
                   priority
                 />
               </div>
-              <div className="absolute left-4 top-4 rounded-full bg-white/90 backdrop-blur-md px-3.5 py-1.5 text-xs font-semibold text-primary shadow-sm border border-primary/10">
-                Trusted Austin dentistry
-              </div>
             </div>
           </div>
         </div>
@@ -203,10 +197,10 @@ export default function ServicePageTemplate({
                   )}
                 >
                   <div className="space-y-5 md:w-1/2 lg:w-[55%]">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-foreground leading-tight">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground leading-tight tracking-tight">
                       {section.title}
                     </h2>
-                    <div className="space-y-3 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    <div className="space-y-2.5 text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                       {section.body.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>
                       ))}
@@ -239,7 +233,7 @@ export default function ServicePageTemplate({
                             className={cn('space-y-3', sIdx > 0 && 'pt-8')}
                           >
                             <div className="flex flex-wrap items-center justify-between gap-3">
-                              <h3 className="text-xl sm:text-2xl font-heading text-foreground font-semibold flex items-center gap-2">
+                              <h3 className="text-base sm:text-lg font-heading text-foreground font-semibold flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-primary shrink-0" />
                                 {subItem.title}
                               </h3>
@@ -250,7 +244,7 @@ export default function ServicePageTemplate({
                               )}
                             </div>
 
-                            <div className="space-y-2 text-base text-muted-foreground leading-relaxed pl-4">
+                            <div className="space-y-2 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-4">
                               {Array.isArray(subItem.body) ? (
                                 subItem.body.map((p, i) => <p key={i}>{p}</p>)
                               ) : (

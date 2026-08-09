@@ -63,14 +63,11 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20">
       <section className="section-padding pt-12">
         <div className="container-clinical space-y-8">
-          <div className="mx-auto max-w-3xl space-y-4 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              <Sparkles className="h-4 w-4" /> Services
-            </span>
-            <h1 className="font-heading text-3xl text-foreground md:text-4xl">
+          <div className="mx-auto max-w-3xl space-y-3 text-center">
+            <h1 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight">
               Explore Our Dental Services
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
               Select a service below to view its dedicated page and details.
             </p>
           </div>

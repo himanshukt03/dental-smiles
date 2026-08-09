@@ -274,14 +274,11 @@ export default function RestorativeDentistryPage() {
         <div className="absolute top-0 right-0 -mt-12 -mr-12 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
         <div className="container-clinical relative z-10">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-center">
-            <div className="space-y-6 text-center sm:text-left animate-hero-up delay-100">
-              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary border border-primary/15 shadow-sm">
-                <Sparkles className="h-3.5 w-3.5" /> Restorative Dentistry in Austin, TX
-              </span>
-              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-heading text-foreground leading-tight font-bold tracking-tight">
+            <div className="space-y-4 text-center sm:text-left animate-hero-up delay-100">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading text-foreground leading-tight font-bold tracking-tight">
                 Restore Your Smile's Strength, Function & Natural Beauty
               </h1>
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
                 From single-visit CEREC crowns and tooth-colored fillings to permanent implants, dentures, and oral surgery—get gentle, technology-driven restorative dental care in Central Austin.
               </p>
 
@@ -316,9 +313,6 @@ export default function RestorativeDentistryPage() {
                     className="object-cover object-top scale-[1.05]"
                     priority
                   />
-                </div>
-                <div className="absolute left-4 top-4 rounded-full bg-white/90 backdrop-blur-md px-3.5 py-1.5 text-xs font-semibold text-primary shadow border border-primary/10">
-                  ✨ Central Austin Dental Care
                 </div>
               </div>
             </div>
