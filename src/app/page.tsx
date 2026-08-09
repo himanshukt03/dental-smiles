@@ -340,7 +340,7 @@ const MobileHero = () => (
 );
 
 const DesktopHero = () => (
-  <section className="relative hidden overflow-hidden md:flex md:items-center md:min-h-[calc(100vh-80px)] bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
+  <section className="relative hidden overflow-hidden md:flex md:items-center lg:min-h-[calc(100vh-80px)] bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
     <style>{`
       @keyframes float {
         0%, 100% { transform: translateY(0px); }
@@ -399,23 +399,23 @@ const DesktopHero = () => (
     `}</style>
     <svg
       viewBox="0 0 260 260"
-      className="pointer-events-none absolute left-[-80px] top-20 h-64 w-64 text-primary/35 animate-float animate-breathe"
+      className="pointer-events-none absolute left-[-80px] top-20 h-48 w-48 md:h-64 md:w-64 text-primary/35 animate-float animate-breathe"
       aria-hidden="true"
     >
       <path d="M24 132c0-60 48-108 108-108 46 0 86 28 102 68 18 46-2 104-46 136-52 38-132 8-154-56-6-18-10-26-10-40z" fill="currentColor" />
     </svg>
     <svg
       viewBox="0 0 300 300"
-      className="pointer-events-none absolute right-[-120px] bottom-[-100px] h-80 w-80 text-primary/20 animate-float-delayed animate-breathe opacity-60"
+      className="pointer-events-none absolute right-[-120px] bottom-[-100px] h-64 w-64 md:h-80 md:w-80 text-primary/20 animate-float-delayed animate-breathe opacity-60"
       aria-hidden="true"
     >
       <circle cx="150" cy="150" r="110" fill="currentColor" />
     </svg>
-    <div className="container-clinical py-16 lg:py-20 xl:py-24">
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
-        <div className="space-y-6 lg:space-y-8">
-          <div className="space-y-4 lg:space-y-6 animate-fade-in-up delay-100">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading text-foreground leading-tight">
+    <div className="container-clinical py-8 md:py-12 lg:py-16 xl:py-20">
+      <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center">
+        <div className="space-y-4 md:space-y-6 lg:space-y-8">
+          <div className="space-y-3 md:space-y-4 lg:space-y-6 animate-fade-in-up delay-100">
+            <h1 className="text-xl md:text-2xl lg:text-3.5xl xl:text-5xl font-heading text-foreground leading-tight tracking-tight">
               Where Families Can
               <br />
               <span className="relative inline-block text-primary">
@@ -423,50 +423,50 @@ const DesktopHero = () => (
                 <ScribbleUnderline className="text-primary" />
               </span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+            <p className="text-xs md:text-sm lg:text-lg xl:text-xl text-muted-foreground leading-relaxed">
               Providing quality dental care for patients of all ages
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Link href="/contact#request-appointment">
-              <Button size="lg" className="btn-primary w-full sm:w-auto animate-fade-in-up delay-200">
-                <Calendar className="w-5 h-5 mr-2" />
+              <Button size="lg" className="btn-primary w-full sm:w-auto text-xs sm:text-sm animate-fade-in-up delay-200">
+                <Calendar className="w-4 h-4 mr-2" />
                 Book Appointment
               </Button>
             </Link>
             <Button
               variant="outline"
               size="lg"
-              className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto animate-fade-in-up delay-300"
+              className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto text-xs sm:text-sm animate-fade-in-up delay-300"
               onClick={() => window.scrollTo(0, 0)}
             >
-              <Phone className="w-5 h-5 mr-2" />
+              <Phone className="w-4 h-4 mr-2" />
               512.467.9955
             </Button>
           </div>
 
-          <div className="grid gap-6 pt-6 border-t border-border sm:grid-cols-3 sm:gap-4 lg:gap-6 animate-fade-in-up delay-400">
+          <div className="grid gap-4 pt-4 md:pt-6 border-t border-border sm:grid-cols-3 sm:gap-4 lg:gap-6 animate-fade-in-up delay-400">
             <div className="text-center sm:text-left">
-              <div className="text-2xl lg:text-3xl font-bold text-primary">20+</div>
-              <div className="text-sm lg:text-base text-muted-foreground">Years Experience</div>
+              <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-primary">20+</div>
+              <div className="text-xs lg:text-sm text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center sm:text-left">
-              <div className="text-2xl lg:text-3xl font-bold text-primary">5000+</div>
-              <div className="text-sm lg:text-base text-muted-foreground">Happy Patients</div>
+              <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-primary">5000+</div>
+              <div className="text-xs lg:text-sm text-muted-foreground">Happy Patients</div>
             </div>
             <div className="text-center sm:text-left">
               <div className="flex justify-center sm:justify-start mb-1">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 lg:w-5 lg:h-5 fill-primary text-primary" />
+                  <Star key={i} className="w-3.5 h-3.5 lg:w-4 lg:h-4 fill-primary text-primary" />
                 ))}
               </div>
-              <div className="text-sm lg:text-base text-muted-foreground">4.9-Star Reviews</div>
+              <div className="text-xs lg:text-sm text-muted-foreground">4.9-Star Reviews</div>
             </div>
           </div>
         </div>
 
-        <div className="relative mt-10 md:mt-0 animate-fade-in-right delay-200">
+        <div className="relative mt-6 md:mt-0 animate-fade-in-right delay-200">
           <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical animate-fade-in-scale">
             <img
               src="/assets/dental-office-hero.webp"
@@ -474,10 +474,10 @@ const DesktopHero = () => (
               className="w-full h-full object-cover"
             />
           </div>
-          <Card className="max-w-xs mx-auto mt-4 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-6 md:-left-8 bg-card/95 backdrop-blur-sm border-clinical animate-fade-in-up delay-500">
-            <CardContent className="p-4">
+          <Card className="max-w-xs mx-auto mt-3 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-5 md:-left-6 bg-card/95 backdrop-blur-sm border-clinical animate-fade-in-up delay-500">
+            <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0">
                   <img
                     src={drDivyaImage.src ?? drDivyaImage}
                     alt="Dr. Divya Shetty"
@@ -485,8 +485,8 @@ const DesktopHero = () => (
                   />
                 </div>
                 <div>
-                  <div className="font-semibold text-sm">Dr. Divya Shetty</div>
-                  <div className="text-xs text-muted-foreground">Lead Dentist</div>
+                  <div className="font-semibold text-xs sm:text-sm">Dr. Divya Shetty</div>
+                  <div className="text-[11px] sm:text-xs text-muted-foreground">Lead Dentist</div>
                 </div>
               </div>
             </CardContent>

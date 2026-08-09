@@ -138,10 +138,10 @@ export default function ServicePageTemplate({
               <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                 {badge}
               </span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-foreground leading-tight tracking-tight">
                 {title}
               </h1>
-              <div className="space-y-3 text-base sm:text-lg leading-relaxed text-muted-foreground">
+              <div className="space-y-3 text-sm sm:text-base lg:text-lg leading-relaxed text-muted-foreground">
                 {intro.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}

@@ -274,10 +274,10 @@ export default function RestorativeDentistryPage() {
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary border border-primary/15 shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" /> Restorative Dentistry in Austin, TX
               </span>
-              <h1 className="text-3xl font-heading text-foreground sm:text-4xl lg:text-5xl leading-tight font-bold">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading text-foreground leading-tight font-bold tracking-tight">
                 Restore Your Smile's Strength, Function & Natural Beauty
               </h1>
-              <p className="text-base text-muted-foreground sm:text-lg leading-relaxed max-w-2xl mx-auto sm:mx-0">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
                 From single-visit CEREC crowns and tooth-colored fillings to permanent implants, dentures, and oral surgery—get gentle, technology-driven restorative dental care in Central Austin.
               </p>
 
