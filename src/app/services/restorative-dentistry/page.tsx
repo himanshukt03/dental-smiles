@@ -31,35 +31,6 @@ export default function RestorativeDentistryPage() {
               body: [
                 'Get custom ceramic crowns scanned, designed, milled, and placed in a single appointment—no temporary crowns or follow-up visits needed.',
               ],
-              expandable: {
-                triggerLabel: 'View CEREC Details & 3-Step Process',
-                closeLabel: 'Hide CEREC Details',
-                details: [
-                  {
-                    title: 'When Do You Need a CEREC Crown?',
-                    body: [
-                      'Ideal for cracked or broken teeth, deep decay, large failing fillings, or teeth recently treated with root canal therapy.',
-                    ],
-                  },
-                  {
-                    title: 'Key Patient Benefits',
-                    bullets: [
-                      '1-Visit Convenience: Completed in just one appointment.',
-                      'High-Strength Ceramic: Natural look, feel, and durability.',
-                      'Custom Color Match: Blends seamlessly with your smile.',
-                      'No Temporary Crowns or Goopy Impression Trays',
-                    ],
-                  },
-                  {
-                    title: 'Quick 3-Step Same-Day Process',
-                    bullets: [
-                      '1. 3D Digital Scan: Fast, clean optical scanning of your tooth.',
-                      '2. In-House Milling: Custom ceramic crown crafted while you wait.',
-                      '3. Permanent Placement: Precise bonding and instant bite check.',
-                    ],
-                  },
-                ],
-              },
             },
             {
               title: 'Dental Fillings',
