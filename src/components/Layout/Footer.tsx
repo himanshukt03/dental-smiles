@@ -93,7 +93,7 @@ const Footer = () => {
                   href="tel:+15124679955"
                   className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                 >
-                  512-467-9955
+                  512.467.9955
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -108,13 +108,9 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div className="text-muted-foreground text-sm">
-                  <div>Monday: 8 am–5 pm</div>
-                  <div>Tuesday: 7 am–3 pm</div>
-                  <div>Wednesday: 8 am–5 pm</div>
-                  <div>Thursday: 7 am–3 pm</div>
-                  <div>Friday: 7 am–1 pm</div>
-                  <div>Saturday: Closed</div>
-                  <div>Sunday: Closed</div>
+                  <div>Mon/Wed: 8 am - 1 pm</div>
+                  <div>Tue/Thur: 7 am - 3 pm</div>
+                  <div>Friday: 7 am - 1 pm</div>
                 </div>
               </div>
             </div>
@@ -126,20 +122,20 @@ const Footer = () => {
             <div className="w-full h-40 rounded-bento overflow-hidden border border-border/50 shadow-sm relative group">
               <iframe
                 title="Dental Smiles Location"
-                src="https://maps.google.com/maps?q=1201%20Barbara%20Jordan%20Blvd%20Suite%20%231435%20Austin%20TX%2078723&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3444.604617627467!2d-97.7082495!3d30.305315600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644ca061ab0364d%3A0xa1253d5b85da5cd3!2sDental%20Smiles!5e0!3m2!1sen!2sin!4v1774423801934!5m2!1sen!2sin"
                 className="w-full h-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <Link
-                href="https://maps.google.com/maps?q=1201%20Barbara%20Jordan%20Blvd%20Suite%20%231435%20Austin%20TX%2078723"
+                href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
                 target="_blank"
                 className="absolute inset-0 z-10"
                 aria-label="Open in Google Maps"
               />
             </div>
             <a
-              href="https://maps.google.com/maps?q=1201%20Barbara%20Jordan%20Blvd%20Suite%20%231435%20Austin%20TX%2078723"
+              href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-sm font-medium text-primary hover:underline"
@@ -164,7 +160,7 @@ const Footer = () => {
           "@context": "https://schema.org",
           "@type": "Dentist",
           "name": "Dental Smiles",
-          "image": "https://dentalsmiles.com/dental-team.jpg",
+          "image": "https://dentalsmiles.com/dental-team.webp",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "1201 Barbara Jordan Blvd Suite 1435",
@@ -177,9 +173,9 @@ const Footer = () => {
           "email": "info@dentalsmiles.com",
           "url": "https://dentalsmiles.com",
           "openingHours": [
-            "Mo 08:00-17:00",
+            "Mo 08:00-13:00",
             "Tu 07:00-15:00",
-            "We 08:00-17:00",
+            "We 08:00-13:00",
             "Th 07:00-15:00",
             "Fr 07:00-13:00"
           ],

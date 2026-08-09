@@ -446,7 +446,7 @@ const FirstVisitPage = () => {
 										variant="outline"
 										className="w-full sm:w-auto border border-primary/20 bg-white/60 px-6 py-3 rounded-lg text-primary hover:bg-primary/5 hover:border-primary transition duration-200 ease-in-out"
 									>
-										Call 512-467-9955
+										Call 512.467.9955
 									</Button>
 								</Link>
 							</div>

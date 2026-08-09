@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import {
   Calendar,
@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import heroImage from '@/assets/dental-office-hero.webp';
 import drDivyaImage from '@/assets/team/dr-divya-shetty.webp';
 
 type InsuranceCompany = {
@@ -131,22 +130,168 @@ const services: Service[] = [
   { name: 'Emergency Care', description: 'Same-day urgent treatment' },
 ];
 
+const DraggableCarousel = ({
+  children,
+  trackClassName,
+}: {
+  children: React.ReactNode;
+  trackClassName: string;
+}) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const startScrollLeftRef = useRef(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!containerRef.current) {
+      return;
+    }
+
+    isDraggingRef.current = true;
+    setIsPaused(true);
+    startXRef.current = event.clientX;
+    startScrollLeftRef.current = containerRef.current.scrollLeft;
+    containerRef.current.setPointerCapture(event.pointerId);
+    containerRef.current.style.cursor = 'grabbing';
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current || !containerRef.current) {
+      return;
+    }
+
+    const distance = event.clientX - startXRef.current;
+    containerRef.current.scrollLeft = startScrollLeftRef.current - distance;
+  };
+
+  const stopDragging = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!containerRef.current) {
+      return;
+    }
+
+    isDraggingRef.current = false;
+    setIsPaused(false);
+    if (containerRef.current.hasPointerCapture(event.pointerId)) {
+      containerRef.current.releasePointerCapture(event.pointerId);
+    }
+    containerRef.current.style.cursor = 'grab';
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className="cursor-grab overflow-x-auto select-none touch-pan-y [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={stopDragging}
+      onPointerCancel={stopDragging}
+      onPointerLeave={stopDragging}
+    >
+      <style>{`
+        @keyframes autoScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .carousel-track {
+          animation: autoScroll 40s linear infinite;
+        }
+        .carousel-track.is-paused {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div ref={trackRef} className={`${trackClassName} carousel-track ${isPaused ? 'is-paused' : ''}`}>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const ScribbleUnderline = ({ className = '' }: { className?: string }) => (
+  <svg
+    viewBox="0 0 200 24"
+    preserveAspectRatio="none"
+    className={`pointer-events-none absolute -bottom-3 left-0 h-3 w-full ${className}`}
+    aria-hidden="true"
+  >
+    <path
+      d="M4 14 C 32 4, 62 22, 92 14 C 122 6, 152 22, 196 12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="6"
+      strokeLinecap="round"
+      opacity="0.75"
+    />
+  </svg>
+);
+
 const MobileHero = () => (
-  <section className="md:hidden bg-gradient-to-b from-clinical-bg via-white to-clinical-grey/40 pt-6 pb-9">
+  <section className="relative overflow-hidden md:hidden bg-gradient-to-b from-clinical-bg via-white to-clinical-grey/40 pt-6 pb-9">
+    <style>{`
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+      }
+      @keyframes breathe {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      .animate-breathe { animation: breathe 5s ease-in-out infinite; }
+      .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+      .animate-fade-in-scale { animation: fadeInScale 0.9s ease-out forwards; }
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+      .delay-500 { animation-delay: 0.5s; }
+      .delay-600 { animation-delay: 0.6s; }
+    `}</style>
+    <svg
+      viewBox="0 0 220 220"
+      className="pointer-events-none absolute -right-16 top-10 h-44 w-44 text-primary/25 animate-float animate-breathe"
+      aria-hidden="true"
+    >
+      <path d="M38 26c32-18 78-12 108 18s36 76 18 108-62 52-96 40-62-58-56-96 16-52 26-70z" fill="currentColor" />
+    </svg>
     <div className="container-clinical px-4 space-y-6 sm:px-6">
-      <div className="relative w-full overflow-hidden shadow-clinical rounded-bento h-[clamp(220px,62vw,340px)]">
+      <div className="relative w-full overflow-hidden shadow-clinical rounded-bento h-[clamp(220px,62vw,340px)] animate-fade-in-scale delay-100">
         <img
-          src={heroImage.src ?? heroImage}
+          src="/assets/dental-office-hero.webp"
           alt="Modern dental office with comfortable patient chair and advanced equipment"
           className="w-full h-full object-cover object-center"
         />
       </div>
 
       <div className="space-y-5 text-center">
-        <div className="space-y-3">
+        <div className="space-y-3 animate-fade-in-up delay-200">
           <h1 className="font-heading text-foreground leading-tight tracking-tight text-[clamp(1.25rem,5vw,1.6rem)]">
             <span className="block whitespace-nowrap">Where Families Can</span>
-            <span className="block text-primary whitespace-nowrap">Smile Confidently</span>
+            <span className="relative inline-block text-primary whitespace-nowrap">
+              Smile Confidently
+              <ScribbleUnderline className="text-primary" />
+            </span>
           </h1>
           <p className="text-xs text-muted-foreground leading-relaxed">
             Providing quality dental care for patients of all ages
@@ -155,7 +300,7 @@ const MobileHero = () => (
 
         <div className="flex flex-col gap-3">
           <Link href="/contact#request-appointment">
-            <Button size="lg" className="btn-primary w-full">
+            <Button size="lg" className="btn-primary w-full animate-fade-in-up delay-300">
               <Calendar className="w-5 h-5 mr-2" />
               Book Appointment
             </Button>
@@ -163,16 +308,16 @@ const MobileHero = () => (
           <Button
             variant="outline"
             size="lg"
-            className="w-full border border-primary/20 bg-white/70 hover:bg-primary/5 transition-colors shadow-none"
+            className="w-full border border-primary/20 bg-white/70 hover:bg-primary/5 transition-colors shadow-none animate-fade-in-up delay-400"
             onClick={() => window.scrollTo(0, 0)}
           >
             <Phone className="w-5 h-5 mr-2" />
-            512-467-9955
+            512.467.9955
           </Button>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
+      <div className="grid grid-cols-3 gap-4 border-t border-border pt-6 animate-fade-in-up delay-500">
         <div className="text-center">
           <div className="text-lg font-semibold text-primary">20+</div>
           <div className="text-[11px] text-muted-foreground">Years Experience</div>
@@ -195,15 +340,88 @@ const MobileHero = () => (
 );
 
 const DesktopHero = () => (
-  <section className="relative hidden md:flex md:items-center md:min-h-[calc(100vh-80px)] bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
+  <section className="relative hidden overflow-hidden md:flex md:items-center md:min-h-[calc(100vh-80px)] bg-gradient-to-br from-clinical-bg via-clinical-bg to-clinical-grey">
+    <style>{`
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-16px); }
+      }
+      @keyframes float-delayed {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      @keyframes breathe {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      .animate-float-delayed { animation: float-delayed 8s ease-in-out infinite 1s; }
+      .animate-breathe { animation: breathe 5s ease-in-out infinite; }
+      .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+      .animate-fade-in-right { animation: fadeInRight 0.9s ease-out forwards; }
+      .animate-fade-in-scale { animation: fadeInScale 0.9s ease-out forwards; }
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+      .delay-500 { animation-delay: 0.5s; }
+      .delay-600 { animation-delay: 0.6s; }
+    `}</style>
+    <svg
+      viewBox="0 0 260 260"
+      className="pointer-events-none absolute left-[-80px] top-20 h-64 w-64 text-primary/35 animate-float animate-breathe"
+      aria-hidden="true"
+    >
+      <path d="M24 132c0-60 48-108 108-108 46 0 86 28 102 68 18 46-2 104-46 136-52 38-132 8-154-56-6-18-10-26-10-40z" fill="currentColor" />
+    </svg>
+    <svg
+      viewBox="0 0 300 300"
+      className="pointer-events-none absolute right-[-120px] bottom-[-100px] h-80 w-80 text-primary/20 animate-float-delayed animate-breathe opacity-60"
+      aria-hidden="true"
+    >
+      <circle cx="150" cy="150" r="110" fill="currentColor" />
+    </svg>
     <div className="container-clinical py-16 lg:py-20 xl:py-24">
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
         <div className="space-y-6 lg:space-y-8">
-          <div className="space-y-4 lg:space-y-6">
+          <div className="space-y-4 lg:space-y-6 animate-fade-in-up delay-100">
             <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading text-foreground leading-tight">
               Where Families Can
               <br />
-              <span className="text-primary"> Smile Confidently</span>
+              <span className="relative inline-block text-primary">
+                {' '}Smile Confidently
+                <ScribbleUnderline className="text-primary" />
+              </span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
               Providing quality dental care for patients of all ages
@@ -212,7 +430,7 @@ const DesktopHero = () => (
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact#request-appointment">
-              <Button size="lg" className="btn-primary w-full sm:w-auto">
+              <Button size="lg" className="btn-primary w-full sm:w-auto animate-fade-in-up delay-200">
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Appointment
               </Button>
@@ -220,15 +438,15 @@ const DesktopHero = () => (
             <Button
               variant="outline"
               size="lg"
-              className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto"
+              className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto animate-fade-in-up delay-300"
               onClick={() => window.scrollTo(0, 0)}
             >
               <Phone className="w-5 h-5 mr-2" />
-              512-467-9955
+              512.467.9955
             </Button>
           </div>
 
-          <div className="grid gap-6 pt-6 border-t border-border sm:grid-cols-3 sm:gap-4 lg:gap-6">
+          <div className="grid gap-6 pt-6 border-t border-border sm:grid-cols-3 sm:gap-4 lg:gap-6 animate-fade-in-up delay-400">
             <div className="text-center sm:text-left">
               <div className="text-2xl lg:text-3xl font-bold text-primary">20+</div>
               <div className="text-sm lg:text-base text-muted-foreground">Years Experience</div>
@@ -248,15 +466,15 @@ const DesktopHero = () => (
           </div>
         </div>
 
-        <div className="relative mt-10 md:mt-0">
-          <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical">
+        <div className="relative mt-10 md:mt-0 animate-fade-in-right delay-200">
+          <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical animate-fade-in-scale">
             <img
-              src={heroImage.src ?? heroImage}
+              src="/assets/dental-office-hero.webp"
               alt="Modern dental office with comfortable patient chair and advanced equipment"
               className="w-full h-full object-cover"
             />
           </div>
-          <Card className="max-w-xs mx-auto mt-4 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-6 md:-left-8 bg-card/95 backdrop-blur-sm border-clinical">
+          <Card className="max-w-xs mx-auto mt-4 md:mt-0 md:max-w-none md:mx-0 md:absolute md:-bottom-6 md:-left-8 bg-card/95 backdrop-blur-sm border-clinical animate-fade-in-up delay-500">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
@@ -372,13 +590,27 @@ export default function LandingPage() {
         </div>
       </section> */}
 
-      <section className="py-12 md:py-16 bg-clinical-grey">
+      <section className="relative overflow-hidden py-12 md:py-16 bg-clinical-grey">
+        <style>{`
+          @keyframes float-3 {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-14px); }
+          }
+          .animate-float-3 { animation: float-3 7s ease-in-out infinite; }
+        `}</style>
+        <svg
+          viewBox="0 0 180 180"
+          className="pointer-events-none absolute -left-10 bottom-8 h-28 w-28 text-primary/30 animate-float-3"
+          aria-hidden="true"
+        >
+          <circle cx="90" cy="90" r="72" fill="currentColor" />
+        </svg>
         <div className="container-clinical">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl md:text-3xl font-heading text-bold mb-4">
-                  Why Choose Dental Smiles?
+                  Why Choose <span className="relative inline-block">Dental Smiles?<ScribbleUnderline className="text-primary" /></span>
                 </h2>
                 <p className="text-muted-foreground mb-6">
                   We&apos;re proud to be a local, female-owned dental practice providing personalized, patient-centered care.
@@ -394,14 +626,16 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              <Button className="btn-primary" onClick={() => window.scrollTo(0, 0)}>
-                View All Services
-              </Button>
+              <Link href="/services">
+                <Button className="btn-primary mt-2">
+                  View All Services
+                </Button>
+              </Link>
             </div>
 
             <div className="aspect-[4/3] rounded-bento overflow-hidden shadow-clinical">
               <img
-                src="/assets/dental-team.jpg"
+                src="/assets/dental-team.webp"
                 alt="Dental Smiles team providing gentle, professional care"
                 className="w-full h-full object-cover"
               />
@@ -420,7 +654,7 @@ export default function LandingPage() {
           </div>
 
           <div className="relative overflow-hidden">
-            <div className="flex animate-scroll space-x-8">
+            <DraggableCarousel trackClassName="flex w-max space-x-8 px-1">
               {insuranceCompanies.map((company, index) => (
                 <div
                   key={`first-${index}`}
@@ -445,7 +679,7 @@ export default function LandingPage() {
                   )}
                 </div>
               ))}
-            </div>
+            </DraggableCarousel>
           </div>
         </div>
       </section>
@@ -464,13 +698,13 @@ export default function LandingPage() {
           <div className="relative overflow-hidden">
             <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-card to-transparent z-10" />
             <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-card to-transparent z-10" />
-            <div className="flex animate-scroll-reviews space-x-6">
+            <DraggableCarousel trackClassName="flex w-max space-x-6 px-1">
               {testimonialLoops.map((loopKey) =>
                 testimonials.map((testimonial, index) =>
                   renderTestimonialCard(loopKey, index, testimonial)
                 )
               )}
-            </div>
+            </DraggableCarousel>
           </div>
         </div>
       </section>

@@ -273,7 +273,7 @@ export default async function BlogPostPage({ params }: Props) {
                                     <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                                         <Clock className="w-4 h-4" />
                                     </div>
-                                    <span>Mon - Fri: 8am - 5pm</span>
+                                    <span>Monday/Wednesday: 8 AM - 1 PM, Tuesday/Thursday: 7 AM - 3 PM, Friday: 7 AM - 1 PM</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">

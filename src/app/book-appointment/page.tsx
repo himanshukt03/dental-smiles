@@ -68,8 +68,10 @@ const BookAppointmentPage = () => {
                   Office Hours
                 </h3>
                 <div className="text-muted-foreground space-y-1">
-                  <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                  <p>Saturday: 9:00 AM - 3:00 PM</p>
+                  <p>Monday/Wednesday: 8 AM - 1 PM</p>
+                  <p>Tuesday/Thursday: 7 AM - 3 PM</p>
+                  <p>Friday: 7 AM - 1 PM</p>
+                  <p>Saturday: Closed</p>
                   <p>Sunday: Closed</p>
                 </div>
               </BentoCard>

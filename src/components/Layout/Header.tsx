@@ -65,11 +65,20 @@ const Header = () => {
 						<div className="flex items-center space-x-6">
 							<div className="flex items-center space-x-2">
 								<Phone className="w-4 h-4" />
-								<span>512-467-9955</span>
+								<span>512.467.9955</span>
 							</div>
+							<a
+								href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex md:hidden items-center space-x-2 hover:underline transition-all"
+							>
+								<MapPin className="w-4 h-4" />
+								<span>Get Directions</span>
+							</a>
 							<div className="hidden md:flex items-center space-x-2">
 								<a
-									href="https://maps.app.goo.gl/mLZ45jGsw33kh3zXA"
+									href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="flex items-center space-x-2 hover:underline transition-all"
@@ -124,7 +133,11 @@ const Header = () => {
 						</nav>
 
 						<div className="hidden lg:block">
-							<Link href="/contact#request-appointment">
+							<Link
+								href="https://leadsmanagementweb.revenuewell.com/49ce5762-045a-4343-9cd3-30106f8ead9d"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								<Button className="btn-primary">Book Appointment</Button>
 							</Link>
 						</div>
@@ -169,9 +182,13 @@ const Header = () => {
 										className="justify-start text-muted-foreground"
 									>
 										<Phone className="w-4 h-4 mr-2" />
-										512-467-9955
+										512.467.9955
 									</Button>
-									<Link href="/contact#request-appointment">
+									<Link
+										href="https://leadsmanagementweb.revenuewell.com/49ce5762-045a-4343-9cd3-30106f8ead9d"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
 										<Button className="btn-primary justify-start">
 											<Calendar className="w-4 h-4 mr-2" />
 											Book Appointment

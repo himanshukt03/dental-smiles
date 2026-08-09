@@ -58,7 +58,7 @@ const AboutPage = () => {
                 <div className="relative overflow-hidden rounded-[1.8rem] border border-primary/15 bg-white/70 shadow-2xl">
                   <div className="relative aspect-[4/3] sm:aspect-[3/2] md:aspect-[5/4] lg:aspect-[4/3]">
                     <Image
-                      src="/assets/dental-team.jpg"
+                      src="/assets/dental-team2.webp"
                       alt="Dental Smiles team"
                       fill
                       className="object-cover"
@@ -68,9 +68,6 @@ const AboutPage = () => {
                   </div>
                   <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-semibold text-primary shadow">
                     Locally owned practice
-                  </div>
-                  <div className="absolute bottom-4 right-4 rounded-2xl bg-primary px-3.5 py-2 text-[11px] font-semibold text-primary-foreground shadow-lg">
-                    Welcoming Austin smiles
                   </div>
                 </div>
               </div>

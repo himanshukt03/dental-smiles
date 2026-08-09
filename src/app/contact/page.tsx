@@ -8,7 +8,7 @@ const contactInfo = [
 	{
 		icon: Phone,
 		title: 'Phone',
-		details: '512-467-9955',
+		details: '512.467.9955',
 		description: 'Call us for appointments or urgent questions',
 	},
 	{
@@ -20,13 +20,13 @@ const contactInfo = [
 	{
 		icon: MapPin,
 		title: 'Address',
-		details: '1201 Barbara Jordan Blvd, Suite #1435, Austin, TX 78723',
-		description: 'Located in the Mueller Medical District with easy parking',
+		details: 'Dental Smiles, 1201 Barbara Jordan Blvd, Suite #1435, Austin, TX 78723',
+		description: '',
 	},
 	{
 		icon: Clock,
 		title: 'Hours',
-		details: 'Mon: 8 AM – 5 PM, Tue & Thu: 7 AM – 3 PM, Wed: 8 AM – 5 PM, Fri: 7 AM – 1 PM',
+		details: 'Monday/Wednesday: 8 AM – 1 PM, Tuesday/Thursday: 7 AM – 3 PM, Friday: 7 AM – 1 PM',
 		description: 'Saturdays & Sundays: Closed',
 	},
 ];
@@ -121,7 +121,7 @@ const ContactPage = () => {
 									<p className="text-center text-sm text-muted-foreground">
 										Prefer to call? Reach us at{' '}
 										<Link href="tel:5124679955" className="font-semibold text-primary hover:underline">
-											512-467-9955
+											512.467.9955
 										</Link>
 									</p>
 								</div>
@@ -133,18 +133,22 @@ const ContactPage = () => {
 								<div className="relative aspect-[4/3] w-full overflow-hidden rounded-bento">
 									<iframe
 										title="Dental Smiles Austin map"
-										src="https://maps.google.com/maps?q=1201%20Barbara%20Jordan%20Blvd%20Suite%20%231435%20Austin%20TX%2078723&t=&z=15&ie=UTF8&iwloc=&output=embed"
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3444.604617627467!2d-97.7082495!3d30.305315600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644ca061ab0364d%3A0xa1253d5b85da5cd3!2sDental%20Smiles!5e0!3m2!1sen!2sin!4v1774423801934!5m2!1sen!2sin"
 										className="h-full w-full"
 										loading="lazy"
 										allowFullScreen
 										referrerPolicy="no-referrer-when-downgrade"
 									/>
+									<Link
+										href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="absolute inset-0"
+										aria-label="Open Dental Smiles in Google Maps"
+									/>
 								</div>
-								<div className="p-5 sm:p-6">
+								<div className="p-6 sm:p-4">
 									<h4 className="text-lg font-heading text-foreground mb-1">Find us easily</h4>
-									<p className="text-sm text-muted-foreground">
-										Our suite sits inside the Mueller Medical District with convenient parking garages and elevator access steps from the lobby.
-									</p>
 								</div>
 							</BentoCard>
 						</div>

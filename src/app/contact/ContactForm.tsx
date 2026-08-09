@@ -29,7 +29,7 @@ const dateTriggerStyles =
 
 const officeSchedule: Record<string, { slots: string[]; closed: boolean }> = {
 	Monday: {
-		slots: ['Anytime', '8 AM – 11 AM', '11 AM – 2 PM', '2 PM – 5 PM'],
+		slots: ['Anytime', '8 AM – 11 AM', '11 AM – 1 PM'],
 		closed: false,
 	},
 	Tuesday: {
@@ -37,7 +37,7 @@ const officeSchedule: Record<string, { slots: string[]; closed: boolean }> = {
 		closed: false,
 	},
 	Wednesday: {
-		slots: ['Anytime', '8 AM – 11 AM', '11 AM – 2 PM', '2 PM – 5 PM'],
+		slots: ['Anytime', '8 AM – 11 AM', '11 AM – 1 PM'],
 		closed: false,
 	},
 	Thursday: {

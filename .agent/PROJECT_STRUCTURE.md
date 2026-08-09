@@ -214,7 +214,7 @@ npm run lint
 
 ## Contact Information
 
-- **Phone**: 512-467-9955
+- **Phone**: 512.467.9955
 - **Address**: 1201 Barbara Jordan Blvd, Suite #1435, Austin, TX 78723
 - **Location**: Mueller Medical District
 
