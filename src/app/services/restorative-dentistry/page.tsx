@@ -9,18 +9,12 @@ import {
   Phone,
   CheckCircle2,
   ArrowRight,
-  ChevronDown,
-  ChevronUp,
   Zap,
   ShieldCheck,
   Activity,
   Layers,
   Clock,
-  Award,
   HelpCircle,
-  Shield,
-  HeartPulse,
-  Info,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
@@ -252,16 +246,11 @@ const FAQS = [
 
 export default function RestorativeDentistryPage() {
   const [activeCategory, setActiveCategory] = useState<TreatmentCategory>('all');
-  const [expandedTreatmentId, setExpandedTreatmentId] = useState<string | null>(null);
 
   const filteredTreatments =
     activeCategory === 'all'
       ? TREATMENTS
       : TREATMENTS.filter((t) => t.category === activeCategory);
-
-  const toggleDetails = (id: string) => {
-    setExpandedTreatmentId((prev) => (prev === id ? null : id));
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20 text-foreground">
@@ -405,110 +394,61 @@ export default function RestorativeDentistryPage() {
           </div>
 
           {/* Treatments Bento Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pt-4">
-            {filteredTreatments.map((item) => {
-              const isExpanded = expandedTreatmentId === item.id;
-
-              return (
-                <div
-                  key={item.id}
-                  id={item.id}
-                  className="group relative overflow-hidden rounded-[1.75rem] border border-primary/15 bg-white p-4 sm:p-5 lg:p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-primary/30 flex flex-col justify-between"
-                >
-                  <div className="space-y-5">
-                    {/* Card Header Media & Badge */}
-                    <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-primary/10 bg-slate-50">
-                      <Image
-                        src={item.image}
-                        alt={item.imageAlt}
-                        fill
-                        sizes="(min-width: 1024px) 500px, 100vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute left-3 top-3">
-                        <span className="rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-primary shadow border border-primary/10">
-                          {item.badge}
-                        </span>
-                      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 pt-3">
+            {filteredTreatments.map((item) => (
+              <div
+                key={item.id}
+                id={item.id}
+                className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between"
+              >
+                <div className="space-y-3.5">
+                  {/* Card Header Media & Badge */}
+                  <div className="relative aspect-[16/9] max-h-44 sm:max-h-48 overflow-hidden rounded-xl border border-primary/10 bg-slate-50">
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 450px, 100vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute left-2.5 top-2.5">
+                      <span className="rounded-full bg-white/95 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-bold text-primary shadow border border-primary/10">
+                        {item.badge}
+                      </span>
                     </div>
-
-                    {/* Title & Summary */}
-                    <div className="space-y-1.5">
-                      <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-primary transition-colors tracking-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                        {item.summary}
-                      </p>
-                    </div>
-
-                    {/* Highlights Bullet List */}
-                    <ul className="space-y-2 pt-1 border-t border-primary/10">
-                      {item.highlights.map((h, i) => (
-                        <li key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/90 font-medium">
-                          <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Expandable Details Panel */}
-                    {isExpanded && (
-                      <div className="mt-4 space-y-4 border-l-2 border-primary/30 pl-4 py-2 text-xs sm:text-sm animate-in fade-in-50 duration-300">
-                        <div className="space-y-1">
-                          <h4 className="font-bold text-foreground flex items-center gap-1.5">
-                            <Info className="h-3.5 w-3.5 text-primary shrink-0" /> Candidate Evaluation
-                          </h4>
-                          <p className="text-muted-foreground leading-relaxed pl-5">
-                            {item.details.candidacy}
-                          </p>
-                        </div>
-
-                        <div className="space-y-1">
-                          <h4 className="font-bold text-foreground flex items-center gap-1.5">
-                            <Clock className="h-3.5 w-3.5 text-primary shrink-0" /> Clinical Procedure
-                          </h4>
-                          <p className="text-muted-foreground leading-relaxed pl-5">
-                            {item.details.procedure}
-                          </p>
-                        </div>
-
-                        <div className="space-y-1.5">
-                          <h4 className="font-bold text-foreground flex items-center gap-1.5">
-                            <Award className="h-3.5 w-3.5 text-primary shrink-0" /> Primary Benefits
-                          </h4>
-                          <ul className="space-y-1 pl-5 text-muted-foreground">
-                            {item.details.benefits.map((b, idx) => (
-                              <li key={idx} className="flex items-start gap-1.5">
-                                <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                                <span>{b}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    )}
                   </div>
 
-                  {/* Card Action Button */}
-                  <div className="pt-6 mt-4 border-t border-primary/10 flex items-center justify-between gap-3">
-                    <button
-                      onClick={() => toggleDetails(item.id)}
-                      className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors flex items-center gap-1.5 underline-offset-4 hover:underline"
-                    >
-                      <span>{isExpanded ? 'Hide Details' : 'View Clinical Details'}</span>
-                      {isExpanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                    </button>
-
-                    <Link href="/contact#request-appointment">
-                      <Button size="sm" variant="ghost" className="text-xs font-semibold text-primary hover:bg-primary/10">
-                        Book <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                      </Button>
-                    </Link>
+                  {/* Title & Summary */}
+                  <div className="space-y-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {item.summary}
+                    </p>
                   </div>
+
+                  {/* Highlights Bullet List */}
+                  <ul className="space-y-1.5 pt-1 border-t border-primary/10">
+                    {item.highlights.map((h, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              );
-            })}
+
+                {/* Card Action Button */}
+                <div className="pt-3 mt-3 border-t border-primary/10 flex items-center justify-end">
+                  <Link href="/contact#request-appointment">
+                    <Button size="sm" variant="ghost" className="text-xs font-semibold text-primary hover:bg-primary/10 px-2.5 h-8">
+                      Book <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
