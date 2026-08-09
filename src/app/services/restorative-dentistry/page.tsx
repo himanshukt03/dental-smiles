@@ -455,11 +455,11 @@ export default function RestorativeDentistryPage() {
                     </div>
 
                     {/* Title & Summary */}
-                    <div className="space-y-2">
-                      <h3 className="text-xl sm:text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                    <div className="space-y-1.5">
+                      <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-primary transition-colors tracking-tight">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                         {item.summary}
                       </p>
                     </div>

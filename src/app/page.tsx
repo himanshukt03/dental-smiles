@@ -620,8 +620,8 @@ export default function LandingPage() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {services.map(({ name, description }, index) => (
                   <div key={index} className="p-4 bg-card rounded-bento border-clinical">
-                    <h3 className="text-foreground ">{name}</h3>
-                    <p className="text-sm text-muted-foreground">{description}</p>
+                    <h3 className="text-sm sm:text-base font-semibold text-foreground tracking-tight mb-1">{name}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{description}</p>
                   </div>
                 ))}
               </div>
