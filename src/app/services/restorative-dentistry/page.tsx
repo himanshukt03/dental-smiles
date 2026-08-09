@@ -13,86 +13,125 @@ export default function RestorativeDentistryPage() {
       sectionImageClassName="object-top scale-[1.08]"
       intro={[
         'Scheduling restorative services as needed is an important part of maintaining a healthy and beautiful smile.',
-        'Dental Smiles offers a wide range of restorative treatments, from simple filling to surgical procedures, for patients in Mueller, Hyde Park, North Loop, and surrounding Austin neighborhoods.',
+        'Dental Smiles offers a wide range of restorative treatments—from same-day crowns and simple fillings to implants, dentures, and surgical care—for patients in Mueller, Hyde Park, North Loop, and surrounding Austin neighborhoods.',
         'To learn more about our service options or schedule your next visit, please give us a call, and we would be happy to assist you.',
       ]}
       sections={[
         {
-          title: 'Dental Bridges',
+          title: 'Same-Day Restorations & Dental Fillings',
           body: [
-            'Dental bridges are a common solution for replacing one or more missing teeth by anchoring a false tooth or teeth between two crowns placed on the adjacent natural teeth or implants.',
-            'Bridges help restore the appearance and function of your smile, allowing you to chew and speak more comfortably. They also prevent remaining teeth from shifting out of place, which can lead to bite issues and further dental problems.',
-          ],
-          image: '/assets/services/Restorative-Dentistry/Restorative-Dental-Procedures.png',
-          imageAlt: 'Illustration of a dental bridge.',
-        },
-        {
-          title: 'CEREC Same Day Crowns',
-          body: [
-            'CEREC dental crowns offer a convenient and efficient solution for patients needing a dental crown.',
-            'Using advanced CAD/CAM technology, our office can create and place a custom crown in just one visit, eliminating the need for temporary crowns and multiple appointments. Made from high-quality ceramic, CEREC crowns are durable and designed to match the natural color of your teeth for a seamless and long-lasting restoration.',
+            'Advanced technology and tooth-colored materials allow us to restore damaged or decayed teeth quickly, comfortably, and seamlessly.',
           ],
           image: '/assets/services/Restorative-Dentistry/cosmetic-2.jpg',
-          imageAlt: 'CEREC same-day crown technology in use.',
-          cta: {
-            label: 'More details',
-            href: '/services/restorative-dentistry/cerec',
-          },
-        },
-        {
-          title: 'Full and Partial Dentures',
-          body: [
-            'Dentures are removable dental appliances designed to replace missing teeth and restore function and aesthetics to your smile.',
-            'They come in two main types: full dentures, which replace all teeth in the upper or lower jaw, and partial dentures, which fill gaps left by missing teeth. Properly fitted dentures help with chewing and speaking and support facial structures, preventing the sunken appearance that can occur with tooth loss.',
+          imageAlt: 'CEREC same-day crown and restorative treatment.',
+          subItems: [
+            {
+              id: 'cerec-details',
+              title: 'CEREC Same-Day Crowns',
+              badge: 'Popular • Single Visit',
+              body: [
+                'CEREC dental crowns offer a fast, highly durable, and convenient solution for repairing damaged, cracked, or root-canal treated teeth in just one single appointment.',
+                'Using advanced digital CAD/CAM technology, Dr. Shetty scans, designs, mills, and places custom ceramic crowns in our office—eliminating messy impressions, temporary crowns, and multiple visits.',
+              ],
+              expandable: {
+                triggerLabel: 'View CEREC Details & Process',
+                closeLabel: 'Hide CEREC Details',
+                details: [
+                  {
+                    title: 'Do I Need a CEREC Dental Crown?',
+                    body: [
+                      'Patients with recently broken or cracked teeth, severe decay, large failing fillings, or teeth recently treated with root canal therapy benefit greatly from a dental crown.',
+                      'Before proceeding, Dr. Shetty performs a thorough evaluation to confirm candidacy for same-day placement.',
+                    ],
+                  },
+                  {
+                    title: 'Key Benefits of CEREC Crowns',
+                    bullets: [
+                      'Single-Visit Convenience: Designed, milled, and permanently placed in just one visit.',
+                      'High-Strength Ceramic: Long-lasting, durable, and functions like your natural enamel.',
+                      'Custom Color Match: Precisely shaded to blend seamlessly with surrounding natural teeth.',
+                      'No Temporary Crowns: Saves time and eliminates uncomfortable temporary restorations.',
+                    ],
+                  },
+                  {
+                    title: '3-Step Same-Day Procedure',
+                    bullets: [
+                      '1. Digital Scanning: We take highly accurate 3D optical scans of your tooth—no messy impression materials required.',
+                      '2. In-House Milling: Our computerized CAD/CAM machine fabricates your custom ceramic crown right in our office while you relax.',
+                      '3. Permanent Placement: Dr. Shetty securely bonds the crown, verifies exact bite fit and alignment, and you walk out with a fully restored tooth.',
+                    ],
+                  },
+                ],
+              },
+            },
+            {
+              title: 'Dental Fillings',
+              body: [
+                'Dental fillings repair teeth damaged by cavities or minor fractures, restoring full function and stopping further decay.',
+                'We use durable, color-matched composite resin materials that bond directly to your natural tooth for an invisible, long-lasting restoration.',
+              ],
+            },
           ],
-          image: '/assets/services/Restorative-Dentistry/cosmetic-3.jpg',
-          imageAlt: 'Person holding a set of dentures.',
         },
         {
-          title: 'Root Canal Therapy',
+          title: 'Tooth Replacement Solutions & Prosthetics',
           body: [
-            'Root canal therapy is a dental procedure used to treat and save a tooth that is severely decayed or infected.',
-            'During the procedure, the infected pulp is removed from the tooth\'s root canals, the area is cleaned and disinfected, and then the space is filled and sealed to prevent further infection. A crown is often placed over the tooth to restore its strength and function.',
-            'Root canal therapy can relieve pain, preserve the natural tooth, and prevent the need for extraction.',
-          ],
-          image: '/assets/services/Restorative-Dentistry/teeth-whiting.jpg',
-          imageAlt: 'Dental treatment light above a dental chair.',
-        },
-        {
-          title: 'Dental Extractions',
-          body: [
-            'Dental extractions involve the removal of a tooth from its socket in the jawbone and are typically performed when a tooth is damaged beyond repair due to decay, trauma, or infection.',
-            'Extractions can also be necessary for overcrowding, to make room for orthodontic treatment, or to remove impacted wisdom teeth. The procedure can be simple or surgical, depending on the tooth\'s condition and location.',
+            'Missing teeth can affect your ability to chew, speak, and smile with confidence. We offer permanent and removable solutions tailored to your needs.',
           ],
           image: '/assets/services/Restorative-Dentistry/Restorative-Dental-Procedures.png',
-          imageAlt: 'Dental extraction treatment setup.',
-        },
-        {
-          title: 'Dental Fillings',
-          body: [
-            'Dental fillings are used to repair teeth damaged by cavities or minor fractures, restoring their function and preventing further decay.',
-            'The process involves removing the decayed portion of the tooth and filling the cavity with a durable material such as composite resin, amalgam, or porcelain. Composite fillings are popular for their natural appearance because they can be color-matched to the surrounding teeth.',
+          imageAlt: 'Restorative dental implant and prosthetic options.',
+          subItems: [
+            {
+              title: 'Dental Implants',
+              body: [
+                'Dental implants provide a permanent replacement for missing teeth. A titanium post is surgically placed in the jawbone to act as an artificial root, topped with a custom crown, bridge, or denture.',
+                'Implants preserve jawbone density, prevent adjacent teeth from shifting, and function just like natural teeth.',
+              ],
+            },
+            {
+              title: 'Dental Bridges',
+              body: [
+                'Dental bridges replace one or more missing teeth by anchoring a strong artificial tooth between adjacent natural teeth or implants.',
+                'Bridges restore bite function, preserve facial structure, and keep remaining teeth properly aligned.',
+              ],
+            },
+            {
+              title: 'Full & Partial Dentures',
+              body: [
+                'Custom full and partial dentures restore aesthetics and oral function for patients missing multiple or all teeth in an arch.',
+                'Modern dentures are lightweight, comfortable, custom-fitted, and designed for a natural appearance.',
+              ],
+            },
           ],
-          image: '/assets/services/Restorative-Dentistry/cosmetic-2.jpg',
-          imageAlt: 'Dental filling material and treatment tools.',
         },
         {
-          title: 'Dental Implants',
+          title: 'Endodontics & Oral Surgery',
           body: [
-            'Dental implants are a permanent solution for replacing missing teeth, consisting of a titanium post surgically placed into the jawbone to act as an artificial tooth root.',
-            'Once the implant integrates with the bone, a custom-made crown, bridge, or denture is attached, providing a natural-looking and stable replacement. Implants help preserve bone density, prevent neighboring teeth from shifting, and restore full function and aesthetics to your smile.',
-          ],
-          image: '/assets/services/Restorative-Dentistry/cosmetic-3.jpg',
-          imageAlt: 'Dental implant model and consultation.',
-        },
-        {
-          title: 'Oral Surgery',
-          body: [
-            'Oral surgery encompasses a range of procedures aimed at treating complex dental issues, and oral surgeons are specially trained to handle intricate procedures that require a high level of precision and care.',
-            'Our practice offers bone graft procedures and wisdom teeth removals, which are two specialty options that not every Austin dental office provides. Whether you are repairing your jawbone health or need your third molars removed, our team is here to help.',
+            'From preserving infected teeth with root canals to performing specialized extractions and bone grafting, our team handles complex restorative procedures in-house.',
           ],
           image: '/assets/services/Restorative-Dentistry/teeth-whiting.jpg',
-          imageAlt: 'Oral surgery consultation and treatment planning.',
+          imageAlt: 'Surgical and endodontic dental procedure equipment.',
+          subItems: [
+            {
+              title: 'Root Canal Therapy',
+              body: [
+                'Root canal therapy saves severely decayed or infected teeth that would otherwise require extraction. We remove infected nerve pulp, disinfect the canals, and seal the tooth securely.',
+                'Root canals relieve tooth pain instantly and preserve your natural tooth structure for years to come.',
+              ],
+            },
+            {
+              title: 'Dental Extractions',
+              body: [
+                'When a tooth is damaged beyond repair due to trauma or deep decay, gentle simple or surgical extractions prevent infection from spreading to surrounding teeth.',
+              ],
+            },
+            {
+              title: 'Oral Surgery & Bone Grafting',
+              body: [
+                'We offer specialized in-house oral surgery options, including bone graft procedures to restore jawbone volume for implants and third molar (wisdom teeth) extractions.',
+              ],
+            },
+          ],
         },
       ]}
       bottomTitle="Have a question about our restorative services?"

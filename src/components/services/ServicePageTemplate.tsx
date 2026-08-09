@@ -1,13 +1,38 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, CalendarCheck, Phone } from 'lucide-react';
+import { ArrowRight, CalendarCheck, Phone, ChevronDown, ChevronUp, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-type ServiceSection = {
+export type ExpandableDetail = {
   title: string;
+  body?: string | string[];
+  bullets?: string[];
+};
+
+export type SubItem = {
+  id?: string;
+  title: string;
+  badge?: string;
+  body: string | string[];
+  bullets?: string[];
+  cta?: {
+    label: string;
+    href: string;
+  };
+  expandable?: {
+    triggerLabel: string;
+    closeLabel?: string;
+    details: ExpandableDetail[];
+  };
+};
+
+export type ServiceSection = {
+  title: string;
+  subtitle?: string;
   body: string[];
   bullets?: string[];
   image?: string;
@@ -15,6 +40,12 @@ type ServiceSection = {
   cta?: {
     label: string;
     href: string;
+  };
+  subItems?: SubItem[];
+  expandable?: {
+    triggerLabel: string;
+    closeLabel?: string;
+    details: ExpandableDetail[];
   };
 };
 
@@ -30,6 +61,60 @@ type ServicePageTemplateProps = {
   bottomTitle: string;
   bottomBody: string;
 };
+
+function ExpandableCardContent({
+  expandable,
+}: {
+  expandable: { triggerLabel: string; closeLabel?: string; details: ExpandableDetail[] };
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="mt-3">
+      <Button
+        variant="ghost"
+        onClick={() => setIsOpen(!isOpen)}
+        className="px-0 text-primary hover:bg-transparent hover:text-primary/80 font-semibold text-sm transition-all duration-200 flex items-center gap-2 underline-offset-4 hover:underline"
+      >
+        <Sparkles className="h-4 w-4 text-primary shrink-0" />
+        <span>{isOpen ? expandable.closeLabel || 'Hide Details' : expandable.triggerLabel}</span>
+        {isOpen ? <ChevronUp className="h-4 w-4 shrink-0 transition-transform" /> : <ChevronDown className="h-4 w-4 shrink-0 transition-transform" />}
+      </Button>
+
+      {isOpen && (
+        <div className="mt-4 space-y-5 border-l-2 border-primary/30 pl-5 py-2 animate-in fade-in-50 duration-300">
+          {expandable.details.map((detail, idx) => (
+            <div key={idx} className="space-y-2">
+              <h4 className="text-base font-heading font-semibold text-foreground flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
+                {detail.title}
+              </h4>
+              {detail.body && (
+                <div className="space-y-1.5 text-sm text-muted-foreground leading-relaxed pl-6">
+                  {Array.isArray(detail.body) ? (
+                    detail.body.map((p, i) => <p key={i}>{p}</p>)
+                  ) : (
+                    <p>{detail.body}</p>
+                  )}
+                </div>
+              )}
+              {detail.bullets && detail.bullets.length > 0 && (
+                <ul className="grid gap-2 pl-6 pt-1 text-sm text-foreground/90">
+                  {detail.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ServicePageTemplate({
   badge,
@@ -119,7 +204,7 @@ export default function ServicePageTemplate({
                 <div
                   className={cn(
                     'relative flex flex-col gap-10 p-8 md:p-12 lg:p-16',
-                    'md:flex-row md:items-center',
+                    'md:flex-row md:items-start',
                     reverse && 'md:flex-row-reverse'
                   )}
                 >
@@ -151,14 +236,75 @@ export default function ServicePageTemplate({
                       </ul>
                     )}
 
+                    {section.subItems && section.subItems.length > 0 && (
+                      <div className="mt-8 space-y-8 divide-y divide-primary/15 pt-2">
+                        {section.subItems.map((subItem, sIdx) => (
+                          <div
+                            key={subItem.title}
+                            id={subItem.id || subItem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+                            className={cn('space-y-3', sIdx > 0 && 'pt-8')}
+                          >
+                            <div className="flex flex-wrap items-center justify-between gap-3">
+                              <h3 className="text-xl sm:text-2xl font-heading text-foreground font-semibold flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-primary shrink-0" />
+                                {subItem.title}
+                              </h3>
+                              {subItem.badge && (
+                                <span className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                                  {subItem.badge}
+                                </span>
+                              )}
+                            </div>
+
+                            <div className="space-y-2 text-base text-muted-foreground leading-relaxed pl-4">
+                              {Array.isArray(subItem.body) ? (
+                                subItem.body.map((p, i) => <p key={i}>{p}</p>)
+                              ) : (
+                                <p>{subItem.body}</p>
+                              )}
+                            </div>
+
+                            {subItem.bullets && subItem.bullets.length > 0 && (
+                              <ul className="mt-3 grid gap-2 sm:grid-cols-2 pl-4">
+                                {subItem.bullets.map((bullet) => (
+                                  <li key={bullet} className="flex items-center gap-2 text-sm text-foreground/90">
+                                    <ArrowRight className="h-3.5 w-3.5 text-primary shrink-0" />
+                                    <span>{bullet}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+
+                            {subItem.cta && (
+                              <div className="mt-3 pl-4">
+                                <Link href={subItem.cta.href} className="inline-flex">
+                                  <Button variant="outline" size="sm">{subItem.cta.label}</Button>
+                                </Link>
+                              </div>
+                            )}
+
+                            {subItem.expandable && (
+                              <div className="pl-4">
+                                <ExpandableCardContent expandable={subItem.expandable} />
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     {section.cta && (
                       <Link href={section.cta.href} className="inline-flex">
                         <Button className="mt-2">{section.cta.label}</Button>
                       </Link>
                     )}
+
+                    {section.expandable && (
+                      <ExpandableCardContent expandable={section.expandable} />
+                    )}
                   </div>
 
-                  <div className="md:w-1/2 lg:w-[45%]">
+                  <div className="md:w-1/2 lg:w-[45%] md:sticky md:top-24">
                     <div className="relative aspect-[5/4] overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/40 shadow-inner">
                       {section.image ? (
                         <Image
@@ -211,3 +357,4 @@ export default function ServicePageTemplate({
     </div>
   );
 }
+
