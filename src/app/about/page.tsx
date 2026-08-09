@@ -39,41 +39,41 @@ export const metadata = {
 const AboutPage = () => {
   return (
     <div className="min-h-screen">
-      <section className="section-padding pt-12 sm:pt-14 lg:pt-20 pb-16 lg:pb-20 bg-gradient-to-br from-clinical-creme to-clinical-grey">
-        <div className="container-clinical">
-          <div className="relative overflow-hidden rounded-[1.9rem] border border-primary/10 bg-white/90 shadow-xl">
+      <section className="section-padding pt-8 sm:pt-10 lg:pt-14 pb-12 lg:pb-16 bg-gradient-to-br from-clinical-creme to-clinical-grey">
+        <div className="container-clinical max-w-6xl">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white/90 shadow-lg">
             <div className="absolute -left-16 top-0 h-48 w-48 rounded-full bg-primary/15 blur-3xl" aria-hidden="true" />
             <div className="absolute -bottom-24 right-0 h-56 w-56 rounded-full bg-primary/5 blur-3xl" aria-hidden="true" />
-            <div className="relative grid grid-rows-[auto_auto_auto] gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:grid-rows-[auto_auto] md:gap-10 lg:p-12">
-              <div className="space-y-4 md:col-start-1 md:col-end-2 md:row-start-1">
-                <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+            <div className="relative grid grid-rows-[auto_auto_auto] gap-5 p-5 sm:p-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:grid-rows-[auto_auto] md:gap-8 lg:p-8">
+              <div className="space-y-3 md:col-start-1 md:col-end-2 md:row-start-1">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
                   <Users className="h-3.5 w-3.5" /> Community-focused care in Austin
                 </span>
-                <h1 className="text-[1.5rem] sm:text-3xl md:text-5xl font-heading text-foreground leading-tight text-center">
+                <h1 className="text-xl sm:text-2xl md:text-3.5xl lg:text-4xl font-heading font-bold text-foreground leading-tight tracking-tight text-center md:text-left">
                   Locally Owned and Operated.
                 </h1>
               </div>
 
-              <div className="relative mx-auto w-full max-w-md sm:max-w-lg md:mx-0 md:col-start-2 md:row-start-1 md:row-end-3">
-                <div className="relative overflow-hidden rounded-[1.8rem] border border-primary/15 bg-white/70 shadow-2xl">
-                  <div className="relative aspect-[4/3] sm:aspect-[3/2] md:aspect-[5/4] lg:aspect-[4/3]">
+              <div className="relative mx-auto w-full max-w-sm sm:max-w-md md:mx-0 md:col-start-2 md:row-start-1 md:row-end-3">
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-primary/15 bg-white/70 shadow-xl">
+                  <div className="relative aspect-[16/10] sm:aspect-[3/2] md:aspect-[4/3]">
                     <Image
                       src="/assets/dental-team2.webp"
                       alt="Dental Smiles team"
                       fill
                       className="object-cover"
-                      sizes="(min-width: 1024px) 420px, (min-width: 768px) 60vw, 90vw"
+                      sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 90vw"
                       priority
                     />
                   </div>
-                  <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-semibold text-primary shadow">
+                  <div className="absolute left-3 top-3 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-semibold text-primary shadow border border-primary/10">
                     Locally owned practice
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-5 md:col-start-1 md:row-start-2 md:row-end-3">
-                <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
+              <div className="space-y-4 md:col-start-1 md:row-start-2 md:row-end-3">
+                <div className="space-y-3 text-xs sm:text-sm md:text-base leading-relaxed text-muted-foreground">
                   <p>
                     Conveniently located near Central Austin and the Mueller Town Center District, our locally owned practice serves families and individuals seeking
                     <span className="text-primary font-semibold"> high-quality care</span>.
@@ -83,12 +83,12 @@ const AboutPage = () => {
                     We also ease patient anxiety by creating a <span className="text-primary font-semibold">welcoming experience</span>—with ample parking included.
                   </p>
                 </div>
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Button className="btn-primary w-full sm:w-auto px-5 py-3 text-sm font-semibold">
+                <div className="flex flex-col gap-2.5 sm:flex-row pt-1">
+                  <Button className="btn-primary w-full sm:w-auto px-4 py-2.5 text-xs sm:text-sm font-semibold">
                     <Users className="w-4 h-4 mr-2" />
                     Meet Our Team
                   </Button>
-                  <Button variant="ghost" className="btn-secondary w-full sm:w-auto px-5 py-3 text-sm font-semibold">
+                  <Button variant="ghost" className="btn-secondary w-full sm:w-auto px-4 py-2.5 text-xs sm:text-sm font-semibold">
                     <Clock className="w-4 h-4 mr-2" />
                     Schedule Visit
                   </Button>

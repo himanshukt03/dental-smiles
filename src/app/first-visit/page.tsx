@@ -95,34 +95,34 @@ export const metadata = {
 const FirstVisitPage = () => {
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20">
-			<section className="section-padding pt-12 pb-14">
-				<div className="container-clinical">
-					<div className="relative overflow-hidden rounded-[2.75rem] border border-primary/10 bg-gradient-to-br from-primary/5 via-white to-white shadow-xl">
-						<div className="flex flex-col gap-6 p-8 sm:p-10 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:p-16">
+			<section className="section-padding pt-8 sm:pt-10 lg:pt-12 pb-10 lg:pb-14">
+				<div className="container-clinical max-w-6xl">
+					<div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-gradient-to-br from-primary/5 via-white to-white shadow-lg">
+						<div className="flex flex-col gap-5 p-5 sm:p-6 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-8 lg:p-8">
 							<div className="order-2">
-								<h1 className="text-3xl md:text-4xl font-heading text-foreground text-center sm:text-left">
+								<h1 className="text-xl sm:text-2xl md:text-3.5xl font-heading font-bold text-foreground text-center sm:text-left tracking-tight">
 									Your first step to <span className="text-[#741234]">comfortable care</span>
 								</h1>
 							</div>
 
-							<div className="order-3 relative mx-auto w-full max-w-md overflow-hidden rounded-[2rem] border border-primary/10 bg-white/70 shadow-lg sm:max-w-lg lg:order-1 lg:mx-0 lg:col-start-1 lg:row-span-2 lg:max-w-[460px]">
+							<div className="order-3 relative mx-auto w-full max-w-sm overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white/70 shadow-md sm:max-w-md lg:order-1 lg:mx-0 lg:col-start-1 lg:row-span-2 lg:max-w-[400px]">
 								<div className="relative aspect-[16/10] sm:aspect-[3/2] lg:aspect-[4/3]">
 									<Image
 										src="/assets/dental-office.jpg"
 										alt="Smiling patient receiving care at Dental Smiles."
 										fill
-										sizes="(min-width: 1280px) 460px, (min-width: 1024px) 420px, (min-width: 768px) 46vw, 90vw"
+										sizes="(min-width: 1280px) 400px, (min-width: 1024px) 360px, (min-width: 768px) 40vw, 90vw"
 										className="object-cover"
 										priority
 									/>
 								</div>
-								<div className="absolute bottom-4 right-4 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
+								<div className="absolute bottom-3 right-3 rounded-xl bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground shadow">
 									Compassionate care for every smile
 								</div>
 							</div>
 
-							<div className="order-4 space-y-6 lg:order-2 lg:col-start-2 lg:row-start-2">
-								<div className="space-y-4 text-base leading-relaxed text-muted-foreground">
+							<div className="order-4 space-y-4 lg:order-2 lg:col-start-2 lg:row-start-2">
+								<div className="space-y-3 text-xs sm:text-sm md:text-base leading-relaxed text-muted-foreground">
 									<p>
 										At Dental Smiles, we keep visits <span className="text-[#741234] font-semibold">stress-free</span> with transparent options and a welcoming team.
 									</p>
@@ -130,16 +130,16 @@ const FirstVisitPage = () => {
 										From your first hello to checkout, we guide you through what matters most, <span className="text-[#741234] font-semibold">clear answers</span>, same-day guidance, and care that fits your plans.
 									</p>
 								</div>
-								<div className="flex flex-col gap-3 sm:flex-row">
+								<div className="flex flex-col gap-2.5 sm:flex-row pt-1">
 									<Link href="/contact#request-appointment" className="w-full sm:w-auto">
-										<Button className="btn-primary w-full sm:w-auto px-4 py-3 text-sm font-semibold">
+										<Button className="btn-primary w-full sm:w-auto px-4 py-2.5 text-xs sm:text-sm font-semibold">
 											<CalendarCheck className="mr-2 h-4 w-4" /> Schedule your visit
 										</Button>
 									</Link>
 									<Link href="/contact#request-appointment" className="w-full sm:w-auto">
 										<Button
 											variant="outline"
-											className="w-full sm:w-auto border-primary/20 bg-white/80 px-4 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
+											className="w-full sm:w-auto border-primary/20 bg-white/80 px-4 py-2.5 text-xs sm:text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
 										>
 											<Phone className="mr-2 h-4 w-4" /> Contact us
 										</Button>
