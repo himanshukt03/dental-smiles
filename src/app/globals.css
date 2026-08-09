@@ -60,9 +60,7 @@
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+
 
   body {
     background-color: hsl(var(--background));

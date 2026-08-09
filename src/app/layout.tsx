@@ -4,6 +4,7 @@ import Providers from "@/components/Providers";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import RevenueWellChatbot from "@/components/RevenueWellChatbot";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dental-smiles.vercel.app"),
@@ -91,6 +92,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased bg-background text-foreground" suppressHydrationWarning>
         <Providers>
+          <ScrollToTop />
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">{children}</main>
