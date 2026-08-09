@@ -9,6 +9,8 @@ import {
   Phone,
   CheckCircle2,
   ArrowRight,
+  ChevronDown,
+  ChevronUp,
   Zap,
   ShieldCheck,
   Activity,
@@ -246,6 +248,11 @@ const FAQS = [
 
 export default function RestorativeDentistryPage() {
   const [activeCategory, setActiveCategory] = useState<TreatmentCategory>('all');
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
+  const toggleExpand = (id: string) => {
+    setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const filteredTreatments =
     activeCategory === 'all'
@@ -321,128 +328,75 @@ export default function RestorativeDentistryPage() {
       </section>
 
       {/* Services Showcase Section */}
-      <section className="py-16 lg:py-20">
-        <div className="container-clinical space-y-10">
+      <section className="py-10 lg:py-14">
+        <div className="container-clinical space-y-8">
           {/* Section Header */}
-          <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-              <Layers className="h-3.5 w-3.5" /> Our Treatments
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground">
+          <div className="text-center space-y-3 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground tracking-tight">
               Comprehensive Restorative Dental Services
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
               Explore our full range of tooth-saving procedures, tooth replacements, and surgical options tailored to your oral health.
             </p>
-
-            {/* Category Filter Tabs */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-              <button
-                onClick={() => setActiveCategory('all')}
-                className={cn(
-                  'px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-2 border',
-                  activeCategory === 'all'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-md'
-                    : 'bg-white/80 text-foreground border-primary/10 hover:border-primary/30 hover:bg-white'
-                )}
-              >
-                <Sparkles className="h-3.5 w-3.5" /> All Services ({TREATMENTS.length})
-              </button>
-
-              <button
-                onClick={() => setActiveCategory('same-day')}
-                className={cn(
-                  'px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-2 border',
-                  activeCategory === 'same-day'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-md'
-                    : 'bg-white/80 text-foreground border-primary/10 hover:border-primary/30 hover:bg-white'
-                )}
-              >
-                <Zap className="h-3.5 w-3.5" /> Same-Day & Fillings (2)
-              </button>
-
-              <button
-                onClick={() => setActiveCategory('replacements')}
-                className={cn(
-                  'px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-2 border',
-                  activeCategory === 'replacements'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-md'
-                    : 'bg-white/80 text-foreground border-primary/10 hover:border-primary/30 hover:bg-white'
-                )}
-              >
-                <ShieldCheck className="h-3.5 w-3.5" /> Implants & Bridges (3)
-              </button>
-
-              <button
-                onClick={() => setActiveCategory('surgery')}
-                className={cn(
-                  'px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-2 border',
-                  activeCategory === 'surgery'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-md'
-                    : 'bg-white/80 text-foreground border-primary/10 hover:border-primary/30 hover:bg-white'
-                )}
-              >
-                <Activity className="h-3.5 w-3.5" /> Root Canals & Surgery (3)
-              </button>
-            </div>
           </div>
 
-          {/* Treatments Bento Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 pt-3">
-            {filteredTreatments.map((item) => (
-              <div
-                key={item.id}
-                id={item.id}
-                className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between"
-              >
-                <div className="space-y-3.5">
-                  {/* Card Header Media & Badge */}
-                  <div className="relative aspect-[16/9] max-h-44 sm:max-h-48 overflow-hidden rounded-xl border border-primary/10 bg-slate-50">
-                    <Image
-                      src={item.image}
-                      alt={item.imageAlt}
-                      fill
-                      sizes="(min-width: 1024px) 450px, 100vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute left-2.5 top-2.5">
-                      <span className="rounded-full bg-white/95 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-bold text-primary shadow border border-primary/10">
-                        {item.badge}
-                      </span>
+          {/* Treatments Bento Cards Grid - 3 cards in a row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
+            {filteredTreatments.map((item) => {
+              const isExpanded = !!expandedCards[item.id];
+
+              return (
+                <div
+                  key={item.id}
+                  id={item.id}
+                  className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between"
+                >
+                  <div className="space-y-3">
+                    {/* Card Header Media */}
+                    <div className="relative aspect-[16/9] max-h-44 sm:max-h-48 overflow-hidden rounded-xl border border-primary/10 bg-slate-50">
+                      <Image
+                        src={item.image}
+                        alt={item.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 380px, 100vw"
+                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+
+                    {/* Title & Summary with Know More expand */}
+                    <div className="space-y-1.5">
+                      <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                        {item.title}
+                      </h3>
+                      <div className="text-xs text-muted-foreground leading-relaxed">
+                        <p className={cn(!isExpanded && 'line-clamp-2')}>
+                          {isExpanded
+                            ? `${item.summary} ${item.details.candidacy} ${item.details.procedure}`
+                            : item.summary}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => toggleExpand(item.id)}
+                          className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1 mt-1.5 focus:outline-none"
+                        >
+                          {isExpanded ? 'Know Less' : 'Know More'}
+                          {isExpanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
+                        </button>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Title & Summary */}
-                  <div className="space-y-1">
-                    <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      {item.summary}
-                    </p>
+                  {/* Card Action Button */}
+                  <div className="pt-3 mt-3 border-t border-primary/10 flex items-center justify-end">
+                    <Link href="/contact#request-appointment">
+                      <Button size="sm" variant="ghost" className="text-xs font-semibold text-primary hover:bg-primary/10 px-2.5 h-8">
+                        Book <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                      </Button>
+                    </Link>
                   </div>
-
-                  {/* Highlights Bullet List */}
-                  <ul className="space-y-1.5 pt-1 border-t border-primary/10">
-                    {item.highlights.map((h, i) => (
-                      <li key={i} className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-
-                {/* Card Action Button */}
-                <div className="pt-3 mt-3 border-t border-primary/10 flex items-center justify-end">
-                  <Link href="/contact#request-appointment">
-                    <Button size="sm" variant="ghost" className="text-xs font-semibold text-primary hover:bg-primary/10 px-2.5 h-8">
-                      Book <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

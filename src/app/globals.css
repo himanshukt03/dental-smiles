@@ -388,7 +388,7 @@
   }
 }
 
-/* Scaled-down Chatbot Widget */
+/* Scaled-down Chatbot Widget with padding & corner offsets */
 #rw-chat-container,
 #rw-chat-launcher,
 #rw-chat-widget,
@@ -400,4 +400,7 @@ div[id*="rw-chat"],
 div[class*="rw-chat"] {
   transform: scale(0.75) !important;
   transform-origin: bottom right !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  margin: 8px !important;
 }
