@@ -535,64 +535,7 @@ export default function RestorativeDentistryPage() {
         </div>
       </section>
 
-      {/* Why Choose Restorative Care at Dental Smiles */}
-      <section className="py-16 bg-white border-y border-primary/10">
-        <div className="container-clinical space-y-12">
-          <div className="text-center space-y-3 max-w-2xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-              <Shield className="h-3.5 w-3.5" /> The Dental Smiles Advantage
-            </span>
-            <h2 className="text-3xl font-heading font-bold text-foreground">
-              Why Patients Choose Us for Restorative Care
-            </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              We combine state-of-the-art dental technology with gentle, patient-centered care for long-lasting results.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="rounded-2xl border border-primary/10 bg-clinical-creme/40 p-6 space-y-3 shadow-sm hover:border-primary/20 transition-all">
-              <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
-                <Zap className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-heading font-bold text-foreground">Single-Visit Tech</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                In-house CEREC 3D scanning and CAD/CAM milling deliver custom ceramic crowns in one visit.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-primary/10 bg-clinical-creme/40 p-6 space-y-3 shadow-sm hover:border-primary/20 transition-all">
-              <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
-                <Sparkles className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-heading font-bold text-foreground">Natural Aesthetics</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                100% metal-free ceramic and composite resins precisely shaded to blend with surrounding teeth.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-primary/10 bg-clinical-creme/40 p-6 space-y-3 shadow-sm hover:border-primary/20 transition-all">
-              <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
-                <HeartPulse className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-heading font-bold text-foreground">Gentle & Pain-Free</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Local anesthesia and comforting techniques ensure every procedure is completely stress-free.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-primary/10 bg-clinical-creme/40 p-6 space-y-3 shadow-sm hover:border-primary/20 transition-all">
-              <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
-                <ShieldCheck className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-heading font-bold text-foreground">In-House Surgery</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                From simple fillings to bone grafting and wisdom teeth removals, get complete care under one roof.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Patient Journey Timeline */}
       <section className="py-16 lg:py-20">
