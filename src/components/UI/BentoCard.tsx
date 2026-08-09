@@ -17,9 +17,9 @@ const BentoCard = ({
   hover = true 
 }: BentoCardProps) => {
   const sizeClasses = {
-    small: "p-4",
-    medium: "p-6",
-    large: "p-8"
+    small: "p-3 sm:p-4",
+    medium: "p-4 sm:p-5 lg:p-6",
+    large: "p-5 sm:p-6 lg:p-8"
   };
 
   return (

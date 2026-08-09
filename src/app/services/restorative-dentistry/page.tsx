@@ -450,7 +450,7 @@ export default function RestorativeDentistryPage() {
                 <div
                   key={item.id}
                   id={item.id}
-                  className="group relative overflow-hidden rounded-[2rem] border border-primary/15 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-primary/30 flex flex-col justify-between"
+                  className="group relative overflow-hidden rounded-[1.75rem] border border-primary/15 bg-white p-4 sm:p-5 lg:p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-primary/30 flex flex-col justify-between"
                 >
                   <div className="space-y-5">
                     {/* Card Header Media & Badge */}
