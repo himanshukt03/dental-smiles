@@ -151,15 +151,15 @@ const AboutPage = () => {
 
                       <BioContent id={String(doctor.id)} bio={doctor.bio} className="space-y-3 text-left" />
 
-                      <div className="space-y-3">
-                        <h4 className="font-heading text-lg text-foreground">Specialties</h4>
-                        <div className="flex flex-wrap gap-2">
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Specialties</h4>
+                        <div className="flex flex-wrap gap-1.5">
                           {doctor.specialties.map((specialty) => (
                             <span
                               key={specialty}
-                              className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
+                              className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
                             >
-                              <CheckCircle className="h-4 w-4" />
+                              <CheckCircle className="h-3.5 w-3.5" />
                               {specialty}
                             </span>
                           ))}
@@ -228,15 +228,15 @@ const AboutPage = () => {
 
                       <BioContent id={`team-${member.id}`} bio={member.bio} className="space-y-3" />
 
-                      <div className="space-y-2">
-                        <h4 className="font-heading text-foreground">Specialties</h4>
-                        <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
+                      <div className="space-y-1.5">
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Specialties</h4>
+                        <div className="flex flex-wrap justify-center gap-1.5 lg:justify-start">
                           {member.specialties.map((specialty) => (
                             <span
                               key={specialty}
-                              className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs sm:text-sm text-primary"
+                              className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
                             >
-                              <CheckCircle className="h-4 w-4" />
+                              <CheckCircle className="h-3.5 w-3.5" />
                               {specialty}
                             </span>
                           ))}
