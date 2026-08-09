@@ -95,13 +95,13 @@ const Header = () => {
 			</div>
 
 			<div className="border-b border-border backdrop-blur-md bg-card/95">
-				<div className="container-clinical">
-					<div className="flex items-center justify-between h-20">
+				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="flex items-center justify-between h-20 gap-4">
 						<Link
 							href="/"
-							className="flex items-center space-x-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-bento"
+							className="flex items-center space-x-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-bento shrink-0"
 						>
-							<div className="w-52 h-20 rounded-bento overflow-hidden flex items-center justify-center relative">
+							<div className="w-48 sm:w-52 h-20 rounded-bento overflow-hidden flex items-center justify-center relative">
 								<Image
 									src={DentalSmilesLogo}
 									alt="Dental Smiles Logo"
@@ -113,14 +113,14 @@ const Header = () => {
 							</div>
 						</Link>
 
-						<nav className="hidden lg:flex items-center space-x-8">
+						<nav className="hidden lg:flex items-center space-x-1 lg:space-x-3 xl:space-x-6">
 							{navItems.map((item) => {
 								const active = isPathActive(item.path);
 								return (
 									<Link
 										key={item.path}
 										href={item.path}
-										className={`px-3 py-2 rounded-bento text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+										className={`px-2.5 py-2 rounded-bento text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
 											active
 												? "text-primary font-semibold"
 												: "text-muted-foreground hover:text-foreground"
@@ -132,13 +132,13 @@ const Header = () => {
 							})}
 						</nav>
 
-						<div className="hidden lg:block">
+						<div className="hidden lg:block shrink-0 ml-4 xl:ml-6">
 							<Link
 								href="https://leadsmanagementweb.revenuewell.com/49ce5762-045a-4343-9cd3-30106f8ead9d"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								<Button className="btn-primary">Book Appointment</Button>
+								<Button className="btn-primary px-5">Book Appointment</Button>
 							</Link>
 						</div>
 
