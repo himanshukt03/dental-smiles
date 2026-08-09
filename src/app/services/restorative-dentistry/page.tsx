@@ -289,45 +289,12 @@ export default function RestorativeDentistryPage() {
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary border border-primary/15 shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" /> Restorative Dentistry in Austin, TX
               </span>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading text-foreground leading-tight font-bold tracking-tight">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-heading text-foreground leading-tight font-bold tracking-tight">
                 Restore Your Smile's Strength, Function & Natural Beauty
               </h1>
               <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
                 From single-visit CEREC crowns and tooth-colored fillings to permanent implants, dentures, and oral surgery—get gentle, technology-driven restorative dental care in Central Austin.
               </p>
-
-              {/* Quick Feature Badges */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                <div className="flex items-center gap-2.5 rounded-xl bg-white/90 p-3 border border-primary/10 shadow-sm backdrop-blur-sm">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
-                    <Zap className="h-4 w-4" />
-                  </span>
-                  <div className="text-left">
-                    <p className="text-xs font-bold text-foreground">1-Visit CEREC</p>
-                    <p className="text-[11px] text-muted-foreground">Same-day crowns</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2.5 rounded-xl bg-white/90 p-3 border border-primary/10 shadow-sm backdrop-blur-sm">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
-                    <ShieldCheck className="h-4 w-4" />
-                  </span>
-                  <div className="text-left">
-                    <p className="text-xs font-bold text-foreground">Dental Implants</p>
-                    <p className="text-[11px] text-muted-foreground">Permanent roots</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2.5 rounded-xl bg-white/90 p-3 border border-primary/10 shadow-sm backdrop-blur-sm">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
-                    <Activity className="h-4 w-4" />
-                  </span>
-                  <div className="text-left">
-                    <p className="text-xs font-bold text-foreground">Root Canals & Surgery</p>
-                    <p className="text-[11px] text-muted-foreground">In-house pain relief</p>
-                  </div>
-                </div>
-              </div>
 
               {/* CTAs */}
               <div className="flex flex-col gap-3 sm:flex-row pt-2 justify-center sm:justify-start">
@@ -363,10 +330,6 @@ export default function RestorativeDentistryPage() {
                 </div>
                 <div className="absolute left-4 top-4 rounded-full bg-white/90 backdrop-blur-md px-3.5 py-1.5 text-xs font-semibold text-primary shadow border border-primary/10">
                   ✨ Central Austin Dental Care
-                </div>
-                <div className="absolute bottom-4 right-4 rounded-2xl bg-white/95 backdrop-blur-md p-3.5 shadow-lg border border-primary/10 max-w-[220px]">
-                  <p className="text-xs font-bold text-foreground">Dr. Divya Shetty</p>
-                  <p className="text-[11px] text-muted-foreground leading-snug">Serving Mueller, Hyde Park & North Loop Austin</p>
                 </div>
               </div>
             </div>
