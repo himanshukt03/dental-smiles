@@ -152,7 +152,7 @@ const AboutPage = () => {
                       <BioContent id={String(doctor.id)} bio={doctor.bio} className="space-y-3 text-left" />
 
                       <div className="space-y-2">
-                        <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Specialties</h4>
+                        <h4 className="text-sm sm:text-base font-bold text-foreground tracking-tight">Specialties</h4>
                         <div className="flex flex-wrap gap-1.5">
                           {doctor.specialties.map((specialty) => (
                             <span
@@ -229,7 +229,7 @@ const AboutPage = () => {
                       <BioContent id={`team-${member.id}`} bio={member.bio} className="space-y-3" />
 
                       <div className="space-y-1.5">
-                        <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Specialties</h4>
+                        <h4 className="text-sm sm:text-base font-bold text-foreground tracking-tight">Specialties</h4>
                         <div className="flex flex-wrap justify-center gap-1.5 lg:justify-start">
                           {member.specialties.map((specialty) => (
                             <span
