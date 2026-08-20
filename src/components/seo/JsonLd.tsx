@@ -1,5 +1,3 @@
-import Script from 'next/script';
-
 export const SITE_URL = 'https://dental-smiles.vercel.app';
 export const PRACTICE_NAME = 'Dental Smiles';
 export const PHONE_NUMBER = '+15124679955';
@@ -167,10 +165,8 @@ export function DentistSchema() {
   };
 
   return (
-    <Script
-      id="schema-dentist-main"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
@@ -196,10 +192,8 @@ export function FaqSchema({ faqs }: { faqs: { q: string; a: string }[] }) {
   };
 
   return (
-    <Script
-      id={`schema-faq-${faqs[0].q.slice(0, 15).replace(/\s+/g, '-').toLowerCase()}`}
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
@@ -233,10 +227,8 @@ export function BreadcrumbSchema({
   };
 
   return (
-    <Script
-      id="schema-breadcrumbs"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
@@ -280,10 +272,8 @@ export function ServiceSchema({
   };
 
   return (
-    <Script
-      id={`schema-service-${name.replace(/\s+/g, '-').toLowerCase()}`}
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
@@ -340,10 +330,8 @@ export function ArticleSchema({
   };
 
   return (
-    <Script
-      id={`schema-article-${slug}`}
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );

@@ -5,6 +5,7 @@ import Script from "next/script";
 export default function RevenueWellChatbot() {
     return (
         <Script
+            id="revenuewell-chat"
             src="https://aichatbotweb.revenuewell.com/rw-chat.js"
             strategy="afterInteractive"
             onLoad={() => {
