@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import InsuranceMarquee from "@/components/InsuranceMarquee";
 import { insuranceProviders } from "@/data/content";
 
 const paymentMethods = [
@@ -153,60 +154,31 @@ export default function PaymentsPage() {
       </section>
 
       {/* Insurance & Benefits Section */}
-      <section className="py-8 sm:py-10 lg:py-12 bg-clinical-creme border-t border-primary/10">
+      <section className="py-10 sm:py-12 lg:py-16 bg-clinical-creme border-t border-primary/10">
         <div className="container-clinical max-w-6xl space-y-8">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-primary">
+              <ShieldCheck className="h-3 w-3" /> PPO Coverage
+            </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground tracking-tight">
               Dental Insurance & Benefits
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              We are in-network with most major PPO dental insurance providers and handle all claim submissions for you.
+              We are in-network with most major PPO dental insurance providers and handle all direct claim submissions for you.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-8 items-center">
-            {/* Image Showcase */}
-            <div className="relative overflow-hidden rounded-2xl border border-primary/15 bg-white shadow-md">
-              <div className="relative aspect-[4/3] lg:aspect-[16/11]">
-                <Image
-                  src="/assets/Paying_With_Insurance.jpg"
-                  alt="Patient reviewing dental insurance benefits at Dental Smiles"
-                  fill
-                  sizes="(min-width: 1024px) 480px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+          <div className="py-2">
+            <InsuranceMarquee theme="light" speed={28} />
+          </div>
 
-            {/* Insurance Providers Grid */}
-            <div className="rounded-2xl border border-primary/15 bg-white p-5 sm:p-6 shadow-sm space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="text-sm font-bold text-foreground tracking-tight">
-                  Accepted PPO Providers
-                </h3>
-                <span className="text-[11px] font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/15">
-                  Major Insurers Accepted
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {insuranceProviders.map((provider) => (
-                  <div
-                    key={provider}
-                    className="rounded-xl border border-primary/10 bg-clinical-creme/60 p-2.5 text-center text-xs font-semibold text-foreground hover:bg-primary hover:text-white transition-all duration-200 shadow-sm"
-                  >
-                    {provider}
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-3 border-t border-primary/10 text-xs text-muted-foreground flex flex-col sm:flex-row items-center justify-between gap-2">
-                <span>Don&apos;t see your insurance listed?</span>
-                <Link href="/contact" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
-                  Verify Coverage With Us <ArrowRight className="h-3 w-3" />
-                </Link>
-              </div>
-            </div>
+          <div className="text-center pt-2">
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              Don&apos;t see your insurance provider listed?{' '}
+              <Link href="/contact" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
+                Verify Coverage With Us <ArrowRight className="h-3 w-3" />
+              </Link>
+            </p>
           </div>
         </div>
       </section>

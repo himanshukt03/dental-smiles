@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import InsuranceMarquee from '@/components/InsuranceMarquee';
 import drDivyaImage from '@/assets/team/dr-divya-shetty.webp';
 
 type InsuranceCompany = {
@@ -614,41 +615,14 @@ export default function LandingPage() {
 
       <section className="py-8 border-y border-border" style={{ backgroundColor: '#741234' }}>
         <div className="container-clinical">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <h2 className="text-xl font-heading text-white mb-2">
               Insurance Plans We Accept
             </h2>
             <p className="text-sm text-white/80">We work with most major insurance providers</p>
           </div>
 
-          <div className="relative overflow-hidden">
-            <DraggableCarousel trackClassName="flex w-max space-x-8 px-1">
-              {insuranceCompanies.map((company, index) => (
-                <div
-                  key={`first-${index}`}
-                  className="flex-shrink-0 bg-clinical-grey rounded-bento px-6 py-3 border-clinical min-w-[140px] h-12 text-center flex items-center justify-center"
-                >
-                  {company.logo ? (
-                    <img src={company.logo} alt={company.name} className="w-full h-full object-contain" />
-                  ) : (
-                    <span className="text-sm font-medium text-muted-foreground">{company.name}</span>
-                  )}
-                </div>
-              ))}
-              {insuranceCompanies.map((company, index) => (
-                <div
-                  key={`second-${index}`}
-                  className="flex-shrink-0 bg-clinical-grey rounded-bento px-6 py-3 border-clinical min-w-[140px] h-12 text-center flex items-center justify-center"
-                >
-                  {company.logo ? (
-                    <img src={company.logo} alt={company.name} className="w-full h-full object-contain" />
-                  ) : (
-                    <span className="text-sm font-medium text-muted-foreground">{company.name}</span>
-                  )}
-                </div>
-              ))}
-            </DraggableCarousel>
-          </div>
+          <InsuranceMarquee theme="maroon" speed={28} />
         </div>
       </section>
 
