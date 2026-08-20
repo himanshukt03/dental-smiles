@@ -502,13 +502,13 @@ export default function LandingPage() {
                 <Star key={starIndex} className="w-4 h-4 fill-primary text-primary" />
               ))}
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-2 min-h-[96px]">
+            <p className="text-foreground/85 text-sm sm:text-[15px] leading-relaxed mb-2 min-h-[96px] font-normal">
               “{displayReview}”
             </p>
             {isLongReview && (
               <button
                 type="button"
-                className="mb-4 text-xs font-semibold text-primary hover:underline focus:outline-none"
+                className="mb-4 text-xs sm:text-sm font-semibold text-primary hover:underline focus:outline-none"
                 onClick={(event) => {
                   event.preventDefault();
                   event.stopPropagation();
@@ -519,7 +519,7 @@ export default function LandingPage() {
               </button>
             )}
             <div className="border-t border-border pt-4">
-              <div className="font-semibold text-foreground text-sm">{name}</div>
+              <div className="font-bold text-foreground text-sm sm:text-base">{name}</div>
             </div>
           </CardContent>
         </Card>
@@ -632,7 +632,7 @@ export default function LandingPage() {
             <h2 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight text-foreground mb-4">
               What Our Patients Say
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               Real reviews from real patients who trust us with their smiles
             </p>
           </div>

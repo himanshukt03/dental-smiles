@@ -208,22 +208,22 @@ export default function GeneralDentistryPage() {
             <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground tracking-tight">
               General & Preventive Dental Services
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
               Explore our full range of custom appliances, preventive therapies, and specialized wellness treatments tailored to protect your smile.
             </p>
           </div>
 
-          {/* Treatments Bento Cards Grid - Centered rows */}
+          {/* Treatments Bento Cards Grid - Tight image margins matching Image 5 */}
           <div className="flex flex-wrap justify-center gap-5 pt-2">
             {GENERAL_TREATMENTS.map((item) => (
               <div
                 key={item.id}
                 id={item.id}
-                className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
+                className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-2.5 sm:p-3 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
               >
                 <div className="space-y-3">
-                  {/* Card Header Media */}
-                  <div className="relative aspect-[16/9] max-h-44 sm:max-h-48 overflow-hidden rounded-xl border border-primary/10 bg-slate-50">
+                  {/* Card Header Media - tight margin to card edge */}
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100">
                     <Image
                       src={item.image}
                       alt={item.imageAlt}
@@ -234,27 +234,27 @@ export default function GeneralDentistryPage() {
                   </div>
 
                   {/* Title & Readable Brief One-Liner Summary */}
-                  <div className="space-y-1.5">
-                    <h3 className="text-base font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                  <div className="px-1.5 pt-0.5 space-y-1.5">
+                    <h3 className="text-base sm:text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-foreground/85 font-normal leading-relaxed line-clamp-2">
+                    <p className="text-sm sm:text-[15px] text-foreground/85 font-normal leading-relaxed line-clamp-2">
                       {item.summary}
                     </p>
                   </div>
                 </div>
 
                 {/* Card Action Buttons: Learn More (Pop-up) + Book Now */}
-                <div className="pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
+                <div className="px-1.5 pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
                   <button
                     type="button"
                     onClick={() => setSelectedTreatment(item)}
-                    className="text-xs font-bold text-primary hover:underline inline-flex items-center gap-1 focus:outline-none"
+                    className="text-xs sm:text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 focus:outline-none"
                   >
-                    Learn More <ArrowRight className="h-3 w-3" />
+                    Learn More <ArrowRight className="h-3.5 w-3.5" />
                   </button>
                   <Link href="/contact#request-appointment">
-                    <Button size="sm" className="btn-primary text-xs font-semibold px-3 py-1 h-7 sm:h-8">
+                    <Button size="sm" className="btn-primary text-xs font-semibold px-3.5 py-1.5 h-8">
                       Book Now
                     </Button>
                   </Link>
@@ -286,7 +286,7 @@ export default function GeneralDentistryPage() {
                     <DialogTitle className="text-xl sm:text-2xl font-heading font-bold text-foreground">
                       {selectedTreatment.title}
                     </DialogTitle>
-                    <DialogDescription className="text-xs sm:text-sm text-foreground/85 leading-relaxed">
+                    <DialogDescription className="text-sm sm:text-[15px] text-foreground/85 leading-relaxed">
                       {selectedTreatment.summary}
                     </DialogDescription>
                   </div>
@@ -296,18 +296,18 @@ export default function GeneralDentistryPage() {
               {/* Details Body */}
               <div className="p-5 sm:p-7 space-y-4 max-h-[50vh] overflow-y-auto">
                 <div className="space-y-1.5">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-primary">
                     Who Is This For?
                   </h4>
-                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-normal">
+                  <p className="text-sm sm:text-base text-foreground/90 leading-relaxed font-normal">
                     {selectedTreatment.details.candidacy}
                   </p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-primary">
                     Treatment & Procedure Details
                   </h4>
-                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-normal">
+                  <p className="text-sm sm:text-base text-foreground/90 leading-relaxed font-normal">
                     {selectedTreatment.details.procedure}
                   </p>
                 </div>
@@ -315,17 +315,17 @@ export default function GeneralDentistryPage() {
 
               {/* Modal Footer */}
               <div className="bg-clinical-creme/60 p-4 sm:p-5 border-t border-primary/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <p className="text-xs text-muted-foreground text-center sm:text-left">
+                <p className="text-xs sm:text-sm text-foreground/75 text-center sm:text-left">
                   Ready to protect or restore your smile?
                 </p>
                 <div className="flex gap-2 w-full sm:w-auto">
                   <Link href="/contact#request-appointment" className="w-full sm:w-auto" onClick={() => setSelectedTreatment(null)}>
-                    <Button size="sm" className="btn-primary w-full sm:w-auto px-4 text-xs font-semibold">
+                    <Button size="sm" className="btn-primary w-full sm:w-auto px-4 text-xs sm:text-sm font-semibold">
                       <CalendarCheck className="mr-1.5 h-3.5 w-3.5" /> Book Appointment
                     </Button>
                   </Link>
                   <Link href="tel:5124679955" className="w-full sm:w-auto">
-                    <Button variant="outline" size="sm" className="w-full sm:w-auto text-xs font-semibold border-primary/20 bg-white text-primary hover:bg-primary/5">
+                    <Button variant="outline" size="sm" className="w-full sm:w-auto text-xs sm:text-sm font-semibold border-primary/20 bg-white text-primary hover:bg-primary/5">
                       <Phone className="mr-1.5 h-3.5 w-3.5" /> Call Office
                     </Button>
                   </Link>

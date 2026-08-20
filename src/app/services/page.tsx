@@ -100,15 +100,15 @@ export default function ServicesPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
                 </div>
 
-                <div className="space-y-4 p-6">
+                <div className="space-y-3 p-5 sm:p-6">
                   <div className="flex items-start justify-between gap-4">
-                    <h2 className="font-heading text-2xl leading-tight text-foreground">
+                    <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-tight leading-tight text-foreground group-hover:text-primary transition-colors">
                       {tab.title}
                     </h2>
                     <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
 
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground/85 font-normal">
                     {tab.description}
                   </p>
                 </div>

@@ -138,14 +138,14 @@ export default function ServicePageTemplate({
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-foreground leading-tight tracking-tight">
                 {title}
               </h1>
-              <div className="space-y-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <div className="space-y-2.5 text-sm sm:text-base text-foreground/85 leading-relaxed font-normal">
                 {intro.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
               <div className="flex flex-col gap-3 sm:flex-row pt-2">
                 <Link href="/contact#request-appointment" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto px-6 py-3 font-semibold">
+                  <Button size="lg" className="btn-primary w-full sm:w-auto px-6 py-3 font-semibold">
                     <CalendarCheck className="mr-2 h-4 w-4" /> Contact Us
                   </Button>
                 </Link>
@@ -200,7 +200,7 @@ export default function ServicePageTemplate({
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground leading-tight tracking-tight">
                       {section.title}
                     </h2>
-                    <div className="space-y-2.5 text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
+                    <div className="space-y-2.5 text-sm sm:text-base text-foreground/85 leading-relaxed font-normal">
                       {section.body.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>
                       ))}
@@ -244,7 +244,7 @@ export default function ServicePageTemplate({
                               )}
                             </div>
 
-                            <div className="space-y-2 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-4">
+                            <div className="space-y-2 text-sm sm:text-base text-foreground/85 leading-relaxed pl-4 font-normal">
                               {Array.isArray(subItem.body) ? (
                                 subItem.body.map((p, i) => <p key={i}>{p}</p>)
                               ) : (

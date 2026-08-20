@@ -48,7 +48,7 @@ const AboutPage = () => {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground leading-tight tracking-tight">
                 Locally Owned and Operated in Austin, TX
               </h1>
-              <div className="space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <div className="space-y-3 text-sm sm:text-base text-foreground/85 leading-relaxed font-normal">
                 <p>
                   Conveniently located near Central Austin and the Mueller Town Center District, our locally owned practice serves families and individuals seeking high-quality, personalized care.
                 </p>
