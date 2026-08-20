@@ -281,7 +281,7 @@ const MobileHero = () => (
               <ScribbleUnderline className="text-primary" />
             </span>
           </h1>
-          <p className="text-xs text-muted-foreground leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
             Providing quality dental care for patients of all ages
           </p>
         </div>
@@ -392,7 +392,7 @@ const DesktopHero = () => (
                 <ScribbleUnderline className="text-primary" />
               </span>
             </h1>
-            <p className="text-xs md:text-sm lg:text-lg xl:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-base xl:text-lg text-muted-foreground leading-relaxed">
               Providing quality dental care for patients of all ages
             </p>
           </div>

@@ -20,10 +20,10 @@
     --primary-hover: 339 73% 25%;
 
     --secondary: 240 9% 96%;
-    --secondary-foreground: 240 10% 30%;
+    --secondary-foreground: 240 10% 25%;
 
     --muted: 240 9% 96%;
-    --muted-foreground: 240 5% 50%;
+    --muted-foreground: 240 6% 35%;
 
     --accent: 40 50% 97%;
     --accent-foreground: 240 10% 20%;
@@ -232,7 +232,7 @@
 
 @layer components {
   .btn-clinical {
-    @apply px-6 py-3 rounded-[var(--radius-bento)] font-medium transition-all duration-300;
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 rounded-[var(--radius-bento)] text-xs sm:text-sm font-semibold transition-all duration-300;
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
   }
 
