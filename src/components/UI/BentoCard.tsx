@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface BentoCardProps {
+  id?: string;
   children: ReactNode;
   className?: string;
   size?: "small" | "medium" | "large";
@@ -10,6 +11,7 @@ interface BentoCardProps {
 }
 
 const BentoCard = ({ 
+  id,
   children, 
   className, 
   size = "medium", 
@@ -24,6 +26,7 @@ const BentoCard = ({
 
   return (
     <div
+      id={id}
       className={cn(
         "card-clinical",
         sizeClasses[size],
