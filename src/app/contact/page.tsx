@@ -51,16 +51,16 @@ export const metadata = {
 const ContactPage = () => {
 	return (
 		<div className="min-h-screen">
-			<section className="relative h-[180px] sm:h-[220px] md:h-[260px] lg:h-[280px] w-full overflow-hidden border-b border-primary/10">
+			<section className="relative h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] w-full overflow-hidden border-b border-primary/10">
 				<Image
 					src="/assets/Contact_Hero.jpg"
 					alt="Dental Smiles office front sign in Austin"
 					fill
 					priority
 					sizes="100vw"
-					className="object-cover object-[center_35%]"
+					className="object-cover object-[center_15%]"
 				/>
-				<div className="absolute inset-0 bg-black/15" />
+				<div className="absolute inset-0 bg-black/10" />
 			</section>
 
 			<section className="pt-8 md:pt-12 pb-6 md:pb-8 bg-background">
