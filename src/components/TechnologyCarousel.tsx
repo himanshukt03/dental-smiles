@@ -119,13 +119,15 @@ export default function TechnologyCarousel() {
               className="flex-shrink-0 px-2 sm:px-3"
               style={{ flex: `0 0 ${itemWidth}%` }}
             >
-              <BentoCard className="p-8 h-full">
-                <div className="h-56 rounded-bento overflow-hidden mb-4">
+              <div className="p-2.5 sm:p-3 rounded-2xl border border-primary/15 bg-white shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-between">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100">
                   <img src={it.img} alt={it.title} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-foreground tracking-tight mb-1.5">{it.title}</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{it.text}</p>
-              </BentoCard>
+                <div className="px-1.5 pt-3 space-y-1.5 flex-1">
+                  <h3 className="text-base sm:text-lg font-heading font-bold text-foreground tracking-tight">{it.title}</h3>
+                  <p className="text-sm sm:text-base text-foreground/85 leading-relaxed font-normal">{it.text}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

@@ -80,7 +80,7 @@ export default function ServicesPage() {
                 role="link"
                 tabIndex={0}
                 aria-label={`Open ${tab.title}`}
-                className="group relative cursor-pointer overflow-hidden rounded-[2rem] border border-primary/15 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/35 w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-primary/15 bg-white p-2.5 sm:p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/35 w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] flex flex-col justify-between"
                 onClick={() => router.push(tab.href)}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') {
@@ -89,28 +89,38 @@ export default function ServicesPage() {
                   }
                 }}
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={tab.image}
-                    alt={tab.imageAlt}
-                    fill
-                    sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw"
-                    className="object-cover object-center scale-[1.02] transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
-                </div>
-
-                <div className="space-y-3 p-5 sm:p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-tight leading-tight text-foreground group-hover:text-primary transition-colors">
-                      {tab.title}
-                    </h2>
-                    <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="space-y-3 flex-1 flex flex-col">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100">
+                    <Image
+                      src={tab.image}
+                      alt={tab.imageAlt}
+                      fill
+                      sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw"
+                      className="object-cover object-center scale-[1.02] transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   </div>
 
-                  <p className="text-sm sm:text-base leading-relaxed text-foreground/85 font-normal">
-                    {tab.description}
-                  </p>
+                  <div className="px-1.5 pt-0.5 space-y-1.5 flex-1">
+                    <div className="flex items-start justify-between gap-3">
+                      <h2 className="font-heading text-lg sm:text-xl font-bold tracking-tight leading-tight text-foreground group-hover:text-primary transition-colors">
+                        {tab.title}
+                      </h2>
+                    </div>
+
+                    <p className="text-sm sm:text-base leading-relaxed text-foreground/85 font-normal">
+                      {tab.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="px-1.5 pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
+                  <span className="text-xs font-bold text-primary group-hover:underline inline-flex items-center gap-1">
+                    View Service <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                  <span className="text-[10px] font-medium text-muted-foreground bg-clinical-creme px-1.5 py-0.5 rounded-md">
+                    Explore care
+                  </span>
                 </div>
                 <Link href={tab.href} className="sr-only">
                   {tab.title}

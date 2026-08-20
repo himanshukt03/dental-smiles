@@ -106,48 +106,48 @@ const BlogListing = ({ posts }: BlogListingProps) => {
                 {featuredPost && (
                   <div className="lg:col-span-8">
                     <Link href={`/blog/${featuredPost.slug}`} className="group block h-full">
-                      <div className="bg-white rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 h-full flex flex-col">
-                        <div className="relative aspect-video w-full overflow-hidden">
-                          <Image
-                            src={featuredPost.image}
-                            alt={featuredPost.title}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-primary uppercase tracking-wider shadow-sm font-sans">
-                            Featured
+                      <div className="bg-white rounded-2xl md:rounded-3xl border border-primary/15 p-3 sm:p-4 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col justify-between">
+                        <div className="space-y-4 flex-1 flex flex-col">
+                          <div className="relative aspect-video w-full overflow-hidden rounded-xl md:rounded-2xl bg-slate-100">
+                            <Image
+                              src={featuredPost.image}
+                              alt={featuredPost.title}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-primary uppercase tracking-wider shadow-sm font-sans border border-primary/10">
+                              Featured
+                            </div>
+                          </div>
+                          <div className="px-1.5 flex flex-col flex-1">
+                            <div className="flex items-center gap-4 text-xs font-medium text-muted-foreground mb-2.5 font-sans">
+                              <span className="flex items-center gap-1 bg-primary/10 text-primary px-2.5 py-0.5 rounded-full font-semibold">
+                                <Tag className="w-3 h-3" />
+                                {featuredPost.category}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Calendar className="w-3 h-3" />
+                                {new Date(featuredPost.date).toLocaleDateString('en-US')}
+                              </span>
+                            </div>
+
+                            <h2 className="blog-featured-title text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground mb-2.5 group-hover:text-primary transition-colors tracking-tight">
+                              {featuredPost.title}
+                            </h2>
+                            <p className="text-sm sm:text-base text-foreground/85 leading-relaxed mb-4 flex-1 line-clamp-3 font-sans font-normal">
+                              {featuredPost.excerpt}
+                            </p>
                           </div>
                         </div>
-                        <div className="p-6 md:p-8 flex flex-col flex-1">
-                          <div className="flex items-center gap-4 text-xs font-medium text-muted-foreground mb-3 font-sans">
-                            <span className="flex items-center gap-1 bg-primary/5 text-primary px-2 py-1 rounded-md">
-                              <Tag className="w-3 h-3" />
-                              {featuredPost.category}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Calendar className="w-3 h-3" />
-                              {new Date(featuredPost.date).toLocaleDateString('en-US')}
-                            </span>
-                          </div>
 
-                          <h2 className="blog-featured-title text-foreground mb-3 group-hover:text-primary transition-colors">
-                            {featuredPost.title}
-                          </h2>
-                          <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-6 flex-1 line-clamp-3 font-sans">
-                            {featuredPost.excerpt}
-                          </p>
-
-                          <div className="flex items-center gap-3 mt-auto">
-                            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                              <User className="w-4 h-4" />
-                            </div>
-                            <div className="text-sm font-sans">
-                              <p className="font-semibold text-foreground leading-none">{featuredPost.author}</p>
-                            </div>
-                            <div className="ml-auto inline-flex items-center text-primary font-medium group-hover:translate-x-1 transition-transform font-sans text-sm">
-                              Read Article <ArrowRight className="w-4 h-4 ml-2" />
-                            </div>
+                        <div className="px-1.5 pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <div className="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-sans font-bold">DS</div>
+                            <span className="font-semibold text-xs sm:text-sm text-foreground">{featuredPost.author}</span>
                           </div>
+                          <span className="text-xs sm:text-sm font-bold text-primary group-hover:underline inline-flex items-center gap-1 font-sans">
+                            Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                          </span>
                         </div>
                       </div>
                     </Link>
@@ -207,44 +207,47 @@ const BlogListing = ({ posts }: BlogListingProps) => {
                   <h3 className="text-lg font-sans font-bold text-foreground mb-6">More Articles</h3>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {gridPosts.map((post) => (
-                      <Link key={post.id} href={`/blog/${post.slug}`} className="group flex flex-col bg-white rounded-2xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-primary/30">
-                        {/* Reduced Image Height as requested */}
-                        <div className="relative h-48 w-full overflow-hidden">
-                          <Image
-                            src={post.image}
-                            alt={post.title}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                          <div className="absolute top-3 left-3">
-                            <span className="bg-white/90 backdrop-blur text-foreground text-[10px] font-bold px-2 py-1 rounded-md shadow-sm font-sans uppercase tracking-wide">
-                              {post.category}
-                            </span>
+                      <Link key={post.id} href={`/blog/${post.slug}`} className="group flex flex-col justify-between bg-white rounded-2xl border border-primary/15 p-2.5 sm:p-3 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+                        <div className="space-y-3 flex-1 flex flex-col">
+                          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100">
+                            <Image
+                              src={post.image}
+                              alt={post.title}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute top-2.5 left-2.5">
+                              <span className="bg-white/95 backdrop-blur text-foreground text-[10px] font-bold px-2 py-0.5 rounded-md shadow-sm font-sans uppercase tracking-wide border border-primary/10">
+                                {post.category}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="px-1.5 pt-0.5 flex flex-col flex-1">
+                            <div className="blog-card-meta flex items-center gap-2 text-muted-foreground mb-1.5 text-xs">
+                              <Calendar className="w-3.5 h-3.5" />
+                              <span>{new Date(post.date).toLocaleDateString("en-US")}</span>
+                              <span className="w-1 h-1 bg-border rounded-full" />
+                              <Clock className="w-3.5 h-3.5" />
+                              <span>{post.readTime}</span>
+                            </div>
+
+                            <h4 className="blog-card-title text-base font-bold text-foreground mb-1 group-hover:text-primary transition-colors tracking-tight line-clamp-2">
+                              {post.title}
+                            </h4>
+                            <p className="text-sm text-foreground/85 line-clamp-2 mb-3 font-sans leading-relaxed font-normal">
+                              {post.excerpt}
+                            </p>
                           </div>
                         </div>
-                        <div className="p-5 flex flex-col flex-1">
-                          <div className="blog-card-meta flex items-center gap-2 text-muted-foreground mb-2">
-                            <Calendar className="w-4 h-4" />
-                            <span>{new Date(post.date).toLocaleDateString("en-US")}</span>
-                            <span className="w-1 h-1 bg-border rounded-full"></span>
-                            <Clock className="w-4 h-4" />
-                            <span>{post.readTime}</span>
-                          </div>
 
-                          <h4 className="blog-card-title text-foreground mb-2 group-hover:text-primary transition-colors">
-                            {post.title}
-                          </h4>
-                          <p className="text-muted-foreground text-sm line-clamp-2 mb-4 font-sans leading-relaxed">
-                            {post.excerpt}
-                          </p>
-
-                          <div className="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center text-xs text-muted-foreground font-sans font-bold">DS</div>
-                              <span className="blog-card-meta text-muted-foreground">Dental Smiles</span>
-                            </div>
-                            <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
+                        <div className="px-1.5 pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[10px] font-sans font-bold">DS</div>
+                            <span className="blog-card-meta text-xs text-muted-foreground">Dental Smiles</span>
                           </div>
+                          <span className="text-xs font-bold text-primary group-hover:underline inline-flex items-center gap-1 font-sans">
+                            Read Article <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </span>
                         </div>
                       </Link>
                     ))}
