@@ -274,7 +274,7 @@ const MobileHero = () => (
 
       <div className="space-y-5 text-center">
         <div className="space-y-3 animate-hero-up delay-200">
-          <h1 className="font-heading font-extrabold text-foreground leading-tight tracking-tight text-[clamp(1.35rem,5vw,1.65rem)]">
+          <h1 className="font-sans font-bold text-foreground leading-tight tracking-tight text-[clamp(1.35rem,5vw,1.65rem)]">
             <span className="block whitespace-nowrap">Where Families Can</span>
             <span className="relative inline-block text-primary whitespace-nowrap">
               Smile Confidently
@@ -384,7 +384,7 @@ const DesktopHero = () => (
       <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center">
         <div className="space-y-4 md:space-y-6 lg:space-y-8">
           <div className="space-y-3 md:space-y-4 lg:space-y-6 animate-hero-up delay-100">
-            <h1 className="text-2xl sm:text-3xl md:text-3.5xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold text-foreground leading-[1.15] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-3.5xl lg:text-4xl xl:text-[2.75rem] font-sans font-bold text-foreground leading-[1.15] tracking-tight">
               Where Families Can
               <br />
               <span className="relative inline-block text-primary">
