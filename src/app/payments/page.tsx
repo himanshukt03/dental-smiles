@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -20,6 +19,38 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import InsuranceMarquee from "@/components/InsuranceMarquee";
 import { insuranceProviders } from "@/data/content";
+import { BreadcrumbSchema, FaqSchema } from "@/components/seo/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Dental Insurance & Financing Options Austin, TX | CareCredit & PPO",
+  description:
+    "Explore dental payment and insurance options at Dental Smiles in Austin, TX. In-network with major PPO dental insurance, 0% CareCredit financing, FSA/HSA accepted.",
+  keywords: [
+    "dental insurance Austin",
+    "PPO dentist Austin TX",
+    "CareCredit dentist Austin",
+    "affordable dentist Austin",
+    "dental financing Austin",
+  ],
+  alternates: {
+    canonical: "https://dental-smiles.vercel.app/payments",
+  },
+  openGraph: {
+    title: "Dental Insurance & Payment Options | Dental Smiles Austin",
+    description:
+      "Affordable dental payment solutions, PPO insurance billing, and 0% CareCredit financing in Austin, TX.",
+    url: "https://dental-smiles.vercel.app/payments",
+    type: "website",
+    images: [
+      {
+        url: "/assets/dental-team.webp",
+        width: 1200,
+        height: 630,
+        alt: "Dental Smiles Austin Payment and Insurance Options",
+      },
+    ],
+  },
+};
 
 const paymentMethods = [
   {
@@ -82,6 +113,8 @@ const paymentFaqs = [
 export default function PaymentsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20 text-foreground">
+      <BreadcrumbSchema items={[{ name: 'Payments & Insurance', url: '/payments' }]} />
+      <FaqSchema faqs={paymentFaqs} />
       {/* Header Banner */}
       <section className="py-10 lg:py-14 border-b border-primary/10 bg-gradient-to-br from-primary/5 via-white to-clinical-creme/40">
         <div className="container-clinical max-w-5xl text-center space-y-4">

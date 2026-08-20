@@ -1,29 +1,46 @@
+import type { Metadata } from 'next';
 import { MapPin, Phone, Mail, Clock, Calendar, ExternalLink, FileText, Sparkles, Navigation } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import BentoCard from '@/components/UI/BentoCard';
+import { BreadcrumbSchema } from '@/components/seo/JsonLd';
 
-export const metadata = {
-	title: 'Contact Us',
+export const metadata: Metadata = {
+	title: 'Contact Dental Smiles | Austin, TX Dental Office & Directions',
 	description:
-		'Reach out to Dental Smiles in Austin for appointments, consultations, or dental emergencies. Located in Mueller Medical District.',
+		'Contact Dental Smiles in Austin, TX. Located at 1201 Barbara Jordan Blvd Suite 1435 in the Mueller District. Call 512-467-9955 to schedule your appointment.',
 	keywords: [
 		'contact dentist Austin',
-		'dental appointment Austin',
-		'Mueller dentist',
-		'emergency dentist Austin TX',
+		'dental appointment Austin TX',
+		'Mueller dentist location',
+		'dentist 78723 directions',
+		'Dental Smiles phone number',
 	],
+	alternates: {
+		canonical: 'https://dental-smiles.vercel.app/contact',
+	},
 	openGraph: {
 		title: 'Contact Dental Smiles | Schedule Your Austin Dental Visit',
 		description:
-			'Reach out to Dental Smiles in Austin for appointments, consultations, or dental emergencies.',
+			'Reach out to Dental Smiles in Austin for appointments, consultations, or dental emergencies. Convenient Mueller location.',
+		url: 'https://dental-smiles.vercel.app/contact',
+		type: 'website',
+		images: [
+			{
+				url: '/assets/Contact_Hero.jpg',
+				width: 1200,
+				height: 630,
+				alt: 'Dental Smiles Office Location Austin TX',
+			},
+		],
 	},
 };
 
 const ContactPage = () => {
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20 text-foreground">
+			<BreadcrumbSchema items={[{ name: 'Contact Us', url: '/contact' }]} />
 			{/* Top Banner Image */}
 			<section className="relative h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] w-full overflow-hidden border-b border-primary/10">
 				<Image

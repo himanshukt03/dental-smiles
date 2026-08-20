@@ -1,17 +1,36 @@
+import type { Metadata } from 'next';
 import { Calendar, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import BentoCard from '@/components/UI/BentoCard';
 import BookAppointmentForm from './BookAppointmentForm';
+import { BreadcrumbSchema } from '@/components/seo/JsonLd';
 
-export const metadata = {
-  title: 'Book Appointment - Dental Smiles',
+export const metadata: Metadata = {
+  title: 'Book Online Dental Appointment | Dental Smiles Austin, TX',
   description:
-    'Schedule your dental appointment online with Dental Smiles in Austin. Choose your preferred date and time for consultations, cleanings, and treatments.',
+    'Schedule your dental appointment online with Dental Smiles in Austin, TX. Fast and easy booking for cleanings, exams, cosmetic consultations, and restorative treatments.',
+  keywords: [
+    'book dentist online Austin',
+    'schedule dental appointment Austin',
+    'dental appointment Austin TX',
+    'Dental Smiles booking',
+  ],
+  alternates: {
+    canonical: 'https://dental-smiles.vercel.app/book-appointment',
+  },
+  openGraph: {
+    title: 'Book Dental Appointment Online | Dental Smiles Austin',
+    description:
+      'Schedule your dental visit in Austin, TX with Dr. Divya Shetty at Dental Smiles.',
+    url: 'https://dental-smiles.vercel.app/book-appointment',
+    type: 'website',
+  },
 };
 
 const BookAppointmentPage = () => {
   return (
     <div className="min-h-screen pt-8">
+      <BreadcrumbSchema items={[{ name: 'Book Appointment', url: '/book-appointment' }]} />
       <section className="bg-gradient-to-br from-clinical-creme to-clinical-grey py-12">
         <div className="container-clinical text-center">
           <h1 className="text-4xl md:text-5xl font-heading text-foreground mb-6">

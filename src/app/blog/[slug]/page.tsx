@@ -6,6 +6,7 @@ import { Calendar, User, ArrowLeft, Tag, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { blogPosts, getBlogBySlug, getAllBlogSlugs } from "@/data/blogData";
 import type { Metadata } from "next";
+import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/JsonLd";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -28,14 +29,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     return {
-        title: post.title,
+        title: `${post.title} | Dental Smiles Blog`,
         description: post.excerpt,
+        alternates: {
+            canonical: `https://dental-smiles.vercel.app/blog/${post.slug}`,
+        },
         openGraph: {
-            title: post.title,
+            title: `${post.title} | Dental Smiles Austin`,
             description: post.excerpt,
+            url: `https://dental-smiles.vercel.app/blog/${post.slug}`,
             type: "article",
             publishedTime: post.date,
             authors: [post.author],
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${post.title} | Dental Smiles Austin`,
+            description: post.excerpt,
+            images: [post.image],
         },
     };
 }
@@ -58,6 +77,21 @@ export default async function BlogPostPage({ params }: Props) {
 
     return (
         <div className="min-h-screen bg-background font-sans">
+            <BreadcrumbSchema
+                items={[
+                    { name: 'Blog', url: '/blog' },
+                    { name: post.title, url: `/blog/${post.slug}` },
+                ]}
+            />
+            <ArticleSchema
+                title={post.title}
+                description={post.excerpt}
+                slug={post.slug}
+                datePublished={post.date}
+                author={post.author}
+                image={post.image}
+                category={post.category}
+            />
             {/* Top Navigation Bar */}
             <div className="bg-clinical-creme border-b border-border py-4">
                 <div className="container-clinical">

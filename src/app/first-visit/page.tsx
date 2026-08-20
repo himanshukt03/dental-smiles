@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BentoCard from "@/components/UI/BentoCard";
+import { BreadcrumbSchema } from "@/components/seo/JsonLd";
 
 const whatToExpect = [
 	{
@@ -74,27 +76,41 @@ const cardOptions = [
 	},
 ];
 
-export const metadata = {
-	title: "Your First Visit",
+export const metadata: Metadata = {
+	title: "First Visit Guide | New Patient Dentist in Austin, TX | Dental Smiles",
 	description:
-		"Learn how to prepare for your first visit to Dental Smiles and what to expect during your appointment. Insurance, financing, and membership options available.",
+		"Learn what to expect on your first visit to Dental Smiles in Austin, TX. New patient forms, exam & cleaning process, PPO insurance, and CareCredit financing options.",
 	keywords: [
 		"new patient dentist Austin",
+		"dental exam Austin TX",
 		"dental insurance Austin",
-		"dental financing",
-		"first dental visit",
-		"dental membership plan",
+		"first dental visit Austin",
+		"Dental Smiles first visit",
 	],
+	alternates: {
+		canonical: "https://dental-smiles.vercel.app/first-visit",
+	},
 	openGraph: {
-		title: "Your First Visit | What to Expect at Dental Smiles",
+		title: "Your First Visit | New Patient Dental Care in Austin, TX",
 		description:
 			"Learn how to prepare for your first visit to Dental Smiles and what to expect during your appointment.",
+		url: "https://dental-smiles.vercel.app/first-visit",
+		type: "website",
+		images: [
+			{
+				url: "/assets/FirstVisit_Hero.webp",
+				width: 1200,
+				height: 630,
+				alt: "First Visit to Dental Smiles Austin",
+			},
+		],
 	},
 };
 
 const FirstVisitPage = () => {
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20">
+			<BreadcrumbSchema items={[{ name: 'First Visit', url: '/first-visit' }]} />
 			{/* Clean Modern Hero Section */}
 			<section className="py-10 md:py-14 lg:py-16 bg-gradient-to-b from-primary/5 via-white to-transparent border-b border-primary/10">
 				<div className="container-clinical">

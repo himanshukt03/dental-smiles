@@ -1,10 +1,42 @@
- 'use client';
-
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { ArrowRight, Sparkles, Phone, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { BreadcrumbSchema } from '@/components/seo/JsonLd';
+
+export const metadata: Metadata = {
+  title: 'Dental Services in Austin, TX | Family, Cosmetic & Restorative Dentistry',
+  description:
+    'Explore comprehensive dental services at Dental Smiles in Austin, TX. General dentistry, CEREC crowns, cosmetic whitening, implants, emergency & sedation care.',
+  keywords: [
+    'Austin dental services',
+    'general dentistry Austin',
+    'cosmetic dentistry Austin',
+    'restorative dentistry Austin',
+    'emergency dental Austin',
+    'sedation dentistry Austin',
+    'Dental Smiles services',
+  ],
+  alternates: {
+    canonical: 'https://dental-smiles.vercel.app/services',
+  },
+  openGraph: {
+    title: 'Dental Services in Austin, TX | Dental Smiles',
+    description:
+      'Explore comprehensive dental services at Dental Smiles in Austin, TX. Compassionate care for your entire family.',
+    url: 'https://dental-smiles.vercel.app/services',
+    type: 'website',
+    images: [
+      {
+        url: '/assets/services/general-dentistry/General-Dentistry.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Dental Smiles Services Austin',
+      },
+    ],
+  },
+};
 
 type ServiceTab = {
   title: string;
@@ -21,7 +53,7 @@ const serviceTabs: ServiceTab[] = [
     description:
       'Preventive and routine care designed to keep your smile healthy year-round.',
     image: '/assets/services/general-dentistry/General-Dentistry.jpg',
-    imageAlt: 'General dentistry care at Dental Smiles.',
+    imageAlt: 'General dentistry care at Dental Smiles Austin.',
   },
   {
     title: 'Cosmetic Dentistry',
@@ -29,7 +61,7 @@ const serviceTabs: ServiceTab[] = [
     description:
       'Customized smile enhancements including whitening and veneer options.',
     image: '/assets/services/Cosmetic-Dentistry/Cosmetic-Dentist.jpg',
-    imageAlt: 'Cosmetic dentistry consultation.',
+    imageAlt: 'Cosmetic dentistry consultation at Dental Smiles Austin.',
   },
   {
     title: 'Restorative Dentistry',
@@ -37,7 +69,7 @@ const serviceTabs: ServiceTab[] = [
     description:
       'Solutions to repair missing, damaged, or infected teeth with long-term function in mind.',
     image: '/assets/services/Restorative-Dentistry/Restorative-Dental-Procedures.png',
-    imageAlt: 'Restorative dental procedures at Dental Smiles.',
+    imageAlt: 'Restorative dental procedures at Dental Smiles Austin.',
   },
   {
     title: 'Emergency Dentistry',
@@ -45,29 +77,45 @@ const serviceTabs: ServiceTab[] = [
     description:
       'Same-day emergency appointments for urgent dental pain and injuries.',
     image: '/assets/services/Emergency-Dentistry/emergency-dentistry.jpg',
-    imageAlt: 'Emergency dentistry care.',
+    imageAlt: 'Emergency dentistry care at Dental Smiles Austin.',
   },
   {
     title: 'Dental Sedation',
     href: '/services/dental-sedation',
     description:
-      'Comfort-focused sedation options to help anxious patients feel at ease.',
+      'Relaxation options to help you feel calm and confident during any procedure.',
     image: '/assets/services/Dental-Sedation/sedation-dentistry.jpg',
-    imageAlt: 'Sedation dentistry visit.',
+    imageAlt: 'Dental sedation options at Dental Smiles Austin.',
   },
 ];
 
 export default function ServicesPage() {
-  const router = useRouter();
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20">
+      <BreadcrumbSchema items={[{ name: 'Services', url: '/services' }]} />
+
+      {/* Header Banner */}
+      <section className="py-10 lg:py-14 border-b border-primary/10 bg-gradient-to-br from-primary/5 via-white to-clinical-creme/40">
+        <div className="container-clinical max-w-5xl text-center space-y-4">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary border border-primary/15">
+            <Sparkles className="h-3.5 w-3.5" /> Full-Spectrum Oral Care
+          </div>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground tracking-tight leading-tight">
+            Comprehensive Dental Care for Every Smile in Austin
+          </h1>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            From routine checkups to smile transformations and same-day restorations, we deliver gentle, modern dental treatments tailored to your comfort and health.
+          </p>
+        </div>
+      </section>
+
+      {/* Services Grid */}
       <section className="section-padding pt-12">
         <div className="container-clinical space-y-8">
           <div className="mx-auto max-w-3xl space-y-3 text-center">
-            <h1 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight">
               Explore Our Dental Services
-            </h1>
+            </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               Select a service below to view its dedicated page and details.
             </p>
@@ -75,19 +123,10 @@ export default function ServicesPage() {
 
           <div className="flex flex-wrap justify-center gap-6">
             {serviceTabs.map((tab) => (
-              <article
+              <Link
                 key={tab.href}
-                role="link"
-                tabIndex={0}
-                aria-label={`Open ${tab.title}`}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-primary/15 bg-white p-2.5 sm:p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/35 w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] flex flex-col justify-between"
-                onClick={() => router.push(tab.href)}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    router.push(tab.href);
-                  }
-                }}
+                href={tab.href}
+                className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-2.5 sm:p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/35 w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] flex flex-col justify-between"
               >
                 <div className="space-y-3 flex-1 flex flex-col">
                   <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100">
@@ -103,9 +142,9 @@ export default function ServicesPage() {
 
                   <div className="px-1.5 pt-0.5 space-y-1.5 flex-1">
                     <div className="flex items-start justify-between gap-3">
-                      <h2 className="font-heading text-lg sm:text-xl font-bold tracking-tight leading-tight text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="font-heading text-lg sm:text-xl font-bold tracking-tight leading-tight text-foreground group-hover:text-primary transition-colors">
                         {tab.title}
-                      </h2>
+                      </h3>
                     </div>
 
                     <p className="text-sm sm:text-base leading-relaxed text-foreground/85 font-normal">
@@ -122,10 +161,7 @@ export default function ServicesPage() {
                     Explore care
                   </span>
                 </div>
-                <Link href={tab.href} className="sr-only">
-                  {tab.title}
-                </Link>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

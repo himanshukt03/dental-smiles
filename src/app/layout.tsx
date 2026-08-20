@@ -5,30 +5,37 @@ import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import RevenueWellChatbot from "@/components/RevenueWellChatbot";
 import ScrollToTop from "@/components/ScrollToTop";
+import { DentistSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dental-smiles.vercel.app"),
   title: {
-    default: "Dental Smiles | Compassionate Austin Dentistry",
-    template: "%s | Dental Smiles",
+    default: "Dentist in Austin, TX | Dental Smiles Family & Cosmetic Dentistry",
+    template: "%s | Dental Smiles Austin",
   },
   description:
-    "Dental Smiles provides compassionate, technology-driven dental care in Austin, Texas. Experience personalized treatments for the whole family.",
+    "Dental Smiles provides compassionate, technology-driven family and cosmetic dental care in Austin, TX. Led by Dr. Divya Shetty. Services include CEREC same-day crowns, cleanings, implants & sedation.",
   keywords: [
     "Austin dentist",
+    "dentist Austin TX",
     "family dentistry Austin",
-    "dental care Austin TX",
-    "cosmetic dentistry Austin",
-    "dental implants Austin",
-    "teeth cleaning Austin",
+    "cosmetic dentistry Austin TX",
     "emergency dentist Austin",
-    "Dental Smiles",
+    "CEREC same-day crowns Austin",
+    "dental implants Austin",
     "Dr. Divya Shetty",
-    "Mueller dental",
+    "Dental Smiles Austin",
+    "Mueller dental Austin",
+    "Hyde Park dentist",
+    "North Loop dentist",
+    "78723 dentist",
   ],
-  authors: [{ name: "Dental Smiles" }],
+  authors: [{ name: "Dental Smiles", url: "https://dental-smiles.vercel.app" }],
   creator: "Dental Smiles",
   publisher: "Dental Smiles",
+  alternates: {
+    canonical: "/",
+  },
   robots: {
     index: true,
     follow: true,
@@ -45,24 +52,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://dental-smiles.vercel.app",
     siteName: "Dental Smiles",
-    title: "Dental Smiles | Compassionate Austin Dentistry",
+    title: "Dentist in Austin, TX | Dental Smiles Family & Cosmetic Dentistry",
     description:
-      "Dental Smiles provides compassionate, technology-driven dental care in Austin, Texas. Experience personalized treatments for the whole family.",
+      "Compassionate, gentle dental care in Austin, TX. Comprehensive general, cosmetic, restorative, and sedation dentistry for your entire family.",
     images: [
       {
-        url: "https://dental-smiles.vercel.app/og-image.png",
+        url: "/assets/dental-team.webp",
         width: 1200,
         height: 630,
-        alt: "Dental Smiles - Compassionate Austin Dentistry",
+        alt: "Dental Smiles - Austin Family and Cosmetic Dentistry Team",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dental Smiles | Compassionate Austin Dentistry",
+    title: "Dentist in Austin, TX | Dental Smiles Family & Cosmetic Dentistry",
     description:
-      "Dental Smiles provides compassionate, technology-driven dental care in Austin, Texas. Experience personalized treatments for the whole family.",
-    images: ["https://dental-smiles.vercel.app/og-image.png"],
+      "Compassionate, technology-driven family and cosmetic dental care in Austin, TX. Book your appointment today.",
+    images: ["/assets/dental-team.webp"],
   },
   manifest: "/manifest.json",
   icons: {
@@ -78,8 +85,11 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "default",
   },
-  verification: {
-    google: "google-site-verification-code",
+  other: {
+    "geo.region": "US-TX",
+    "geo.placename": "Austin",
+    "geo.position": "30.2988;-97.7058",
+    "ICBM": "30.2988, -97.7058",
   },
 };
 
@@ -90,7 +100,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="antialiased bg-background text-foreground" suppressHydrationWarning>
+        <DentistSchema />
         <Providers>
           <ScrollToTop />
           <div className="min-h-screen flex flex-col">

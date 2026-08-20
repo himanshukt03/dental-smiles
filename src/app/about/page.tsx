@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Award, Clock, Users, Heart, CheckCircle, Phone, Calendar } from "lucide-react";
@@ -6,6 +7,7 @@ import BentoCard from "@/components/UI/BentoCard";
 import { teamMembers } from "@/data/content";
 import TechnologyCarousel from '@/components/TechnologyCarousel';
 import TeamShowcase from "@/components/about/TeamShowcase";
+import { BreadcrumbSchema } from "@/components/seo/JsonLd";
 
 const teamImages: Record<string, string> = {
   "dr-divya-shetty.webp": "/assets/team/dr-divya-shetty.webp",
@@ -19,27 +21,41 @@ const teamImages: Record<string, string> = {
 };
 const defaultTeamImage = "/assets/team/dr-divya-shetty.webp";
 
-export const metadata = {
-  title: "About Us",
+export const metadata: Metadata = {
+  title: "About Our Practice & Team | Dentist in Austin, TX | Dental Smiles",
   description:
-    "Discover the mission, values, and experienced team that make Dental Smiles a trusted Austin dental practice. Meet Dr. Divya Shetty and our caring staff.",
+    "Meet Dr. Divya Shetty and the compassionate team at Dental Smiles in Austin, TX. Learn about our patient-first mission, cutting-edge technology, and cozy clinic.",
   keywords: [
     "Austin dental team",
     "Dr. Divya Shetty",
-    "dental technology",
-    "Mueller dentist",
+    "dentist Mueller Austin",
     "family dentist Austin",
+    "female dentist Austin TX",
   ],
+  alternates: {
+    canonical: "https://dental-smiles.vercel.app/about",
+  },
   openGraph: {
     title: "About Dental Smiles | Meet Our Austin Dental Team",
     description:
       "Discover the mission, values, and experienced team that make Dental Smiles a trusted Austin dental practice.",
+    url: "https://dental-smiles.vercel.app/about",
+    type: "website",
+    images: [
+      {
+        url: "/assets/team/dr-divya-shetty.webp",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Divya Shetty - Dental Smiles Austin",
+      },
+    ],
   },
 };
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen">
+      <BreadcrumbSchema items={[{ name: 'About Us', url: '/about' }]} />
       {/* Clean Modern Hero Section */}
       <section className="py-10 md:py-14 lg:py-16 bg-gradient-to-b from-primary/5 via-white to-transparent border-b border-primary/10">
         <div className="container-clinical">

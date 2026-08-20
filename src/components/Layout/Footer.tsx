@@ -152,35 +152,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Structured Data for Local Business */}
-      <Script id="schema-dentist" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Dentist",
-          "name": "Dental Smiles",
-          "image": "https://dentalsmiles.com/dental-team.webp",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "1201 Barbara Jordan Blvd Suite 1435",
-            "addressLocality": "Austin",
-            "addressRegion": "TX",
-            "postalCode": "78723",
-            "addressCountry": "US"
-          },
-          "telephone": "+15124679955",
-          "email": "info@dentalsmiles.com",
-          "url": "https://dentalsmiles.com",
-          "openingHours": [
-            "Mo 08:00-13:00",
-            "Tu 07:00-15:00",
-            "We 08:00-13:00",
-            "Th 07:00-15:00",
-            "Fr 07:00-13:00"
-          ],
-          "priceRange": "$$"
-        })}
-      </Script>
     </footer>
   );
 };
