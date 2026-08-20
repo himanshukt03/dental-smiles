@@ -16,11 +16,11 @@ export const insuranceProvidersList: InsuranceItem[] = [
   { name: 'Principal', logo: '/assets/logos/principal.svg' },
   { name: 'Sun Life', logo: '/assets/logos/sunlife.png' },
   { name: 'Connection Dental', logo: '/assets/logos/Connection-Dental.jpg' },
-  { name: 'Humana' },
-  { name: 'Guardian' },
-  { name: 'United Concordia' },
-  { name: 'Ameritas' },
-  { name: 'Lincoln Financial' },
+  { name: 'Humana', logo: '/assets/logos/Humana.png' },
+  { name: 'Guardian', logo: '/assets/logos/guardian.svg' },
+  { name: 'United Concordia', logo: '/assets/logos/united-concordia.png' },
+  { name: 'Ameritas', logo: '/assets/logos/ameritas.png' },
+  { name: 'Lincoln Financial', logo: '/assets/logos/lincoln-financial.svg' },
 ];
 
 interface InsuranceMarqueeProps {
