@@ -13,6 +13,13 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
 type GeneralTreatmentItem = {
@@ -138,19 +145,15 @@ const FAQS = [
 ];
 
 export default function GeneralDentistryPage() {
-  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
-
-  const toggleExpand = (id: string) => {
-    setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
+  const [selectedTreatment, setSelectedTreatment] = useState<GeneralTreatmentItem | null>(null);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20 text-foreground">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-10 pb-16 lg:pt-14 lg:pb-20 border-b border-primary/10 bg-gradient-to-br from-primary/5 via-white to-clinical-creme/30">
+      <section className="relative overflow-hidden py-8 lg:py-10 border-b border-primary/10 bg-gradient-to-br from-primary/5 via-white to-clinical-creme/30">
         <div className="absolute top-0 right-0 -mt-12 -mr-12 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
         <div className="container-clinical relative z-10">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-center">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr] lg:gap-12 items-center">
             <div className="space-y-4 text-center sm:text-left">
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading text-foreground leading-tight font-bold tracking-tight">
                 Comprehensive Preventive & General Dentistry in Austin, TX
@@ -198,10 +201,10 @@ export default function GeneralDentistryPage() {
       </section>
 
       {/* Services Showcase Section */}
-      <section className="py-10 lg:py-14">
-        <div className="container-clinical space-y-8">
+      <section className="pt-6 pb-12 lg:pt-8 lg:pb-14">
+        <div className="container-clinical space-y-6 sm:space-y-8">
           {/* Section Header */}
-          <div className="text-center space-y-3 max-w-3xl mx-auto">
+          <div className="text-center space-y-2.5 max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground tracking-tight">
               General & Preventive Dental Services
             </h2>
@@ -212,64 +215,125 @@ export default function GeneralDentistryPage() {
 
           {/* Treatments Bento Cards Grid - Centered rows */}
           <div className="flex flex-wrap justify-center gap-5 pt-2">
-            {GENERAL_TREATMENTS.map((item) => {
-              const isExpanded = !!expandedCards[item.id];
-
-              return (
-                <div
-                  key={item.id}
-                  id={item.id}
-                  className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
-                >
-                  <div className="space-y-3">
-                    {/* Card Header Media */}
-                    <div className="relative aspect-[16/9] max-h-44 sm:max-h-48 overflow-hidden rounded-xl border border-primary/10 bg-slate-50">
-                      <Image
-                        src={item.image}
-                        alt={item.imageAlt}
-                        fill
-                        sizes="(min-width: 1024px) 380px, 100vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-
-                    {/* Title & Summary with Know More expand */}
-                    <div className="space-y-1.5">
-                      <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors tracking-tight">
-                        {item.title}
-                      </h3>
-                      <div className="text-xs text-muted-foreground leading-relaxed">
-                        <p className={cn(!isExpanded && 'line-clamp-2')}>
-                          {isExpanded
-                            ? `${item.summary} ${item.details.candidacy} ${item.details.procedure}`
-                            : item.summary}
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => toggleExpand(item.id)}
-                          className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1 mt-1.5 focus:outline-none"
-                        >
-                          {isExpanded ? 'Know Less' : 'Know More'}
-                          {isExpanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
-                        </button>
-                      </div>
-                    </div>
+            {GENERAL_TREATMENTS.map((item) => (
+              <div
+                key={item.id}
+                id={item.id}
+                className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
+              >
+                <div className="space-y-3">
+                  {/* Card Header Media */}
+                  <div className="relative aspect-[16/9] max-h-44 sm:max-h-48 overflow-hidden rounded-xl border border-primary/10 bg-slate-50">
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 380px, 100vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
 
-                  {/* Card Action Button */}
-                  <div className="pt-3 mt-3 border-t border-primary/10 flex items-center justify-end">
-                    <Link href="/contact#request-appointment">
-                      <Button size="sm" variant="ghost" className="text-xs font-semibold text-primary hover:bg-primary/10 px-2.5 h-8">
-                        Book <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                      </Button>
-                    </Link>
+                  {/* Title & Readable Brief One-Liner Summary */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-base font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-foreground/85 font-normal leading-relaxed line-clamp-2">
+                      {item.summary}
+                    </p>
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Card Action Buttons: Learn More (Pop-up) + Book Now */}
+                <div className="pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTreatment(item)}
+                    className="text-xs font-bold text-primary hover:underline inline-flex items-center gap-1 focus:outline-none"
+                  >
+                    Learn More <ArrowRight className="h-3 w-3" />
+                  </button>
+                  <Link href="/contact#request-appointment">
+                    <Button size="sm" className="btn-primary text-xs font-semibold px-3 py-1 h-7 sm:h-8">
+                      Book Now
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Treatment Details Pop-up Modal */}
+      <Dialog open={!!selectedTreatment} onOpenChange={(open) => !open && setSelectedTreatment(null)}>
+        {selectedTreatment && (
+          <DialogContent className="max-w-2xl p-0 overflow-hidden rounded-2xl bg-white border border-primary/20 shadow-2xl">
+            <div className="relative">
+              {/* Top Banner Header */}
+              <div className="bg-gradient-to-br from-primary/10 via-clinical-creme to-white p-5 sm:p-7 border-b border-primary/10">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-2xl overflow-hidden shadow-md ring-2 ring-primary/20">
+                    <Image
+                      src={selectedTreatment.image}
+                      alt={selectedTreatment.imageAlt}
+                      fill
+                      className="object-cover object-center"
+                    />
+                  </div>
+                  <div className="space-y-1.5 text-center sm:text-left flex-1">
+                    <DialogTitle className="text-xl sm:text-2xl font-heading font-bold text-foreground">
+                      {selectedTreatment.title}
+                    </DialogTitle>
+                    <DialogDescription className="text-xs sm:text-sm text-foreground/85 leading-relaxed">
+                      {selectedTreatment.summary}
+                    </DialogDescription>
+                  </div>
+                </div>
+              </div>
+
+              {/* Details Body */}
+              <div className="p-5 sm:p-7 space-y-4 max-h-[50vh] overflow-y-auto">
+                <div className="space-y-1.5">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                    Who Is This For?
+                  </h4>
+                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-normal">
+                    {selectedTreatment.details.candidacy}
+                  </p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                    Treatment & Procedure Details
+                  </h4>
+                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-normal">
+                    {selectedTreatment.details.procedure}
+                  </p>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="bg-clinical-creme/60 p-4 sm:p-5 border-t border-primary/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p className="text-xs text-muted-foreground text-center sm:text-left">
+                  Ready to protect or restore your smile?
+                </p>
+                <div className="flex gap-2 w-full sm:w-auto">
+                  <Link href="/contact#request-appointment" className="w-full sm:w-auto" onClick={() => setSelectedTreatment(null)}>
+                    <Button size="sm" className="btn-primary w-full sm:w-auto px-4 text-xs font-semibold">
+                      <CalendarCheck className="mr-1.5 h-3.5 w-3.5" /> Book Appointment
+                    </Button>
+                  </Link>
+                  <Link href="tel:5124679955" className="w-full sm:w-auto">
+                    <Button variant="outline" size="sm" className="w-full sm:w-auto text-xs font-semibold border-primary/20 bg-white text-primary hover:bg-primary/5">
+                      <Phone className="mr-1.5 h-3.5 w-3.5" /> Call Office
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </DialogContent>
+        )}
+      </Dialog>
 
       {/* FAQ Section */}
       <section className="py-8 sm:py-10 lg:py-12 bg-white border-t border-primary/10">
