@@ -651,26 +651,32 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 bg-gradient-to-br from-primary to-primary-hover">
-        <div className="container-clinical text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-heading text-primary-foreground mb-4">
-              Ready for Your Best Smile?
-            </h2>
-            <p className="text-primary-foreground/90 mb-8 text-lg">
-              Schedule your appointment today and experience the difference of personalized dental care.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/contact#request-appointment">
-                <Button size="lg" variant="secondary" className="w-full sm:min-w-[200px]">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book Appointment
-                </Button>
-              </Link>
-              <div className="flex flex-col sm:flex-row items-center text-primary-foreground/90 gap-2">
-                <MapPin className="w-4 h-4" />
-                <span className="text-sm text-center sm:text-left">123 Dental Ave, Smile City, SC 12345</span>
+      {/* Bottom CTA Banner */}
+      <section className="py-6 sm:py-8 lg:py-10">
+        <div className="container-clinical">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-primary text-primary-foreground shadow-lg">
+            <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
+            <div className="relative grid gap-4 p-6 sm:p-8 lg:p-10">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
+                Ready for Your Best Smile?
+              </h2>
+              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
+                Schedule your appointment today and experience the difference of personalized, compassionate dental care in Austin, TX.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row pt-1">
+                <Link href="/contact#request-appointment" className="w-full sm:w-auto">
+                  <Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">
+                    <Calendar className="mr-2 h-4 w-4" /> Book Appointment
+                  </Button>
+                </Link>
+                <Link href="tel:5124679955" className="w-full sm:w-auto">
+                  <Button
+                    variant="ghost"
+                    className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
+                  >
+                    <Phone className="mr-2 h-4 w-4" /> Call 512.467.9955
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

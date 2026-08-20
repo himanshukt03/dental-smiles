@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Award, Clock, Users, Heart, CheckCircle } from "lucide-react";
+import Link from "next/link";
+import { Award, Clock, Users, Heart, CheckCircle, Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BentoCard from "@/components/UI/BentoCard";
 import { teamMembers } from "@/data/content";
@@ -265,18 +266,35 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container-clinical text-center">
-          <h2 className="text-3xl md:text-4xl font-heading mb-4">
-            Ready to Experience the Dental Smiles Difference?
-          </h2>
-          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-            Join thousands of satisfied patients who have trusted us with their dental care. Schedule your consultation today.
-          </p>
-          <Button className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-lg px-8 py-4 h-auto">
-            <Users className="w-5 h-5 mr-2" />
-            Schedule Your Visit
-          </Button>
+      {/* Bottom CTA Banner */}
+      <section className="py-6 sm:py-8 lg:py-10">
+        <div className="container-clinical">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-primary text-primary-foreground shadow-lg">
+            <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
+            <div className="relative grid gap-4 p-6 sm:p-8 lg:p-10">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
+                Ready to Experience the Dental Smiles Difference?
+              </h2>
+              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
+                Join thousands of satisfied patients who have trusted us with their dental care. Schedule your visit today with Dr. Shetty and our caring team.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row pt-1">
+                <Link href="/contact#request-appointment" className="w-full sm:w-auto">
+                  <Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">
+                    <Calendar className="mr-2 h-4 w-4" /> Schedule Your Visit
+                  </Button>
+                </Link>
+                <Link href="tel:5124679955" className="w-full sm:w-auto">
+                  <Button
+                    variant="ghost"
+                    className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
+                  >
+                    <Phone className="mr-2 h-4 w-4" /> Call 512.467.9955
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

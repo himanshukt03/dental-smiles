@@ -262,22 +262,35 @@ const ContactPage = () => {
 			</section>
 
 			{/* Bottom CTA Banner */}
-			<section className="py-8 sm:py-10 lg:py-12 bg-primary text-primary-foreground">
-				<div className="container-clinical text-center space-y-4 max-w-2xl mx-auto">
-					<h2 className="text-2xl sm:text-3xl font-heading font-bold text-primary-foreground">
-						Ready to Schedule Your Appointment?
-					</h2>
-					<p className="text-xs sm:text-sm opacity-90 leading-relaxed">
-						Don&apos;t wait to start your journey to better oral health. Book your appointment today and experience personalized, compassionate dental care.
-					</p>
-					<div className="pt-2">
-						<Link href="https://rwl.io/4lGeyT1" target="_blank" rel="noopener noreferrer">
-							<Button className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold text-xs sm:text-sm px-6 py-3 shadow-md">
-								<Calendar className="w-4 h-4 mr-2" />
-								Request An Appointment Online
-								<ExternalLink className="ml-2 h-3.5 w-3.5" />
-							</Button>
-						</Link>
+			<section className="py-6 sm:py-8 lg:py-10">
+				<div className="container-clinical">
+					<div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-primary text-primary-foreground shadow-lg">
+						<div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
+						<div className="relative grid gap-4 p-6 sm:p-8 lg:p-10">
+							<h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
+								Ready to Schedule Your Appointment?
+							</h2>
+							<p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
+								Don&apos;t wait to start your journey to better oral health. Book your appointment today and experience personalized, compassionate dental care in Austin.
+							</p>
+							<div className="flex flex-col gap-3 sm:flex-row pt-1">
+								<Link href="https://rwl.io/4lGeyT1" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+									<Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">
+										<Calendar className="mr-2 h-4 w-4" />
+										Request Online Form
+										<ExternalLink className="ml-2 h-3.5 w-3.5" />
+									</Button>
+								</Link>
+								<Link href="tel:5124679955" className="w-full sm:w-auto">
+									<Button
+										variant="ghost"
+										className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
+									>
+										<Phone className="mr-2 h-4 w-4" /> Call 512.467.9955
+									</Button>
+								</Link>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>

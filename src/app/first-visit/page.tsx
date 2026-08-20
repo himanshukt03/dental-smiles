@@ -424,29 +424,31 @@ const FirstVisitPage = () => {
 				</div>
 			</section>
 
-			<section className="section-padding">
+			{/* Bottom CTA Banner */}
+			<section className="py-6 sm:py-8 lg:py-10">
 				<div className="container-clinical">
-					<div className="w-full rounded-3xl border border-primary/10 bg-gradient-to-br from-white to-clinical-creme/80 p-8 sm:p-12 shadow-2xl backdrop-blur-sm transition-transform hover:-translate-y-0.5">
-						<div className="space-y-4">
-							<h2 className="text-3xl md:text-4xl font-heading text-foreground leading-tight">
+					<div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-primary text-primary-foreground shadow-lg">
+						<div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
+						<div className="relative grid gap-4 p-6 sm:p-8 lg:p-10">
+							<h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
 								Have a question about our services?
 							</h2>
-							<p className="text-lg text-muted-foreground max-w-prose">
+							<p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
 								Interested in learning more about financing, membership, or what to expect during your first visit?
 								Our care team is here to help every step of the way.
 							</p>
-							<div className="flex flex-col gap-3 sm:flex-row sm:items-center mt-4">
+							<div className="flex flex-col gap-3 sm:flex-row pt-1">
 								<Link href="/contact" className="w-full sm:w-auto">
-									<Button className="w-full sm:w-auto bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out transform hover:-translate-y-0.5">
-										Contact us
+									<Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">
+										Contact Us
 									</Button>
 								</Link>
 								<Link href="tel:5124679955" className="w-full sm:w-auto">
 									<Button
-										variant="outline"
-										className="w-full sm:w-auto border border-primary/20 bg-white/60 px-6 py-3 rounded-lg text-primary hover:bg-primary/5 hover:border-primary transition duration-200 ease-in-out"
+										variant="ghost"
+										className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
 									>
-										Call 512.467.9955
+										<Phone className="mr-2 h-4 w-4" /> Call 512.467.9955
 									</Button>
 								</Link>
 							</div>
