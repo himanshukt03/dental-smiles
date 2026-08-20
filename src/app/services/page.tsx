@@ -72,14 +72,14 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="flex flex-wrap justify-center gap-6">
             {serviceTabs.map((tab) => (
               <article
                 key={tab.href}
                 role="link"
                 tabIndex={0}
                 aria-label={`Open ${tab.title}`}
-                className="group relative cursor-pointer overflow-hidden rounded-[2rem] border border-primary/15 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/35"
+                className="group relative cursor-pointer overflow-hidden rounded-[2rem] border border-primary/15 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/35 w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]"
                 onClick={() => router.push(tab.href)}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') {

@@ -340,8 +340,8 @@ export default function RestorativeDentistryPage() {
             </p>
           </div>
 
-          {/* Treatments Bento Cards Grid - 3 cards in a row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
+          {/* Treatments Bento Cards Grid - Centered rows */}
+          <div className="flex flex-wrap justify-center gap-5 pt-2">
             {filteredTreatments.map((item) => {
               const isExpanded = !!expandedCards[item.id];
 
@@ -349,7 +349,7 @@ export default function RestorativeDentistryPage() {
                 <div
                   key={item.id}
                   id={item.id}
-                  className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between"
+                  className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
                 >
                   <div className="space-y-3">
                     {/* Card Header Media */}
