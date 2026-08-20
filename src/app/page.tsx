@@ -578,7 +578,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl md:text-3xl font-heading text-bold mb-4">
+                <h2 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight text-foreground mb-4">
                   Why Choose <span className="relative inline-block">Dental Smiles?<ScribbleUnderline className="text-primary" /></span>
                 </h2>
                 <p className="text-muted-foreground mb-6">
@@ -589,7 +589,7 @@ export default function LandingPage() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {services.map(({ name, description }, index) => (
                   <div key={index} className="p-4 bg-card rounded-bento border-clinical">
-                    <h3 className="text-sm sm:text-base font-semibold text-foreground tracking-tight mb-1">{name}</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-foreground tracking-tight mb-1">{name}</h3>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{description}</p>
                   </div>
                 ))}
@@ -616,7 +616,7 @@ export default function LandingPage() {
       <section className="py-8 border-y border-border" style={{ backgroundColor: '#741234' }}>
         <div className="container-clinical">
           <div className="text-center mb-6">
-            <h2 className="text-xl font-heading text-white mb-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight text-white mb-2">
               Insurance Plans We Accept
             </h2>
             <p className="text-sm text-white/80">We work with most major insurance providers</p>
@@ -629,7 +629,7 @@ export default function LandingPage() {
       <section className="py-12 md:py-16">
         <div className="container-clinical">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-heading text-foreground mb-4">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight text-foreground mb-4">
               What Our Patients Say
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
