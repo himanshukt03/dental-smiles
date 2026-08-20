@@ -38,38 +38,38 @@ export default function InsuranceMarquee({
 
   return (
     <div className={`relative overflow-hidden w-full select-none py-2 ${className}`}>
-      {/* Subtle edge fades */}
+      {/* Edge gradient masks */}
       <div
-        className={`pointer-events-none absolute left-0 top-0 h-full w-12 sm:w-20 z-10 bg-gradient-to-r ${
+        className={`pointer-events-none absolute left-0 top-0 h-full w-12 sm:w-24 z-10 bg-gradient-to-r ${
           isMaroon ? 'from-[#741234] to-transparent' : 'from-background to-transparent'
         }`}
       />
       <div
-        className={`pointer-events-none absolute right-0 top-0 h-full w-12 sm:w-20 z-10 bg-gradient-to-l ${
+        className={`pointer-events-none absolute right-0 top-0 h-full w-12 sm:w-24 z-10 bg-gradient-to-l ${
           isMaroon ? 'from-[#741234] to-transparent' : 'from-background to-transparent'
         }`}
       />
 
       <style>{`
-        @keyframes infiniteMarquee {
+        @keyframes marqueeLoop {
           0% {
             transform: translateX(0%);
           }
           100% {
-            transform: translateX(-100%);
+            transform: translateX(-50%);
           }
         }
-        .animate-infinite-marquee {
-          animation: infiniteMarquee ${speed}s linear infinite;
+        .animate-marquee-loop {
+          animation: marqueeLoop ${speed}s linear infinite;
         }
-        .animate-infinite-marquee:hover {
+        .animate-marquee-loop:hover {
           animation-play-state: paused;
         }
       `}</style>
 
-      <div className="flex w-max">
+      <div className="flex w-max animate-marquee-loop">
         {/* Track 1 */}
-        <div className="flex shrink-0 items-center gap-4 sm:gap-6 px-2 sm:px-3 animate-infinite-marquee">
+        <div className="flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6">
           {insuranceProvidersList.map((company, index) => (
             <div
               key={`track1-${index}`}
@@ -98,9 +98,9 @@ export default function InsuranceMarquee({
           ))}
         </div>
 
-        {/* Track 2 - Exact duplicate for seamless infinite loop */}
+        {/* Track 2 - Exact duplicate with identical width & padding */}
         <div
-          className="flex shrink-0 items-center gap-4 sm:gap-6 px-2 sm:px-3 animate-infinite-marquee"
+          className="flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6"
           aria-hidden="true"
         >
           {insuranceProvidersList.map((company, index) => (
