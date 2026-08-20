@@ -28,14 +28,14 @@ const Footer = () => {
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 xl:gap-12">
           {/* Practice Info */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-40 h-14 rounded-xl bg-white/95 p-2 flex items-center justify-center relative shadow-md">
+            <Link href="/" className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
+              <div className="relative w-48 h-12">
                 <Image
-                  src={DentalSmilesLogo}
+                  src="/assets/dental-smiles logo-white.png"
                   alt="Dental Smiles Logo"
                   fill
-                  className="object-contain"
-                  sizes="160px"
+                  className="object-contain object-left"
+                  sizes="200px"
                 />
               </div>
             </Link>
