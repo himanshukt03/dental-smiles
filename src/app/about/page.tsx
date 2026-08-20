@@ -40,60 +40,50 @@ export const metadata = {
 const AboutPage = () => {
   return (
     <div className="min-h-screen">
-      <section className="section-padding pt-8 sm:pt-10 lg:pt-14 pb-12 lg:pb-16 bg-gradient-to-br from-clinical-creme to-clinical-grey">
-        <div className="container-clinical max-w-6xl">
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white/90 shadow-lg">
-            <div className="absolute -left-16 top-0 h-48 w-48 rounded-full bg-primary/15 blur-3xl" aria-hidden="true" />
-            <div className="absolute -bottom-24 right-0 h-56 w-56 rounded-full bg-primary/5 blur-3xl" aria-hidden="true" />
-            <div className="relative grid grid-rows-[auto_auto_auto] gap-5 p-5 sm:p-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:grid-rows-[auto_auto] md:gap-8 lg:p-8">
-              <div className="space-y-3 md:col-start-1 md:col-end-2 md:row-start-1">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
-                  <Users className="h-3.5 w-3.5" /> Community-focused care in Austin
-                </span>
-                <h1 className="text-xl sm:text-2xl md:text-3.5xl lg:text-4xl font-heading font-bold text-foreground leading-tight tracking-tight text-center md:text-left">
-                  Locally Owned and Operated.
-                </h1>
+      {/* Clean Modern Hero Section */}
+      <section className="py-10 md:py-14 lg:py-16 bg-gradient-to-b from-primary/5 via-white to-transparent border-b border-primary/10">
+        <div className="container-clinical">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr] lg:gap-12 items-center">
+            <div className="space-y-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground leading-tight tracking-tight">
+                Locally Owned and Operated in Austin, TX
+              </h1>
+              <div className="space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <p>
+                  Conveniently located near Central Austin and the Mueller Town Center District, our locally owned practice serves families and individuals seeking high-quality, personalized care.
+                </p>
+                <p>
+                  At Dental Smiles, we use advanced dental technology and modern techniques to make every visit safe, gentle, and comfortable with ample on-site parking.
+                </p>
               </div>
-
-              <div className="relative mx-auto w-full max-w-sm sm:max-w-md md:mx-0 md:col-start-2 md:row-start-1 md:row-end-3">
-                <div className="relative overflow-hidden rounded-[1.5rem] border border-primary/15 bg-white/70 shadow-xl">
-                  <div className="relative aspect-[16/10] sm:aspect-[3/2] md:aspect-[4/3]">
-                    <Image
-                      src="/assets/dental-team2.webp"
-                      alt="Dental Smiles team"
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 90vw"
-                      priority
-                    />
-                  </div>
-                  <div className="absolute left-3 top-3 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-semibold text-primary shadow border border-primary/10">
-                    Locally owned practice
-                  </div>
-                </div>
+              <div className="flex flex-col gap-3 sm:flex-row pt-2">
+                <Link href="#team-showcase" className="w-full sm:w-auto">
+                  <Button size="lg" className="btn-primary w-full sm:w-auto px-6 py-3 font-semibold">
+                    <Users className="mr-2 h-4 w-4" /> Meet Our Team
+                  </Button>
+                </Link>
+                <Link href="tel:5124679955" className="w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full sm:w-auto border-primary/20 bg-white/80 px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <Phone className="mr-2 h-4 w-4" /> Call (512) 467-9955
+                  </Button>
+                </Link>
               </div>
+            </div>
 
-              <div className="space-y-4 md:col-start-1 md:row-start-2 md:row-end-3">
-                <div className="space-y-3 text-xs sm:text-sm md:text-base leading-relaxed text-muted-foreground">
-                  <p>
-                    Conveniently located near Central Austin and the Mueller Town Center District, our locally owned practice serves families and individuals seeking
-                    <span className="text-primary font-semibold"> high-quality care</span>.
-                  </p>
-                  <p>
-                    At Dental Smiles, we use <span className="text-primary font-semibold">advanced technology</span> and modern techniques to make dentistry safer and more comfortable.
-                    We also ease patient anxiety by creating a <span className="text-primary font-semibold">welcoming experience</span>—with ample parking included.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2.5 sm:flex-row pt-1">
-                  <Button className="btn-primary w-full sm:w-auto px-4 py-2.5 text-xs sm:text-sm font-semibold">
-                    <Users className="w-4 h-4 mr-2" />
-                    Meet Our Team
-                  </Button>
-                  <Button variant="ghost" className="btn-secondary w-full sm:w-auto px-4 py-2.5 text-xs sm:text-sm font-semibold">
-                    <Clock className="w-4 h-4 mr-2" />
-                    Schedule Visit
-                  </Button>
-                </div>
+            <div className="relative mx-auto w-full overflow-hidden rounded-[2rem] border border-primary/10 shadow-xl bg-white">
+              <div className="relative aspect-[4/3] lg:aspect-[16/11]">
+                <Image
+                  src="/assets/dental-team2.webp"
+                  alt="Dental Smiles team"
+                  fill
+                  sizes="(min-width: 1024px) 500px, 100vw"
+                  className="object-cover object-center"
+                  priority
+                />
               </div>
             </div>
           </div>
