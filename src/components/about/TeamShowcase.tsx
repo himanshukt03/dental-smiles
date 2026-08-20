@@ -268,6 +268,7 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                       src={getMemberImage(selectedMember.image)}
                       alt={selectedMember.name}
                       fill
+                      sizes="(min-width: 640px) 112px, 96px"
                       className="object-cover object-top"
                     />
                   </div>

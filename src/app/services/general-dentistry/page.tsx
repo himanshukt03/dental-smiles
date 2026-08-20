@@ -278,6 +278,7 @@ export default function GeneralDentistryPage() {
                       src={selectedTreatment.image}
                       alt={selectedTreatment.imageAlt}
                       fill
+                      sizes="(min-width: 640px) 112px, 96px"
                       className="object-cover object-center"
                     />
                   </div>
