@@ -73,7 +73,7 @@ const ContactPage = () => {
 								</div>
 
 								<p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-									Ready to schedule your visit? Click below to request an appointment online. Our team will reach out within one business day to confirm your preferred date and time.
+									Ready to schedule your visit? Click below to request an appointment online.
 								</p>
 
 								<div className="bg-clinical-creme/60 rounded-xl p-3.5 border border-primary/10 space-y-1.5">
@@ -127,11 +127,7 @@ const ContactPage = () => {
 										referrerPolicy="no-referrer-when-downgrade"
 									/>
 								</div>
-								<div className="pt-3 px-1 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-									<div>
-										<h4 className="text-xs font-bold text-foreground">Find Us in Mueller Medical District</h4>
-										<p className="text-[11px] text-muted-foreground">Convenient parking available on-site</p>
-									</div>
+								<div className="pt-3 px-1 flex items-center justify-end">
 									<Link
 										href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
 										target="_blank"
@@ -248,13 +244,6 @@ const ContactPage = () => {
 										</div>
 									</div>
 								</div>
-							</div>
-
-							{/* Card Bottom Note */}
-							<div className="bg-primary/5 rounded-xl p-3.5 border border-primary/10 text-center">
-								<p className="text-xs text-muted-foreground">
-									Conveniently serving Mueller, Hyde Park, North Loop, and Central Austin.
-								</p>
 							</div>
 						</BentoCard>
 					</div>

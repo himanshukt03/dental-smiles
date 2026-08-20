@@ -3,9 +3,8 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calendar, User, ArrowRight, Search, Clock, Tag } from 'lucide-react';
+import { Calendar, User, ArrowRight, Clock, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { BlogPost } from '@/data/blogData';
 
 interface BlogListingProps {
@@ -13,7 +12,6 @@ interface BlogListingProps {
 }
 
 const BlogListing = ({ posts }: BlogListingProps) => {
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = useMemo(() => {
@@ -21,17 +19,12 @@ const BlogListing = ({ posts }: BlogListingProps) => {
     return ['all', ...uniqueCategories];
   }, [posts]);
 
-  // Filter posts based on search and selected category
+  // Filter posts based on selected category
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
-      const matchesSearch =
-        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory =
-        selectedCategory === 'all' || post.category === selectedCategory;
-      return matchesSearch && matchesCategory;
+      return selectedCategory === 'all' || post.category === selectedCategory;
     });
-  }, [posts, searchTerm, selectedCategory]);
+  }, [posts, selectedCategory]);
 
   // Identify Featured Post (First one that matches criteria, or the explicit featured one)
   const featuredPost = useMemo(() => {
@@ -57,65 +50,51 @@ const BlogListing = ({ posts }: BlogListingProps) => {
 
   return (
     <div className="min-h-screen bg-background font-sans">
-      {/* Header / Intro */}
-      <section className="pt-32 pb-12 bg-gradient-to-br from-clinical-creme to-clinical-grey">
-        <div className="container-clinical text-center">
-          <h1 className="text-4xl md:text-5xl font-sans font-bold text-foreground mb-4 leading-tight">
-            Dental Health Insights
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 font-sans">
-            Expert advice, tips, and updates from the Dental Smiles team to help you keep your smile healthy and bright.
-          </p>
-
-          {/* Search Bar */}
-          <div className="max-w-md mx-auto relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
-            <Input
-              type="text"
-              placeholder="Search articles..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 h-12 rounded-full border-primary/20 bg-white/80 backdrop-blur focus:bg-white transition-all shadow-sm font-sans"
-            />
+      {/* Compact Header & Category Filter */}
+      <section className="pt-10 md:pt-14 pb-6 md:pb-8 bg-gradient-to-b from-clinical-creme via-white to-background border-b border-primary/10">
+        <div className="container-clinical text-center space-y-4">
+          <div>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground tracking-tight">
+              Dental Health Insights
+            </h1>
+            <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mt-2">
+              Expert advice, tips, and updates from the Dental Smiles team to help you keep your smile healthy and bright.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Category Filter */}
-      <section className="py-8 border-b border-border/50 bg-background/95">
-        <div className="container-clinical px-8 md:px-16 lg:px-24">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 border font-sans ${selectedCategory === category
-                  ? 'bg-primary text-primary-foreground border-primary shadow-md'
-                  : 'bg-white text-muted-foreground border-border hover:border-primary/50 hover:bg-clinical-creme'
+          {/* Category Filter */}
+          <div className="pt-1">
+            <div className="flex flex-wrap gap-2 justify-center max-w-4xl mx-auto">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${
+                    selectedCategory === category
+                      ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                      : 'bg-white text-muted-foreground border-primary/15 hover:border-primary/40 hover:bg-clinical-creme hover:text-foreground'
                   }`}
-              >
-                {category === 'all' ? 'All' : category}
-              </button>
-            ))}
+                >
+                  {category === 'all' ? 'All Articles' : category}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="pt-6 sm:pt-8 pb-16">
         <div className="container-clinical">
           {isEmpty ? (
-            <div className="text-center py-20">
-              <div className="w-16 h-16 bg-muted/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8 text-muted-foreground" />
-              </div>
-              <h3 className="text-xl font-sans font-semibold text-foreground mb-2">No articles found</h3>
-              <p className="text-muted-foreground font-sans">Try adjusting your search or category.</p>
+            <div className="text-center py-16">
+              <h3 className="text-lg font-heading font-bold text-foreground mb-2">No articles found in this category</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">Select another category or view all posts.</p>
               <Button
                 variant="link"
-                onClick={() => { setSearchTerm(''); setSelectedCategory('all'); }}
-                className="mt-4 font-sans"
+                onClick={() => setSelectedCategory('all')}
+                className="mt-3 text-xs font-semibold text-primary"
               >
-                Clear all filters
+                View all articles
               </Button>
             </div>
           ) : (
