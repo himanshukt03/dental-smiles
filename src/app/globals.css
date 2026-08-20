@@ -217,6 +217,24 @@
     margin-bottom: 1.25rem !important;
   }
 
+  /* Consolidated Global Description & Body Typography (matching 16px / 1rem blog prose non-heading text) */
+  .text-description,
+  .body-description {
+    font-family: var(--font-body) !important;
+    font-size: 1rem !important; /* 16px */
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  .text-description-lead {
+    font-family: var(--font-body) !important;
+    font-size: 1.0625rem !important; /* 17px */
+    font-weight: 400 !important;
+    line-height: 1.75 !important;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
   :focus-visible {
     @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
   }

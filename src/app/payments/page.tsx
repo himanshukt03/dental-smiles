@@ -91,7 +91,7 @@ export default function PaymentsPage() {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground tracking-tight leading-tight">
             Payment Options & Insurance
           </h1>
-          <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             We believe quality dental care should be transparent, accessible, and stress-free. We work with most major PPO insurance plans and offer flexible CareCredit financing.
           </p>
 
@@ -116,7 +116,7 @@ export default function PaymentsPage() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground tracking-tight">
               Accepted Payment Methods
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               Choose the payment method that works best for your visit.
             </p>
           </div>
@@ -131,10 +131,10 @@ export default function PaymentsPage() {
                   <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     <method.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base font-semibold text-foreground tracking-tight">
+                  <h3 className="text-base font-bold text-foreground tracking-tight">
                     {method.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {method.description}
                   </p>
                 </div>
@@ -163,7 +163,7 @@ export default function PaymentsPage() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground tracking-tight">
               Dental Insurance & Benefits
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               We are in-network with most major PPO dental insurance providers and handle all direct claim submissions for you.
             </p>
           </div>
@@ -173,7 +173,7 @@ export default function PaymentsPage() {
           </div>
 
           <div className="text-center pt-2">
-            <p className="text-xs sm:text-sm text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Don&apos;t see your insurance provider listed?{' '}
               <Link href="/contact" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
                 Verify Coverage With Us <ArrowRight className="h-3 w-3" />
@@ -213,14 +213,14 @@ export default function PaymentsPage() {
                 <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground tracking-tight leading-tight">
                   CareCredit Healthcare Financing
                 </h2>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   CareCredit functions as a dedicated healthcare credit card for dental implants, crowns, cosmetic smile makeovers, and family dentistry. Apply in just 2 minutes with instant approval.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                 {careCreditHighlights.map((highlight) => (
-                  <div key={highlight} className="flex items-center gap-2 text-xs font-medium text-foreground">
+                  <div key={highlight} className="flex items-center gap-2 text-sm font-medium text-foreground">
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
                     <span>{highlight}</span>
                   </div>
@@ -271,7 +271,7 @@ export default function PaymentsPage() {
                 <AccordionTrigger className="text-left font-heading font-bold text-foreground hover:no-underline text-sm sm:text-base">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed pt-1">
+                <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pt-1">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -287,7 +287,7 @@ export default function PaymentsPage() {
             <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
             <div className="relative grid gap-4 p-6 sm:p-8 lg:p-10">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">Have questions about your payment or insurance?</h2>
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">Contact Dental Smiles today. Our friendly care coordinators are happy to verify your benefits and guide you through transparent payment options.</p>
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">Contact Dental Smiles today. Our friendly care coordinators are happy to verify your benefits and guide you through transparent payment options.</p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">
                 <Link href="/contact" className="w-full sm:w-auto">
                   <Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">

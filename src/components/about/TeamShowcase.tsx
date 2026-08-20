@@ -76,7 +76,7 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
             <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-tight">
               Meet Our Doctors
             </h2>
-            <p className="text-xs sm:text-sm text-white/85 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl mx-auto">
               Our experienced dentists are dedicated to providing you with gentle, personalized dental care in a welcoming Austin practice.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
 
                     {/* Name & Role */}
                     <div className="space-y-0.5">
-                      <h3 className="text-base font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                      <h3 className="text-base sm:text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
                         {doctor.name}
                       </h3>
                       <p className="text-xs font-bold text-primary">
@@ -127,7 +127,7 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                       </p>
 
                       {/* Readable description text */}
-                      <p className="text-xs text-foreground/80 font-normal leading-relaxed pt-1">
+                      <p className="text-sm sm:text-base text-foreground/85 font-normal leading-relaxed pt-1">
                         {summaryText}
                       </p>
                     </div>
@@ -168,7 +168,7 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
             <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-tight">
               Meet Our Team
             </h2>
-            <p className="text-xs sm:text-sm text-white/85 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl mx-auto">
               Our dedicated dental hygienists, assistants, and coordinators work seamlessly to make every appointment comfortable and welcoming.
             </p>
           </div>
@@ -192,35 +192,31 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                   role="button"
                   tabIndex={0}
                   aria-label={`View bio for ${member.name}`}
-                  className="group relative overflow-hidden rounded-2xl bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white flex flex-col justify-between cursor-pointer text-left"
+                  className="group relative overflow-hidden rounded-2xl bg-white p-4 sm:p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white flex flex-col justify-between cursor-pointer text-left"
                 >
                   <div className="space-y-3">
-                    {/* Square-ish Photo Frame without heavy border */}
+                    {/* Square-ish Photo Frame */}
                     <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-100 shadow-sm">
                       <Image
                         src={imageSrc}
                         alt={member.name}
                         fill
-                        sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"
+                        sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
                         className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
-                      {member.credentials && (
-                        <div className="absolute top-2 right-2 rounded-full bg-white/95 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-primary shadow-sm border border-primary/10">
-                          {member.credentials}
-                        </div>
-                      )}
                     </div>
 
                     {/* Name & Role */}
-                    <div className="space-y-1">
-                      <h3 className="text-base font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                    <div className="space-y-0.5">
+                      <h3 className="text-base sm:text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
                         {member.name}
                       </h3>
-                      <p className="text-xs font-semibold text-primary">
+                      <p className="text-xs font-bold text-primary">
                         {member.role}
                       </p>
+
                       {/* Readable description text */}
-                      <p className="text-xs sm:text-sm text-foreground/80 font-normal leading-relaxed pt-0.5">
+                      <p className="text-sm sm:text-base text-foreground/85 font-normal leading-relaxed pt-1">
                         {summaryText}
                       </p>
                     </div>
@@ -309,7 +305,7 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                 <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   Biography & Background
                 </h4>
-                <div className="space-y-3 text-xs sm:text-sm text-foreground/90 leading-relaxed font-normal">
+                <div className="space-y-3 text-sm sm:text-base text-foreground/90 leading-relaxed font-normal">
                   {selectedMember.bio.split('\n\n').map((paragraph, index) => (
                     <p key={index} className="leading-relaxed">
                       {paragraph.trim()}

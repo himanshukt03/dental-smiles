@@ -47,7 +47,7 @@ const ContactPage = () => {
 						<h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground tracking-tight">
 							Let&apos;s plan your next visit to Dental Smiles
 						</h1>
-						<p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+						<p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
 							Our friendly coordinators respond within one business day to help you schedule, answer insurance questions, and make sure every detail feels easy.
 						</p>
 					</div>
@@ -72,7 +72,7 @@ const ContactPage = () => {
 									</div>
 								</div>
 
-								<p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+								<p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
 									Ready to schedule your visit? Click below to request an appointment online.
 								</p>
 
@@ -259,7 +259,7 @@ const ContactPage = () => {
 							<h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
 								Ready to Schedule Your Appointment?
 							</h2>
-							<p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
+							<p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
 								Don&apos;t wait to start your journey to better oral health. Book your appointment today and experience personalized, compassionate dental care in Austin.
 							</p>
 							<div className="flex flex-col gap-3 sm:flex-row pt-1">

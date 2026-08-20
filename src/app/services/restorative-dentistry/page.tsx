@@ -288,7 +288,7 @@ export default function RestorativeDentistryPage() {
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading text-foreground leading-tight font-bold tracking-tight">
                 Restore Your Smile&apos;s Strength, Function & Natural Beauty
               </h1>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
+              <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
                 From single-visit CEREC crowns and tooth-colored fillings to permanent implants, dentures, and oral surgery—get gentle, technology-driven restorative dental care in Central Austin.
               </p>
 
@@ -551,7 +551,7 @@ export default function RestorativeDentistryPage() {
                 <AccordionTrigger className="text-left font-heading font-bold text-foreground hover:no-underline text-base">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground leading-relaxed pt-1">
+                <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pt-1">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -572,7 +572,7 @@ export default function RestorativeDentistryPage() {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight leading-tight">
                 Ready to Restore Your Smile in Austin, TX?
               </h2>
-              <p className="text-xs sm:text-sm opacity-90 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base opacity-90 leading-relaxed max-w-2xl">
                 Contact Dental Smiles today to schedule your consultation with Dr. Divya Shetty. Conveniently serving Mueller, Hyde Park, North Loop, and Central Austin.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">

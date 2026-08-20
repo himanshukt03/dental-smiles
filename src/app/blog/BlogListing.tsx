@@ -57,7 +57,7 @@ const BlogListing = ({ posts }: BlogListingProps) => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground tracking-tight">
               Dental Health Insights
             </h1>
-            <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mt-2">
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto mt-2 leading-relaxed">
               Expert advice, tips, and updates from the Dental Smiles team to help you keep your smile healthy and bright.
             </p>
           </div>
@@ -88,7 +88,7 @@ const BlogListing = ({ posts }: BlogListingProps) => {
           {isEmpty ? (
             <div className="text-center py-16">
               <h3 className="text-lg font-heading font-bold text-foreground mb-2">No articles found in this category</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">Select another category or view all posts.</p>
+              <p className="text-sm sm:text-base text-muted-foreground">Select another category or view all posts.</p>
               <Button
                 variant="link"
                 onClick={() => setSelectedCategory('all')}
@@ -234,7 +234,7 @@ const BlogListing = ({ posts }: BlogListingProps) => {
                           <h4 className="blog-card-title text-foreground mb-2 group-hover:text-primary transition-colors">
                             {post.title}
                           </h4>
-                          <p className="text-muted-foreground text-xs line-clamp-2 mb-4 font-sans leading-relaxed">
+                          <p className="text-muted-foreground text-sm line-clamp-2 mb-4 font-sans leading-relaxed">
                             {post.excerpt}
                           </p>
 

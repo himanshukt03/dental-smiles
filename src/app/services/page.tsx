@@ -68,7 +68,7 @@ export default function ServicesPage() {
             <h1 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight">
               Explore Our Dental Services
             </h1>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               Select a service below to view its dedicated page and details.
             </p>
           </div>
@@ -130,7 +130,7 @@ export default function ServicesPage() {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
                 Not sure which dental treatment you need?
               </h2>
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
                 Contact Dental Smiles today. Dr. Shetty and our friendly Austin care team will evaluate your oral health and guide you to the right treatment plan.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">

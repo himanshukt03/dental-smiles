@@ -119,7 +119,7 @@ const AboutPage = () => {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
                 Ready to Experience the Dental Smiles Difference?
               </h2>
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
                 Join thousands of satisfied patients who have trusted us with their dental care. Schedule your visit today with Dr. Shetty and our caring team.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">

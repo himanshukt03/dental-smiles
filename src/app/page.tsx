@@ -281,7 +281,7 @@ const MobileHero = () => (
               <ScribbleUnderline className="text-primary" />
             </span>
           </h1>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          <p className="text-base text-muted-foreground leading-relaxed">
             Providing quality dental care for patients of all ages
           </p>
         </div>
@@ -392,7 +392,7 @@ const DesktopHero = () => (
                 <ScribbleUnderline className="text-primary" />
               </span>
             </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-base xl:text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Providing quality dental care for patients of all ages
             </p>
           </div>
@@ -581,7 +581,7 @@ export default function LandingPage() {
                 <h2 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight text-foreground mb-4">
                   Why Choose <span className="relative inline-block">Dental Smiles?<ScribbleUnderline className="text-primary" /></span>
                 </h2>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-base text-muted-foreground mb-6 leading-relaxed">
                   We&apos;re proud to be a local, female-owned dental practice providing personalized, patient-centered care.
                 </p>
               </div>
@@ -589,8 +589,8 @@ export default function LandingPage() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {services.map(({ name, description }, index) => (
                   <div key={index} className="p-4 bg-card rounded-bento border-clinical">
-                    <h3 className="text-sm sm:text-base font-bold text-foreground tracking-tight mb-1">{name}</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{description}</p>
+                    <h3 className="text-base font-bold text-foreground tracking-tight mb-1.5">{name}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{description}</p>
                   </div>
                 ))}
               </div>
@@ -619,7 +619,7 @@ export default function LandingPage() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight text-white mb-2">
               Insurance Plans We Accept
             </h2>
-            <p className="text-sm text-white/80">We work with most major insurance providers</p>
+            <p className="text-sm sm:text-base text-white/90">We work with most major insurance providers</p>
           </div>
 
           <InsuranceMarquee theme="maroon" speed={28} />
@@ -632,7 +632,7 @@ export default function LandingPage() {
             <h2 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight text-foreground mb-4">
               What Our Patients Say
             </h2>
-            <p className="text-sm sm:text-base text-foreground/80 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Real reviews from real patients who trust us with their smiles
             </p>
           </div>
@@ -660,7 +660,7 @@ export default function LandingPage() {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
                 Ready for Your Best Smile?
               </h2>
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
                 Schedule your appointment today and experience the difference of personalized, compassionate dental care in Austin, TX.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">

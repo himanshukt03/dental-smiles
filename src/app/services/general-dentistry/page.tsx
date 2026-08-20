@@ -158,7 +158,7 @@ export default function GeneralDentistryPage() {
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading text-foreground leading-tight font-bold tracking-tight">
                 Comprehensive Preventive & General Dentistry in Austin, TX
               </h1>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
+              <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
                 From athletic mouthguards and custom nightguards to fluoride varnishes, sealants, and laser gum therapy—our Austin team provides gentle, complete oral care for your entire family.
               </p>
 
@@ -358,7 +358,7 @@ export default function GeneralDentistryPage() {
                 <AccordionTrigger className="text-left font-heading font-bold text-foreground hover:no-underline text-sm sm:text-base">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed pt-1">
+                <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pt-1">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -374,7 +374,7 @@ export default function GeneralDentistryPage() {
             <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
             <div className="relative grid gap-4 p-6 sm:p-8 lg:p-10">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">Ready to schedule your preventive checkup?</h2>
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">Contact Dental Smiles today to schedule your general dentistry visit and maintain your optimal oral health in Austin, TX.</p>
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">Contact Dental Smiles today to schedule your general dentistry visit and maintain your optimal oral health in Austin, TX.</p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">
                 <Link href="/contact" className="w-full sm:w-auto">
                   <Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">

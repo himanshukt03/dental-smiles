@@ -103,7 +103,7 @@ const FirstVisitPage = () => {
 							<h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground leading-tight tracking-tight">
 								Your First Step to Comfortable Dental Care in Austin, TX
 							</h1>
-							<div className="space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+							<div className="space-y-3 text-base text-muted-foreground leading-relaxed">
 								<p>
 									At Dental Smiles, we keep your visits stress-free with transparent options, clear communication, and a welcoming team dedicated to your health.
 								</p>
@@ -166,7 +166,7 @@ const FirstVisitPage = () => {
 										</div>
 										<div className="flex-1">
 											<h3 className="text-base font-semibold text-foreground">{item.title}</h3>
-											<p className="text-sm text-muted-foreground/90">
+											<p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
 												{item.description}
 											</p>
 										</div>
@@ -427,7 +427,7 @@ const FirstVisitPage = () => {
 							<h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
 								Have a question about our services?
 							</h2>
-							<p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
+							<p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
 								Interested in learning more about financing, membership, or what to expect during your first visit?
 								Our care team is here to help every step of the way.
 							</p>
