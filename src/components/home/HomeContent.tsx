@@ -197,7 +197,7 @@ const ScribbleUnderline = ({ className = '' }: { className?: string }) => (
 );
 
 const MobileHero = () => (
-  <section className="relative overflow-hidden md:hidden bg-gradient-to-b from-clinical-bg via-white to-clinical-grey/40 pt-6 pb-9">
+  <section className="relative overflow-hidden md:hidden bg-gradient-to-b from-white via-clinical-bg/30 to-white pt-2 pb-8">
     <style>{`
       @keyframes heroFadeUp {
         0% { opacity: 0; transform: translateY(24px) scale(0.97); }
@@ -207,89 +207,77 @@ const MobileHero = () => (
         0% { opacity: 0; transform: scale(0.94); }
         100% { opacity: 1; transform: scale(1); }
       }
-      @keyframes heroFloat {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-      }
-      @keyframes heroBreathe {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.4; }
-      }
       .animate-hero-up { animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both; }
       .animate-hero-zoom { animation: heroZoomIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
-      .animate-float { animation: heroFloat 6s ease-in-out infinite; }
-      .animate-breathe { animation: heroBreathe 5s ease-in-out infinite; }
       .delay-100 { animation-delay: 0.12s; }
       .delay-200 { animation-delay: 0.24s; }
       .delay-300 { animation-delay: 0.36s; }
       .delay-400 { animation-delay: 0.48s; }
       .delay-500 { animation-delay: 0.6s; }
     `}</style>
-    <svg
-      viewBox="0 0 220 220"
-      className="pointer-events-none absolute -right-16 top-10 h-44 w-44 text-primary/25 animate-float animate-breathe"
-      aria-hidden="true"
-    >
-      <path d="M38 26c32-18 78-12 108 18s36 76 18 108-62 52-96 40-62-58-56-96 16-52 26-70z" fill="currentColor" />
-    </svg>
-    <div className="container-clinical px-4 space-y-6 sm:px-6">
-      <div className="relative w-full overflow-hidden shadow-clinical rounded-bento h-[clamp(220px,62vw,340px)] animate-hero-zoom delay-100">
-        <img
-          src="/assets/dental-office-hero.webp"
-          alt="Modern dental office with comfortable patient chair and advanced equipment in Austin, TX"
-          className="w-full h-full object-cover object-center"
-        />
+
+    <div className="px-5 sm:px-6 space-y-5">
+      {/* 1. Title — Top, left-aligned, large and bold like Lume Dental */}
+      <div className="space-y-3 animate-hero-up delay-100">
+        <h1 className="font-sans font-extrabold text-foreground leading-[1.08] tracking-tight text-[2.25rem] sm:text-[2.6rem]">
+          Where Families Can{' '}
+          <span className="relative inline-block text-primary">
+            Smile Confidently
+            <ScribbleUnderline className="text-primary" />
+          </span>
+        </h1>
+        <p className="text-[15px] sm:text-base text-muted-foreground leading-relaxed">
+          Providing quality dental care for patients of all ages in Austin, TX
+        </p>
       </div>
 
-      <div className="space-y-5 text-center">
-        <div className="space-y-3 animate-hero-up delay-200">
-          <h1 className="font-sans font-semibold text-foreground leading-snug tracking-tight text-[clamp(1.35rem,5vw,1.65rem)]">
-            <span className="block whitespace-nowrap">Where Families Can</span>
-            <span className="relative inline-block text-primary whitespace-nowrap">
-              Smile Confidently
-              <ScribbleUnderline className="text-primary" />
-            </span>
-          </h1>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            Providing quality dental care for patients of all ages in Austin, TX
-          </p>
+      {/* 2. Hero Image — Full-width rounded, no overlay card on mobile */}
+      <div className="relative w-full overflow-hidden rounded-2xl shadow-lg animate-hero-zoom delay-200">
+        <div className="aspect-[4/3]">
+          <img
+            src="/assets/dental-office-hero.webp"
+            alt="Modern dental office with comfortable patient chair and advanced equipment in Austin, TX"
+            className="w-full h-full object-cover"
+          />
         </div>
+      </div>
 
-        <div className="flex flex-col gap-3">
-          <Link href="/contact#request-appointment">
-            <Button size="lg" className="btn-primary w-full animate-hero-up delay-300">
-              <Calendar className="w-5 h-5 mr-2" />
-              Book Appointment
-            </Button>
-          </Link>
-          <Button
-            variant="outline"
-            size="lg"
-            className="w-full border border-primary/20 bg-white/70 hover:bg-primary/5 transition-colors shadow-none animate-hero-up delay-400"
-            onClick={() => window.scrollTo(0, 0)}
-          >
-            <Phone className="w-5 h-5 mr-2" />
-            512.467.9955
+      {/* 3. CTA Buttons */}
+      <div className="flex flex-col gap-2.5 animate-hero-up delay-400">
+        <Link href="/contact#request-appointment">
+          <Button size="lg" className="btn-primary w-full h-12 text-sm font-semibold">
+            <Calendar className="w-4.5 h-4.5 mr-2" />
+            Book Appointment
           </Button>
-        </div>
+        </Link>
+        <Button
+          variant="outline"
+          size="lg"
+          className="w-full h-12 border border-primary/20 bg-white hover:bg-primary/5 transition-colors shadow-none text-sm font-medium"
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          <Phone className="w-4.5 h-4.5 mr-2" />
+          512.467.9955
+        </Button>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 border-t border-border pt-6 animate-hero-up delay-500">
+      {/* 4. Stats Row */}
+      <div className="grid grid-cols-3 gap-3 pt-4 border-t border-border/60 animate-hero-up delay-500">
         <div className="text-center">
-          <div className="text-lg font-semibold text-primary">20+</div>
-          <div className="text-[11px] text-muted-foreground">Years Experience</div>
+          <div className="text-xl font-bold text-primary">20+</div>
+          <div className="text-[11px] text-muted-foreground font-medium">Years Experience</div>
         </div>
         <div className="text-center">
-          <div className="text-lg font-semibold text-primary">5000+</div>
-          <div className="text-[11px] text-muted-foreground">Happy Patients</div>
+          <div className="text-xl font-bold text-primary">5000+</div>
+          <div className="text-[11px] text-muted-foreground font-medium">Happy Patients</div>
         </div>
         <div className="text-center">
-          <div className="flex justify-center mb-1">
+          <div className="flex justify-center mb-0.5">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />
             ))}
           </div>
-          <div className="text-[11px] text-muted-foreground">4.9-Star Reviews</div>
+          <div className="text-[11px] text-muted-foreground font-medium">4.9-Star Reviews</div>
         </div>
       </div>
     </div>
