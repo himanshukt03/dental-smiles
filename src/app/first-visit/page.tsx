@@ -319,7 +319,7 @@ const FirstVisitPage = () => {
 									<Link
 										href="https://www.carecredit.com/go/747CRM/?dtc=DS7X&sitecode=CCCAPDS7X"
 										target="_blank"
-										rel="noreferrer"
+										rel="noopener noreferrer"
 										className="w-full sm:w-auto"
 									>
 										<Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
@@ -330,7 +330,7 @@ const FirstVisitPage = () => {
 									<Link
 										href="https://apply.sunbit.com/DentalSmiles-Austin"
 										target="_blank"
-										rel="noreferrer"
+										rel="noopener noreferrer"
 										className="w-full sm:w-auto"
 									>
 										<Button

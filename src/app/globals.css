@@ -765,6 +765,24 @@ html.a11y-high-contrast #a11y-panel [data-a11y-progress-fill] {
   background-color: #ffffff !important;
 }
 
+/* High Contrast Reset All Button */
+html.a11y-high-contrast #a11y-panel button:disabled {
+  color: #71717a !important;
+  background-color: #121214 !important;
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+}
+
+html.a11y-high-contrast #a11y-panel button:not(:disabled)[class*="text-rose"] {
+  color: #fb7185 !important;
+  background-color: #18181b !important;
+  cursor: pointer !important;
+}
+
+html.a11y-high-contrast #a11y-panel button:not(:disabled)[class*="text-rose"]:hover {
+  background-color: #27272a !important;
+}
+
 /* Dyslexia-Friendly Font (imported at top of file) */
 html.a11y-dyslexia-font,
 html.a11y-dyslexia-font body,

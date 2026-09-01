@@ -411,29 +411,33 @@ export default function AccessibilityWidget() {
               onToggle={() => updatePref('pauseAnimations', !prefs.pauseAnimations, 'Pause animations')}
             />
 
-            {/* Reset All Button */}
-            {hasActivePrefs && (
-              <button
-                onClick={resetAll}
-                className="flex w-full items-center justify-center gap-1.5 px-3.5 py-2 sm:py-2.5 xl:py-3 text-xs sm:text-[13px] xl:text-sm font-semibold text-rose-700 bg-rose-50/60 transition-colors hover:bg-rose-100 hover:text-rose-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-inset"
+            {/* Reset All Button (Constant row: disabled/greyed out when default, active when modified) */}
+            <button
+              onClick={resetAll}
+              disabled={!hasActivePrefs}
+              aria-label="Reset all accessibility settings to default"
+              className={`flex w-full items-center justify-center gap-1.5 px-3.5 py-2 sm:py-2.5 xl:py-3 text-xs sm:text-[13px] xl:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-inset ${
+                hasActivePrefs
+                  ? 'text-rose-700 bg-rose-50/70 hover:bg-rose-100 hover:text-rose-900 cursor-pointer'
+                  : 'text-stone-400 bg-stone-50/30 cursor-not-allowed opacity-50'
+              }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-3 w-3 xl:h-3.5 xl:w-3.5"
+                aria-hidden="true"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-3 w-3 xl:h-3.5 xl:w-3.5"
-                  aria-hidden="true"
-                >
-                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                  <path d="M3 3v5h5" />
-                </svg>
-                Reset All Settings
-              </button>
-            )}
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                <path d="M3 3v5h5" />
+              </svg>
+              Reset All Settings
+            </button>
           </div>
         </div>
       )}
