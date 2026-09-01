@@ -43,6 +43,18 @@ const Header = () => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
+	// Close mobile menu on Escape key press
+	useEffect(() => {
+		if (!isMenuOpen) return;
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") {
+				setIsMenuOpen(false);
+			}
+		};
+		document.addEventListener("keydown", handleKeyDown);
+		return () => document.removeEventListener("keydown", handleKeyDown);
+	}, [isMenuOpen]);
+
 	const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
 	const isPathActive = (path: string) => {
@@ -144,20 +156,23 @@ const Header = () => {
 
 						<button
 							onClick={toggleMenu}
-							className="lg:hidden p-2 rounded-bento text-muted-foreground hover:text-foreground hover:bg-clinical-grey transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-							aria-label="Toggle menu"
+							type="button"
+							className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-bento text-muted-foreground hover:text-foreground hover:bg-clinical-grey transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 touch-manipulation cursor-pointer"
+							aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+							aria-expanded={isMenuOpen}
+							aria-controls="mobile-navigation"
 						>
 							{isMenuOpen ? (
-								<X className="w-6 h-6" />
+								<X className="w-6 h-6" aria-hidden="true" />
 							) : (
-								<Menu className="w-6 h-6" />
+								<Menu className="w-6 h-6" aria-hidden="true" />
 							)}
 						</button>
 					</div>
 
 					{isMenuOpen && (
-						<div className="lg:hidden py-4 border-t border-border bg-card">
-							<nav className="flex flex-col space-y-2">
+						<div id="mobile-navigation" className="lg:hidden py-4 border-t border-border bg-card">
+							<nav aria-label="Mobile Navigation" className="flex flex-col space-y-2">
 								{navItems.map((item) => {
 									const active = isPathActive(item.path);
 									return (

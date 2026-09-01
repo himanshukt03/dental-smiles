@@ -104,14 +104,26 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://aichatbotweb.revenuewell.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://aichatbotweb.revenuewell.com" />
       </head>
-      <body className="antialiased bg-background text-foreground" suppressHydrationWarning>
+      <body className="antialiased bg-background text-foreground overflow-x-clip" suppressHydrationWarning>
+        {/* Skip to Main Content Link (WCAG 2.4.1 Level A Compliance) */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999999] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+        >
+          Skip to main content
+        </a>
+
         <DentistSchema />
         <Providers>
           <ScrollToTop />
           <div className="min-h-screen flex flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+              {children}
+            </main>
             <Footer />
           </div>
         </Providers>

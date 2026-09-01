@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import { MapPin, Phone, Clock, Mail } from "lucide-react";
 import DentalSmilesLogo from "@/assets/DentalSmilesLogo.webp";
 
@@ -47,12 +46,12 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="space-y-6">
             <h3 className="font-heading text-lg font-bold text-white">Quick Links</h3>
-            <nav className="space-y-3">
+            <nav className="space-y-1 sm:space-y-2">
               {quickLinks.map((link) => (
                 <Link
                   key={link.path}
                   href={link.path}
-                  className="block text-white/80 hover:text-white transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 rounded-sm"
+                  className="inline-block py-1.5 text-white/80 hover:text-white transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 rounded-sm"
                 >
                   {link.name}
                 </Link>
@@ -63,12 +62,12 @@ const Footer = () => {
           {/* Services */}
           <div className="space-y-6">
             <h3 className="font-heading text-lg font-bold text-white">Our Services</h3>
-            <nav className="space-y-3">
+            <nav className="space-y-1 sm:space-y-2">
               {services.map((service) => (
                 <Link
                   key={service.path}
                   href={service.path}
-                  className="block text-white/80 hover:text-white transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 rounded-sm"
+                  className="inline-block py-1.5 text-white/80 hover:text-white transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 rounded-sm"
                 >
                   {service.name}
                 </Link>
@@ -90,7 +89,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-white/90 flex-shrink-0" />
                 <a
                   href="tel:+15124679955"
-                  className="text-white/80 hover:text-white text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 rounded-sm"
+                  className="inline-block py-1 text-white/80 hover:text-white text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 rounded-sm"
                 >
                   512.467.9955
                 </a>
@@ -99,7 +98,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-white/90 flex-shrink-0" />
                 <a
                   href="mailto:info@mydentalsmiles.com"
-                  className="text-white/80 hover:text-white text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 rounded-sm"
+                  className="inline-block py-1 text-white/80 hover:text-white text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 rounded-sm"
                 >
                   info@mydentalsmiles.com
                 </a>
@@ -129,6 +128,7 @@ const Footer = () => {
               <Link
                 href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="absolute inset-0 z-10"
                 aria-label="Open in Google Maps"
               />
@@ -137,7 +137,7 @@ const Footer = () => {
               href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-sm font-medium text-white hover:underline"
+              className="inline-flex items-center py-1.5 text-sm font-medium text-white hover:underline"
             >
               <MapPin className="mr-1.5 w-4 h-4" />
               Get Directions
