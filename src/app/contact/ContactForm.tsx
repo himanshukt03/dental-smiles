@@ -177,7 +177,12 @@ const ContactForm = () => {
 	};
 
 	const validateForm = () => {
-		if (!formData.firstName || !formData.lastName) {
+		const fName = formData.firstName.trim();
+		const lName = formData.lastName.trim();
+		const email = formData.email.trim();
+		const phone = formData.phone.trim();
+
+		if (!fName || !lName) {
 			toast({
 				title: 'Add your name',
 				description: 'Please include both your first and last name so we can personalize your visit.',
@@ -186,10 +191,20 @@ const ContactForm = () => {
 			return false;
 		}
 
-		if (!formData.email || !formData.phone) {
+		if (!email || !phone) {
 			toast({
 				title: 'Contact details needed',
 				description: 'Please include both phone and email so we can confirm your visit.',
+				variant: 'destructive',
+			});
+			return false;
+		}
+
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(email)) {
+			toast({
+				title: 'Invalid email format',
+				description: 'Please provide a valid email address (e.g. name@example.com).',
 				variant: 'destructive',
 			});
 			return false;

@@ -50,6 +50,39 @@ const BookAppointmentForm = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const phone = formData.phone.trim();
+
+    if (!name) {
+      toast({
+        title: 'Name required',
+        description: 'Please enter your full name.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      toast({
+        title: 'Valid email required',
+        description: 'Please enter a valid email address so we can confirm your visit.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!phone) {
+      toast({
+        title: 'Phone number required',
+        description: 'Please provide a contact phone number.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
