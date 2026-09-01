@@ -361,7 +361,7 @@ const FirstVisitPage = () => {
 						{cardOptions.map((card) => (
 							<div
 								key={card.name}
-								className={`flex items-center justify-center rounded-2xl border border-primary/10 bg-white/80 px-5 py-4 text-base font-semibold text-foreground shadow-sm ${card.accent}`}
+								className={`payment-card-badge flex items-center justify-center rounded-2xl border border-primary/10 bg-white/80 px-5 py-4 text-base font-semibold text-foreground shadow-sm ${card.accent}`}
 							>
 								<Image
 									src={card.logo}

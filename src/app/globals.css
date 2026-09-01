@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/opendyslexic');
 
 @tailwind base;
 @tailwind components;
@@ -406,49 +407,425 @@
   }
 }
 
-/* Scaled-down Chatbot Widget with maroon branding & corner offsets */
+/* RevenueWell Chatbot Alignment, Sizing & Corner Padding */
+div[id*="rw-"][id*="-wrap"],
+.rw-wrap,
 #rw-chat-container,
-#rw-chat-launcher,
-#rw-chat-widget,
-.rw-chat-trigger,
-.rw-launcher,
-button[id*="rw-chat"],
-button[class*="rw-chat"],
-iframe[id*="rw-chat"],
-iframe[src*="revenuewell"],
-div[id*="rw-chat"],
-div[class*="rw-chat"] {
+#rw-chat-launcher {
+  position: fixed !important;
+  bottom: 12px !important;
+  right: 12px !important;
+  z-index: 99990 !important;
+  pointer-events: none !important;
+}
+
+@media (min-width: 768px) {
+  div[id*="rw-"][id*="-wrap"],
+  .rw-wrap,
+  #rw-chat-container,
+  #rw-chat-launcher {
+    bottom: 6px !important;
+    right: 6px !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  div[id*="rw-"][id*="-wrap"],
+  .rw-wrap,
+  #rw-chat-container,
+  #rw-chat-launcher {
+    bottom: 8px !important;
+    right: 8px !important;
+  }
+}
+
+div[id*="rw-"][id*="-wrap"] iframe,
+.rw-wrap iframe {
+  pointer-events: auto !important;
   transform: scale(0.75) !important;
   transform-origin: bottom right !important;
-  bottom: 24px !important;
-  right: 24px !important;
-  margin: 8px !important;
-  --rw-primary-color: #741234 !important;
-  --rw-chat-primary-color: #741234 !important;
-  --primary-color: #741234 !important;
+  transition: transform 0.2s ease-in-out !important;
 }
 
-#rw-chat-launcher,
-#rw-chat-container button,
-#rw-chat-container .rw-launcher,
-.rw-chat-trigger,
-.rw-launcher,
-button[id*="rw-chat"],
-button[class*="rw-chat"],
-div[class*="rw-launcher"],
-div[class*="rw-chat-trigger"],
-div[id*="rw-chat-launcher"] {
-  background-color: #741234 !important;
-  background: #741234 !important;
-  border-color: #741234 !important;
+/* Dynamic Responsive Scaling for Opened Chat Dialog */
+/* 1. Mobile (< 768px): Compact scale (0.82) so it fits comfortably on phones */
+div[id*="rw-"][id*="-wrap"][data-chat-opened="true"] iframe,
+.rw-wrap[data-chat-opened="true"] iframe,
+div[id*="rw-"][id*="-wrap"] iframe[style*="height: 5"],
+div[id*="rw-"][id*="-wrap"] iframe[style*="height: 6"],
+div[id*="rw-"][id*="-wrap"] iframe[style*="height: 7"],
+div[id*="rw-"][id*="-wrap"] iframe[style*="height: 8"],
+div[id*="rw-"][id*="-wrap"] iframe[style*="height: 9"] {
+  transform: scale(0.82) !important;
+  max-width: calc(100vw - 16px) !important;
+  max-height: 85vh !important;
+}
+
+/* 2. Smaller Laptops & Tablets (768px - 1279px): Scaled down slightly (0.88) */
+@media (min-width: 768px) {
+  div[id*="rw-"][id*="-wrap"][data-chat-opened="true"] iframe,
+  .rw-wrap[data-chat-opened="true"] iframe,
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 5"],
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 6"],
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 7"],
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 8"],
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 9"] {
+    transform: scale(0.88) !important;
+    max-height: 88vh !important;
+  }
+}
+
+/* 3. Bigger Desktop Screens (>= 1280px / 22"+): Full spacious scale (1.0) */
+@media (min-width: 1280px) {
+  div[id*="rw-"][id*="-wrap"][data-chat-opened="true"] iframe,
+  .rw-wrap[data-chat-opened="true"] iframe,
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 5"],
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 6"],
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 7"],
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 8"],
+  div[id*="rw-"][id*="-wrap"] iframe[style*="height: 9"] {
+    transform: scale(1) !important;
+    max-height: 90vh !important;
+  }
+}
+
+/* ---- Accessibility Widget Overrides ---- */
+
+/* High Contrast Mode */
+html.a11y-high-contrast {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 100%;
+  --border: 0 0% 35%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 90%;
+  --primary: 339 73% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 0 0% 12%;
+  --accent-foreground: 0 0% 100%;
+  --clinical-creme: 0 0% 7%;
+  --clinical-grey: 0 0% 10%;
+  --input: 0 0% 10%;
+  --ring: 0 0% 100%;
+  --gradient-clinical: none;
+  --gradient-accent: none;
+}
+
+html.a11y-high-contrast body {
+  background-color: #050505 !important;
   color: #ffffff !important;
 }
 
-#rw-chat-launcher svg,
-#rw-chat-container svg,
-.rw-chat-trigger svg,
-.rw-launcher svg,
-button[class*="rw-chat"] svg {
-  fill: #ffffff !important;
+/* Eliminate washed-out gradient bands across all pages */
+html.a11y-high-contrast [class*="bg-gradient"],
+html.a11y-high-contrast [class*="from-"],
+html.a11y-high-contrast [class*="via-"],
+html.a11y-high-contrast [class*="to-"] {
+  background-image: none !important;
+}
+
+/* Cards & Surface Containers (overrides hardcoded light backgrounds) */
+html.a11y-high-contrast .bg-white,
+html.a11y-high-contrast .bg-card,
+html.a11y-high-contrast .bg-clinical-creme,
+html.a11y-high-contrast .bg-clinical-grey,
+html.a11y-high-contrast .card-clinical,
+html.a11y-high-contrast .card-bento,
+html.a11y-high-contrast [class*="bg-white/"],
+html.a11y-high-contrast [class*="bg-slate-50"],
+html.a11y-high-contrast [class*="bg-slate-100"],
+html.a11y-high-contrast [class*="bg-stone-50"],
+html.a11y-high-contrast [class*="bg-stone-100"] {
+  background-color: #121214 !important;
+  border-color: #52525b !important;
   color: #ffffff !important;
+}
+
+html.a11y-high-contrast .group:hover,
+html.a11y-high-contrast .card-clinical:hover {
+  border-color: #ffffff !important;
+}
+
+/* High Contrast Headings & Titles */
+html.a11y-high-contrast h1,
+html.a11y-high-contrast h2,
+html.a11y-high-contrast h3,
+html.a11y-high-contrast h4,
+html.a11y-high-contrast h5,
+html.a11y-high-contrast h6,
+html.a11y-high-contrast [class*="font-heading"],
+html.a11y-high-contrast [class*="title"] {
+  color: #ffffff !important;
+}
+
+/* High Contrast Body, Descriptions & Paragraphs */
+html.a11y-high-contrast p,
+html.a11y-high-contrast span:not([class*="bg-primary"]):not([class*="text-primary"]):not([class*="badge"]),
+html.a11y-high-contrast li,
+html.a11y-high-contrast .text-description,
+html.a11y-high-contrast .body-description,
+html.a11y-high-contrast [class*="text-foreground"],
+html.a11y-high-contrast [class*="text-muted-foreground"],
+html.a11y-high-contrast [class*="text-slate-"],
+html.a11y-high-contrast [class*="text-stone-"],
+html.a11y-high-contrast [class*="text-gray-"] {
+  color: #f4f4f5 !important;
+}
+
+/* Accent & link text highlights */
+html.a11y-high-contrast .text-primary,
+html.a11y-high-contrast a.text-primary,
+html.a11y-high-contrast span.text-primary {
+  color: #fb7185 !important;
+}
+
+/* Buttons */
+html.a11y-high-contrast .btn-primary,
+html.a11y-high-contrast button.bg-primary,
+html.a11y-high-contrast a.bg-primary {
+  background-color: #9f1239 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+html.a11y-high-contrast .btn-primary:hover,
+html.a11y-high-contrast button.bg-primary:hover,
+html.a11y-high-contrast a.bg-primary:hover {
+  background-color: #be123c !important;
+  border-color: #ffffff !important;
+}
+
+html.a11y-high-contrast .btn-secondary,
+html.a11y-high-contrast .btn-ghost,
+html.a11y-high-contrast button[class*="border-primary"],
+html.a11y-high-contrast a[class*="border-primary"],
+html.a11y-high-contrast button[class*="bg-white"],
+html.a11y-high-contrast a[class*="bg-white"] {
+  background-color: #18181b !important;
+  color: #ffffff !important;
+  border: 2px solid #a1a1aa !important;
+}
+
+html.a11y-high-contrast button[class*="border-primary"]:hover,
+html.a11y-high-contrast a[class*="border-primary"]:hover {
+  border-color: #ffffff !important;
+  background-color: #27272a !important;
+}
+
+/* Sections with custom banner backgrounds */
+html.a11y-high-contrast section[style*="backgroundColor"],
+html.a11y-high-contrast section[style*="background-color"],
+html.a11y-high-contrast [class*="bg-primary"]:not(button):not(a):not(.btn-primary):not(#rw-chat-launcher) {
+  background-color: #0d0d0f !important;
+  border-top: 1.5px solid #3f3f46 !important;
+  border-bottom: 1.5px solid #3f3f46 !important;
+}
+
+/* Header & Navigation Bar */
+html.a11y-high-contrast header .bg-primary {
+  background-color: #000000 !important;
+  border-bottom: 1.5px solid #52525b !important;
+}
+
+html.a11y-high-contrast header [class*="backdrop-blur"] {
+  background-color: #0d0d0f !important;
+  border-bottom: 1.5px solid #52525b !important;
+}
+
+html.a11y-high-contrast header a {
+  color: #ffffff !important;
+}
+
+/* Footer */
+html.a11y-high-contrast footer {
+  background-color: #050505 !important;
+  border-top: 2px solid #52525b !important;
+}
+
+/* Badges & Specialty Tags */
+html.a11y-high-contrast [class*="rounded-full"]:not(button):not([class*="h-12"]):not([class*="w-12"]):not([class*="h-11"]):not([class*="w-11"]):not([class*="h-8"]):not([class*="w-8"]):not([class*="h-7"]):not([class*="w-7"]):not([class*="h-6"]):not([class*="w-6"]):not([class*="h-5"]):not([class*="w-5"]):not([class*="h-4"]):not([class*="w-4"]):not([class*="h-3"]):not([class*="w-3"]):not([class*="h-1"]):not([class*="w-1"]):not([class*="h-2"]):not([class*="w-2"]) {
+  background-color: #18181b !important;
+  border: 1px solid #71717a !important;
+  color: #ffffff !important;
+}
+
+html.a11y-high-contrast [class*="rounded-full"] svg {
+  color: #fb7185 !important;
+}
+
+/* Carousel Arrow Navigation Buttons */
+html.a11y-high-contrast button[aria-label="Previous"],
+html.a11y-high-contrast button[aria-label="Next"],
+html.a11y-high-contrast button[class*="rounded-full"][class*="shadow"] {
+  background-color: #18181b !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+html.a11y-high-contrast button[aria-label="Previous"] svg,
+html.a11y-high-contrast button[aria-label="Next"] svg {
+  color: #ffffff !important;
+}
+
+/* Dialogs & Modals */
+html.a11y-high-contrast [role="dialog"],
+html.a11y-high-contrast [class*="DialogContent"] {
+  background-color: #0d0d0f !important;
+  border: 2px solid #71717a !important;
+  color: #ffffff !important;
+}
+
+/* Forms & Inputs */
+html.a11y-high-contrast input,
+html.a11y-high-contrast textarea,
+html.a11y-high-contrast select {
+  background-color: #121214 !important;
+  border: 2px solid #71717a !important;
+  color: #ffffff !important;
+}
+
+html.a11y-high-contrast input:focus,
+html.a11y-high-contrast textarea:focus,
+html.a11y-high-contrast select:focus {
+  border-color: #ffffff !important;
+  outline: 2px solid #ffffff !important;
+}
+
+/* Payment Card Badges & Insurance Logo Cards in High Contrast */
+html.a11y-high-contrast .payment-card-badge,
+html.a11y-high-contrast div:has(> img[src*="payment-options"]),
+html.a11y-high-contrast .animate-marquee-loop > div > div {
+  background-color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25) !important;
+}
+
+html.a11y-high-contrast .payment-card-badge img,
+html.a11y-high-contrast img[src*="payment-options"],
+html.a11y-high-contrast .animate-marquee-loop img {
+  filter: none !important;
+}
+
+/* Accessibility Panel & Widget in High Contrast */
+html.a11y-high-contrast #a11y-panel {
+  border: 2px solid #ffffff !important;
+  background-color: #0d0d0f !important;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2) !important;
+}
+
+html.a11y-high-contrast #a11y-panel .bg-clinical-creme,
+html.a11y-high-contrast #a11y-panel [class*="bg-stone-50"],
+html.a11y-high-contrast #a11y-panel .border-stone-200,
+html.a11y-high-contrast #a11y-panel [class*="divide-stone-200"] > * {
+  background-color: #121214 !important;
+  border-color: #3f3f46 !important;
+}
+
+html.a11y-high-contrast #a11y-panel button[role="switch"] {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+html.a11y-high-contrast #a11y-panel button[role="switch"]:hover,
+html.a11y-high-contrast #a11y-panel button[role="switch"]:focus-visible {
+  background-color: #18181b !important;
+}
+
+html.a11y-high-contrast #a11y-panel button[role="switch"][aria-checked="true"] span[id^="label-"] {
+  color: #fb7185 !important;
+}
+
+/* High Contrast Toggle Switch Pill Track */
+html.a11y-high-contrast #a11y-panel [data-a11y-switch-track] {
+  background-color: #3f3f46 !important;
+  border: 2px solid #71717a !important;
+}
+
+html.a11y-high-contrast #a11y-panel [data-a11y-switch-track][data-active="true"] {
+  background-color: #be123c !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* High Contrast Toggle Switch White Knob (Thumb) */
+html.a11y-high-contrast #a11y-panel [data-a11y-switch-thumb] {
+  background-color: #ffffff !important;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* High Contrast Font Size Progress Bar */
+html.a11y-high-contrast #a11y-panel [role="progressbar"] {
+  background-color: #27272a !important;
+  border: 1.5px solid #71717a !important;
+}
+
+html.a11y-high-contrast #a11y-panel [data-a11y-progress-fill] {
+  background-color: #ffffff !important;
+}
+
+/* Dyslexia-Friendly Font (imported at top of file) */
+html.a11y-dyslexia-font,
+html.a11y-dyslexia-font body,
+html.a11y-dyslexia-font p,
+html.a11y-dyslexia-font span,
+html.a11y-dyslexia-font li,
+html.a11y-dyslexia-font a,
+html.a11y-dyslexia-font button,
+html.a11y-dyslexia-font input,
+html.a11y-dyslexia-font textarea,
+html.a11y-dyslexia-font select,
+html.a11y-dyslexia-font h1,
+html.a11y-dyslexia-font h2,
+html.a11y-dyslexia-font h3,
+html.a11y-dyslexia-font h4,
+html.a11y-dyslexia-font h5,
+html.a11y-dyslexia-font h6 {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}
+
+/* Highlight Links */
+html.a11y-highlight-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  outline: 2px solid currentColor !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+}
+
+html.a11y-highlight-links a:focus-visible {
+  outline-width: 3px !important;
+}
+
+/* Pause Animations */
+html.a11y-pause-animations *,
+html.a11y-pause-animations *::before,
+html.a11y-pause-animations *::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+/* Accessibility panel slide-in animation */
+@keyframes a11y-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#a11y-panel {
+  animation: a11y-slide-in 0.2s ease-out;
+}
+
+/* Ensure the panel itself is not affected by pause-animations */
+html.a11y-pause-animations #a11y-panel {
+  animation: none !important;
 }
