@@ -5,6 +5,7 @@ import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import RevenueWellChatbot from "@/components/RevenueWellChatbot";
 import ScrollToTop from "@/components/ScrollToTop";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 import { DentistSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
@@ -117,6 +118,9 @@ export default function RootLayout({
 
         {/* RevenueWell Chatbot */}
         <RevenueWellChatbot />
+
+        {/* ADA Accessibility Widget */}
+        <AccessibilityWidget />
       </body>
     </html>
   );
