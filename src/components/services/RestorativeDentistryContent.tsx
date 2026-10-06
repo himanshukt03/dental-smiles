@@ -254,24 +254,28 @@ export default function RestorativeDentistryContent() {
       : RESTORATIVE_TREATMENTS.filter((t) => t.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20 text-foreground">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100/40 text-foreground">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-8 lg:py-10 border-b border-primary/10 bg-gradient-to-br from-primary/5 via-white to-clinical-creme/30">
+      <section className="relative overflow-hidden py-8 lg:py-10 border-b border-slate-200/80 bg-gradient-to-br from-slate-50 via-white to-slate-100/40">
         <div className="absolute top-0 right-0 -mt-12 -mr-12 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
         <div className="container-clinical relative z-10">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr] lg:gap-12 items-center">
-            <div className="space-y-4 text-center sm:text-left">
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading text-foreground leading-tight font-bold tracking-tight">
-                Restore Your Smile&apos;s Strength, Function & Natural Beauty in Austin, TX
+            <div className="space-y-3.5 text-center sm:text-left">
+              <div className="flex items-center justify-center sm:justify-start gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                <span className="h-[1.5px] w-5 sm:w-7 bg-primary/40 rounded-full inline-block" />
+                <span>RESTORATIVE CARE</span>
+              </div>
+              <h1 className="text-xl sm:text-3xl lg:text-4xl font-heading text-foreground leading-tight font-extrabold tracking-tight">
+                Restorative Dentistry
               </h1>
-              <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto sm:mx-0">
-                From single-visit CEREC crowns and tooth-colored fillings to permanent implants, dentures, and oral surgery—get gentle, technology-driven restorative dental care in Central Austin.
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-md mx-auto sm:mx-0 font-normal">
+                Same-day CEREC crowns, tooth-colored fillings, implants, dentures, and gentle oral surgery in Austin.
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-col gap-3 sm:flex-row pt-2 justify-center sm:justify-start">
+              <div className="flex flex-col gap-3 sm:flex-row pt-1 justify-center sm:justify-start">
                 <Link href="/contact#request-appointment" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto px-6 py-3 font-semibold text-sm shadow-md">
+                  <Button size="lg" className="btn-primary w-full sm:w-auto px-6 py-2.5 font-semibold text-sm shadow-md">
                     <CalendarCheck className="mr-2 h-4 w-4" /> Request Appointment
                   </Button>
                 </Link>
@@ -279,9 +283,9 @@ export default function RestorativeDentistryContent() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="w-full sm:w-auto border-primary/20 bg-white/80 px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground text-sm shadow-sm"
+                    className="w-full sm:w-auto border-primary/20 bg-white/80 px-6 py-2.5 font-semibold text-primary hover:bg-primary hover:text-primary-foreground text-sm shadow-xs"
                   >
-                    <Phone className="mr-2 h-4 w-4" /> Call (512) 467-9955
+                    <Phone className="mr-2 h-4 w-4" /> Call Us
                   </Button>
                 </Link>
               </div>
@@ -320,46 +324,52 @@ export default function RestorativeDentistryContent() {
           </div>
 
           {/* Treatments Bento Cards Grid */}
-          <div className="flex flex-wrap justify-center gap-5 pt-2">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-5 pt-2">
             {filteredTreatments.map((item) => (
               <div
                 key={item.id}
                 id={item.id}
-                className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-2.5 sm:p-3 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/30 flex flex-col justify-between w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50 focus:outline-none flex flex-col justify-between w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-14px)] max-w-[340px] cursor-pointer"
+                onClick={() => setSelectedTreatment(item)}
               >
                 <div className="space-y-3">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100">
+                  {/* Photo Frame - Tight padding from card edges */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100 shadow-inner">
                     <Image
                       src={item.image}
                       alt={item.imageAlt}
                       fill
-                      sizes="(min-width: 1024px) 380px, 100vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      sizes="(min-width: 1024px) 340px, (min-width: 640px) 45vw, 100vw"
+                      className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                   </div>
 
-                  <div className="px-1.5 pt-0.5 space-y-1.5">
-                    <h3 className="text-base sm:text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                  <div className="space-y-1 px-1">
+                    <h3 className="font-heading text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-[#741234] transition-colors leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-sm sm:text-[15px] text-foreground/85 font-normal leading-relaxed line-clamp-2">
+                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal line-clamp-3">
                       {item.summary}
                     </p>
                   </div>
                 </div>
 
-                <div className="px-1.5 pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
+                <div className="pt-2.5 mt-3 border-t border-slate-100 flex items-center justify-between gap-2 px-1">
                   <button
                     type="button"
-                    onClick={() => setSelectedTreatment(item)}
-                    className="text-xs sm:text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 focus:outline-none"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedTreatment(item);
+                    }}
+                    className="text-xs font-bold text-[#741234] hover:underline inline-flex items-center gap-1 focus:outline-none"
                   >
-                    Learn More <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Learn More</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
-                  <Link href="/contact#request-appointment">
-                    <Button size="sm" className="btn-primary text-xs font-semibold px-3.5 py-1.5 h-8">
-                      Book Now
-                    </Button>
+                  <Link href="/contact#request-appointment" onClick={(e) => e.stopPropagation()}>
+                    <div className="border-2 border-slate-300 group-hover:border-[#741234] bg-slate-100 group-hover:bg-[#741234] text-slate-800 group-hover:text-white font-bold text-xs py-1.5 px-3 rounded-lg flex items-center justify-center transition-all duration-300 shadow-xs">
+                      Reserve Now
+                    </div>
                   </Link>
                 </div>
               </div>
@@ -431,17 +441,17 @@ export default function RestorativeDentistryContent() {
 
               <div className="bg-clinical-creme/60 p-4 sm:p-5 border-t border-primary/10 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <p className="text-xs sm:text-sm text-foreground/75 text-center sm:text-left">
-                  Ready to schedule this treatment?
+                  Ready to reserve this treatment?
                 </p>
                 <div className="flex gap-2 w-full sm:w-auto">
                   <Link href="/contact#request-appointment" className="w-full sm:w-auto" onClick={() => setSelectedTreatment(null)}>
-                    <Button size="sm" className="btn-primary w-full sm:w-auto px-4 text-xs sm:text-sm font-semibold">
-                      <CalendarCheck className="mr-1.5 h-3.5 w-3.5" /> Book Appointment
+                    <Button size="sm" className="btn-primary w-full sm:w-auto h-8.5 sm:h-9 px-4 rounded-xl text-xs sm:text-sm font-semibold shadow-sm">
+                      <CalendarCheck className="mr-1.5 h-3.5 w-3.5" /> Reserve an Appointment
                     </Button>
                   </Link>
                   <Link href="tel:5124679955" className="w-full sm:w-auto">
-                    <Button variant="outline" size="sm" className="w-full sm:w-auto text-xs sm:text-sm font-semibold border-primary/20 bg-white text-primary hover:bg-primary/5">
-                      <Phone className="mr-1.5 h-3.5 w-3.5" /> Call Office
+                    <Button variant="outline" size="sm" className="w-full sm:w-auto h-8.5 sm:h-9 px-4 rounded-xl text-xs sm:text-sm font-semibold border-primary/20 bg-white text-primary hover:bg-primary/5 shadow-sm">
+                      <Phone className="mr-1.5 h-3.5 w-3.5" /> Call Us
                     </Button>
                   </Link>
                 </div>
@@ -535,13 +545,13 @@ export default function RestorativeDentistryContent() {
             <div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
             <div className="relative z-10 space-y-4 max-w-3xl">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-white backdrop-blur-md">
-                <CalendarCheck className="h-3 w-3" /> Book Your Visit
+                <CalendarCheck className="h-3 w-3" /> Reserve Your Visit
               </span>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight leading-tight">
                 Ready to Restore Your Smile in Austin, TX?
               </h2>
               <p className="text-sm sm:text-base opacity-90 leading-relaxed max-w-2xl">
-                Contact Dental Smiles today to schedule your consultation with Dr. Divya Shetty. Conveniently serving Mueller, Hyde Park, North Loop, and Central Austin.
+                Contact Dental Smiles today to reserve your consultation with Dr. Divya Shetty. Conveniently serving Mueller, Hyde Park, North Loop, and Central Austin.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">
                 <Link href="/contact#request-appointment" className="w-full sm:w-auto">
@@ -555,7 +565,7 @@ export default function RestorativeDentistryContent() {
                     size="sm"
                     className="w-full sm:w-auto border border-white/30 bg-white/10 text-white hover:bg-white/20 font-bold px-5 py-2.5 text-xs sm:text-sm"
                   >
-                    Call 512.467.9955
+                    <Phone className="mr-2 h-4 w-4" /> Call Us
                   </Button>
                 </Link>
               </div>
