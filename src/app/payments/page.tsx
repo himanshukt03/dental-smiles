@@ -1,44 +1,44 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
-  CreditCard,
-  Shield,
-  DollarSign,
-  FileText,
   CheckCircle2,
   Phone,
-  CalendarCheck,
   ExternalLink,
   ShieldCheck,
   Sparkles,
   ArrowRight,
-  HelpCircle,
+  PiggyBank,
+  CreditCard,
+  Banknote,
+  HeartPulse,
+  Clock,
 } from "lucide-react";
+import FinancingImageRotator from "@/components/payments/FinancingImageRotator";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import InsuranceMarquee from "@/components/InsuranceMarquee";
-import { insuranceProviders } from "@/data/content";
 import { BreadcrumbSchema, FaqSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Dental Insurance & Financing Options Austin, TX | CareCredit & PPO",
+  title: "Dental Insurance & Financing Options Mueller, Austin TX | CareCredit & PPO",
   description:
-    "Explore dental payment and insurance options at Dental Smiles in Austin, TX. In-network with major PPO dental insurance, 0% CareCredit financing, FSA/HSA accepted.",
+    "Explore dental payment and insurance options at Dental Smiles in Mueller, Austin, TX (78723). In-network with major PPO dental insurance, CareCredit & Sunbit financing.",
   keywords: [
-    "dental insurance Austin",
-    "PPO dentist Austin TX",
-    "CareCredit dentist Austin",
-    "affordable dentist Austin",
-    "dental financing Austin",
+    "dental insurance Mueller Austin",
+    "PPO dentist Mueller 78723",
+    "CareCredit dentist Mueller Austin",
+    "Sunbit dental financing Austin",
+    "0% interest dental financing Austin",
+    "affordable dentist Mueller",
+    "dental financing Mueller Austin",
   ],
   alternates: {
     canonical: "https://dental-smiles.vercel.app/payments",
   },
   openGraph: {
-    title: "Dental Insurance & Payment Options | Dental Smiles Austin",
+    title: "Dental Insurance & Payment Options | Dental Smiles Mueller Austin",
     description:
-      "Affordable dental payment solutions, PPO insurance billing, and 0% CareCredit financing in Austin, TX.",
+      "Affordable dental payment solutions, PPO insurance billing, CareCredit and Sunbit flexible financing in Mueller, Austin, TX.",
     url: "https://dental-smiles.vercel.app/payments",
     type: "website",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "/assets/dental-team.webp",
         width: 1200,
         height: 630,
-        alt: "Dental Smiles Austin Payment and Insurance Options",
+        alt: "Dental Smiles Mueller Austin Payment and Insurance Options",
       },
     ],
   },
@@ -54,41 +54,40 @@ export const metadata: Metadata = {
 
 const paymentMethods = [
   {
-    icon: CreditCard,
     title: "Credit & Debit Cards",
     description:
       "All major credit and debit cards accepted including Visa, MasterCard, American Express, and Discover.",
-    features: ["Instant processing", "Secure transactions", "Itemized receipt provided"],
+    icon: CreditCard,
+    accentBg: "bg-amber-50 text-amber-800 border-amber-200",
   },
   {
-    icon: DollarSign,
     title: "Cash & Personal Checks",
     description:
-      "Cash and personal check payments are welcome. We provide full documentation for your records or FSA.",
-    features: ["Immediate account credit", "No processing fees", "Complete documentation"],
+      "Cash and personal check payments are welcome. We provide full itemized receipts for your records.",
+    icon: Banknote,
+    accentBg: "bg-emerald-50 text-emerald-800 border-emerald-200",
   },
   {
-    icon: FileText,
-    title: "CareCredit Financing",
+    title: "HSA & FSA Accounts",
     description:
-      "Flexible monthly financing options with 0% promotional interest rates for qualifying treatments.",
-    features: ["0% promotional interest", "6 to 24-month terms", "Instant online approval"],
+      "Use your Health Savings Account or Flexible Spending Account debit card to pay for tax-free dental care.",
+    icon: HeartPulse,
+    accentBg: "bg-sky-50 text-sky-800 border-sky-200",
   },
   {
-    icon: Shield,
     title: "Dental PPO Insurance",
     description:
       "In-network with most major PPO dental plans to maximize your benefits and submit direct claims.",
-    features: ["Direct insurance claims", "Pre-treatment estimates", "Instant verification"],
+    icon: ShieldCheck,
+    accentBg: "bg-primary/10 text-primary border-primary/20",
   },
 ];
 
 const careCreditHighlights = [
-  "6, 12, 18, or 24-month promotional payment terms",
-  "0% interest if paid in full within promotional period",
-  "Covers all dental treatments from $1 to $25,000",
-  "No annual membership fees or prepayment penalties",
-  "Quick 2-minute online application with instant decision",
+  { text: "Flexible 6–24 month payment terms", icon: Clock },
+  { text: "0% promotional interest options", icon: CheckCircle2 },
+  { text: "Covers treatments from $1 to $25,000", icon: CheckCircle2 },
+  { text: "No annual fees or prepayment penalties", icon: CheckCircle2 },
 ];
 
 const paymentFaqs = [
@@ -108,172 +107,143 @@ const paymentFaqs = [
     q: "Can I use my HSA (Health Savings Account) or FSA (Flexible Spending Account)?",
     a: "Yes! HSA and FSA debit cards are fully accepted for all qualifying dental treatments including cleanings, fillings, crowns, and orthodontics.",
   },
+  {
+    q: "Do you offer Sunbit flexible dental financing?",
+    a: "Yes! We partner with Sunbit to provide lightning-fast, flexible monthly payment options with no hard credit check for all approved patients, covering preventive, restorative, and cosmetic dental treatments.",
+  },
 ];
 
 export default function PaymentsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/20 text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       <BreadcrumbSchema items={[{ name: 'Payments & Insurance', url: '/payments' }]} />
       <FaqSchema faqs={paymentFaqs} />
-      {/* Header Banner */}
-      <section className="py-10 lg:py-14 border-b border-primary/10 bg-gradient-to-br from-primary/5 via-white to-clinical-creme/40">
-        <div className="container-clinical max-w-5xl text-center space-y-4">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary border border-primary/15">
-            <Sparkles className="h-3.5 w-3.5" /> Financial Wellness
-          </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground tracking-tight leading-tight">
-            Payment Options & Insurance
-          </h1>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            We believe quality dental care should be transparent, accessible, and stress-free. We work with most major PPO insurance plans and offer flexible CareCredit financing.
-          </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
-            <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-foreground border border-primary/10 shadow-sm">
-              💳 All Major Cards Accepted
-            </span>
-            <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-foreground border border-primary/10 shadow-sm">
-              🛡️ Direct PPO Insurance Billing
-            </span>
-            <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-foreground border border-primary/10 shadow-sm">
-              ✨ 0% CareCredit Financing
-            </span>
+      {/* Header Banner - Section 1 */}
+      <section className="pt-7 pb-6 sm:pt-10 sm:pb-8 lg:pt-12 lg:pb-10 bg-[#741234] text-white shadow-md relative overflow-hidden">
+        <div className="container-clinical max-w-3xl text-center space-y-2 sm:space-y-2.5 relative z-10">
+          <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+            <span className="h-[1.5px] w-5 sm:w-7 bg-white/40 rounded-full inline-block" />
+            <span>PAYMENT OPTIONS</span>
           </div>
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
+            Payment & Insurance
+          </h1>
+          <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-md mx-auto font-normal">
+            Transparent pricing, direct PPO insurance billing, and flexible CareCredit & Sunbit financing options.
+          </p>
         </div>
       </section>
 
-      {/* Payment Methods 4-Card Grid */}
-      <section className="py-8 sm:py-10 lg:py-12">
+      {/* Section 2: Simple & Clean Payment Methods Grid with Images/Icons */}
+      <section className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-clinical-creme/30 to-white">
         <div className="container-clinical max-w-6xl space-y-8">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground tracking-tight">
               Accepted Payment Methods
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Choose the payment method that works best for your visit.
+              Choose the convenient payment option that fits your personal financial plan.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {paymentMethods.map((method) => (
-              <div
-                key={method.title}
-                className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/30 flex flex-col justify-between"
-              >
-                <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    <method.icon className="w-5 h-5" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {paymentMethods.map((method) => {
+              const IconComponent = method.icon;
+              return (
+                <div
+                  key={method.title}
+                  className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/40 text-center flex flex-col items-center justify-start space-y-3"
+                >
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border shadow-xs transition-transform duration-300 group-hover:scale-105 ${method.accentBg}`}>
+                    <IconComponent className="w-7 h-7" />
                   </div>
-                  <h3 className="text-base font-bold text-foreground tracking-tight">
+                  <h3 className="text-base sm:text-lg font-heading font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
                     {method.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {method.description}
                   </p>
                 </div>
-
-                <ul className="space-y-1.5 pt-3 mt-3 border-t border-primary/10">
-                  {method.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-xs font-medium text-foreground/90">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Insurance & Benefits Section */}
-      <section className="py-10 sm:py-12 lg:py-16 bg-clinical-creme border-t border-primary/10">
-        <div className="container-clinical max-w-6xl space-y-8">
-          <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-primary">
-              <ShieldCheck className="h-3 w-3" /> PPO Coverage
-            </span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground tracking-tight">
-              Dental Insurance & Benefits
+      {/* Section 3: Insurance & PPO Benefits (Brand Magenta Background - Matching Homepage) */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#741234] border-t border-b border-primary/20 text-white">
+        <div className="container-clinical max-w-6xl space-y-8 sm:space-y-10">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-tight">
+              Maximizing Your Dental Insurance
             </h2>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              We are in-network with most major PPO dental insurance providers and handle all direct claim submissions for you.
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+              We are in-network with most major PPO dental insurance providers. Our financial coordinators handle all direct claims, eligibility verification, and pre-treatment estimates.
             </p>
           </div>
 
           <div className="py-2">
-            <InsuranceMarquee theme="light" speed={28} />
+            <InsuranceMarquee theme="maroon" speed={28} />
           </div>
 
           <div className="text-center pt-2">
-            <p className="text-sm sm:text-base text-muted-foreground">
+            <p className="text-sm sm:text-base text-white/90">
               Don&apos;t see your insurance provider listed?{' '}
-              <Link href="/contact" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
-                Verify Coverage With Us <ArrowRight className="h-3 w-3" />
+              <Link href="/contact" className="text-white font-bold hover:underline inline-flex items-center gap-1 ml-1">
+                Verify Coverage With Us <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Flagship CareCredit Financing Showcase */}
-      <section className="py-10 sm:py-12 lg:py-16 bg-white border-t border-primary/10">
+      {/* Section 4: CareCredit & Sunbit Financing Showcase (Alternating Light Gradient Background) */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-primary/5 to-clinical-creme/40 border-b border-primary/10">
         <div className="container-clinical max-w-6xl">
           <div className="grid lg:grid-cols-[1fr_1.15fr] gap-8 lg:gap-12 items-center">
-            {/* CareCredit Card Image Showcase Frame */}
-            <div className="relative overflow-hidden rounded-2xl border border-primary/15 bg-slate-50 shadow-md group">
-              <div className="relative aspect-[16/10] w-full">
-                <Image
-                  src="/assets/care-credit-card-1.jpg"
-                  alt="CareCredit Healthcare Credit Card accepted at Dental Smiles"
-                  fill
-                  sizes="(min-width: 1024px) 520px, 100vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  priority
-                />
-              </div>
-              <div className="absolute top-3.5 left-3.5 bg-primary text-white text-[11px] font-bold px-3 py-1 rounded-full shadow">
-                ✨ 0% Promotional Interest
-              </div>
-            </div>
+            {/* CareCredit & Sunbit Showcase Frame with Rotating Images */}
+            <FinancingImageRotator />
 
-            {/* CareCredit Details & Call To Action */}
-            <div className="space-y-5 text-left">
-              <div className="space-y-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-primary">
-                  <CreditCard className="h-3 w-3" /> Healthcare Financing
-                </span>
+            {/* CareCredit & Sunbit Details */}
+            <div className="space-y-6 text-left">
+              <div className="space-y-2.5">
                 <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground tracking-tight leading-tight">
-                  CareCredit Healthcare Financing
+                  Flexible CareCredit & Sunbit Financing
                 </h2>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  CareCredit functions as a dedicated healthcare credit card for dental implants, crowns, cosmetic smile makeovers, and family dentistry. Apply in just 2 minutes with instant approval.
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  CareCredit and Sunbit function as dedicated healthcare credit options for dental implants, crowns, cosmetic makeovers, and family care—dividing treatment costs into budget-friendly monthly payments.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                 {careCreditHighlights.map((highlight) => (
-                  <div key={highlight} className="flex items-center gap-2 text-sm font-medium text-foreground">
-                    <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-                    <span>{highlight}</span>
+                  <div key={highlight.text} className="flex items-start gap-2.5 text-xs sm:text-sm font-medium text-foreground/90 bg-white/80 p-2.5 rounded-xl border border-slate-200/80 shadow-xs">
+                    <highlight.icon className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                    <span>{highlight.text}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-3 flex flex-col sm:flex-row gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="https://www.carecredit.com"
+                  href="https://www.carecredit.com/go/747CRM/?dtc=DS7X&sitecode=CCCAPDS7X"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
                 >
                   <Button className="btn-primary w-full sm:w-auto text-xs sm:text-sm font-semibold px-6 py-3 shadow-md">
-                    <ExternalLink className="mr-2 h-4 w-4" /> Apply for CareCredit Online
+                    <ExternalLink className="mr-2 h-4 w-4" /> Apply for CareCredit
                   </Button>
                 </Link>
-                <Link href="/contact" className="w-full sm:w-auto">
-                  <Button variant="outline" className="w-full sm:w-auto border-primary/20 text-primary hover:bg-primary hover:text-white text-xs sm:text-sm font-semibold px-6 py-3">
-                    <Phone className="mr-2 h-4 w-4" /> Ask Our Team About Plans
+                <Link
+                  href="https://apply.sunbit.com/DentalSmiles-Austin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto"
+                >
+                  <Button variant="outline" className="w-full sm:w-auto border-primary/20 bg-white text-primary hover:bg-primary/5 text-xs sm:text-sm font-semibold px-6 py-3 shadow-xs">
+                    <ExternalLink className="mr-2 h-4 w-4" /> Apply for Sunbit
                   </Button>
                 </Link>
               </div>
@@ -282,15 +252,12 @@ export default function PaymentsPage() {
         </div>
       </section>
 
-      {/* Payment FAQs Accordion */}
-      <section className="py-8 sm:py-10 lg:py-12 bg-white border-t border-primary/10">
-        <div className="container-clinical max-w-3xl space-y-6">
+      {/* Section 5: Payment FAQs Accordion (Clean White Background) */}
+      <section className="py-12 sm:py-14 lg:py-16 bg-white">
+        <div className="container-clinical max-w-3xl space-y-8">
           <div className="text-center space-y-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-primary">
-              <HelpCircle className="h-3.5 w-3.5" /> Financial FAQs
-            </span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground tracking-tight">
-              Payment & Insurance Questions
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground tracking-tight">
+              Payment & Insurance FAQs
             </h2>
           </div>
 
@@ -299,7 +266,7 @@ export default function PaymentsPage() {
               <AccordionItem
                 key={idx}
                 value={`faq-${idx}`}
-                className="rounded-2xl border border-primary/10 bg-clinical-creme/30 px-5 py-1.5 shadow-sm"
+                className="rounded-2xl border border-primary/15 bg-clinical-creme/20 hover:bg-clinical-creme/40 transition-colors px-5 py-1.5 shadow-xs"
               >
                 <AccordionTrigger className="text-left font-heading font-bold text-foreground hover:no-underline text-sm sm:text-base">
                   {faq.q}
@@ -313,7 +280,7 @@ export default function PaymentsPage() {
         </div>
       </section>
 
-      {/* Bottom CTA Banner */}
+      {/* Section 6: Bottom Call to Action Banner */}
       <section className="py-6 sm:py-8 lg:py-10">
         <div className="container-clinical">
           <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/10 bg-primary text-primary-foreground shadow-lg">
@@ -332,7 +299,7 @@ export default function PaymentsPage() {
                     variant="ghost"
                     className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
                   >
-                    Call 512.467.9955
+                    <Phone className="mr-2 h-4 w-4" /> Call Us
                   </Button>
                 </Link>
               </div>
