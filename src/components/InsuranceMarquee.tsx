@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import DraggableMarqueeContainer from '@/components/UI/DraggableMarqueeContainer';
 
 export type InsuranceItem = {
   name: string;
@@ -25,13 +26,13 @@ export const insuranceProvidersList: InsuranceItem[] = [
 
 interface InsuranceMarqueeProps {
   theme?: 'maroon' | 'light';
-  speed?: number; // duration in seconds
+  speed?: number; // pixels per second
   className?: string;
 }
 
 export default function InsuranceMarquee({
   theme = 'light',
-  speed = 30,
+  speed = 40,
   className = '',
 }: InsuranceMarqueeProps) {
   const isMaroon = theme === 'maroon';
@@ -50,24 +51,7 @@ export default function InsuranceMarquee({
         }`}
       />
 
-      <style>{`
-        @keyframes marqueeLoop {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee-loop {
-          animation: marqueeLoop ${speed}s linear infinite;
-        }
-        .animate-marquee-loop:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
-      <div className="flex w-max animate-marquee-loop">
+      <DraggableMarqueeContainer speed={speed}>
         {/* Track 1 */}
         <div className="flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6">
           {insuranceProvidersList.map((company, index) => (
@@ -80,17 +64,17 @@ export default function InsuranceMarquee({
               }`}
             >
               {company.logo ? (
-                <div className="relative w-full h-8 flex items-center justify-center">
+                <div className="relative w-28 sm:w-32 h-8 flex items-center justify-center pointer-events-none">
                   <Image
                     src={company.logo}
                     alt={company.name}
-                    width={130}
-                    height={32}
-                    className="max-h-8 w-auto object-contain"
+                    fill
+                    sizes="130px"
+                    className="object-contain"
                   />
                 </div>
               ) : (
-                <span className="text-xs sm:text-sm font-semibold text-foreground/90 tracking-tight text-center">
+                <span className="text-xs sm:text-sm font-semibold text-foreground/90 tracking-tight text-center pointer-events-none">
                   {company.name}
                 </span>
               )}
@@ -98,7 +82,7 @@ export default function InsuranceMarquee({
           ))}
         </div>
 
-        {/* Track 2 - Exact duplicate with identical width & padding */}
+        {/* Track 2 - Exact duplicate for seamless infinite scroll */}
         <div
           className="flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6"
           aria-hidden="true"
@@ -113,24 +97,24 @@ export default function InsuranceMarquee({
               }`}
             >
               {company.logo ? (
-                <div className="relative w-full h-8 flex items-center justify-center">
+                <div className="relative w-28 sm:w-32 h-8 flex items-center justify-center pointer-events-none">
                   <Image
                     src={company.logo}
                     alt={company.name}
-                    width={130}
-                    height={32}
-                    className="max-h-8 w-auto object-contain"
+                    fill
+                    sizes="130px"
+                    className="object-contain"
                   />
                 </div>
               ) : (
-                <span className="text-xs sm:text-sm font-semibold text-foreground/90 tracking-tight text-center">
+                <span className="text-xs sm:text-sm font-semibold text-foreground/90 tracking-tight text-center pointer-events-none">
                   {company.name}
                 </span>
               )}
             </div>
           ))}
         </div>
-      </div>
+      </DraggableMarqueeContainer>
     </div>
   );
 }

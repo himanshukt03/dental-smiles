@@ -13,12 +13,12 @@ export function DentistSchema() {
     '@id': `${SITE_URL}/#dentist`,
     name: PRACTICE_NAME,
     legalName: 'Dental Smiles Family and Cosmetic Dentistry',
-    alternateName: 'Dental Smiles Austin',
+    alternateName: ['Dental Smiles Mueller', 'Dental Smiles Austin', 'Dental Smiles Mueller Austin'],
     url: SITE_URL,
     logo: `${SITE_URL}/assets/DentalSmilesLogo.webp`,
     image: `${SITE_URL}/assets/dental-team.webp`,
     description:
-      'Dental Smiles is a trusted family and cosmetic dental practice in Austin, TX led by Dr. Divya Shetty. Providing gentle, technology-driven general, cosmetic, restorative, and sedation dentistry.',
+      'Dental Smiles is a trusted family & cosmetic dental practice in Mueller, Austin, TX (78723) led by Dr. Divya Shetty. Providing gentle general dentistry, CEREC same-day crowns, cosmetic whitening, implants & sedation.',
     telephone: PHONE_NUMBER,
     email: 'info@dentalsmiles.com',
     priceRange: '$$',
@@ -43,7 +43,7 @@ export function DentistSchema() {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday'],
         opens: '08:00',
-        closes: '13:00',
+        closes: '17:00',
       },
       {
         '@type': 'OpeningHoursSpecification',
@@ -55,7 +55,7 @@ export function DentistSchema() {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Wednesday'],
         opens: '08:00',
-        closes: '13:00',
+        closes: '17:00',
       },
       {
         '@type': 'OpeningHoursSpecification',
@@ -72,13 +72,19 @@ export function DentistSchema() {
     ],
     areaServed: [
       {
+        '@type': 'AdministrativeArea',
+        name: 'Mueller, Austin, TX',
+      },
+      {
+        '@type': 'PostalAddress',
+        postalCode: '78723',
+        addressLocality: 'Austin',
+        addressRegion: 'TX',
+      },
+      {
         '@type': 'City',
         name: 'Austin',
         sameAs: 'https://en.wikipedia.org/wiki/Austin,_Texas',
-      },
-      {
-        '@type': 'AdministrativeArea',
-        name: 'Mueller, Austin, TX',
       },
       {
         '@type': 'AdministrativeArea',
@@ -90,13 +96,21 @@ export function DentistSchema() {
       },
       {
         '@type': 'AdministrativeArea',
+        name: 'Windsor Park, Austin, TX',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Cherrywood, Austin, TX',
+      },
+      {
+        '@type': 'AdministrativeArea',
         name: 'Central Austin, TX',
       },
     ],
     founder: {
       '@type': 'Person',
       name: 'Dr. Divya Shetty',
-      jobTitle: 'Lead Dentist & Practice Owner',
+      jobTitle: 'Owner Dentist',
       honorificPrefix: 'Dr.',
       honorificSuffix: 'DDS',
       image: `${SITE_URL}/assets/team/dr-divya-shetty.webp`,
@@ -105,7 +119,7 @@ export function DentistSchema() {
       {
         '@type': 'Person',
         name: 'Dr. Divya Shetty',
-        jobTitle: 'Lead Dentist',
+        jobTitle: 'Owner Dentist',
         honorificPrefix: 'Dr.',
         honorificSuffix: 'DDS',
       },
@@ -158,9 +172,9 @@ export function DentistSchema() {
       },
     ],
     sameAs: [
-      'https://www.facebook.com',
-      'https://www.instagram.com',
-      'https://www.yelp.com',
+      'https://www.facebook.com/dentalsmiles78723/',
+      'https://www.linkedin.com/in/divyashetty/',
+      'https://www.youtube.com/user/dshettydmd',
     ],
   };
 

@@ -92,22 +92,7 @@ export default function TechnologyCarousel() {
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      <button
-        aria-label="Previous"
-        onClick={prev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 md:-translate-x-12 lg:-translate-x-20 z-20 w-11 h-11 rounded-full bg-white/90 shadow-md flex items-center justify-center hover:bg-white border border-slate-200 ring-0 focus:outline-none focus:ring-2 focus:ring-slate-300"
-      >
-        <ChevronLeft className="w-5 h-5 text-foreground" />
-      </button>
-
-      <button
-        aria-label="Next"
-        onClick={next}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 md:translate-x-12 lg:translate-x-20 z-20 w-11 h-11 rounded-full bg-white/90 shadow-md flex items-center justify-center hover:bg-white border border-slate-200 ring-0 focus:outline-none focus:ring-2 focus:ring-slate-300"
-      >
-        <ChevronRight className="w-5 h-5 text-foreground" />
-      </button>
-
+      {/* Carousel Cards Container */}
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
@@ -131,6 +116,44 @@ export default function TechnologyCarousel() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Desktop Side Arrows */}
+      <button
+        aria-label="Previous"
+        onClick={prev}
+        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 md:-translate-x-10 lg:-translate-x-14 z-20 w-11 h-11 rounded-full bg-white/95 shadow-md items-center justify-center hover:bg-white border border-slate-200 ring-0 focus:outline-none focus:ring-2 focus:ring-slate-300 cursor-pointer"
+      >
+        <ChevronLeft className="w-5 h-5 text-foreground" />
+      </button>
+
+      <button
+        aria-label="Next"
+        onClick={next}
+        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 md:translate-x-10 lg:translate-x-14 z-20 w-11 h-11 rounded-full bg-white/95 shadow-md items-center justify-center hover:bg-white border border-slate-200 ring-0 focus:outline-none focus:ring-2 focus:ring-slate-300 cursor-pointer"
+      >
+        <ChevronRight className="w-5 h-5 text-foreground" />
+      </button>
+
+      {/* Mobile Bottom Control Row (Arrows Down Below Cards) */}
+      <div className="flex md:hidden items-center justify-center gap-3 pt-4">
+        <button
+          aria-label="Previous"
+          onClick={prev}
+          className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-200 text-foreground active:scale-95 transition-transform cursor-pointer"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <span className="text-xs font-bold text-muted-foreground px-2">
+          {index + 1} / {maxIndex + 1}
+        </span>
+        <button
+          aria-label="Next"
+          onClick={next}
+          className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-200 text-foreground active:scale-95 transition-transform cursor-pointer"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
     </div>
   );

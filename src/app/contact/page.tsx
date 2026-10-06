@@ -1,29 +1,30 @@
 import type { Metadata } from 'next';
-import { MapPin, Phone, Mail, Clock, Calendar, ExternalLink, FileText, Sparkles, Navigation } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ExternalLink, FileText, Navigation } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import BentoCard from '@/components/UI/BentoCard';
+import ObfuscatedEmail from '@/components/ObfuscatedEmail';
 import { BreadcrumbSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-	title: 'Contact Dental Smiles | Austin, TX Dental Office & Directions',
+	title: 'Contact Dental Smiles | Mueller, Austin TX Dental Office & Directions',
 	description:
-		'Contact Dental Smiles in Austin, TX. Located at 1201 Barbara Jordan Blvd Suite 1435 in the Mueller District. Call 512-467-9955 to schedule your appointment.',
+		'Contact Dental Smiles in Mueller, Austin, TX. Located at 1201 Barbara Jordan Blvd Suite 1435 in the Mueller Town Center (78723). Call 512-467-9955 for appointments.',
 	keywords: [
-		'contact dentist Austin',
-		'dental appointment Austin TX',
-		'Mueller dentist location',
+		'contact dentist Mueller Austin',
+		'dental appointment Mueller Austin TX',
+		'Mueller dentist location 78723',
 		'dentist 78723 directions',
-		'Dental Smiles phone number',
+		'Dental Smiles Barbara Jordan Blvd',
 	],
 	alternates: {
 		canonical: 'https://dental-smiles.vercel.app/contact',
 	},
 	openGraph: {
-		title: 'Contact Dental Smiles | Schedule Your Austin Dental Visit',
+		title: 'Contact Dental Smiles | Schedule Your Mueller Austin Dental Visit',
 		description:
-			'Reach out to Dental Smiles in Austin for appointments, consultations, or dental emergencies. Convenient Mueller location.',
+			'Reach out to Dental Smiles in Mueller, Austin for appointments, consultations, or dental emergencies. Convenient Barbara Jordan Blvd location.',
 		url: 'https://dental-smiles.vercel.app/contact',
 		type: 'website',
 		images: [
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 				url: '/assets/Contact_Hero.jpg',
 				width: 1200,
 				height: 630,
-				alt: 'Dental Smiles Office Location Austin TX',
+				alt: 'Dental Smiles Office Location Mueller Austin TX',
 			},
 		],
 	},
@@ -55,17 +56,14 @@ const ContactPage = () => {
 			</section>
 
 			{/* Title & Subtitle */}
-			<section className="pt-8 md:pt-12 pb-6 md:pb-8 bg-background">
+			<section className="pt-8 md:pt-10 pb-4 md:pb-6 bg-background">
 				<div className="container-clinical">
-					<div className="max-w-4xl mx-auto text-center space-y-3">
-						<div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary border border-primary/15">
-							<Sparkles className="h-3.5 w-3.5" /> Friendly Austin Dental Team
-						</div>
+					<div className="max-w-4xl mx-auto text-center space-y-2">
 						<h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground tracking-tight">
 							Let&apos;s plan your next visit to Dental Smiles
 						</h1>
-						<p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-							Our friendly coordinators respond within one business day to help you schedule, answer insurance questions, and make sure every detail feels easy.
+						<p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+							Our friendly coordinators respond within one business day to help you reserve, answer insurance questions, and make sure every detail feels easy.
 						</p>
 					</div>
 				</div>
@@ -76,26 +74,17 @@ const ContactPage = () => {
 				<div className="container-clinical">
 					<div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-8 items-stretch">
 						{/* LEFT COLUMN: Request Form Card + Map Card */}
-						<div className="flex flex-col gap-6 justify-between">
+						<div className="flex flex-col gap-5 justify-between">
 							{/* Request an Appointment Card */}
-							<BentoCard id="request-appointment" className="p-6 sm:p-7 scroll-mt-28 space-y-5 border-primary/15 bg-white shadow-sm hover:shadow-md transition-all">
-								<div className="flex items-center gap-3">
-									<div className="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0">
-										<Calendar className="w-5 h-5 text-primary" />
-									</div>
-									<div>
-										<h2 className="text-xl font-heading font-bold text-foreground tracking-tight">Request an appointment</h2>
-										<p className="text-xs text-muted-foreground">Quick, convenient online scheduling</p>
-									</div>
+							<BentoCard id="request-appointment" className="p-5 sm:p-6 scroll-mt-28 space-y-4 border-primary/15 bg-white shadow-sm hover:shadow-md transition-all">
+								<div>
+									<h2 className="text-xl font-heading font-bold text-foreground tracking-tight">Reserve an appointment</h2>
+									<p className="text-xs text-muted-foreground">Quick, convenient online scheduling</p>
 								</div>
 
-								<p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-									Ready to schedule your visit? Click below to request an appointment online.
-								</p>
-
-								<div className="bg-clinical-creme/60 rounded-xl p-3.5 border border-primary/10 space-y-1.5">
+								<div className="space-y-1.5 pt-0.5">
 									<h3 className="text-xs font-bold text-foreground uppercase tracking-wider">What to expect:</h3>
-									<ul className="text-xs text-muted-foreground space-y-1">
+									<ul className="text-xs text-muted-foreground space-y-1.5">
 										<li className="flex items-center gap-2">
 											<span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
 											Quick and easy 2-minute online form
@@ -117,9 +106,9 @@ const ContactPage = () => {
 									rel="noopener noreferrer"
 									className="block"
 								>
-									<Button className="btn-primary w-full py-3 text-sm font-semibold shadow-md">
+									<Button className="btn-primary w-full py-2.5 text-sm font-semibold shadow-md">
 										<FileText className="mr-2 h-4 w-4" />
-										Request Appointment Online
+										Reserve Appointment Online
 										<ExternalLink className="ml-2 h-3.5 w-3.5" />
 									</Button>
 								</Link>
@@ -144,7 +133,7 @@ const ContactPage = () => {
 										referrerPolicy="no-referrer-when-downgrade"
 									/>
 								</div>
-								<div className="pt-3 px-1 flex items-center justify-end">
+								<div className="pt-2.5 px-1 flex items-center justify-end">
 									<Link
 										href="https://maps.app.goo.gl/x23YX9GCRDdyhyr56"
 										target="_blank"
@@ -158,27 +147,27 @@ const ContactPage = () => {
 						</div>
 
 						{/* RIGHT COLUMN: Single Unified Contact Details Rectangle */}
-						<BentoCard className="p-6 sm:p-8 border-primary/20 bg-white shadow-md rounded-2xl flex flex-col justify-between space-y-6 h-full">
-							<div className="space-y-6">
+						<BentoCard className="p-5 sm:p-6 border-primary/20 bg-white shadow-md rounded-2xl flex flex-col justify-between space-y-4 h-full">
+							<div className="space-y-4">
 								{/* Header */}
-								<div className="border-b border-primary/10 pb-4">
+								<div className="border-b border-primary/10 pb-3">
 									<h2 className="text-xl sm:text-2xl font-heading font-bold text-foreground tracking-tight">
 										Contact Information
 									</h2>
-									<p className="text-xs text-muted-foreground mt-1">
+									<p className="text-xs text-muted-foreground mt-0.5">
 										Get in touch directly with Dr. Shetty and our Austin team.
 									</p>
 								</div>
 
 								{/* Details List */}
-								<div className="space-y-5">
+								<div className="space-y-3.5">
 									{/* Phone */}
-									<div className="flex items-start gap-3.5">
-										<div className="w-9 h-9 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-0.5">
-											<Phone className="w-4 h-4 text-primary" />
+									<div className="flex items-start gap-3">
+										<div className="w-8 h-8 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+											<Phone className="w-3.5 h-3.5 text-primary" />
 										</div>
 										<div className="space-y-0.5">
-											<p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Phone</p>
+											<p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Phone</p>
 											<Link
 												href="tel:5124679955"
 												className="text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors block"
@@ -190,29 +179,24 @@ const ContactPage = () => {
 									</div>
 
 									{/* Email */}
-									<div className="flex items-start gap-3.5">
-										<div className="w-9 h-9 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-0.5">
-											<Mail className="w-4 h-4 text-primary" />
+									<div className="flex items-start gap-3">
+										<div className="w-8 h-8 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+											<Mail className="w-3.5 h-3.5 text-primary" />
 										</div>
 										<div className="space-y-0.5">
-											<p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Email</p>
-											<Link
-												href="mailto:info@dentalsmiles.com"
-												className="text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors block"
-											>
-												info@dentalsmiles.com
-											</Link>
+											<p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Email</p>
+											<ObfuscatedEmail className="text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors block" />
 											<p className="text-xs text-muted-foreground">Send us a message anytime</p>
 										</div>
 									</div>
 
 									{/* Address */}
-									<div className="flex items-start gap-3.5">
-										<div className="w-9 h-9 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-0.5">
-											<MapPin className="w-4 h-4 text-primary" />
+									<div className="flex items-start gap-3">
+										<div className="w-8 h-8 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+											<MapPin className="w-3.5 h-3.5 text-primary" />
 										</div>
-										<div className="space-y-1">
-											<p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Address</p>
+										<div className="space-y-0.5">
+											<p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Address</p>
 											<p className="text-xs sm:text-sm font-semibold text-foreground leading-snug">
 												Dental Smiles, 1201 Barbara Jordan Blvd, Suite #1435, Austin, TX 78723
 											</p>
@@ -228,32 +212,32 @@ const ContactPage = () => {
 									</div>
 
 									{/* Hours */}
-									<div className="flex items-start gap-3.5 border-t border-primary/10 pt-4">
-										<div className="w-9 h-9 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-0.5">
-											<Clock className="w-4 h-4 text-primary" />
+									<div className="flex items-start gap-3 border-t border-primary/10 pt-3">
+										<div className="w-8 h-8 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+											<Clock className="w-3.5 h-3.5 text-primary" />
 										</div>
-										<div className="space-y-2 flex-1">
+										<div className="space-y-1 flex-1">
 											<div className="flex items-center justify-between">
-												<p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Office Hours</p>
+												<p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Office Hours</p>
 												<span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
 													Open Weekly
 												</span>
 											</div>
 
-											<div className="space-y-1.5 text-xs text-foreground">
-												<div className="flex justify-between py-1 border-b border-primary/5">
+											<div className="space-y-1 text-xs text-foreground">
+												<div className="flex justify-between py-0.5 border-b border-primary/5">
 													<span className="text-muted-foreground font-medium">Monday & Wednesday</span>
-													<span className="font-semibold">8:00 AM – 1:00 PM</span>
+													<span className="font-semibold">8:00 AM – 5:00 PM</span>
 												</div>
-												<div className="flex justify-between py-1 border-b border-primary/5">
+												<div className="flex justify-between py-0.5 border-b border-primary/5">
 													<span className="text-muted-foreground font-medium">Tuesday & Thursday</span>
 													<span className="font-semibold">7:00 AM – 3:00 PM</span>
 												</div>
-												<div className="flex justify-between py-1 border-b border-primary/5">
+												<div className="flex justify-between py-0.5 border-b border-primary/5">
 													<span className="text-muted-foreground font-medium">Friday</span>
 													<span className="font-semibold">7:00 AM – 1:00 PM</span>
 												</div>
-												<div className="flex justify-between py-1 text-muted-foreground">
+												<div className="flex justify-between py-0.5 text-muted-foreground">
 													<span className="font-medium">Saturday & Sunday</span>
 													<span className="font-semibold text-muted-foreground/80">Closed</span>
 												</div>
@@ -274,15 +258,15 @@ const ContactPage = () => {
 						<div className="absolute -left-24 top-0 h-[140%] w-72 rotate-12 bg-white/10 blur-3xl pointer-events-none" />
 						<div className="relative grid gap-4 p-6 sm:p-8 lg:p-10">
 							<h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight">
-								Ready to Schedule Your Appointment?
+								Ready to Reserve Your Appointment?
 							</h2>
 							<p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
-								Don&apos;t wait to start your journey to better oral health. Book your appointment today and experience personalized, compassionate dental care in Austin.
+								Don&apos;t wait to start your journey to better oral health. Reserve your appointment today and experience personalized, compassionate dental care in Austin.
 							</p>
 							<div className="flex flex-col gap-3 sm:flex-row pt-1">
 								<Link href="https://rwl.io/4lGeyT1" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
 									<Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">
-										<Calendar className="mr-2 h-4 w-4" />
+										<FileText className="mr-2 h-4 w-4" />
 										Request Online Form
 										<ExternalLink className="ml-2 h-3.5 w-3.5" />
 									</Button>
@@ -292,7 +276,7 @@ const ContactPage = () => {
 										variant="ghost"
 										className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
 									>
-										<Phone className="mr-2 h-4 w-4" /> Call 512.467.9955
+										<Phone className="mr-2 h-4 w-4" /> Call Us
 									</Button>
 								</Link>
 							</div>

@@ -82,10 +82,10 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
           </div>
 
           {/* Compact Doctor Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 max-w-2xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-5 max-w-3xl mx-auto">
             {doctors.map((doctor) => {
               const imageSrc = getMemberImage(doctor.image);
-              const summaryText = memberSummaries[doctor.id] || doctor.bio.slice(0, 140);
+              const summaryText = memberSummaries[doctor.id] || doctor.bio.slice(0, 120);
 
               return (
                 <div
@@ -100,16 +100,16 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                   role="button"
                   tabIndex={0}
                   aria-label={`View bio for ${doctor.name}`}
-                  className="group relative overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white flex flex-col justify-between cursor-pointer text-left"
+                  className="group relative overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white flex flex-col justify-between cursor-pointer text-left w-full sm:w-[calc(50%-10px)] max-w-[290px]"
                 >
-                  <div className="space-y-3">
-                    {/* Square-ish Photo Frame */}
-                    <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-100 shadow-sm">
+                  <div className="space-y-2.5">
+                    {/* Compact Photo Frame */}
+                    <div className="relative aspect-[4/3.4] w-full overflow-hidden rounded-xl bg-slate-100 shadow-sm">
                       <Image
                         src={imageSrc}
                         alt={doctor.name}
                         fill
-                        sizes="(min-width: 768px) 280px, 100vw"
+                        sizes="(min-width: 768px) 300px, (min-width: 640px) 45vw, 100vw"
                         className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute top-2 right-2 rounded-full bg-white/95 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-primary shadow-sm border border-primary/10">
@@ -118,22 +118,22 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                     </div>
 
                     {/* Name & Role */}
-                    <div className="px-1.5 space-y-0.5">
-                      <h3 className="text-base sm:text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                    <div className="px-1 space-y-0.5">
+                      <h3 className="text-base sm:text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight leading-snug">
                         {doctor.name}
                       </h3>
                       <p className="text-xs font-bold text-primary">
                         {doctor.role}
                       </p>
 
-                      {/* Readable description text */}
-                      <p className="text-sm sm:text-base text-foreground/85 font-normal leading-relaxed pt-1">
+                      {/* Compact summary text */}
+                      <p className="text-xs sm:text-sm text-foreground/80 font-normal leading-relaxed pt-0.5 line-clamp-3">
                         {summaryText}
                       </p>
                     </div>
 
                     {/* Specialties */}
-                    <div className="px-1.5 flex flex-wrap gap-1 pt-0.5">
+                    <div className="px-1 flex flex-wrap gap-1 pt-0.5">
                       {doctor.specialties.slice(0, 3).map((specialty) => (
                         <span
                           key={specialty}
@@ -147,7 +147,7 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                   </div>
 
                   {/* Card Action */}
-                  <div className="px-1.5 pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
+                  <div className="px-1 pt-2.5 mt-2.5 border-t border-primary/10 flex items-center justify-between">
                     <span className="text-xs font-bold text-primary group-hover:underline inline-flex items-center gap-1">
                       Read Full Bio <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                     </span>
@@ -161,7 +161,7 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
           </div>
 
           {/* Team Staff Section Header */}
-          <div className="text-center mt-14 mb-8 max-w-3xl mx-auto space-y-2">
+          <div className="text-center mt-12 mb-7 max-w-3xl mx-auto space-y-2">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-widest text-white/90 border border-white/15">
               <Users className="h-3 w-3" /> Caring Support Staff
             </span>
@@ -174,10 +174,10 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
           </div>
 
           {/* Team Staff Profile Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-5 lg:gap-6 max-w-5xl mx-auto">
             {staff.map((member) => {
               const imageSrc = getMemberImage(member.image);
-              const summaryText = memberSummaries[member.id] || member.bio.slice(0, 120);
+              const summaryText = memberSummaries[member.id] || member.bio.slice(0, 110);
 
               return (
                 <div
@@ -192,37 +192,37 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                   role="button"
                   tabIndex={0}
                   aria-label={`View bio for ${member.name}`}
-                  className="group relative overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white flex flex-col justify-between cursor-pointer text-left"
+                  className="group relative overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white flex flex-col justify-between cursor-pointer text-left w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] max-w-[275px]"
                 >
-                  <div className="space-y-3">
-                    {/* Square-ish Photo Frame */}
-                    <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-100 shadow-sm">
+                  <div className="space-y-2.5">
+                    {/* Compact Photo Frame */}
+                    <div className="relative aspect-[4/3.4] w-full overflow-hidden rounded-xl bg-slate-100 shadow-sm">
                       <Image
                         src={imageSrc}
                         alt={member.name}
                         fill
-                        sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
+                        sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 100vw"
                         className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
 
                     {/* Name & Role */}
-                    <div className="px-1.5 space-y-0.5">
-                      <h3 className="text-base sm:text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                    <div className="px-1 space-y-0.5">
+                      <h3 className="text-base sm:text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight leading-snug">
                         {member.name}
                       </h3>
                       <p className="text-xs font-bold text-primary">
                         {member.role}
                       </p>
 
-                      {/* Readable description text */}
-                      <p className="text-sm sm:text-base text-foreground/85 font-normal leading-relaxed pt-1">
+                      {/* Compact summary text */}
+                      <p className="text-xs sm:text-sm text-foreground/80 font-normal leading-relaxed pt-0.5 line-clamp-3">
                         {summaryText}
                       </p>
                     </div>
 
                     {/* Specialties */}
-                    <div className="px-1.5 flex flex-wrap gap-1 pt-0.5">
+                    <div className="px-1 flex flex-wrap gap-1 pt-0.5">
                       {member.specialties.slice(0, 2).map((specialty) => (
                         <span
                           key={specialty}
@@ -236,11 +236,11 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                   </div>
 
                   {/* Card Bottom Link */}
-                  <div className="px-1.5 pt-3 mt-3 border-t border-primary/10 flex items-center justify-between">
+                  <div className="px-1 pt-2.5 mt-2.5 border-t border-primary/10 flex items-center justify-between">
                     <span className="text-xs font-bold text-primary group-hover:underline inline-flex items-center gap-1">
                       View Bio <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                     </span>
-                    <span className="text-[10px] font-medium text-muted-foreground bg-clinical-creme px-2 py-0.5 rounded-md">
+                    <span className="text-[10px] font-medium text-muted-foreground bg-clinical-creme px-1.5 py-0.5 rounded-md">
                       Click for details
                     </span>
                   </div>
@@ -321,13 +321,13 @@ export default function TeamShowcase({ doctors, staff }: TeamShowcaseProps) {
                 </p>
                 <div className="flex gap-2 w-full sm:w-auto">
                   <Link href="/contact#request-appointment" className="w-full sm:w-auto" onClick={() => setSelectedMember(null)}>
-                    <Button size="sm" className="btn-primary w-full sm:w-auto px-4 text-xs font-semibold">
-                      <Calendar className="mr-1.5 h-3.5 w-3.5" /> Book Appointment
+                    <Button size="sm" className="btn-primary w-full sm:w-auto h-8.5 sm:h-9 px-4 rounded-xl text-xs sm:text-sm font-semibold shadow-sm">
+                      <Calendar className="mr-1.5 h-3.5 w-3.5" /> Reserve an Appointment
                     </Button>
                   </Link>
                   <Link href="tel:5124679955" className="w-full sm:w-auto">
-                    <Button variant="outline" size="sm" className="w-full sm:w-auto text-xs font-semibold border-primary/20 bg-white text-primary hover:bg-primary/5">
-                      <Phone className="mr-1.5 h-3.5 w-3.5" /> Call Office
+                    <Button variant="outline" size="sm" className="w-full sm:w-auto h-8.5 sm:h-9 px-4 rounded-xl text-xs sm:text-sm font-semibold border-primary/20 bg-white text-primary hover:bg-primary/5 shadow-sm">
+                      <Phone className="mr-1.5 h-3.5 w-3.5" /> Call Us
                     </Button>
                   </Link>
                 </div>

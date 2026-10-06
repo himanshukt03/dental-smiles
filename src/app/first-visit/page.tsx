@@ -77,21 +77,21 @@ const cardOptions = [
 ];
 
 export const metadata: Metadata = {
-	title: "First Visit Guide | New Patient Dentist in Austin, TX | Dental Smiles",
+	title: "First Visit Guide | New Patient Dentist in Mueller, Austin TX | Dental Smiles",
 	description:
-		"Learn what to expect on your first visit to Dental Smiles in Austin, TX. New patient forms, exam & cleaning process, PPO insurance, and CareCredit financing options.",
+		"Learn what to expect on your first visit to Dental Smiles in Mueller, Austin, TX (78723). New patient forms, exam & cleaning process, PPO insurance, and financing options.",
 	keywords: [
-		"new patient dentist Austin",
-		"dental exam Austin TX",
-		"dental insurance Austin",
-		"first dental visit Austin",
+		"new patient dentist Mueller Austin",
+		"dental exam Mueller 78723",
+		"dental insurance Mueller Austin",
+		"first dental visit Mueller",
 		"Dental Smiles first visit",
 	],
 	alternates: {
 		canonical: "https://dental-smiles.vercel.app/first-visit",
 	},
 	openGraph: {
-		title: "Your First Visit | New Patient Dental Care in Austin, TX",
+		title: "Your First Visit | New Patient Dental Care in Mueller, Austin TX",
 		description:
 			"Learn how to prepare for your first visit to Dental Smiles and what to expect during your appointment.",
 		url: "https://dental-smiles.vercel.app/first-visit",
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
 				url: "/assets/FirstVisit_Hero.webp",
 				width: 1200,
 				height: 630,
-				alt: "First Visit to Dental Smiles Austin",
+				alt: "First Visit to Dental Smiles Mueller Austin",
 			},
 		],
 	},
@@ -139,7 +139,7 @@ const FirstVisitPage = () => {
 										size="lg"
 										className="w-full sm:w-auto border-primary/20 bg-white/80 px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
 									>
-										<Phone className="mr-2 h-4 w-4" /> Call (512) 467-9955
+										<Phone className="mr-2 h-4 w-4" /> Call Us
 									</Button>
 								</Link>
 							</div>
@@ -299,32 +299,32 @@ const FirstVisitPage = () => {
 							</div>
 						</div>
 
-						<BentoCard className="border border-primary/10 bg-white/90 p-8 md:p-10">
-							<div className="space-y-5">
-								<h2 className="text-3xl md:text-4xl font-heading text-foreground">Flexible financing</h2>
-								<p className="text-lg text-muted-foreground leading-relaxed">
+						<BentoCard className="border border-primary/10 bg-white/95 p-5 sm:p-7 md:p-10 shadow-md">
+							<div className="space-y-3.5 sm:space-y-5">
+								<h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground tracking-tight">Flexible financing</h2>
+								<p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
 									At Dental Smiles, our goal is to remove any barriers that keep you from receiving the treatment
 									you need. That&apos;s why we partner with CareCredit and Sunbit to divide the cost of care into manageable
 									monthly payments. Apply today or call us for personal guidance.
 								</p>
-								<ul className="space-y-3">
+								<ul className="space-y-2 sm:space-y-2.5">
 									{financingHighlights.map((highlight) => (
-										<li key={highlight} className="flex items-start gap-3 rounded-bento bg-clinical-grey/20 px-4 py-3">
-											<PiggyBank className="mt-0.5 h-4 w-4 text-primary" />
-											<span className="text-sm text-foreground/90">{highlight}</span>
+										<li key={highlight} className="flex items-start gap-2.5 rounded-xl border border-primary/10 bg-primary/[0.03] px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-medium text-foreground/90">
+											<CheckCircle className="mt-0.5 h-3.5 w-3.5 text-primary shrink-0" />
+											<span>{highlight}</span>
 										</li>
 									))}
 								</ul>
-								<div className="flex flex-col gap-3 sm:flex-row">
+								<div className="flex flex-col gap-2.5 sm:flex-row pt-1">
 									<Link
 										href="https://www.carecredit.com/go/747CRM/?dtc=DS7X&sitecode=CCCAPDS7X"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="w-full sm:w-auto"
 									>
-										<Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
+										<Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 text-xs sm:text-sm font-semibold py-2.5 px-5">
 											Apply for CareCredit
-											<ExternalLink className="ml-2 h-4 w-4" />
+											<ExternalLink className="ml-2 h-3.5 w-3.5" />
 										</Button>
 									</Link>
 									<Link
@@ -335,10 +335,10 @@ const FirstVisitPage = () => {
 									>
 										<Button
 											variant="outline"
-											className="w-full sm:w-auto border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground"
+											className="w-full sm:w-auto border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground text-xs sm:text-sm font-semibold py-2.5 px-5"
 										>
 											Apply for Sunbit
-											<ExternalLink className="ml-2 h-4 w-4" />
+											<ExternalLink className="ml-2 h-3.5 w-3.5" />
 										</Button>
 									</Link>
 								</div>
@@ -357,18 +357,18 @@ const FirstVisitPage = () => {
 						We also accept most major debit and credit cards for simple, secure payments at the time of service.
 						Let us know how you&apos;d like to take care of your balance—we&apos;re here to help.
 					</p>
-					<div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+					<div className="mt-6 sm:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
 						{cardOptions.map((card) => (
 							<div
 								key={card.name}
-								className={`payment-card-badge flex items-center justify-center rounded-2xl border border-primary/10 bg-white/80 px-5 py-4 text-base font-semibold text-foreground shadow-sm ${card.accent}`}
+								className={`payment-card-badge flex items-center justify-center rounded-2xl border border-primary/10 bg-white/90 px-3 py-3.5 sm:px-5 sm:py-4 text-base font-semibold text-foreground shadow-xs transition-transform hover:scale-[1.02] ${card.accent}`}
 							>
 								<Image
 									src={card.logo}
 									alt={card.alt}
 									width={120}
 									height={36}
-									className="h-8 w-auto"
+									className="h-6 sm:h-8 w-auto object-contain"
 								/>
 							</div>
 						))}
@@ -410,7 +410,7 @@ const FirstVisitPage = () => {
 										variant="ghost"
 										className="w-full sm:w-auto border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/20"
 									>
-										Call for details
+										<Phone className="mr-2 h-4 w-4 inline" /> Call Us
 									</Button>
 								</Link>
 							</div>
@@ -458,7 +458,7 @@ const FirstVisitPage = () => {
 										variant="ghost"
 										className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
 									>
-										<Phone className="mr-2 h-4 w-4" /> Call 512.467.9955
+										<Phone className="mr-2 h-4 w-4" /> Call Us
 									</Button>
 								</Link>
 							</div>

@@ -3,23 +3,23 @@ import ServicePageTemplate from '@/components/services/ServicePageTemplate';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Sedation Dentistry Austin, TX | Nitrous Oxide & Oral Sedation',
+  title: 'Sedation Dentistry Mueller, Austin TX | Nitrous Oxide & Oral Sedation',
   description:
-    'Experience stress-free, anxiety-free dental care in Austin, TX with nitrous oxide laughing gas and oral conscious sedation at Dental Smiles. Gentle dentistry for sensitive patients.',
+    'Experience stress-free, anxiety-free dental care in Mueller, Austin, TX (78723) with nitrous oxide & oral conscious sedation at Dental Smiles.',
   keywords: [
-    'sedation dentistry Austin',
-    'nitrous oxide Austin TX',
-    'oral conscious sedation Austin',
-    'anxiety free dentist Austin',
-    'sleep dentistry Austin',
+    'sedation dentistry Mueller Austin',
+    'nitrous oxide Mueller Austin TX',
+    'oral conscious sedation Mueller 78723',
+    'anxiety free dentist Mueller',
+    'sleep dentistry Mueller Austin',
   ],
   alternates: {
     canonical: 'https://dental-smiles.vercel.app/services/dental-sedation',
   },
   openGraph: {
-    title: 'Sedation Dentistry in Austin, TX | Dental Smiles',
+    title: 'Sedation Dentistry in Mueller, Austin TX | Dental Smiles',
     description:
-      'Gentle, comfort-focused dental sedation options for relaxed, anxiety-free appointments in Austin, TX.',
+      'Gentle, comfort-focused dental sedation options for relaxed, anxiety-free appointments in Mueller, Austin, TX.',
     url: 'https://dental-smiles.vercel.app/services/dental-sedation',
     type: 'website',
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: '/assets/services/Dental-Sedation/sedation-dentistry.jpg',
         width: 1200,
         height: 630,
-        alt: 'Sedation Dentistry in Austin TX - Dental Smiles',
+        alt: 'Sedation Dentistry in Mueller Austin TX - Dental Smiles',
       },
     ],
   },
@@ -44,12 +44,12 @@ export default function DentalSedationPage() {
       />
       <ServiceSchema
         name="Sedation Dentistry"
-        description="Safe nitrous oxide laughing gas and oral conscious dental sedation for relaxed, pain-free dental care in Austin, TX."
+        description="Safe nitrous oxide laughing gas and oral conscious dental sedation for relaxed, pain-free dental care in Mueller, Austin, TX (78723)."
         url="/services/dental-sedation"
         image="/assets/services/Dental-Sedation/sedation-dentistry.jpg"
       />
       <ServicePageTemplate
-        badge="Sedation Dentistry in Austin, TX"
+        badge="Sedation Dentistry in Mueller, Austin TX"
         title="Comfort-focused sedation options for stress-free care."
         heroImage="/assets/services/Dental-Sedation/sedation-dentistry.jpg"
         heroImageAlt="Sedation dentistry visit at Dental Smiles."

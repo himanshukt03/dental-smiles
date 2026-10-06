@@ -129,33 +129,37 @@ export default function ServicePageTemplate({
   bottomBody,
 }: ServicePageTemplateProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-clinical-creme via-white to-clinical-grey/10">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100/40 text-foreground">
       {/* Hero Section */}
-      <section className="py-12 lg:py-16 bg-gradient-to-b from-primary/5 via-white to-transparent border-b border-primary/10">
+      <section className="py-10 md:py-12 lg:py-14 bg-gradient-to-b from-slate-50 via-white to-slate-100/40 border-b border-slate-200/80">
         <div className="container-clinical">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr] lg:gap-12 items-center">
-            <div className="space-y-4">
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-foreground leading-tight tracking-tight">
+            <div className="space-y-3.5 text-center sm:text-left">
+              <div className="flex items-center justify-center sm:justify-start gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                <span className="h-[1.5px] w-5 sm:w-7 bg-primary/40 rounded-full inline-block" />
+                <span>{badge || 'DENTAL SERVICES'}</span>
+              </div>
+              <h1 className="text-xl sm:text-3xl lg:text-4xl font-heading text-foreground leading-tight font-extrabold tracking-tight">
                 {title}
               </h1>
-              <div className="space-y-2.5 text-sm sm:text-base text-foreground/85 leading-relaxed font-normal">
+              <div className="space-y-2 text-xs sm:text-sm text-foreground/85 leading-relaxed font-normal max-w-md mx-auto sm:mx-0">
                 {intro.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row pt-2">
+              <div className="flex flex-col gap-3 sm:flex-row pt-1 justify-center sm:justify-start">
                 <Link href="/contact#request-appointment" className="w-full sm:w-auto">
-                  <Button size="lg" className="btn-primary w-full sm:w-auto px-6 py-3 font-semibold">
-                    <CalendarCheck className="mr-2 h-4 w-4" /> Contact Us
+                  <Button size="lg" className="btn-primary w-full sm:w-auto px-6 py-2.5 font-semibold text-sm shadow-md">
+                    <CalendarCheck className="mr-2 h-4 w-4" /> Request Appointment
                   </Button>
                 </Link>
                 <Link href="tel:5124679955" className="w-full sm:w-auto">
                   <Button
                     variant="outline"
                     size="lg"
-                    className="w-full sm:w-auto border-primary/20 bg-white/80 px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
+                    className="w-full sm:w-auto border-primary/20 bg-white/80 px-6 py-2.5 font-semibold text-primary hover:bg-primary hover:text-primary-foreground text-sm shadow-xs"
                   >
-                    <Phone className="mr-2 h-4 w-4" /> 512.467.9955
+                    <Phone className="mr-2 h-4 w-4" /> Call Us
                   </Button>
                 </Link>
               </div>
@@ -335,7 +339,7 @@ export default function ServicePageTemplate({
                     variant="ghost"
                     className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
                   >
-                    Call 512.467.9955
+                    <Phone className="mr-2 h-4 w-4" /> Call Us
                   </Button>
                 </Link>
               </div>

@@ -50,36 +50,19 @@ const BlogListing = ({ posts }: BlogListingProps) => {
 
   return (
     <div className="min-h-screen bg-background font-sans">
-      {/* Compact Header & Category Filter */}
-      <section className="pt-10 md:pt-14 pb-6 md:pb-8 bg-gradient-to-b from-clinical-creme via-white to-background border-b border-primary/10">
-        <div className="container-clinical text-center space-y-4">
-          <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground tracking-tight">
-              Dental Health Insights
-            </h1>
-            <p className="text-base text-muted-foreground max-w-2xl mx-auto mt-2 leading-relaxed">
-              Expert advice, tips, and updates from the Dental Smiles team to help you keep your smile healthy and bright.
-            </p>
+      {/* Header Banner */}
+      <section className="pt-7 pb-6 sm:pt-10 sm:pb-8 lg:pt-12 lg:pb-10 bg-[#741234] text-white shadow-md relative overflow-hidden">
+        <div className="container-clinical max-w-3xl text-center space-y-2 sm:space-y-2.5 relative z-10">
+          <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+            <span className="h-[1.5px] w-5 sm:w-7 bg-white/40 rounded-full inline-block" />
+            <span>DENTAL BLOG</span>
           </div>
-
-          {/* Category Filter */}
-          <div className="pt-1">
-            <div className="flex flex-wrap gap-2 justify-center max-w-4xl mx-auto">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${
-                    selectedCategory === category
-                      ? 'bg-primary text-primary-foreground border-primary shadow-sm'
-                      : 'bg-white text-muted-foreground border-primary/15 hover:border-primary/40 hover:bg-clinical-creme hover:text-foreground'
-                  }`}
-                >
-                  {category === 'all' ? 'All Articles' : category}
-                </button>
-              ))}
-            </div>
-          </div>
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
+            Dental Health Insights
+          </h1>
+          <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-md mx-auto font-normal">
+            Expert advice, treatment tips, and oral health guides from Dr. Divya Shetty and our Austin team.
+          </p>
         </div>
       </section>
 

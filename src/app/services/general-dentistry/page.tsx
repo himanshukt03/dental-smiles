@@ -3,25 +3,25 @@ import GeneralDentistryContent, { GENERAL_FAQS } from '@/components/services/Gen
 import { BreadcrumbSchema, FaqSchema, ServiceSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'General Dentistry in Austin, TX | Dental Cleanings, Nightguards & Exams',
+  title: 'General Dentistry in Mueller, Austin TX | Dental Cleanings & Exams',
   description:
-    'Comprehensive preventive and general dentistry in Austin, TX with Dr. Divya Shetty. Services include dental cleanings, custom nightguards, sealants, laser gum therapy & exams.',
+    'Comprehensive preventive and general dentistry in Mueller, Austin, TX (78723) with Dr. Divya Shetty. Services include dental cleanings, custom nightguards, sealants & exams.',
   keywords: [
-    'general dentistry Austin',
-    'dental cleanings Austin TX',
-    'nightguards Austin',
-    'athletic mouthguards Austin',
-    'laser gum therapy Austin',
-    'preventive dental care Austin',
-    'TMJ treatment Austin',
+    'general dentistry Mueller Austin',
+    'dental cleanings Mueller Austin TX',
+    'dentist 78723 cleanings',
+    'nightguards Mueller Austin',
+    'athletic mouthguards Mueller',
+    'preventive dental care Mueller',
+    'TMJ treatment Mueller Austin',
   ],
   alternates: {
     canonical: 'https://dental-smiles.vercel.app/services/general-dentistry',
   },
   openGraph: {
-    title: 'General Dentistry in Austin, TX | Dental Smiles',
+    title: 'General Dentistry in Mueller, Austin TX | Dental Smiles',
     description:
-      'Preventive dental cleanings, exams, nightguards, sealants & laser gum therapy in Austin, TX.',
+      'Preventive dental cleanings, exams, nightguards, sealants & laser gum therapy in Mueller, Austin, TX.',
     url: 'https://dental-smiles.vercel.app/services/general-dentistry',
     type: 'website',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: '/assets/services/general-dentistry/General-Dentistry.jpg',
         width: 1200,
         height: 630,
-        alt: 'General Dentistry Care at Dental Smiles Austin',
+        alt: 'General Dentistry Care at Dental Smiles Mueller Austin',
       },
     ],
   },
@@ -46,7 +46,7 @@ export default function GeneralDentistryPage() {
       />
       <ServiceSchema
         name="General & Preventive Dentistry"
-        description="Comprehensive dental cleanings, exams, custom mouthguards, nightguards, fluoride, sealants, and laser gum therapy in Austin, TX."
+        description="Comprehensive dental cleanings, exams, custom mouthguards, nightguards, fluoride, sealants, and laser gum therapy in Mueller, Austin, TX (78723)."
         url="/services/general-dentistry"
         image="/assets/services/general-dentistry/General-Dentistry.jpg"
       />

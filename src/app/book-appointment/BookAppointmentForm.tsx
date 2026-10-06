@@ -116,7 +116,7 @@ const BookAppointmentForm = () => {
   return (
     <BentoCard className="p-6 sm:p-8 bg-white shadow-lg border-t-4 border-maroon-400 md:border-t-0 md:border-r-4">
       <h2 className="text-2xl font-heading text-foreground mb-6">
-        Schedule Your Visit
+        Reserve Your Visit
       </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid gap-4 sm:grid-cols-2">

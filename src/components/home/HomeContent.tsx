@@ -10,6 +10,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import InsuranceMarquee from '@/components/InsuranceMarquee';
+import FaqSection from '@/components/home/FaqSection';
+import DraggableMarqueeContainer from '@/components/UI/DraggableMarqueeContainer';
 import drDivyaImage from '@/assets/team/dr-divya-shetty.webp';
 
 type InsuranceCompany = {
@@ -84,7 +86,7 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const testimonialLoops = ['first', 'second'] as const;
+const testimonialLoops = ['loop-1', 'loop-2', 'loop-3', 'loop-4'] as const;
 
 const TESTIMONIAL_PREVIEW_LENGTH = 170;
 
@@ -107,74 +109,10 @@ const DraggableCarousel = ({
   children: React.ReactNode;
   trackClassName: string;
 }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
-  const startScrollLeftRef = useRef(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!containerRef.current) {
-      return;
-    }
-
-    isDraggingRef.current = true;
-    setIsPaused(true);
-    startXRef.current = event.clientX;
-    startScrollLeftRef.current = containerRef.current.scrollLeft;
-    containerRef.current.setPointerCapture(event.pointerId);
-    containerRef.current.style.cursor = 'grabbing';
-  };
-
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDraggingRef.current || !containerRef.current) {
-      return;
-    }
-
-    const distance = event.clientX - startXRef.current;
-    containerRef.current.scrollLeft = startScrollLeftRef.current - distance;
-  };
-
-  const stopDragging = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!containerRef.current) {
-      return;
-    }
-
-    isDraggingRef.current = false;
-    setIsPaused(false);
-    if (containerRef.current.hasPointerCapture(event.pointerId)) {
-      containerRef.current.releasePointerCapture(event.pointerId);
-    }
-    containerRef.current.style.cursor = 'grab';
-  };
-
   return (
-    <div
-      ref={containerRef}
-      className="cursor-grab overflow-x-auto select-none touch-pan-y [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={stopDragging}
-      onPointerCancel={stopDragging}
-      onPointerLeave={stopDragging}
-    >
-      <style>{`
-        @keyframes autoScroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .carousel-track {
-          animation: autoScroll 40s linear infinite;
-        }
-        .carousel-track.is-paused {
-          animation-play-state: paused;
-        }
-      `}</style>
-      <div ref={trackRef} className={`${trackClassName} carousel-track ${isPaused ? 'is-paused' : ''}`}>
-        {children}
-      </div>
-    </div>
+    <DraggableMarqueeContainer speed={30} trackClassName={trackClassName}>
+      {children}
+    </DraggableMarqueeContainer>
   );
 };
 
@@ -227,7 +165,7 @@ const MobileHero = () => (
           </span>
         </h1>
         <p className="text-[15px] sm:text-base text-muted-foreground leading-relaxed">
-          Providing quality dental care for patients of all ages in Austin, TX
+          Providing gentle, quality dental care in Mueller, Austin, TX (78723)
         </p>
       </div>
 
@@ -247,18 +185,19 @@ const MobileHero = () => (
         <Link href="/contact#request-appointment">
           <Button size="lg" className="btn-primary w-full h-12 text-sm font-semibold">
             <Calendar className="w-4.5 h-4.5 mr-2" />
-            Book Appointment
+            Reserve an Appointment
           </Button>
         </Link>
-        <Button
-          variant="outline"
-          size="lg"
-          className="w-full h-12 border border-primary/20 bg-white hover:bg-primary/5 transition-colors shadow-none text-sm font-medium"
-          onClick={() => window.scrollTo(0, 0)}
-        >
-          <Phone className="w-4.5 h-4.5 mr-2" />
-          512.467.9955
-        </Button>
+        <Link href="tel:5124679955" className="w-full">
+          <Button
+            variant="outline"
+            size="lg"
+            className="w-full h-12 border border-primary/20 bg-white hover:bg-primary/5 transition-colors shadow-none text-sm font-medium"
+          >
+            <Phone className="w-4.5 h-4.5 mr-2" />
+            Call Us
+          </Button>
+        </Link>
       </div>
 
       {/* 4. Stats Row */}
@@ -350,7 +289,7 @@ const DesktopHero = () => (
               </span>
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Providing quality dental care for patients of all ages in Austin, TX
+              Providing gentle, quality dental care for patients of all ages in Mueller, Austin, TX (78723)
             </p>
           </div>
 
@@ -358,18 +297,19 @@ const DesktopHero = () => (
             <Link href="/contact#request-appointment">
               <Button size="lg" className="btn-primary w-full sm:w-auto text-xs sm:text-sm">
                 <Calendar className="w-4 h-4 mr-2" />
-                Book Appointment
+                Reserve an Appointment
               </Button>
             </Link>
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto text-xs sm:text-sm"
-              onClick={() => window.scrollTo(0, 0)}
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              512.467.9955
-            </Button>
+            <Link href="tel:5124679955">
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full border border-primary/20 bg-white/60 hover:bg-primary/5 transition-colors shadow-none sm:w-auto text-xs sm:text-sm"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                Call Us
+              </Button>
+            </Link>
           </div>
 
           <div className="grid gap-4 pt-4 md:pt-6 border-t border-border sm:grid-cols-3 sm:gap-4 lg:gap-6 animate-hero-up delay-300">
@@ -406,13 +346,13 @@ const DesktopHero = () => (
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0">
                   <img
                     src={drDivyaImage.src ?? drDivyaImage}
-                    alt="Dr. Divya Shetty - Lead Dentist at Dental Smiles Austin"
+                    alt="Dr. Divya Shetty - Owner Dentist at Dental Smiles Austin"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
                   <div className="font-semibold text-xs sm:text-sm">Dr. Divya Shetty</div>
-                  <div className="text-[11px] sm:text-xs text-muted-foreground">Lead Dentist</div>
+                  <div className="text-[11px] sm:text-xs text-muted-foreground font-medium">Owner Dentist</div>
                 </div>
               </div>
             </CardContent>
@@ -449,34 +389,47 @@ export default function HomeContent() {
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-shrink-0 w-80 border-clinical hover-scale"
+        className="flex-shrink-0 w-80 hover-scale block group cursor-pointer"
         style={{ textDecoration: 'none' }}
       >
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex mb-4">
-              {Array.from({ length: rating }).map((_, starIndex) => (
-                <Star key={starIndex} className="w-4 h-4 fill-primary text-primary" />
-              ))}
+        <Card className="h-full bg-white border-2 border-[#741234]/35 shadow-md group-hover:border-[#741234] group-hover:shadow-xl group-hover:shadow-[#741234]/15 transition-all duration-300 rounded-2xl overflow-hidden">
+          <CardContent className="p-6 flex flex-col justify-between h-full">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex gap-0.5">
+                  {Array.from({ length: rating }).map((_, starIndex) => (
+                    <Star key={starIndex} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <span className="text-[10px] font-bold text-[#741234] bg-rose-50 border border-[#741234]/20 group-hover:bg-[#741234] group-hover:text-white px-2.5 py-0.5 rounded-full flex items-center gap-1 transition-colors">
+                  <svg className="w-3 h-3 text-[#EA4335] group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  Google Review
+                </span>
+              </div>
+              <p className="text-slate-800 text-sm sm:text-[15px] leading-relaxed mb-2 min-h-[96px] font-normal">
+                “{displayReview}”
+              </p>
+              {isLongReview && (
+                <button
+                  type="button"
+                  className="mb-4 text-xs sm:text-sm font-bold text-[#741234] hover:underline focus:outline-none"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    toggleTestimonial(cardKey);
+                  }}
+                >
+                  {isExpanded ? 'Read less' : 'Read more'}
+                </button>
+              )}
             </div>
-            <p className="text-foreground/85 text-sm sm:text-[15px] leading-relaxed mb-2 min-h-[96px] font-normal">
-              “{displayReview}”
-            </p>
-            {isLongReview && (
-              <button
-                type="button"
-                className="mb-4 text-xs sm:text-sm font-semibold text-primary hover:underline focus:outline-none"
-                onClick={(event) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  toggleTestimonial(cardKey);
-                }}
-              >
-                {isExpanded ? 'Read less' : 'Read more'}
-              </button>
-            )}
-            <div className="border-t border-border pt-4">
-              <div className="font-bold text-foreground text-sm sm:text-base">{name}</div>
+            <div className="border-t border-slate-100 pt-4 mt-2 flex items-center justify-between">
+              <div className="font-bold text-slate-900 text-sm sm:text-base">{name}</div>
+              <span className="text-xs font-bold text-[#741234] group-hover:underline inline-flex items-center gap-0.5">
+                View on Map &rarr;
+              </span>
             </div>
           </CardContent>
         </Card>
@@ -498,35 +451,46 @@ export default function HomeContent() {
           .animate-float-3 { animation: float-3 7s ease-in-out infinite; }
         `}</style>
         <svg
-          viewBox="0 0 180 180"
-          className="pointer-events-none absolute -left-10 bottom-8 h-28 w-28 text-primary/30 animate-float-3"
-          aria-hidden="true"
+          className="absolute right-0 top-0 w-96 h-96 text-primary/5 pointer-events-none animate-float-3"
+          viewBox="0 0 200 200"
+          fill="currentColor"
         >
-          <circle cx="90" cy="90" r="72" fill="currentColor" />
+          <path d="M40,-60C52,-52,62,-40,67,-26C72,-12,72,4,67,18C62,32,52,44,40,53C28,62,14,68,-1,69C-16,70,-32,66,-44,57C-56,48,-64,34,-68,19C-72,4,-72,-12,-66,-26C-60,-40,-48,-52,-35,-60C-22,-68,-11,-72,2,-75C15,-78,30,-68,40,-60Z" transform="translate(100 100)" />
         </svg>
         <div className="container-clinical">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight text-foreground mb-4">
-                  Why Choose <span className="relative inline-block">Dental Smiles?<ScribbleUnderline className="text-primary" /></span>
+              <div className="space-y-3">
+                <span className="badge-clinical font-sans font-bold text-xs uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full inline-block">
+                  ABOUT DENTAL SMILES
+                </span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground tracking-tight leading-tight">
+                  Providing Exceptional Dental Care for Mueller &amp; Austin Families
                 </h2>
-                <p className="text-base text-muted-foreground mb-6 leading-relaxed">
-                  We&apos;re proud to be a local, female-owned dental practice providing personalized, patient-centered care in Austin, TX.
-                </p>
               </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                {services.map(({ name, description }, index) => (
-                  <div key={index} className="p-4 bg-card rounded-bento border-clinical">
-                    <h3 className="text-base font-bold text-foreground tracking-tight mb-1.5">{name}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{description}</p>
-                  </div>
-                ))}
+              <p className="text-foreground/80 leading-relaxed font-sans font-normal text-sm sm:text-base">
+                At Dental Smiles, Dr. Divya Shetty and our team are dedicated to providing comprehensive, compassionate dental care. We combine advanced technology with a gentle touch to ensure your visits are comfortable and stress-free.
+              </p>
+              <div className="grid grid-cols-2 gap-4 font-sans font-medium text-foreground text-sm pt-2">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
+                  State-of-the-Art Facility
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
+                  Same-Day Emergency Care
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
+                  Comprehensive Services
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
+                  Flexible Payment Options
+                </div>
               </div>
-
-              <Link href="/services">
-                <Button className="btn-primary mt-2">
+              <Link href="/about" className="inline-block pt-2">
+                <Button className="btn-primary font-sans font-semibold text-sm px-6 py-2.5 shadow-md">
                   View All Services
                 </Button>
               </Link>
@@ -556,7 +520,8 @@ export default function HomeContent() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      {/* Testimonials Section - Clean White Background */}
+      <section className="py-12 md:py-16 bg-white border-b border-border/40">
         <div className="container-clinical">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight text-foreground mb-4">
@@ -568,8 +533,8 @@ export default function HomeContent() {
           </div>
 
           <div className="relative overflow-hidden">
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-card to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-card to-transparent z-10" />
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-10" />
             <DraggableCarousel trackClassName="flex w-max space-x-6 px-1">
               {testimonialLoops.map((loopKey) =>
                 testimonials.map((testimonial, index) =>
@@ -581,6 +546,9 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* General & Mueller Local FAQ Section */}
+      <FaqSection />
+
       {/* Bottom CTA Banner */}
       <section className="py-6 sm:py-8 lg:py-10">
         <div className="container-clinical">
@@ -591,12 +559,12 @@ export default function HomeContent() {
                 Ready for Your Best Smile?
               </h2>
               <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
-                Schedule your appointment today and experience the difference of personalized, compassionate dental care in Austin, TX.
+                Reserve your appointment today and experience the difference of personalized, compassionate dental care in Austin, TX.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">
                 <Link href="/contact#request-appointment" className="w-full sm:w-auto">
                   <Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">
-                    <Calendar className="mr-2 h-4 w-4" /> Book Appointment
+                    <Calendar className="mr-2 h-4 w-4" /> Reserve an Appointment
                   </Button>
                 </Link>
                 <Link href="tel:5124679955" className="w-full sm:w-auto">
@@ -604,7 +572,7 @@ export default function HomeContent() {
                     variant="ghost"
                     className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
                   >
-                    <Phone className="mr-2 h-4 w-4" /> Call 512.467.9955
+                    <Phone className="mr-2 h-4 w-4" /> Call Us
                   </Button>
                 </Link>
               </div>

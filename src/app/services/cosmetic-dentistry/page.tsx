@@ -3,23 +3,23 @@ import ServicePageTemplate from '@/components/services/ServicePageTemplate';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Cosmetic Dentistry Austin, TX | Teeth Whitening & Porcelain Veneers',
+  title: 'Cosmetic Dentistry Mueller, Austin TX | Whitening & Porcelain Veneers',
   description:
-    'Enhance your smile with professional cosmetic dentistry in Austin, TX at Dental Smiles. Custom in-office teeth whitening and porcelain veneers tailored by Dr. Divya Shetty.',
+    'Enhance your smile with professional cosmetic dentistry in Mueller, Austin, TX (78723) at Dental Smiles. Custom teeth whitening and porcelain veneers by Dr. Divya Shetty.',
   keywords: [
-    'cosmetic dentistry Austin',
-    'teeth whitening Austin TX',
-    'porcelain veneers Austin',
-    'smile makeover Austin',
-    'cosmetic dentist Austin',
+    'cosmetic dentistry Mueller Austin',
+    'teeth whitening Mueller Austin TX',
+    'porcelain veneers Mueller 78723',
+    'smile makeover Mueller Austin',
+    'cosmetic dentist Mueller',
   ],
   alternates: {
     canonical: 'https://dental-smiles.vercel.app/services/cosmetic-dentistry',
   },
   openGraph: {
-    title: 'Cosmetic Dentistry in Austin, TX | Dental Smiles',
+    title: 'Cosmetic Dentistry in Mueller, Austin TX | Dental Smiles',
     description:
-      'Professional in-office teeth whitening and handcrafted porcelain veneers in Austin, TX.',
+      'Professional in-office teeth whitening and handcrafted porcelain veneers in Mueller, Austin, TX.',
     url: 'https://dental-smiles.vercel.app/services/cosmetic-dentistry',
     type: 'website',
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: '/assets/services/Cosmetic-Dentistry/Cosmetic-Dentist.jpg',
         width: 1200,
         height: 630,
-        alt: 'Cosmetic Dentistry at Dental Smiles Austin',
+        alt: 'Cosmetic Dentistry at Dental Smiles Mueller Austin',
       },
     ],
   },
@@ -44,12 +44,12 @@ export default function CosmeticDentistryPage() {
       />
       <ServiceSchema
         name="Cosmetic Dentistry & Teeth Whitening"
-        description="Custom professional teeth whitening and high-grade porcelain dental veneers in Austin, TX."
+        description="Custom professional teeth whitening and high-grade porcelain dental veneers in Mueller, Austin, TX (78723)."
         url="/services/cosmetic-dentistry"
         image="/assets/services/Cosmetic-Dentistry/Cosmetic-Dentist.jpg"
       />
       <ServicePageTemplate
-        badge="Cosmetic Dentistry in Austin, TX"
+        badge="Cosmetic Dentistry in Mueller, Austin TX"
         title="Custom cosmetic dentistry to help your smile shine."
         heroImage="/assets/services/Cosmetic-Dentistry/Cosmetic-Dentist.jpg"
         heroImageAlt="Cosmetic dentistry consultation at Dental Smiles."

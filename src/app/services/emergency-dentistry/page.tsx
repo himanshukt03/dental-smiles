@@ -3,24 +3,24 @@ import ServicePageTemplate from '@/components/services/ServicePageTemplate';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Emergency Dentist Austin, TX | Same-Day Urgent Dental Care',
+  title: 'Emergency Dentist Mueller, Austin TX | Same-Day Urgent Dental Care',
   description:
-    'Need an emergency dentist in Austin, TX? Dental Smiles offers same-day emergency dental appointments for toothaches, broken teeth, knocked-out teeth, and abscesses. Call 512-467-9955.',
+    'Need an emergency dentist in Mueller, Austin, TX (78723)? Dental Smiles offers same-day emergency dental appointments for toothaches, broken teeth & abscesses. Call 512-467-9955.',
   keywords: [
-    'emergency dentist Austin',
-    'same day dental Austin',
-    'urgent dental care Austin TX',
-    'toothache relief Austin',
-    'broken tooth repair Austin',
+    'emergency dentist Mueller Austin',
+    'same day dentist Mueller 78723',
+    'urgent dental care Mueller TX',
+    'toothache relief Mueller Austin',
+    'broken tooth repair Mueller',
     'dental emergency 78723',
   ],
   alternates: {
     canonical: 'https://dental-smiles.vercel.app/services/emergency-dentistry',
   },
   openGraph: {
-    title: 'Emergency Dentist in Austin, TX | Dental Smiles',
+    title: 'Emergency Dentist in Mueller, Austin TX | Dental Smiles',
     description:
-      'Same-day urgent dental care for tooth pain, dental trauma, and broken restorations in Austin, TX.',
+      'Same-day urgent dental care for tooth pain, dental trauma, and broken restorations in Mueller, Austin, TX.',
     url: 'https://dental-smiles.vercel.app/services/emergency-dentistry',
     type: 'website',
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: '/assets/services/Emergency-Dentistry/emergency-dentistry.jpg',
         width: 1200,
         height: 630,
-        alt: 'Emergency Dentist in Austin TX - Dental Smiles',
+        alt: 'Emergency Dentist in Mueller Austin TX - Dental Smiles',
       },
     ],
   },
@@ -45,13 +45,13 @@ export default function EmergencyDentistryPage() {
       />
       <ServiceSchema
         name="Emergency Dentistry & Same-Day Urgent Care"
-        description="Same-day emergency dental appointments for unbearable dental pain, broken teeth, knocked-out teeth, and acute oral infections in Austin, TX."
+        description="Same-day emergency dental appointments for unbearable dental pain, broken teeth, knocked-out teeth, and acute oral infections in Mueller, Austin, TX (78723)."
         url="/services/emergency-dentistry"
         image="/assets/services/Emergency-Dentistry/emergency-dentistry.jpg"
       />
       <ServicePageTemplate
-        badge="Emergency Dentistry in Austin, TX"
-        title="Your trusted emergency dentist in Austin, TX"
+        badge="Emergency Dentistry in Mueller, Austin TX"
+        title="Your trusted emergency dentist in Mueller, Austin TX"
         heroImage="/assets/services/Emergency-Dentistry/emergency-dentistry.jpg"
         heroImageAlt="Emergency dental care consultation at Dental Smiles."
         intro={[

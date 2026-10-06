@@ -22,23 +22,23 @@ const teamImages: Record<string, string> = {
 const defaultTeamImage = "/assets/team/dr-divya-shetty.webp";
 
 export const metadata: Metadata = {
-  title: "About Our Practice & Team | Dentist in Austin, TX | Dental Smiles",
+  title: "About Our Practice & Team | Dentist in Mueller, Austin TX | Dental Smiles",
   description:
-    "Meet Dr. Divya Shetty and the compassionate team at Dental Smiles in Austin, TX. Learn about our patient-first mission, cutting-edge technology, and cozy clinic.",
+    "Meet Dr. Divya Shetty and the compassionate team at Dental Smiles in Mueller, Austin, TX (78723). Learn about our patient-first mission, CEREC technology, and cozy clinic.",
   keywords: [
-    "Austin dental team",
-    "Dr. Divya Shetty",
+    "Mueller dental team",
+    "Dr. Divya Shetty dentist",
     "dentist Mueller Austin",
-    "family dentist Austin",
-    "female dentist Austin TX",
+    "family dentist Mueller 78723",
+    "female dentist Mueller Austin TX",
   ],
   alternates: {
     canonical: "https://dental-smiles.vercel.app/about",
   },
   openGraph: {
-    title: "About Dental Smiles | Meet Our Austin Dental Team",
+    title: "About Dental Smiles | Meet Our Mueller Austin Dental Team",
     description:
-      "Discover the mission, values, and experienced team that make Dental Smiles a trusted Austin dental practice.",
+      "Discover the mission, values, and experienced team that make Dental Smiles a trusted Mueller Austin dental practice.",
     url: "https://dental-smiles.vercel.app/about",
     type: "website",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "/assets/team/dr-divya-shetty.webp",
         width: 1200,
         height: 630,
-        alt: "Dr. Divya Shetty - Dental Smiles Austin",
+        alt: "Dr. Divya Shetty - Dental Smiles Mueller Austin",
       },
     ],
   },
@@ -56,14 +56,31 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen">
       <BreadcrumbSchema items={[{ name: 'About Us', url: '/about' }]} />
-      {/* Clean Modern Hero Section */}
+      {/* Header Banner - Section 1 */}
+      <section className="pt-7 pb-6 sm:pt-10 sm:pb-8 lg:pt-12 lg:pb-10 bg-[#741234] text-white shadow-md relative overflow-hidden">
+
+        <div className="container-clinical max-w-3xl text-center space-y-2 sm:space-y-2.5 relative z-10">
+          <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+            <span className="h-[1.5px] w-5 sm:w-7 bg-white/40 rounded-full inline-block" />
+            <span>ABOUT US</span>
+          </div>
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
+            Locally Owned Dental Practice
+          </h1>
+          <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-md mx-auto font-normal">
+            Meet Dr. Divya Shetty and our compassionate team dedicated to gentle, modern dental care in Austin, TX.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Practice Overview Section */}
       <section className="py-10 md:py-14 lg:py-16 bg-gradient-to-b from-primary/5 via-white to-transparent border-b border-primary/10">
         <div className="container-clinical">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr] lg:gap-12 items-center">
             <div className="space-y-4">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground leading-tight tracking-tight">
-                Locally Owned and Operated in Austin, TX
-              </h1>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-foreground leading-tight tracking-tight">
+                Proudly Serving the Mueller Community in Austin, TX
+              </h2>
               <div className="space-y-3 text-sm sm:text-base text-foreground/85 leading-relaxed font-normal">
                 <p>
                   Conveniently located near Central Austin and the Mueller Town Center District, our locally owned practice serves families and individuals seeking high-quality, personalized care.
@@ -84,7 +101,7 @@ const AboutPage = () => {
                     size="lg"
                     className="w-full sm:w-auto border-primary/20 bg-white/80 px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
                   >
-                    <Phone className="mr-2 h-4 w-4" /> Call (512) 467-9955
+                    <Phone className="mr-2 h-4 w-4" /> Call Us
                   </Button>
                 </Link>
               </div>
@@ -136,12 +153,12 @@ const AboutPage = () => {
                 Ready to Experience the Dental Smiles Difference?
               </h2>
               <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
-                Join thousands of satisfied patients who have trusted us with their dental care. Schedule your visit today with Dr. Shetty and our caring team.
+                Join thousands of satisfied patients who have trusted us with their dental care. Reserve your visit today with Dr. Shetty and our caring team.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row pt-1">
                 <Link href="/contact#request-appointment" className="w-full sm:w-auto">
                   <Button className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-xs sm:text-sm font-semibold px-5 py-2.5">
-                    <Calendar className="mr-2 h-4 w-4" /> Schedule Your Visit
+                    <Calendar className="mr-2 h-4 w-4" /> Reserve Your Visit
                   </Button>
                 </Link>
                 <Link href="tel:5124679955" className="w-full sm:w-auto">
@@ -149,7 +166,7 @@ const AboutPage = () => {
                     variant="ghost"
                     className="w-full sm:w-auto border border-primary-foreground/30 bg-white/10 text-primary-foreground hover:bg-white/20 text-xs sm:text-sm font-semibold px-5 py-2.5"
                   >
-                    <Phone className="mr-2 h-4 w-4" /> Call 512.467.9955
+                    <Phone className="mr-2 h-4 w-4" /> Call Us
                   </Button>
                 </Link>
               </div>

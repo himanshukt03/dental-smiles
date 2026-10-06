@@ -6,22 +6,22 @@ import BookAppointmentForm from './BookAppointmentForm';
 import { BreadcrumbSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Book Online Dental Appointment | Dental Smiles Austin, TX',
+  title: 'Reserve Online Dental Appointment | Dental Smiles Mueller, Austin TX',
   description:
-    'Schedule your dental appointment online with Dental Smiles in Austin, TX. Fast and easy booking for cleanings, exams, cosmetic consultations, and restorative treatments.',
+    'Schedule your dental appointment online with Dental Smiles in Mueller, Austin, TX (78723). Fast booking for cleanings, exams, cosmetic care & crowns.',
   keywords: [
-    'book dentist online Austin',
-    'schedule dental appointment Austin',
-    'dental appointment Austin TX',
-    'Dental Smiles booking',
+    'book dentist online Mueller Austin',
+    'schedule dental appointment Mueller 78723',
+    'dental appointment Mueller Austin TX',
+    'Dental Smiles Mueller booking',
   ],
   alternates: {
     canonical: 'https://dental-smiles.vercel.app/book-appointment',
   },
   openGraph: {
-    title: 'Book Dental Appointment Online | Dental Smiles Austin',
+    title: 'Book Dental Appointment Online | Dental Smiles Mueller Austin',
     description:
-      'Schedule your dental visit in Austin, TX with Dr. Divya Shetty at Dental Smiles.',
+      'Schedule your dental visit in Mueller, Austin, TX with Dr. Divya Shetty at Dental Smiles.',
     url: 'https://dental-smiles.vercel.app/book-appointment',
     type: 'website',
   },
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
 const BookAppointmentPage = () => {
   return (
     <div className="min-h-screen pt-8">
-      <BreadcrumbSchema items={[{ name: 'Book Appointment', url: '/book-appointment' }]} />
+      <BreadcrumbSchema items={[{ name: 'Reserve Appointment', url: '/book-appointment' }]} />
       <section className="bg-gradient-to-br from-clinical-creme to-clinical-grey py-12">
         <div className="container-clinical text-center">
           <h1 className="text-4xl md:text-5xl font-heading text-foreground mb-6">
-            Book Your Appointment
+            Reserve Your Appointment
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-            Schedule your visit with Dental Smiles today. Our team is ready to provide you with exceptional dental care in a comfortable environment.
+            Reserve your visit with Dental Smiles today. Our team is ready to provide you with exceptional dental care in a comfortable environment.
           </p>
         </div>
       </section>
@@ -87,7 +87,7 @@ const BookAppointmentPage = () => {
                   Office Hours
                 </h3>
                 <div className="text-muted-foreground space-y-1">
-                  <p>Monday/Wednesday: 8 AM - 1 PM</p>
+                  <p>Monday/Wednesday: 8 am - 5 pm</p>
                   <p>Tuesday/Thursday: 7 AM - 3 PM</p>
                   <p>Friday: 7 AM - 1 PM</p>
                   <p>Saturday: Closed</p>

@@ -118,7 +118,7 @@ export const teamMembers = [
   {
     id: 1,
     name: "Dr. Divya Shetty",
-    role: "Lead Dentist & Practice Owner",
+    role: "Owner Dentist",
     credentials: "DMD, FAGD",
     bio: "Dr. Divya Shetty, DMD, FAGD, graduated from Boston University Henry M. Goldman School of Dental Medicine in 2003. Committed to staying at the forefront of dentistry, she continually advances her expertise in cosmetic, implant, and general dentistry through ongoing education.\n\nAlongside her professional work, Dr. Shetty actively gives back through community service with her team. She also values time with her husband and two sons. Outside the office, she enjoys cooking, running, and has completed multiple full and half marathons.\n\nShe is a proud member of several esteemed dental organizations, reflecting her dedication to excellence in patient care.",
     specialties: ["General Dentistry", "Cosmetic Dentistry", "Implant Dentistry", "Community Service"],
