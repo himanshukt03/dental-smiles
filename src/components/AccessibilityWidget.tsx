@@ -93,6 +93,18 @@ export default function AccessibilityWidget() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
+  // Listen for trigger from mobile hamburger menu
+  useEffect(() => {
+    const handleExternalOpen = () => {
+      setIsOpen(true);
+      setAnnouncement('Accessibility settings dialog opened. Press Escape to close.');
+      setTimeout(() => closeBtnRef.current?.focus(), 50);
+    };
+
+    window.addEventListener('open-accessibility-menu', handleExternalOpen);
+    return () => window.removeEventListener('open-accessibility-menu', handleExternalOpen);
+  }, []);
+
   // Close when clicking outside
   useEffect(() => {
     if (!isOpen) return;
@@ -201,7 +213,7 @@ export default function AccessibilityWidget() {
         aria-expanded={isOpen}
         aria-controls="a11y-panel"
         aria-haspopup="dialog"
-        className="fixed bottom-5 left-5 md:bottom-4 md:left-4 lg:bottom-4 lg:left-4 xl:bottom-5 xl:left-5 z-[999999] flex h-12 w-12 items-center justify-center rounded-full bg-[#333333] text-white shadow-xl ring-2 ring-white/30 transition-all duration-300 hover:scale-105 hover:bg-[#222222] hover:shadow-2xl active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background touch-manipulation cursor-pointer select-none"
+        className="hidden lg:flex fixed lg:bottom-4 lg:left-4 xl:bottom-5 xl:left-5 z-[999999] h-12 w-12 items-center justify-center rounded-full bg-[#333333] text-white shadow-xl ring-2 ring-white/30 transition-all duration-300 hover:scale-105 hover:bg-[#222222] hover:shadow-2xl active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background touch-manipulation cursor-pointer select-none"
       >
         {/* Wheelchair / Accessibility Icon (crisp golden ratio spacing) */}
         <svg
@@ -231,6 +243,18 @@ export default function AccessibilityWidget() {
         )}
       </button>
 
+      {/* Mobile Backdrop Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-xs z-[999998] lg:hidden animate-in fade-in duration-200"
+          onClick={() => {
+            setIsOpen(false);
+            setAnnouncement('Accessibility menu closed');
+          }}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Accessibility Settings Panel Dialog */}
       {isOpen && (
         <div
@@ -240,7 +264,7 @@ export default function AccessibilityWidget() {
           aria-labelledby="a11y-title"
           aria-describedby="a11y-desc"
           aria-modal="true"
-          className="fixed bottom-18 left-5 md:bottom-18 md:left-4 lg:bottom-18 lg:left-4 xl:bottom-20 xl:left-5 z-[999999] w-[275px] sm:w-[295px] md:w-[305px] xl:w-[320px] max-w-[calc(100vw-36px)] overflow-hidden rounded-2xl border border-stone-300/80 bg-card shadow-2xl animate-in slide-in-from-bottom-3 fade-in duration-200 select-none"
+          className="fixed inset-x-4 top-1/2 -translate-y-1/2 max-h-[90vh] flex flex-col lg:inset-auto lg:top-auto lg:translate-y-0 lg:bottom-18 lg:left-4 xl:bottom-20 xl:left-5 z-[999999] w-auto sm:w-[320px] lg:w-[320px] max-w-[calc(100vw-32px)] mx-auto lg:mx-0 overflow-hidden rounded-2xl border border-stone-300/80 bg-card shadow-2xl animate-in fade-in duration-200 select-none"
         >
           {/* Screen Reader Description */}
           <p id="a11y-desc" className="sr-only">
@@ -295,8 +319,8 @@ export default function AccessibilityWidget() {
             </button>
           </div>
 
-          {/* Unified Divided List (Thin hairline lines separating sections) */}
-          <div className="divide-y divide-stone-200/80">
+          {/* Unified Divided List (Thin hairline lines separating sections) with smooth vertical scroll */}
+          <div className="overflow-y-auto flex-1 divide-y divide-stone-200/80">
             {/* Font Size Row */}
             <div className="px-3.5 py-2.5 sm:px-4 sm:py-3 xl:px-4.5 xl:py-3 bg-stone-50/30">
               <div className="mb-1.5 flex items-center justify-between">
